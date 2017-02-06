@@ -1,0 +1,45 @@
+{
+  "uiConfigFileElementList" : [ {
+    "beanId" : "7f134aef-bdfb-9d4e-5f1d-d8790c927ada",
+    "xPosition" : 640.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "ResponseIngressConnector"
+  }, {
+    "beanId" : "bb012b68-2e7d-e102-0b35-5270f1fbd385",
+    "xPosition" : 800.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "c4bba560-bdde-253d-b6c4-f5b96b1fc5e4",
+    "xPosition" : 960.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "39c44172-0cd2-70f2-6b35-b70ef6b2e578",
+    "xPosition" : 960.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "2b71382f-c3f5-ab0c-41c2-5cdff930abd2",
+    "xPosition" : 1120.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "fe0f4963-8652-8e0a-a57d-79706c92be52",
+    "xPosition" : 1120.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  } ],
+  "subFlowImportMap" : { },
+  "stateConfig" : {
+    "zoomScale" : 1.0,
+    "scrollXPosition" : 320.0,
+    "scrollYPosition" : 85.0
+  }
+}
