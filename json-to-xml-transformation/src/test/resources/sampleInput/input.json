@@ -1,0 +1,27 @@
+[
+    {
+      "id": "12024",
+      "name": "Chocolate Cookies",
+      "quantity": 1500
+    },
+    {
+      "id": "60294",
+      "name": "Spicy Crackers",
+      "quantity": 4000
+    },
+    {
+      "id": "36730",
+      "name": "Butter Cookies",
+      "quantity": 3200
+    },
+    {
+      "id": "53912",
+      "name": "Ginger Nuts",
+      "quantity": 1800
+    },
+    {
+      "id": "73741",
+      "name": "Vanilla Wafers",
+      "quantity": 2500
+    }
+]

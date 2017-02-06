@@ -1,0 +1,98 @@
+<x:project id="FixProxy" name="FixProxy" version="17.01"
+           xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
+           xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:description>FIX Message Proxying Sample</x:description>
+
+    <x:flows>
+        <x:flow id="fix5" file="fix5.xcml"/>
+        <!--<x:flow id="fix42" file="fix42.xcml"/>-->
+    </x:flows>
+
+    <x:resources>
+        <x:resource id="acc-fileMsgStore">
+            <bean class="org.adroitlogic.x.transport.fix.util.FileMessageStoreFactoryImpl">
+                <property name="fileStorePath" value="/tmp/fixTest"/>
+            </bean>
+        </x:resource>
+        <x:resource id="acc-fileLogFactory">
+            <bean class="org.adroitlogic.x.transport.fix.util.FileLogFactoryImpl">
+                <property name="fileLogPath" value="/tmp/fixTest"/>
+            </bean>
+        </x:resource>
+
+        <x:resource id="acc-qfSettings-FIX5">
+            <map>
+                <entry key="AcceptorTemplate" value="Y"/>
+                <entry key="UseDataDictionary" value="N"/>
+                <entry key="DefaultApplVerID" value="FIX.5.0"/>
+            </map>
+        </x:resource>
+        <x:resource id="acc-BANZAISession1-FIX5">
+            <bean class="org.adroitlogic.x.transport.fix.FIXSession">
+                <property name="beginString" value="FIXT.1.1"/>
+                <property name="targetCompId" value="BANZAI"/>
+            </bean>
+        </x:resource>
+        <x:resource id="ini-qfSettings-FIX5">
+            <map>
+                <entry key="LogonTimeout" value="6"/>
+                <entry key="DefaultApplVerID" value="FIX.5.0"/>
+            </map>
+        </x:resource>
+        <x:resource id="ini-endpointSettings-FIX5">
+            <map>
+                <entry key="DefaultMarketPrice" value="12.30"/>
+            </map>
+        </x:resource>
+
+        <x:resource id="acc-qfSettings-FIX42">
+            <map>
+                <entry key="AcceptorTemplate" value="Y"/>
+                <entry key="UseDataDictionary" value="N"/>
+            </map>
+        </x:resource>
+        <x:resource id="acc-BANZAISession1-FIX42">
+            <bean class="org.adroitlogic.x.transport.fix.FIXSession">
+                <property name="beginString" value="FIX.4.2"/>
+                <property name="targetCompId" value="BANZAI"/>
+            </bean>
+        </x:resource>
+        <x:resource id="ini-qfSettings-FIX42">
+            <map>
+                <entry key="LogonTimeout" value="6"/>
+            </map>
+        </x:resource>
+        <x:resource id="ini-endpointSettings-FIX42">
+            <map>
+                <entry key="DefaultMarketPrice" value="12.30"/>
+            </map>
+        </x:resource>
+
+        <x:resource id="ini-fileMsgStore">
+            <bean class="org.adroitlogic.x.transport.fix.util.FileMessageStoreFactoryImpl">
+                <property name="fileStorePath" value="/tmp/fixTest"/>
+            </bean>
+        </x:resource>
+        <x:resource id="ini-fileLogFactory">
+            <bean class="org.adroitlogic.x.transport.fix.util.FileLogFactoryImpl">
+                <property name="fileLogPath" value="/tmp/fixTest"/>
+            </bean>
+        </x:resource>
+
+        <x:resource id="acc-fixSessionList-FIX5">
+            <list>
+                <ref bean="acc-BANZAISession1-FIX5"/>
+            </list>
+        </x:resource>
+
+        <x:resource id="acc-fixSessionList-FIX42">
+            <list>
+                <ref bean="acc-BANZAISession1-FIX42"/>
+            </list>
+        </x:resource>
+    </x:resources>
+
+</x:project>

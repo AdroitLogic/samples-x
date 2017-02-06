@@ -1,0 +1,27 @@
+{
+  "uiConfigFileElementList" : [ {
+    "beanId" : "http-listener",
+    "xPosition" : 320.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "ResponseIngressConnector"
+  }, {
+    "beanId" : "http-sender",
+    "xPosition" : 800.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "json-xml-transformer",
+    "xPosition" : 560.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  } ],
+  "subFlowImportMap" : { },
+  "stateConfig" : {
+    "zoomScale" : 1.0,
+    "scrollXPosition" : 0.0,
+    "scrollYPosition" : 160.0
+  }
+}

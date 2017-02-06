@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://hcl.biscuits" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="order" type="hcl:orderType" xmlns:hcl="http://hcl.biscuits"/>
+  <xs:complexType name="productType">
+    <xs:sequence>
+      <xs:element name="id">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="12024"/>
+            <xs:enumeration value="60294"/>
+            <xs:enumeration value="36730"/>
+            <xs:enumeration value="53912"/>
+            <xs:enumeration value="73741"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Chocolate Cookies"/>
+            <xs:enumeration value="Spicy Crackers"/>
+            <xs:enumeration value="Butter Cookies"/>
+            <xs:enumeration value="Ginger Nuts"/>
+            <xs:enumeration value="Vanilla Wafers"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="quantity">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1500"/>
+            <xs:enumeration value="4000"/>
+            <xs:enumeration value="3200"/>
+            <xs:enumeration value="1800"/>
+            <xs:enumeration value="2500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderType">
+    <xs:sequence>
+      <xs:element type="hcl:productType" name="product" maxOccurs="unbounded" minOccurs="0" xmlns:hcl="http://hcl.biscuits"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
