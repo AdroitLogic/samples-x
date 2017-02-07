@@ -117,22 +117,22 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-nio-http</artifactId>
-            <version>17.01-RC</version>
+            <version>17.01</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-regular-logger</artifactId>
-            <version>17.01-RC</version>
+            <version>17.01</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-regular-throttle</artifactId>
-            <version>17.01-RC</version>
+            <version>17.01</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-regular-db</artifactId>
-            <version>17.01-RC</version>
+            <version>17.01</version>
         </dependency>
 
     </dependencies>
