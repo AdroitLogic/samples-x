@@ -1,0 +1,36 @@
+{
+  "messageType" : "XML",
+  "columnNamesPresent" : false,
+  "parameters" : [ {
+    "type" : "PATH",
+    "name" : "hours",
+    "path" : "/machine/hours"
+  }, {
+    "type" : "PATH",
+    "name" : "restarts",
+    "path" : "/machine/restarts"
+  }, {
+    "type" : "PATH",
+    "name" : "minor_repairs",
+    "path" : "/machine/minor_repairs"
+  }, {
+    "type" : "PATH",
+    "name" : "major_repairs",
+    "path" : "/machine/major_repairs"
+  }, {
+    "type" : "PATH",
+    "name" : "extra_cost",
+    "path" : "/machine/extra_cost"
+  }, {
+    "type" : "VARIABLE",
+    "name" : "machine_id",
+    "variableName" : "machine_id",
+    "className" : "java.lang.String",
+    "propagateToParent" : false
+  }, {
+    "type" : "HEADER",
+    "name" : "factory_id",
+    "headerName" : "ultra.file.name",
+    "className" : "java.lang.String"
+  } ]
+}

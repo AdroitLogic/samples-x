@@ -1,0 +1,48 @@
+<x:project id="machine-report-sample" name="machine-report-sample" version="RC"
+           xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
+           xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:description>Sample demonstrating aggregation of data received via email, into a database</x:description>
+
+    <x:flows>
+        <x:flow id="report-receiver" file="report-receiver.xcml"/>
+        <x:flow id="report-processor" file="report-processor.xcml"/>
+    </x:flows>
+
+    <x:resources>
+       <x:resource id="data-src">
+            <bean class="org.adroitlogic.ultracp.UltraDataSource" init-method="initialize"
+                  destroy-method="destroy">
+                <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/zenythzdb?useSSL=false"/>
+                <property name="initialSize" value="1"/>
+                <property name="minSize" value="1"/>
+                <property name="maxTotal" value="2"/>
+                <property name="poolName" value="zenythz"/>
+                <property name="connectionProperties">
+                    <props>
+                        <prop key="user">zenythz</prop>
+                        <prop key="password">zenythz</prop>
+                    </props>
+                </property>
+            </bean>
+        </x:resource>
+
+        <x:resource id="no-ns">
+            <map/>
+        </x:resource>
+        <x:resource id="mail-props">
+            <map>
+                <entry key="mail.imap.ssl.enable" value="true"/>
+            </map>
+        </x:resource>
+        <x:resource id="mail-headers">
+            <map>
+                <entry key="X-Zenythz-Factory" value=""/>
+            </map>
+        </x:resource>
+    </x:resources>
+
+</x:project>

@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.esb.samples</groupId>
-    <artifactId>FixProxy</artifactId>
+    <artifactId>MailDbDataAggregation</artifactId>
     <version>17.01</version>
     <packaging>xpr</packaging>
 
@@ -115,11 +115,65 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.adroitlogic.x.connectors</groupId>
-            <artifactId>x-connector-fix</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-eip-routing</artifactId>
             <version>17.01</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.adroitlogic.x.libraries</groupId>
+            <artifactId>x-library-ultracp</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.connectors</groupId>
+            <artifactId>x-connector-file</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.connectors</groupId>
+            <artifactId>x-connector-nio-file</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.connectors</groupId>
+            <artifactId>x-connector-mail</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-transform</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-extractor</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-logger</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-attachment</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-throttle</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-db</artifactId>
+            <version>17.01</version>
+        </dependency>
     </dependencies>
 
     <build>

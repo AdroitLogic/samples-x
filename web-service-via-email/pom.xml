@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.esb.samples</groupId>
-    <artifactId>FixProxy</artifactId>
+    <artifactId>WebServiceViaEmail</artifactId>
     <version>17.01</version>
     <packaging>xpr</packaging>
 
@@ -103,12 +103,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk16</artifactId>
-            <version>1.46</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
             <version>3.3.0</version>
@@ -116,7 +110,17 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
-            <artifactId>x-connector-fix</artifactId>
+            <artifactId>x-connector-nio-http</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.connectors</groupId>
+            <artifactId>x-connector-mail</artifactId>
+            <version>17.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-header-management</artifactId>
             <version>17.01</version>
         </dependency>
 

@@ -4,7 +4,7 @@
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-    <x:description>FIX Message Proxying Sample</x:description>
+    <x:description>Sample demonstrating proxying of FIX messages via UltraESB-X</x:description>
 
     <x:flows>
         <x:flow id="fix5" file="fix5.xcml"/>
