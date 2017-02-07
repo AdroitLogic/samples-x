@@ -1,0 +1,63 @@
+{
+  "uiConfigFileElementList" : [ {
+    "beanId" : "e1dacfba-5a62-aa77-86b9-6e88dba45613",
+    "xPosition" : 240.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "IngressConnector"
+  }, {
+    "beanId" : "scope-start-f3576af6-36f6-5d01-e8b6-86bfd5a2f193",
+    "xPosition" : 400.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "fccd5866-f86a-84c6-4a36-665fb688ca96",
+    "xPosition" : 560.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "a677bf64-d0f7-1c40-6459-a63143507b6f",
+    "xPosition" : 720.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "63d2193b-342d-07af-45c5-0fe61ae9706c",
+    "xPosition" : 880.0,
+    "yPosition" : 240.0,
+    "angle" : 90.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "7174b5b7-7aa8-1fa6-0dd1-13917631785a",
+    "xPosition" : 800.0,
+    "yPosition" : 400.0,
+    "angle" : 90.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "b7de3f20-bc67-9b90-29cd-0212a199d8d2",
+    "xPosition" : 960.0,
+    "yPosition" : 400.0,
+    "angle" : 90.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "1012e407-a3a6-31df-d807-996937f1bbcb",
+    "xPosition" : 800.0,
+    "yPosition" : 560.0,
+    "angle" : 90.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "91573e9b-3527-b1cd-9c1d-9fce2737b763",
+    "xPosition" : 640.0,
+    "yPosition" : 480.0,
+    "angle" : 90.0,
+    "elementType" : "EgressConnector"
+  } ],
+  "subFlowImportMap" : { },
+  "stateConfig" : {
+    "zoomScale" : 1.0,
+    "scrollXPosition" : 0.0,
+    "scrollYPosition" : 0.0
+  }
+}

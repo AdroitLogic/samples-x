@@ -1,0 +1,41 @@
+<x:project id="JmsTransactions" name="JmsTransactions" version="17.01"
+           xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
+           xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:description>JMS Transactions with ActiveMQ</x:description>
+
+    <x:flows>
+        <x:flow id="jms-transaction-flow" file="jms-transaction-flow.xcml"/>
+    </x:flows>
+
+    <x:resources>
+        <x:resource id="activeMq-activeMQ-ConnectionFactory">
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+                <property name="brokerURL" value="tcp://localhost:61616"/>
+            </bean>
+        </x:resource>
+        <x:resource id="activeMq-activeMQ-jmxTxnManager">
+            <bean class="org.springframework.jms.connection.JmsTransactionManager">
+                <constructor-arg index="0" type="javax.jms.ConnectionFactory" ref="activeMq-activeMQ-springCachingConnectionFactory"/>
+            </bean>
+        </x:resource>
+        <x:resource id="activeMq-activeMQ-ultraTxnManager">
+            <bean class="org.adroitlogic.x.base.trp.UltraPlatformTransactionManager">
+                <property name="txnManager" ref="activeMq-activeMQ-jmxTxnManager"/>
+            </bean>
+        </x:resource>
+        <x:resource id="activeMq-activeMQ-jmsTemplate">
+            <bean class="org.springframework.jms.core.JmsTemplate">
+                <constructor-arg index="0" type="javax.jms.ConnectionFactory" ref="activeMq-activeMQ-springCachingConnectionFactory"/>
+            </bean>
+        </x:resource>
+        <x:resource id="activeMq-activeMQ-springCachingConnectionFactory">
+            <bean class="org.springframework.jms.connection.CachingConnectionFactory">
+                <constructor-arg index="0" type="javax.jms.ConnectionFactory" ref="activeMq-activeMQ-ConnectionFactory"/>
+            </bean>
+        </x:resource>
+    </x:resources>
+
+</x:project>

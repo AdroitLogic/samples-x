@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice-meta-info xmlns="http://www.adroitlogic.org/gringotts" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.adroitlogic.org/gringotts_metainfo.xsd">
+    <subject>monthly receipt</subject>
+    <receiver-id>Hogsmeade</receiver-id>
+    <receiver-address>https://hogsmeade.com/service/finance-receipt</receiver-address>
+    <payload>
+        <path>input-files/hogsmeade-invoice-january-15.txt</path>
+        <path>input-files/hogsmeade-invoice-january-30.txt</path>
+    </payload>
+</invoice-meta-info>

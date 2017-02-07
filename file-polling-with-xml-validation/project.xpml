@@ -1,0 +1,33 @@
+<x:project id="FilePollingWithXMLValidation" name="FilePollingWithXMLValidation" version="17.01"
+           xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
+           xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:description>A sample project that demonstrates File polling with validation</x:description>
+
+    <x:flows>
+        <x:flow id="file_connector_flow" file="file_connector_flow.xcml"/>
+    </x:flows>
+
+    <x:resources>
+        <x:resource id="activeMq-ConnectionFactory">
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+                <property name="brokerURL" value="tcp://localhost:61616"/>
+                <property name="userName" value="admin"/>
+                <property name="password" value="admin"/>
+            </bean>
+        </x:resource>
+        <x:resource id="activeMq-jmsTemplate">
+            <bean class="org.springframework.jms.core.JmsTemplate">
+                <constructor-arg index="0" type="javax.jms.ConnectionFactory" ref="activeMq-springCachingConnectionFactory"/>
+            </bean>
+        </x:resource>
+        <x:resource id="activeMq-springCachingConnectionFactory">
+            <bean class="org.springframework.jms.connection.CachingConnectionFactory">
+                <constructor-arg index="0" type="javax.jms.ConnectionFactory" ref="activeMq-ConnectionFactory"/>
+            </bean>
+        </x:resource>
+    </x:resources>
+
+</x:project>
