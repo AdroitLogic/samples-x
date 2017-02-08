@@ -1,0 +1,79 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+
+    <bean id="7a6032c0-8225-81dd-9671-cb710385438f"
+          class="org.adroitlogic.x.connector.file.nio.NIOFileIngressConnector">
+        <property name="rootPath" value="${NIOFileIngressConnector.7a6032c0-8225-81dd-9671-cb710385438f.rootPath}"/>
+        <property name="patternSyntax"
+                  value="${NIOFileIngressConnector.7a6032c0-8225-81dd-9671-cb710385438f.patternSyntax}"/>
+        <property name="filePathPattern"
+                  value="${NIOFileIngressConnector.7a6032c0-8225-81dd-9671-cb710385438f.filePathPattern}"/>
+        <property name="removeOriginalFile"
+                  value="${NIOFileIngressConnector.7a6032c0-8225-81dd-9671-cb710385438f.removeOriginalFile}"/>
+        <property name="fetchAfterModification"
+                  value="${NIOFileIngressConnector.7a6032c0-8225-81dd-9671-cb710385438f.fetchAfterModification}"/>
+        <property name="processingElement" ref="7ea1d501-df0c-ce8d-8ef4-af54a292fdf7"/>
+        <property name="moveAfterProcess"
+                  value="${NIOFileIngressConnector.7a6032c0-8225-81dd-9671-cb710385438f.moveAfterProcess}"/>
+        <property name="moveAfterFailure"
+                  value="${NIOFileIngressConnector.7a6032c0-8225-81dd-9671-cb710385438f.moveAfterFailure}"/>
+        <property name="moveTimeStampFormat"
+                  value="${NIOFileIngressConnector.7a6032c0-8225-81dd-9671-cb710385438f.moveTimeStampFormat}"/>
+    </bean>
+    <bean id="c8889d50-ec5d-3a52-ada9-9f1c01f24486"
+          class="org.adroitlogic.x.processor.eip.routing.split.xml.XMLSplitter">
+        <property name="splitStrategy" value="${XMLSplitter.c8889d50-ec5d-3a52-ada9-9f1c01f24486.splitStrategy}"/>
+        <property name="splitXPath" value="${XMLSplitter.c8889d50-ec5d-3a52-ada9-9f1c01f24486.splitXPath}"/>
+        <property name="aggregationTimeout"
+                  value="${XMLSplitter.c8889d50-ec5d-3a52-ada9-9f1c01f24486.aggregationTimeout}"/>
+        <property name="splitProcessor" ref="c7554175-2a7e-53d7-658b-0a386ebb308b"/>
+        <property name="timeoutProcessor" ref="1bc3286c-3553-18ee-7256-b5f87f0972c8"/>
+    </bean>
+    <bean id="fa51cf75-323e-0337-861e-f93f919d995d" class="org.adroitlogic.x.processor.transform.CSVToXMLTransformer">
+        <property name="rootElementName"
+                  value="${CSVToXMLTransformer.fa51cf75-323e-0337-861e-f93f919d995d.rootElementName}"/>
+        <property name="rowElementName"
+                  value="${CSVToXMLTransformer.fa51cf75-323e-0337-861e-f93f919d995d.rowElementName}"/>
+        <property name="allowSingleColumn"
+                  value="${CSVToXMLTransformer.fa51cf75-323e-0337-861e-f93f919d995d.allowSingleColumn}"/>
+        <property name="nextElement" ref="c8889d50-ec5d-3a52-ada9-9f1c01f24486"/>
+    </bean>
+    <bean id="889fc59d-a680-c5f4-aa3f-7c0f721b3639" class="org.adroitlogic.x.processor.db.DBProcessingElement">
+        <property name="dataSource" ref="data-src"/>
+        <property name="mappingFile" value="${DBProcessingElement.889fc59d-a680-c5f4-aa3f-7c0f721b3639.mappingFile}"/>
+        <property name="sql" value="${DBProcessingElement.889fc59d-a680-c5f4-aa3f-7c0f721b3639.sql}"/>
+        <property name="nextElement" ref="5cd7ecef-f958-da0d-f9bd-a83fccf04243"/>
+    </bean>
+    <bean id="5cd7ecef-f958-da0d-f9bd-a83fccf04243"
+          class="org.adroitlogic.x.processor.eip.routing.aggregate.xml.XMLAggregationProcessor">
+        <property name="aggregatedProcessor" ref="c925f228-7d82-800c-6108-14d33df3a0fe"/>
+        <property name="aggregationXPath"
+                  value="${XMLAggregationProcessor.5cd7ecef-f958-da0d-f9bd-a83fccf04243.aggregationXPath}"/>
+        <property name="wrapperElement"
+                  value="${XMLAggregationProcessor.5cd7ecef-f958-da0d-f9bd-a83fccf04243.wrapperElement}"/>
+        <property name="delayedCompletionProcessor" ref="c925f228-7d82-800c-6108-14d33df3a0fe"/>
+    </bean>
+    <bean id="c925f228-7d82-800c-6108-14d33df3a0fe" class="org.adroitlogic.x.components.flowend.SuccessfulFlowEnd"/>
+    <bean id="7ea1d501-df0c-ce8d-8ef4-af54a292fdf7" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+        <property name="logTemplate"
+                  value="${LoggerProcessingElement.7ea1d501-df0c-ce8d-8ef4-af54a292fdf7.logTemplate}"/>
+        <property name="logLevel" value="${LoggerProcessingElement.7ea1d501-df0c-ce8d-8ef4-af54a292fdf7.logLevel}"/>
+        <property name="nextElement" ref="fa51cf75-323e-0337-861e-f93f919d995d"/>
+    </bean>
+    <bean id="0caab312-496f-2132-f60e-988f2628cec3" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+        <property name="nextElement" ref="889fc59d-a680-c5f4-aa3f-7c0f721b3639"/>
+        <property name="logTemplate"
+                  value="${LoggerProcessingElement.0caab312-496f-2132-f60e-988f2628cec3.logTemplate}"/>
+        <property name="logLevel" value="${LoggerProcessingElement.0caab312-496f-2132-f60e-988f2628cec3.logLevel}"/>
+    </bean>
+    <bean id="c7554175-2a7e-53d7-658b-0a386ebb308b"
+          class="org.adroitlogic.x.processor.extract.path.xpath.XPathExtractProcessor">
+        <property name="variableName"
+                  value="${XPathPathExtractProcessor.c7554175-2a7e-53d7-658b-0a386ebb308b.variableName}"/>
+        <property name="xpath" value="${XPathPathExtractProcessor.c7554175-2a7e-53d7-658b-0a386ebb308b.xpath}"/>
+        <property name="nextElement" ref="0caab312-496f-2132-f60e-988f2628cec3"/>
+    </bean>
+    <bean id="1bc3286c-3553-18ee-7256-b5f87f0972c8" class="org.adroitlogic.x.components.flowend.ExceptionalFlowEnd"/>
+</beans>

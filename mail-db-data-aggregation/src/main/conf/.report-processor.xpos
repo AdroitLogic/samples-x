@@ -1,0 +1,69 @@
+{
+  "uiConfigFileElementList" : [ {
+    "beanId" : "fa51cf75-323e-0337-861e-f93f919d995d",
+    "xPosition" : 720.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "c925f228-7d82-800c-6108-14d33df3a0fe",
+    "xPosition" : 1040.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "c7554175-2a7e-53d7-658b-0a386ebb308b",
+    "xPosition" : 400.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "0caab312-496f-2132-f60e-988f2628cec3",
+    "xPosition" : 560.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "5cd7ecef-f958-da0d-f9bd-a83fccf04243",
+    "xPosition" : 880.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "7ea1d501-df0c-ce8d-8ef4-af54a292fdf7",
+    "xPosition" : 560.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "c8889d50-ec5d-3a52-ada9-9f1c01f24486",
+    "xPosition" : 880.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "7a6032c0-8225-81dd-9671-cb710385438f",
+    "xPosition" : 400.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "IngressConnector"
+  }, {
+    "beanId" : "889fc59d-a680-c5f4-aa3f-7c0f721b3639",
+    "xPosition" : 720.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "1bc3286c-3553-18ee-7256-b5f87f0972c8",
+    "xPosition" : 1040.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  } ],
+  "subFlowImportMap" : { },
+  "stateConfig" : {
+    "zoomScale" : 1.0,
+    "scrollXPosition" : 50.0,
+    "scrollYPosition" : 0.0
+  }
+}

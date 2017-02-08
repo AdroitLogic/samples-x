@@ -117,17 +117,17 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-jms</artifactId>
-            <version>17.01-beta6-SNAPSHOT</version>
+            <version>17.01</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-file</artifactId>
-            <version>17.01-beta6-SNAPSHOT</version>
+            <version>17.01</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-regular-validate</artifactId>
-            <version>17.01-beta6-SNAPSHOT</version>
+            <version>17.01</version>
         </dependency>
     </dependencies>
 

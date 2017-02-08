@@ -6,7 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.acme.esb</groupId>
+    <groupId>com.esb.samples</groupId>
     <artifactId>FixProxy</artifactId>
     <version>17.01</version>
     <packaging>xpr</packaging>
@@ -100,6 +100,12 @@
             <groupId>org.adroitlogic.x</groupId>
             <artifactId>x-server</artifactId>
             <version>${ultraesb.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk16</artifactId>
+            <version>1.46</version>
             <scope>test</scope>
         </dependency>
         <dependency>
