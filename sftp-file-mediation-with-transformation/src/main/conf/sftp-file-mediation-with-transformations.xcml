@@ -125,7 +125,6 @@
         <property name="variableName"
                   value="${XPathExtractProcessor.b51f570b-95e3-17eb-30c1-635ad6f53d34.variableName}"/>
         <property name="xpath" value="${XPathExtractProcessor.b51f570b-95e3-17eb-30c1-635ad6f53d34.xpath}"/>
-        <!--<property name="variableName" value="${XPathExtractProcessor.b51f570b-95e3-17eb-30c1-635ad6f53dab.variableName}"/>-->
-        <!--<property name="xpath" value="${XPathExtractProcessor.b51f570b-95e3-17eb-30c1-635ad6f53dab.xpath}"/>-->
+        <property name="namespaces" ref="namespaces-map"/>
     </bean>
 </beans>

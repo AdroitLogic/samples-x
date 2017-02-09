@@ -11,6 +11,11 @@
     </x:flows>
 
     <x:resources>
+        <x:resource id="namespaces-map">
+            <map>
+                <entry key="adrt_ns" value="http://adrt.com/studio/testing"/>
+            </map>
+        </x:resource>
     </x:resources>
 
 </x:project>
