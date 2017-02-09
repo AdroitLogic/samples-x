@@ -20,7 +20,7 @@
         <property name="parallelExecutionCount" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.parallelExecutionCount}"/>
         <property name="hostKeyCheck"
                   value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.hostKeyCheck}"/>
-        <property name="keyFilePath" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.keyFilePath}"/>
+        <property name="password" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.password}"/>
     </bean>
 
     <bean id="5c333819-c6fb-e51d-a840-b6d0441402a1"
@@ -44,7 +44,7 @@
         <property name="filePath" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.filePath}"/>
         <property name="fileName" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.fileName}"/>
         <property name="username" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.username}"/>
-        <property name="keyFilePath" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.keyFilePath}"/>
+        <property name="password" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.password}"/>
         <property name="maxActiveConnections" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.maxActiveConnections}"/>
         <property name="timeout" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.timeout}"/>
     </bean>

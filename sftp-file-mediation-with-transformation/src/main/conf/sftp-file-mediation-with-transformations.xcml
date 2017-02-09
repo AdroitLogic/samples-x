@@ -17,7 +17,7 @@
         <property name="repeatCount" value="${SFTPIngressConnector.d176cb3e-9e52-05df-a572-ad1887c46298.repeatCount}"/>
         <property name="concurrentPollingCount" value="${SFTPIngressConnector.d176cb3e-9e52-05df-a572-ad1887c46298.concurrentPollingCount}"/>
         <property name="parallelExecutionCount" value="${SFTPIngressConnector.d176cb3e-9e52-05df-a572-ad1887c46298.parallelExecutionCount}"/>
-        <property name="keyFilePath" value="${SFTPIngressConnector.d176cb3e-9e52-05df-a572-ad1887c46298.keyFilePath}"/>
+        <property name="password" value="${SFTPIngressConnector.d176cb3e-9e52-05df-a572-ad1887c46298.password}"/>
         <property name="processingElement" ref="3f4fe662-fba3-aaa2-f8af-cde061fb2a00"/>
         <property name="hostKeyCheck"
                   value="${SFTPIngressConnector.d176cb3e-9e52-05df-a572-ad1887c46298.hostKeyCheck}"/>
@@ -52,7 +52,7 @@
         <property name="host" value="${SFTPEgressConnector.3cc096a2-91e8-0a41-8360-5b3b7f55342e.host}"/>
         <property name="port" value="${SFTPEgressConnector.3cc096a2-91e8-0a41-8360-5b3b7f55342e.port}"/>
         <property name="filePath" value="${SFTPEgressConnector.3cc096a2-91e8-0a41-8360-5b3b7f55342e.filePath}"/>
-        <property name="keyFilePath" value="${SFTPEgressConnector.3cc096a2-91e8-0a41-8360-5b3b7f55342e.keyFilePath}"/>
+        <property name="password" value="${SFTPEgressConnector.3cc096a2-91e8-0a41-8360-5b3b7f55342e.password}"/>
         <property name="maxActiveConnections" value="${SFTPEgressConnector.3cc096a2-91e8-0a41-8360-5b3b7f55342e.maxActiveConnections}"/>
         <property name="timeout" value="${SFTPEgressConnector.3cc096a2-91e8-0a41-8360-5b3b7f55342e.timeout}"/>
         <property name="username" value="${SFTPEgressConnector.3cc096a2-91e8-0a41-8360-5b3b7f55342e.username}"/>
@@ -65,7 +65,7 @@
         <property name="username" value="${SFTPEgressConnector.4e6c22ca-f46a-bdbf-8a29-1b51816b4150.username}"/>
         <property name="maxActiveConnections" value="${SFTPEgressConnector.4e6c22ca-f46a-bdbf-8a29-1b51816b4150.maxActiveConnections}"/>
         <property name="timeout" value="${SFTPEgressConnector.4e6c22ca-f46a-bdbf-8a29-1b51816b4150.timeout}"/>
-        <property name="keyFilePath" value="${SFTPEgressConnector.4e6c22ca-f46a-bdbf-8a29-1b51816b4150.keyFilePath}"/>
+        <property name="password" value="${SFTPEgressConnector.4e6c22ca-f46a-bdbf-8a29-1b51816b4150.password}"/>
         <property name="fileName" value="${SFTPEgressConnector.4e6c22ca-f46a-bdbf-8a29-1b51816b4150.fileName}"/>
     </bean>
 
@@ -95,7 +95,7 @@
         <property name="username" value="${SFTPEgressConnector.2789fcfa-812a-2810-e3c8-2e09a77407aa.username}"/>
         <property name="maxActiveConnections" value="${SFTPEgressConnector.2789fcfa-812a-2810-e3c8-2e09a77407aa.maxActiveConnections}"/>
         <property name="timeout" value="${SFTPEgressConnector.2789fcfa-812a-2810-e3c8-2e09a77407aa.timeout}"/>
-        <property name="keyFilePath" value="${SFTPEgressConnector.2789fcfa-812a-2810-e3c8-2e09a77407aa.keyFilePath}"/>
+        <property name="password" value="${SFTPEgressConnector.2789fcfa-812a-2810-e3c8-2e09a77407aa.password}"/>
         <property name="fileName" value="${SFTPEgressConnector.2789fcfa-812a-2810-e3c8-2e09a77407aa.fileName}"/>
     </bean>
 
@@ -104,7 +104,7 @@
         <property name="port" value="${SFTPEgressConnector.1622dd51-9712-6f08-26bf-6fc142eb145f.port}"/>
         <property name="filePath" value="${SFTPEgressConnector.1622dd51-9712-6f08-26bf-6fc142eb145f.filePath}"/>
         <property name="username" value="${SFTPEgressConnector.1622dd51-9712-6f08-26bf-6fc142eb145f.username}"/>
-        <property name="keyFilePath" value="${SFTPEgressConnector.1622dd51-9712-6f08-26bf-6fc142eb145f.keyFilePath}"/>
+        <property name="password" value="${SFTPEgressConnector.1622dd51-9712-6f08-26bf-6fc142eb145f.password}"/>
         <property name="maxActiveConnections" value="${SFTPEgressConnector.1622dd51-9712-6f08-26bf-6fc142eb145f.maxActiveConnections}"/>
         <property name="timeout" value="${SFTPEgressConnector.1622dd51-9712-6f08-26bf-6fc142eb145f.timeout}"/>
         <property name="fileName" value="${SFTPEgressConnector.1622dd51-9712-6f08-26bf-6fc142eb145f.fileName}"/>
@@ -113,10 +113,9 @@
         <property name="host" value="${SFTPEgressConnector.c90b193a-de24-9d25-e7d9-3ed4339951ae.host}"/>
         <property name="port" value="${SFTPEgressConnector.c90b193a-de24-9d25-e7d9-3ed4339951ae.port}"/>
         <property name="filePath" value="${SFTPEgressConnector.c90b193a-de24-9d25-e7d9-3ed4339951ae.filePath}"/>
-        <property name="fileName" value="${SFTPEgressConnector.c90b193a-de24-9d25-e7d9-3ed4339951ae.fileName}"/>
         <property name="maxActiveConnections" value="${SFTPEgressConnector.c90b193a-de24-9d25-e7d9-3ed4339951ae.maxActiveConnections}"/>
         <property name="timeout" value="${SFTPEgressConnector.c90b193a-de24-9d25-e7d9-3ed4339951ae.timeout}"/>
-        <property name="keyFilePath" value="${SFTPEgressConnector.c90b193a-de24-9d25-e7d9-3ed4339951ae.keyFilePath}"/>
+        <property name="password" value="${SFTPEgressConnector.c90b193a-de24-9d25-e7d9-3ed4339951ae.password}"/>
         <property name="username" value="${SFTPEgressConnector.c90b193a-de24-9d25-e7d9-3ed4339951ae.username}"/>
     </bean>
     <bean id="b51f570b-95e3-17eb-30c1-635ad6f53d34"
