@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.esb.samples</groupId>
-    <artifactId>MailDbDataAggregation</artifactId>
+    <artifactId>EmailDbDataAggregation</artifactId>
     <version>17.01</version>
     <packaging>xpr</packaging>
 
