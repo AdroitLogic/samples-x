@@ -32,9 +32,8 @@
     </bean>
 
     <bean id="52d2c420-e515-7d20-1bad-3acfd8bea6b2" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
-        <property name="logTemplate"
-                  value="Received file with name : @{message.header.ultra.file.name} for client ID : @{message.var.CLIENT_ID}"/>
-        <property name="logLevel" value="INFO"/>
+        <property name="logTemplate" value="${LoggerProcessingElement.52d2c420-e515-7d20-1bad-3acfd8bea6b2.logTemplate}"/>
+        <property name="logLevel" value="${LoggerProcessingElement.52d2c420-e515-7d20-1bad-3acfd8bea6b2.logLevel}"/>
         <property name="nextElement" ref="529f8252-a549-ecbf-58d8-fa0b96ccf7be"/>
     </bean>
 
