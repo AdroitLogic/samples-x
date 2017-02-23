@@ -139,13 +139,6 @@
             <artifactId>x-processor-regular-logger</artifactId>
             <version>17.01</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-all</artifactId>
-            <version>5.3.0</version>
-        </dependency>
-
     </dependencies>
 
     <build>
