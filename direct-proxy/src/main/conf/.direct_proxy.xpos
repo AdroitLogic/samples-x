@@ -1,0 +1,21 @@
+{
+  "uiConfigFileElementList" : [ {
+    "beanId" : "752efba4-faf5-40b2-d684-8f1677483692",
+    "xPosition" : 320.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ResponseIngressConnector"
+  }, {
+    "beanId" : "f4ebb571-8c6b-33bf-29dc-fe2bd43ce9db",
+    "xPosition" : 560.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  } ],
+  "subFlowImportMap" : { },
+  "stateConfig" : {
+    "zoomScale" : 1.0,
+    "scrollXPosition" : 0.0,
+    "scrollYPosition" : 0.0
+  }
+}
