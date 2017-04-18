@@ -1,0 +1,27 @@
+{
+  "uiConfigFileElementList" : [ {
+    "beanId" : "a76747dc-05c0-ad67-9a2a-3619b214b74a",
+    "xPosition" : 480.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ResponseIngressConnector"
+  }, {
+    "beanId" : "4258c8cb-f3de-7ce7-797b-c64dd5ca37d6",
+    "xPosition" : 800.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "1a14df27-a39f-14bf-f966-68252f1b099d",
+    "xPosition" : 640.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  } ],
+  "subFlowImportMap" : { },
+  "stateConfig" : {
+    "zoomScale" : 1.0,
+    "scrollXPosition" : 200.0,
+    "scrollYPosition" : 0.0
+  }
+}

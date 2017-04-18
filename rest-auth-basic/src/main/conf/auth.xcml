@@ -1,0 +1,57 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+
+    <bean id="a76747dc-05c0-ad67-9a2a-3619b214b74a"
+          class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+        <property name="port" value="${NIOHttpIngressConnector.a76747dc-05c0-ad67-9a2a-3619b214b74a.port}"/>
+        <property name="path" value="${NIOHttpIngressConnector.a76747dc-05c0-ad67-9a2a-3619b214b74a.path}"/>
+        <property name="enableConnectionDebug"
+                  value="${NIOHttpIngressConnector.a76747dc-05c0-ad67-9a2a-3619b214b74a.enableConnectionDebug}"/>
+        <property name="zeroCopyEnabled"
+                  value="${NIOHttpIngressConnector.a76747dc-05c0-ad67-9a2a-3619b214b74a.zeroCopyEnabled}"/>
+        <property name="noCompression"
+                  value="${NIOHttpIngressConnector.a76747dc-05c0-ad67-9a2a-3619b214b74a.noCompression}"/>
+        <property name="continueOnRuntimeExceptions"
+                  value="${NIOHttpIngressConnector.a76747dc-05c0-ad67-9a2a-3619b214b74a.continueOnRuntimeExceptions}"/>
+        <property name="continueOnCheckedExceptions"
+                  value="${NIOHttpIngressConnector.a76747dc-05c0-ad67-9a2a-3619b214b74a.continueOnCheckedExceptions}"/>
+        <property name="processingElement" ref="1a14df27-a39f-14bf-f966-68252f1b099d"/>
+        <property name="responseTimeout"
+                  value="${NIOHttpIngressConnector.a76747dc-05c0-ad67-9a2a-3619b214b74a.responseTimeout}"/>
+    </bean>
+    <bean id="1a14df27-a39f-14bf-f966-68252f1b099d" class="com.esb.samples.BasicAuthenticator">
+        <property name="nextElement" ref="4258c8cb-f3de-7ce7-797b-c64dd5ca37d6"/>
+        <property name="errorHandler" ref="a76747dc-05c0-ad67-9a2a-3619b214b74a"/>
+        <property name="credentialFile"
+                  value="${BasicAuthenticator.1a14df27-a39f-14bf-f966-68252f1b099d.credentialFile}"/>
+    </bean>
+    <bean id="4258c8cb-f3de-7ce7-797b-c64dd5ca37d6"
+          class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+        <property name="addressTypeStr"
+                  value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.addressTypeStr}"/>
+        <property name="host" value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.host}"/>
+        <property name="servicePath"
+                  value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.servicePath}"/>
+        <property name="zeroCopy" value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.zeroCopy}"/>
+        <property name="connectionDebug"
+                  value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.connectionDebug}"/>
+        <property name="replaceUserAgent"
+                  value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.replaceUserAgent}"/>
+        <property name="unzipResponseEntities"
+                  value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.unzipResponseEntities}"/>
+        <property name="keepalive" value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.keepalive}"/>
+        <property name="keepAliveSafetyThreshold"
+                  value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.keepAliveSafetyThreshold}"/>
+        <property name="maxPerRoute"
+                  value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.maxPerRoute}"/>
+        <property name="maxConnections"
+                  value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.maxConnections}"/>
+        <property name="continueOnRuntimeExceptions"
+                  value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.continueOnRuntimeExceptions}"/>
+        <property name="continueOnCheckedExceptions"
+                  value="${NIOHttpEgressConnector.4258c8cb-f3de-7ce7-797b-c64dd5ca37d6.continueOnCheckedExceptions}"/>
+        <property name="responseProcessor" ref="a76747dc-05c0-ad67-9a2a-3619b214b74a"/>
+    </bean>
+</beans>
