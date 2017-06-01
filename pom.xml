@@ -10,6 +10,7 @@
     <artifactId>x-samples</artifactId>
     <version>17.01.2</version>
     <packaging>pom</packaging>
+    <name>AdroitLogic Project-X Samples</name>
 
     <modules>
         <module>content-based-routing</module>
