@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.adroitlogic.x.samples</groupId>
+    <artifactId>x-samples</artifactId>
+    <version>17.01.2</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>content-based-routing</module>
+        <module>direct-proxy</module>
+        <module>email-db-data-aggregation</module>
+        <module>file-polling-with-xml-validation</module>
+        <module>fix-proxy</module>
+        <module>header-based-routing</module>
+        <module>jms-transactions</module>
+        <module>json-to-xml-transformation</module>
+        <module>limiting-concurrent-requests</module>
+        <module>rest-auth-basic</module>
+        <module>rest-auth-jwt</module>
+        <module>rest-service-mediation</module>
+        <module>sftp-file-mediation</module>
+        <module>sftp-file-mediation-with-transformation</module>
+        <module>web-service-via-email</module>
+    </modules>
+
+</project>
