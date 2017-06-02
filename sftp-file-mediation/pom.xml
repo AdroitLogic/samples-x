@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.adroitlogic.x.samples</groupId>
-    <artifactId>SFTPFileMedition</artifactId>
+    <artifactId>SFTPFileMediation</artifactId>
     <version>17.01.2</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - SFTP File Mediation</name>
