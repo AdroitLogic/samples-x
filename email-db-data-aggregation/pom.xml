@@ -6,7 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>corg.adroitlogic.x.samples</groupId>
+    <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>EmailDbDataAggregation</artifactId>
     <version>17.01.2</version>
     <packaging>xpr</packaging>
