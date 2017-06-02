@@ -74,6 +74,19 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <distributionManagement>
+        <repository>
+            <id>adroitlogic-x-releases</id>
+            <name>AdroitLogic Project-X releases repository</name>
+            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>adroitlogic-x-snapshots</id>
+            <name>AdroitLogic Project-X snapshots repository</name>
+            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.adroitlogic.x</groupId>
@@ -122,7 +135,6 @@
             <artifactId>x-connector-fix</artifactId>
             <version>17.01.2</version>
         </dependency>
-
     </dependencies>
 
     <build>
