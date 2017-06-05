@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating it's email and database connectors and data aggregation features</description>
 
-    <url>https://www.adroitlogic.com</url>
+    <url>https://developer.adroitlogic.com/samples/advanced/17.01.2/email-db-data-aggregation/</url>
 
     <repositories>
         <repository>

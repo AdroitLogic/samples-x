@@ -19,7 +19,7 @@
         <module>file-polling-with-xml-validation</module>
         <module>fix-proxy</module>
         <module>header-based-routing</module>
-        <module>jms-transactions</module>
+        <!--<module>jms-transactions</module>-->
         <module>json-to-xml-transformation</module>
         <module>limiting-concurrent-requests</module>
         <module>rest-auth-basic</module>

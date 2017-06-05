@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating it's SFTP connector and the file mediation features</description>
 
-    <url>https://www.adroitlogic.com</url>
+    <url>https://developer.adroitlogic.com/samples/introductory/17.01.2/sftp-file-mediation/</url>
 
     <repositories>
         <repository>
