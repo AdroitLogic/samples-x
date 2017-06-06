@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+
+    <bean id="c6a2abbb-3516-dc95-9504-05e7a1f2ff64"
+          class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+        <property name="port" value="${NIOHttpIngressConnector.c6a2abbb-3516-dc95-9504-05e7a1f2ff64.port}"/>
+        <property name="path" value="${NIOHttpIngressConnector.c6a2abbb-3516-dc95-9504-05e7a1f2ff64.path}"/>
+        <property name="enableConnectionDebug"
+                  value="${NIOHttpIngressConnector.c6a2abbb-3516-dc95-9504-05e7a1f2ff64.enableConnectionDebug}"/>
+        <property name="zeroCopyEnabled"
+                  value="${NIOHttpIngressConnector.c6a2abbb-3516-dc95-9504-05e7a1f2ff64.zeroCopyEnabled}"/>
+        <property name="noCompression"
+                  value="${NIOHttpIngressConnector.c6a2abbb-3516-dc95-9504-05e7a1f2ff64.noCompression}"/>
+        <property name="continueOnRuntimeExceptions"
+                  value="${NIOHttpIngressConnector.c6a2abbb-3516-dc95-9504-05e7a1f2ff64.continueOnRuntimeExceptions}"/>
+        <property name="continueOnCheckedExceptions"
+                  value="${NIOHttpIngressConnector.c6a2abbb-3516-dc95-9504-05e7a1f2ff64.continueOnCheckedExceptions}"/>
+        <property name="processingElement" ref="test-component"/>
+    </bean>
+    <bean id="test-component" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+        <property name="responseProcessor" ref="c6a2abbb-3516-dc95-9504-05e7a1f2ff64"/>
+        <property name="addressTypeStr" value="${NIOHttpEgressConnector.test-component.addressTypeStr}"/>
+        <property name="host" value="${NIOHttpEgressConnector.test-component.host}"/>
+        <property name="port" value="${NIOHttpEgressConnector.test-component.port}"/>
+        <property name="servicePath" value="${NIOHttpEgressConnector.test-component.servicePath}"/>
+        <property name="zeroCopy" value="${NIOHttpEgressConnector.test-component.zeroCopy}"/>
+        <property name="connectionDebug" value="${NIOHttpEgressConnector.test-component.connectionDebug}"/>
+        <property name="replaceUserAgent" value="${NIOHttpEgressConnector.test-component.replaceUserAgent}"/>
+        <property name="unzipResponseEntities" value="${NIOHttpEgressConnector.test-component.unzipResponseEntities}"/>
+        <property name="keepalive" value="${NIOHttpEgressConnector.test-component.keepalive}"/>
+        <property name="keepAliveSafetyThreshold"
+                  value="${NIOHttpEgressConnector.test-component.keepAliveSafetyThreshold}"/>
+        <property name="maxPerRoute" value="${NIOHttpEgressConnector.test-component.maxPerRoute}"/>
+        <property name="maxConnections" value="${NIOHttpEgressConnector.test-component.maxConnections}"/>
+        <property name="continueOnRuntimeExceptions"
+                  value="${NIOHttpEgressConnector.test-component.continueOnRuntimeExceptions}"/>
+        <property name="continueOnCheckedExceptions"
+                  value="${NIOHttpEgressConnector.test-component.continueOnCheckedExceptions}"/>
+    </bean>
+</beans>
