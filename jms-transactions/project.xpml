@@ -13,7 +13,7 @@
     <x:resources>
         <x:resource id="activeMq-activeMQ-ConnectionFactory">
             <bean class="org.apache.activemq.ActiveMQConnectionFactory">
-                <property name="brokerURL" value="tcp://localhost:61616"/>
+                <property name="brokerURL" value="${activeMq.brokerURL}"/>
             </bean>
         </x:resource>
         <x:resource id="activeMq-activeMQ-jmxTxnManager">

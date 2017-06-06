@@ -36,12 +36,6 @@
     "angle" : 90.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "b7de3f20-bc67-9b90-29cd-0212a199d8d2",
-    "xPosition" : 960.0,
-    "yPosition" : 400.0,
-    "angle" : 90.0,
-    "elementType" : "EgressConnector"
-  }, {
     "beanId" : "1012e407-a3a6-31df-d807-996937f1bbcb",
     "xPosition" : 800.0,
     "yPosition" : 560.0,
@@ -53,11 +47,17 @@
     "yPosition" : 480.0,
     "angle" : 90.0,
     "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "b7de3f20-bc67-9b90-29cd-0212a199d8d2",
+    "xPosition" : 960.0,
+    "yPosition" : 400.0,
+    "angle" : 90.0,
+    "elementType" : "EgressConnector"
   } ],
   "subFlowImportMap" : { },
   "stateConfig" : {
     "zoomScale" : 1.0,
     "scrollXPosition" : 0.0,
-    "scrollYPosition" : 0.0
+    "scrollYPosition" : 130.0
   }
 }
