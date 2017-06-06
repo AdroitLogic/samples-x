@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating it's JMS transactional features</description>
 
-    <url>https://developer.adroitlogic.com/samples/advanced/17.01.2/jms-transaction/</url>
+    <url>https://developer.adroitlogic.com/samples/advanced/17.01/jms-transaction/</url>
 
     <repositories>
         <repository>

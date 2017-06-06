@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating it's REST service mediation features</description>
 
-    <url>https://developer.adroitlogic.com/samples/introductory/17.01.2/rest-service-mediation/</url>
+    <url>https://developer.adroitlogic.com/samples/introductory/17.01/rest-service-mediation/</url>
 
     <repositories>
         <repository>
