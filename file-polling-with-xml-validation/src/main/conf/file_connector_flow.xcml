@@ -22,13 +22,13 @@
     <bean id="a42f5cb7-9987-7df7-cafe-960e2ece51b3" class="org.adroitlogic.x.components.flowend.ExceptionalFlowEnd">
         <property name="exceptionMessage" value="file poll/validation error"/>
     </bean>
-    <bean id="1fa05c4a-f6c2-90bd-d0d6-00b46c7ba6a0" class="org.adroitlogic.x.connector.jms.SpringJMSEgressConnector">
+    <bean id="jmsForFileListener" class="org.adroitlogic.x.connector.jms.SpringJMSEgressConnector">
         <property name="template" ref="activeMq-jmsTemplate"/>
-        <property name="destination" value="${SpringJMSEgressConnector.1fa05c4a-f6c2-90bd-d0d6-00b46c7ba6a0.destination}"/>
+        <property name="destination" value="${SpringJMSEgressConnector.jmsForFileListener.destination}"/>
     </bean>
     <bean id="a51aa02d-f5a2-51de-98d6-67d674187a92" class="org.adroitlogic.x.processor.validate.xml.XSDValidator">
         <property name="xsdPaths" value="metaValidator.xsd"/>
-        <property name="onValidationSuccess" ref="1fa05c4a-f6c2-90bd-d0d6-00b46c7ba6a0"/>
+        <property name="onValidationSuccess" ref="jmsForFileListener"/>
         <property name="onValidationFailure" ref="fa2cef6e-26cf-8f1f-d080-124d5a5587da"/>
         <property name="errorHandler" ref="a42f5cb7-9987-7df7-cafe-960e2ece51b3"/>
     </bean>

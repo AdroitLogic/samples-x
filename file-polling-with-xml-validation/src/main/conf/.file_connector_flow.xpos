@@ -18,7 +18,7 @@
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "1fa05c4a-f6c2-90bd-d0d6-00b46c7ba6a0",
+    "beanId" : "jmsForFileListener",
     "xPosition" : 1120.0,
     "yPosition" : 320.0,
     "angle" : 0.0,
