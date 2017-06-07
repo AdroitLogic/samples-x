@@ -167,11 +167,41 @@
     "yPosition" : 400.0,
     "angle" : 0.0,
     "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "bankCSftpEgressConnector",
+    "xPosition" : 1040.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "bankBSftpEgressConnector",
+    "xPosition" : 880.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "bankASftpEgressConnector",
+    "xPosition" : 720.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "bankDSftpEgressConnector",
+    "xPosition" : 1200.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "internalSftpEgressConnector",
+    "xPosition" : 400.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
   } ],
   "subFlowImportMap" : { },
   "stateConfig" : {
     "zoomScale" : 1.0,
     "scrollXPosition" : 0.0,
-    "scrollYPosition" : 150.0
+    "scrollYPosition" : 75.0
   }
 }

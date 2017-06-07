@@ -27,7 +27,7 @@
         <property name="originalOutport" ref="csvToXmlProcessor"/>
         <property name="exchangePattern" value="${CloneMessage.cloneOriginalMessageProcessor.exchangePattern}"/>
         <property name="cloneType" value="${CloneMessage.cloneOriginalMessageProcessor.cloneType}"/>
-        <property name="clonedOutport" ref="sftpEgressConnector3"/>
+        <property name="clonedOutport" ref="internalSftpEgressConnector"/>
         <property name="completionType" value="${CloneMessage.cloneOriginalMessageProcessor.completionType}"/>
     </bean>
 
@@ -48,25 +48,25 @@
         <property name="completionType" value="${CloneMessage.cloneTransformedMessageProcessor.completionType}"/>
     </bean>
 
-    <bean id="sftpEgressConnector5" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
-        <property name="host" value="${SFTPEgressConnector.sftpEgressConnector5.host}"/>
-        <property name="port" value="${SFTPEgressConnector.sftpEgressConnector5.port}"/>
-        <property name="filePath" value="${SFTPEgressConnector.sftpEgressConnector5.filePath}"/>
-        <property name="password" value="${SFTPEgressConnector.sftpEgressConnector5.password}"/>
-        <property name="maxActiveConnections" value="${SFTPEgressConnector.sftpEgressConnector5.maxActiveConnections}"/>
-        <property name="timeout" value="${SFTPEgressConnector.sftpEgressConnector5.timeout}"/>
-        <property name="username" value="${SFTPEgressConnector.sftpEgressConnector5.username}"/>
-        <property name="fileName" value="${SFTPEgressConnector.sftpEgressConnector5.fileName}"/>
+    <bean id="bankCSftpEgressConnector" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
+        <property name="host" value="${SFTPEgressConnector.bankCSftpEgressConnector.host}"/>
+        <property name="port" value="${SFTPEgressConnector.bankCSftpEgressConnector.port}"/>
+        <property name="filePath" value="${SFTPEgressConnector.bankCSftpEgressConnector.filePath}"/>
+        <property name="password" value="${SFTPEgressConnector.bankCSftpEgressConnector.password}"/>
+        <property name="maxActiveConnections" value="${SFTPEgressConnector.bankCSftpEgressConnector.maxActiveConnections}"/>
+        <property name="timeout" value="${SFTPEgressConnector.bankCSftpEgressConnector.timeout}"/>
+        <property name="username" value="${SFTPEgressConnector.bankCSftpEgressConnector.username}"/>
+        <property name="fileName" value="${SFTPEgressConnector.bankCSftpEgressConnector.fileName}"/>
     </bean>
-    <bean id="sftpEgressConnector4" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
-        <property name="host" value="${SFTPEgressConnector.sftpEgressConnector4.host}"/>
-        <property name="port" value="${SFTPEgressConnector.sftpEgressConnector4.port}"/>
-        <property name="filePath" value="${SFTPEgressConnector.sftpEgressConnector4.filePath}"/>
-        <property name="username" value="${SFTPEgressConnector.sftpEgressConnector4.username}"/>
-        <property name="maxActiveConnections" value="${SFTPEgressConnector.sftpEgressConnector4.maxActiveConnections}"/>
-        <property name="timeout" value="${SFTPEgressConnector.sftpEgressConnector4.timeout}"/>
-        <property name="password" value="${SFTPEgressConnector.sftpEgressConnector4.password}"/>
-        <property name="fileName" value="${SFTPEgressConnector.sftpEgressConnector4.fileName}"/>
+    <bean id="bankBSftpEgressConnector" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
+        <property name="host" value="${SFTPEgressConnector.bankBSftpEgressConnector.host}"/>
+        <property name="port" value="${SFTPEgressConnector.bankBSftpEgressConnector.port}"/>
+        <property name="filePath" value="${SFTPEgressConnector.bankBSftpEgressConnector.filePath}"/>
+        <property name="username" value="${SFTPEgressConnector.bankBSftpEgressConnector.username}"/>
+        <property name="maxActiveConnections" value="${SFTPEgressConnector.bankBSftpEgressConnector.maxActiveConnections}"/>
+        <property name="timeout" value="${SFTPEgressConnector.bankBSftpEgressConnector.timeout}"/>
+        <property name="password" value="${SFTPEgressConnector.bankBSftpEgressConnector.password}"/>
+        <property name="fileName" value="${SFTPEgressConnector.bankBSftpEgressConnector.fileName}"/>
     </bean>
 
 
@@ -77,46 +77,46 @@
     <bean id="cloneTransformedMessage2Processor" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
         <property name="exchangePattern" value="${CloneMessage.cloneTransformedMessage2Processor.exchangePattern}"/>
         <property name="cloneType" value="${CloneMessage.cloneTransformedMessage2Processor.cloneType}"/>
-        <property name="clonedOutport" ref="sftpEgressConnector5"/>
-        <property name="originalOutport" ref="sftpEgressConnector2"/>
+        <property name="clonedOutport" ref="bankCSftpEgressConnector"/>
+        <property name="originalOutport" ref="bankDSftpEgressConnector"/>
         <property name="completionType" value="${CloneMessage.cloneTransformedMessage2Processor.completionType}"/>
     </bean>
     <bean id="cloneTransformedMessage3Processor" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
         <property name="exchangePattern" value="${CloneMessage.cloneTransformedMessage3Processor.exchangePattern}"/>
         <property name="cloneType" value="${CloneMessage.cloneTransformedMessage3Processor.cloneType}"/>
-        <property name="originalOutport" ref="sftpEgressConnector4"/>
-        <property name="clonedOutport" ref="sftpEgressConnector1"/>
+        <property name="originalOutport" ref="bankBSftpEgressConnector"/>
+        <property name="clonedOutport" ref="bankASftpEgressConnector"/>
         <property name="completionType" value="${CloneMessage.cloneTransformedMessage3Processor.completionType}"/>
     </bean>
-    <bean id="sftpEgressConnector1" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
-        <property name="host" value="${SFTPEgressConnector.sftpEgressConnector1.host}"/>
-        <property name="port" value="${SFTPEgressConnector.sftpEgressConnector1.port}"/>
-        <property name="filePath" value="${SFTPEgressConnector.sftpEgressConnector1.filePath}"/>
-        <property name="username" value="${SFTPEgressConnector.sftpEgressConnector1.username}"/>
-        <property name="maxActiveConnections" value="${SFTPEgressConnector.sftpEgressConnector1.maxActiveConnections}"/>
-        <property name="timeout" value="${SFTPEgressConnector.sftpEgressConnector1.timeout}"/>
-        <property name="password" value="${SFTPEgressConnector.sftpEgressConnector1.password}"/>
-        <property name="fileName" value="${SFTPEgressConnector.sftpEgressConnector1.fileName}"/>
+    <bean id="bankASftpEgressConnector" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
+        <property name="host" value="${SFTPEgressConnector.bankASftpEgressConnector.host}"/>
+        <property name="port" value="${SFTPEgressConnector.bankASftpEgressConnector.port}"/>
+        <property name="filePath" value="${SFTPEgressConnector.bankASftpEgressConnector.filePath}"/>
+        <property name="username" value="${SFTPEgressConnector.bankASftpEgressConnector.username}"/>
+        <property name="maxActiveConnections" value="${SFTPEgressConnector.bankASftpEgressConnector.maxActiveConnections}"/>
+        <property name="timeout" value="${SFTPEgressConnector.bankASftpEgressConnector.timeout}"/>
+        <property name="password" value="${SFTPEgressConnector.bankASftpEgressConnector.password}"/>
+        <property name="fileName" value="${SFTPEgressConnector.bankASftpEgressConnector.fileName}"/>
     </bean>
 
-    <bean id="sftpEgressConnector2" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
-        <property name="host" value="${SFTPEgressConnector.sftpEgressConnector2.host}"/>
-        <property name="port" value="${SFTPEgressConnector.sftpEgressConnector2.port}"/>
-        <property name="filePath" value="${SFTPEgressConnector.sftpEgressConnector2.filePath}"/>
-        <property name="username" value="${SFTPEgressConnector.sftpEgressConnector2.username}"/>
-        <property name="password" value="${SFTPEgressConnector.sftpEgressConnector2.password}"/>
-        <property name="maxActiveConnections" value="${SFTPEgressConnector.sftpEgressConnector2.maxActiveConnections}"/>
-        <property name="timeout" value="${SFTPEgressConnector.sftpEgressConnector2.timeout}"/>
-        <property name="fileName" value="${SFTPEgressConnector.sftpEgressConnector2.fileName}"/>
+    <bean id="bankDSftpEgressConnector" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
+        <property name="host" value="${SFTPEgressConnector.bankDSftpEgressConnector.host}"/>
+        <property name="port" value="${SFTPEgressConnector.bankDSftpEgressConnector.port}"/>
+        <property name="filePath" value="${SFTPEgressConnector.bankDSftpEgressConnector.filePath}"/>
+        <property name="username" value="${SFTPEgressConnector.bankDSftpEgressConnector.username}"/>
+        <property name="password" value="${SFTPEgressConnector.bankDSftpEgressConnector.password}"/>
+        <property name="maxActiveConnections" value="${SFTPEgressConnector.bankDSftpEgressConnector.maxActiveConnections}"/>
+        <property name="timeout" value="${SFTPEgressConnector.bankDSftpEgressConnector.timeout}"/>
+        <property name="fileName" value="${SFTPEgressConnector.bankDSftpEgressConnector.fileName}"/>
     </bean>
-    <bean id="sftpEgressConnector3" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
-        <property name="host" value="${SFTPEgressConnector.sftpEgressConnector3.host}"/>
-        <property name="port" value="${SFTPEgressConnector.sftpEgressConnector3.port}"/>
-        <property name="filePath" value="${SFTPEgressConnector.sftpEgressConnector3.filePath}"/>
-        <property name="maxActiveConnections" value="${SFTPEgressConnector.sftpEgressConnector3.maxActiveConnections}"/>
-        <property name="timeout" value="${SFTPEgressConnector.sftpEgressConnector3.timeout}"/>
-        <property name="password" value="${SFTPEgressConnector.sftpEgressConnector3.password}"/>
-        <property name="username" value="${SFTPEgressConnector.sftpEgressConnector3.username}"/>
+    <bean id="internalSftpEgressConnector" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
+        <property name="host" value="${SFTPEgressConnector.internalSftpEgressConnector.host}"/>
+        <property name="port" value="${SFTPEgressConnector.internalSftpEgressConnector.port}"/>
+        <property name="filePath" value="${SFTPEgressConnector.internalSftpEgressConnector.filePath}"/>
+        <property name="maxActiveConnections" value="${SFTPEgressConnector.internalSftpEgressConnector.maxActiveConnections}"/>
+        <property name="timeout" value="${SFTPEgressConnector.internalSftpEgressConnector.timeout}"/>
+        <property name="password" value="${SFTPEgressConnector.internalSftpEgressConnector.password}"/>
+        <property name="username" value="${SFTPEgressConnector.internalSftpEgressConnector.username}"/>
     </bean>
     <bean id="xPathExtractProcessor"
           class="org.adroitlogic.x.processor.extract.path.xpath.XPathExtractProcessor">
