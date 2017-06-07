@@ -2,54 +2,53 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-
-    <bean id="d842fab9-c150-91a2-4932-aaa2f82ec5d1"
+    <bean id="httpListener"
           class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
-        <property name="processingElement" ref="b5ee8c28-1c6f-2681-2686-6459effac554"/>
-        <property name="port" value="${NIOHttpIngressConnector.d842fab9-c150-91a2-4932-aaa2f82ec5d1.port}"/>
-        <property name="path" value="${NIOHttpIngressConnector.d842fab9-c150-91a2-4932-aaa2f82ec5d1.path}"/>
+        <property name="processingElement" ref="httpSender"/>
+        <property name="port" value="${NIOHttpIngressConnector.httpListener.port}"/>
+        <property name="path" value="${NIOHttpIngressConnector.httpListener.path}"/>
         <property name="enableConnectionDebug"
-                  value="${NIOHttpIngressConnector.d842fab9-c150-91a2-4932-aaa2f82ec5d1.enableConnectionDebug}"/>
+                  value="${NIOHttpIngressConnector.httpListener.enableConnectionDebug}"/>
         <property name="zeroCopyEnabled"
-                  value="${NIOHttpIngressConnector.d842fab9-c150-91a2-4932-aaa2f82ec5d1.zeroCopyEnabled}"/>
+                  value="${NIOHttpIngressConnector.httpListener.zeroCopyEnabled}"/>
         <property name="noCompression"
-                  value="${NIOHttpIngressConnector.d842fab9-c150-91a2-4932-aaa2f82ec5d1.noCompression}"/>
+                  value="${NIOHttpIngressConnector.httpListener.noCompression}"/>
         <property name="continueOnRuntimeExceptions"
-                  value="${NIOHttpIngressConnector.d842fab9-c150-91a2-4932-aaa2f82ec5d1.continueOnRuntimeExceptions}"/>
+                  value="${NIOHttpIngressConnector.httpListener.continueOnRuntimeExceptions}"/>
         <property name="continueOnCheckedExceptions"
-                  value="${NIOHttpIngressConnector.d842fab9-c150-91a2-4932-aaa2f82ec5d1.continueOnCheckedExceptions}"/>
+                  value="${NIOHttpIngressConnector.httpListener.continueOnCheckedExceptions}"/>
     </bean>
-    <bean id="b5ee8c28-1c6f-2681-2686-6459effac554"
+    <bean id="httpSender"
           class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
         <property name="addressTypeStr"
-                  value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.addressTypeStr}"/>
-        <property name="host" value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.host}"/>
+                  value="${NIOHttpEgressConnector.httpSender.addressTypeStr}"/>
+        <property name="host" value="${NIOHttpEgressConnector.httpSender.host}"/>
         <property name="servicePath"
-                  value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.servicePath}"/>
-        <property name="zeroCopy" value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.zeroCopy}"/>
+                  value="${NIOHttpEgressConnector.httpSender.servicePath}"/>
+        <property name="zeroCopy" value="${NIOHttpEgressConnector.httpSender.zeroCopy}"/>
         <property name="connectionDebug"
-                  value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.connectionDebug}"/>
+                  value="${NIOHttpEgressConnector.httpSender.connectionDebug}"/>
         <property name="replaceUserAgent"
-                  value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.replaceUserAgent}"/>
+                  value="${NIOHttpEgressConnector.httpSender.replaceUserAgent}"/>
         <property name="unzipResponseEntities"
-                  value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.unzipResponseEntities}"/>
-        <property name="keepalive" value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.keepalive}"/>
+                  value="${NIOHttpEgressConnector.httpSender.unzipResponseEntities}"/>
+        <property name="keepalive" value="${NIOHttpEgressConnector.httpSender.keepalive}"/>
         <property name="keepAliveSafetyThreshold"
-                  value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.keepAliveSafetyThreshold}"/>
+                  value="${NIOHttpEgressConnector.httpSender.keepAliveSafetyThreshold}"/>
         <property name="maxPerRoute"
-                  value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.maxPerRoute}"/>
+                  value="${NIOHttpEgressConnector.httpSender.maxPerRoute}"/>
         <property name="maxConnections"
-                  value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.maxConnections}"/>
+                  value="${NIOHttpEgressConnector.httpSender.maxConnections}"/>
         <property name="continueOnRuntimeExceptions"
-                  value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.continueOnRuntimeExceptions}"/>
+                  value="${NIOHttpEgressConnector.httpSender.continueOnRuntimeExceptions}"/>
         <property name="continueOnCheckedExceptions"
-                  value="${NIOHttpEgressConnector.b5ee8c28-1c6f-2681-2686-6459effac554.continueOnCheckedExceptions}"/>
-        <property name="responseProcessor" ref="4d603dba-10ea-c920-fd74-b1235e8d1dba"/>
+                  value="${NIOHttpEgressConnector.httpSender.continueOnCheckedExceptions}"/>
+        <property name="responseProcessor" ref="msgLogger"/>
     </bean>
-    <bean id="4d603dba-10ea-c920-fd74-b1235e8d1dba" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+    <bean id="msgLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
         <property name="logTemplate"
-                  value="${LoggerProcessingElement.4d603dba-10ea-c920-fd74-b1235e8d1dba.logTemplate}"/>
-        <property name="logLevel" value="${LoggerProcessingElement.4d603dba-10ea-c920-fd74-b1235e8d1dba.logLevel}"/>
-        <property name="nextElement" ref="d842fab9-c150-91a2-4932-aaa2f82ec5d1"/>
+                  value="${LoggerProcessingElement.msgLogger.logTemplate}"/>
+        <property name="logLevel" value="${LoggerProcessingElement.msgLogger.logLevel}"/>
+        <property name="nextElement" ref="httpListener"/>
     </bean>
 </beans>
