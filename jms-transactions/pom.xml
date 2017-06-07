@@ -12,9 +12,10 @@
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - JMS Transactions</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's JMS transactional features</description>
+        demonstrating it's JMS transactional features
+    </description>
 
-    <url>https://developer.adroitlogic.com/samples/advanced/17.01.2/jms-transaction/</url>
+    <url>https://developer.adroitlogic.com/samples/advanced/17.01/jms-transaction/</url>
 
     <repositories>
         <repository>
@@ -132,9 +133,18 @@
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-all</artifactId>
+            <artifactId>activemq-core</artifactId>
             <version>5.7.0</version>
-            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>

@@ -3,103 +3,103 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
 
-    <bean id="1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96" class="org.adroitlogic.x.connector.mail.MailIngressConnector">
-        <property name="protocol" value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.protocol}"/>
-        <property name="host" value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.host}"/>
-        <property name="port" value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.port}"/>
-        <property name="user" value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.user}"/>
-        <property name="password" value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.password}"/>
-        <property name="folder" value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.folder}"/>
+    <bean id="email-listener" class="org.adroitlogic.x.connector.mail.MailIngressConnector">
+        <property name="protocol" value="${MailIngressConnector.email-listener.protocol}"/>
+        <property name="host" value="${MailIngressConnector.email-listener.host}"/>
+        <property name="port" value="${MailIngressConnector.email-listener.port}"/>
+        <property name="user" value="${MailIngressConnector.email-listener.user}"/>
+        <property name="password" value="${MailIngressConnector.email-listener.password}"/>
+        <property name="folder" value="${MailIngressConnector.email-listener.folder}"/>
         <property name="addressCombiner" value="AND"/>
         <property name="searchHeaderCombiner" value="AND"/>
         <property name="searchFlagCombiner" value="AND"/>
         <property name="searchOnServer"
-                  value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.searchOnServer}"/>
+                  value="${MailIngressConnector.email-listener.searchOnServer}"/>
         <property name="lazyFetchPayload"
-                  value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.lazyFetchPayload}"/>
+                  value="${MailIngressConnector.email-listener.lazyFetchPayload}"/>
         <property name="lazyFetchAttachments"
-                  value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.lazyFetchAttachments}"/>
+                  value="${MailIngressConnector.email-listener.lazyFetchAttachments}"/>
         <property name="deleteAfterProcess"
-                  value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.deleteAfterProcess}"/>
+                  value="${MailIngressConnector.email-listener.deleteAfterProcess}"/>
         <property name="deleteOnFailure"
-                  value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.deleteOnFailure}"/>
-        <property name="repeatCount" value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.repeatCount}"/>
+                  value="${MailIngressConnector.email-listener.deleteOnFailure}"/>
+        <property name="repeatCount" value="${MailIngressConnector.email-listener.repeatCount}"/>
         <property name="concurrentPollingCount"
-                  value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.concurrentPollingCount}"/>
+                  value="${MailIngressConnector.email-listener.concurrentPollingCount}"/>
         <property name="parallelExecutionCount"
-                  value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.parallelExecutionCount}"/>
+                  value="${MailIngressConnector.email-listener.parallelExecutionCount}"/>
         <property name="otherSettings" ref="mail-props"/>
         <property name="preserveHeaders"
-                  value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.preserveHeaders}"/>
-        <property name="processingElement" ref="c7c2e367-79db-39cd-10eb-c71d91a81bfc"/>
-        <property name="startDelay" value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.startDelay}"/>
+                  value="${MailIngressConnector.email-listener.preserveHeaders}"/>
+        <property name="processingElement" ref="recipient-extractor"/>
+        <property name="startDelay" value="${MailIngressConnector.email-listener.startDelay}"/>
         <property name="repeatInterval"
-                  value="${MailIngressConnector.1db8cee7-30d0-a3a1-ce6f-57ba6f99fa96.repeatInterval}"/>
+                  value="${MailIngressConnector.email-listener.repeatInterval}"/>
     </bean>
-    <bean id="a76fd348-11ab-4dfe-42a7-35ad76aedb54" class="org.adroitlogic.x.connector.mail.MailEgressConnector">
-        <property name="protocol" value="${MailEgressConnector.a76fd348-11ab-4dfe-42a7-35ad76aedb54.protocol}"/>
-        <property name="host" value="${MailEgressConnector.a76fd348-11ab-4dfe-42a7-35ad76aedb54.host}"/>
-        <property name="port" value="${MailEgressConnector.a76fd348-11ab-4dfe-42a7-35ad76aedb54.port}"/>
-        <property name="user" value="${MailEgressConnector.a76fd348-11ab-4dfe-42a7-35ad76aedb54.user}"/>
-        <property name="password" value="${MailEgressConnector.a76fd348-11ab-4dfe-42a7-35ad76aedb54.password}"/>
+    <bean id="email-sender" class="org.adroitlogic.x.connector.mail.MailEgressConnector">
+        <property name="protocol" value="${MailEgressConnector.email-sender.protocol}"/>
+        <property name="host" value="${MailEgressConnector.email-sender.host}"/>
+        <property name="port" value="${MailEgressConnector.email-sender.port}"/>
+        <property name="user" value="${MailEgressConnector.email-sender.user}"/>
+        <property name="password" value="${MailEgressConnector.email-sender.password}"/>
         <property name="otherSettings" ref="mail-props"/>
-        <property name="to" value="${MailEgressConnector.a76fd348-11ab-4dfe-42a7-35ad76aedb54.to}"/>
+        <property name="to" value="${MailEgressConnector.email-sender.to}"/>
     </bean>
-    <bean id="cacc3d9c-9a7f-5ebf-0dfd-dfd5de1adc6b"
+    <bean id="subject-setter"
           class="org.adroitlogic.x.processor.headerManagement.AddNewTransportHeader">
-        <property name="headerName" value="${AddNewTransportHeader.cacc3d9c-9a7f-5ebf-0dfd-dfd5de1adc6b.headerName}"/>
-        <property name="useVariable" value="${AddNewTransportHeader.cacc3d9c-9a7f-5ebf-0dfd-dfd5de1adc6b.useVariable}"/>
-        <property name="value" value="${AddNewTransportHeader.cacc3d9c-9a7f-5ebf-0dfd-dfd5de1adc6b.value}"/>
+        <property name="headerName" value="${AddNewTransportHeader.subject-setter.headerName}"/>
+        <property name="useVariable" value="${AddNewTransportHeader.subject-setter.useVariable}"/>
+        <property name="value" value="${AddNewTransportHeader.subject-setter.value}"/>
         <property name="headerVarType"
-                  value="${AddNewTransportHeader.cacc3d9c-9a7f-5ebf-0dfd-dfd5de1adc6b.headerVarType}"/>
+                  value="${AddNewTransportHeader.subject-setter.headerVarType}"/>
         <property name="propagateToParent"
-                  value="${AddNewTransportHeader.cacc3d9c-9a7f-5ebf-0dfd-dfd5de1adc6b.propagateToParent}"/>
-        <property name="nextElement" ref="d8174e85-c290-94df-3aa1-8bd835e7ff15"/>
+                  value="${AddNewTransportHeader.subject-setter.propagateToParent}"/>
+        <property name="nextElement" ref="recipient-setter"/>
     </bean>
-    <bean id="c7c2e367-79db-39cd-10eb-c71d91a81bfc" class="org.adroitlogic.x.components.variable.AddVariable">
-        <property name="varName" value="${AddVariable.c7c2e367-79db-39cd-10eb-c71d91a81bfc.varName}"/>
-        <property name="extractionType" value="${AddVariable.c7c2e367-79db-39cd-10eb-c71d91a81bfc.extractionType}"/>
-        <property name="value" value="${AddVariable.c7c2e367-79db-39cd-10eb-c71d91a81bfc.value}"/>
-        <property name="varType" value="${AddVariable.c7c2e367-79db-39cd-10eb-c71d91a81bfc.varType}"/>
-        <property name="nextElement" ref="ddef69f1-1e03-9b12-cc2b-100b2c57d37b"/>
+    <bean id="recipient-extractor" class="org.adroitlogic.x.components.variable.AddVariable">
+        <property name="varName" value="${AddVariable.recipient-extractor.varName}"/>
+        <property name="extractionType" value="${AddVariable.recipient-extractor.extractionType}"/>
+        <property name="value" value="${AddVariable.recipient-extractor.value}"/>
+        <property name="varType" value="${AddVariable.recipient-extractor.varType}"/>
+        <property name="nextElement" ref="http-sender"/>
     </bean>
-    <bean id="d8174e85-c290-94df-3aa1-8bd835e7ff15"
+    <bean id="recipient-setter"
           class="org.adroitlogic.x.processor.headerManagement.AddNewTransportHeader">
-        <property name="headerName" value="${AddNewTransportHeader.d8174e85-c290-94df-3aa1-8bd835e7ff15.headerName}"/>
-        <property name="useVariable" value="${AddNewTransportHeader.d8174e85-c290-94df-3aa1-8bd835e7ff15.useVariable}"/>
-        <property name="value" value="${AddNewTransportHeader.d8174e85-c290-94df-3aa1-8bd835e7ff15.value}"/>
+        <property name="headerName" value="${AddNewTransportHeader.recipient-setter.headerName}"/>
+        <property name="useVariable" value="${AddNewTransportHeader.recipient-setter.useVariable}"/>
+        <property name="value" value="${AddNewTransportHeader.recipient-setter.value}"/>
         <property name="headerVarType"
-                  value="${AddNewTransportHeader.d8174e85-c290-94df-3aa1-8bd835e7ff15.headerVarType}"/>
+                  value="${AddNewTransportHeader.recipient-setter.headerVarType}"/>
         <property name="propagateToParent"
-                  value="${AddNewTransportHeader.d8174e85-c290-94df-3aa1-8bd835e7ff15.propagateToParent}"/>
-        <property name="nextElement" ref="a76fd348-11ab-4dfe-42a7-35ad76aedb54"/>
+                  value="${AddNewTransportHeader.recipient-setter.propagateToParent}"/>
+        <property name="nextElement" ref="email-sender"/>
     </bean>
-    <bean id="ddef69f1-1e03-9b12-cc2b-100b2c57d37b"
+    <bean id="http-sender"
           class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
         <property name="addressTypeStr"
-                  value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.addressTypeStr}"/>
-        <property name="host" value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.host}"/>
+                  value="${NIOHttpEgressConnector.http-sender.addressTypeStr}"/>
+        <property name="host" value="${NIOHttpEgressConnector.http-sender.host}"/>
         <property name="servicePath"
-                  value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.servicePath}"/>
-        <property name="zeroCopy" value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.zeroCopy}"/>
+                  value="${NIOHttpEgressConnector.http-sender.servicePath}"/>
+        <property name="zeroCopy" value="${NIOHttpEgressConnector.http-sender.zeroCopy}"/>
         <property name="connectionDebug"
-                  value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.connectionDebug}"/>
+                  value="${NIOHttpEgressConnector.http-sender.connectionDebug}"/>
         <property name="replaceUserAgent"
-                  value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.replaceUserAgent}"/>
+                  value="${NIOHttpEgressConnector.http-sender.replaceUserAgent}"/>
         <property name="unzipResponseEntities"
-                  value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.unzipResponseEntities}"/>
-        <property name="keepalive" value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.keepalive}"/>
+                  value="${NIOHttpEgressConnector.http-sender.unzipResponseEntities}"/>
+        <property name="keepalive" value="${NIOHttpEgressConnector.http-sender.keepalive}"/>
         <property name="keepAliveSafetyThreshold"
-                  value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.keepAliveSafetyThreshold}"/>
+                  value="${NIOHttpEgressConnector.http-sender.keepAliveSafetyThreshold}"/>
         <property name="maxPerRoute"
-                  value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.maxPerRoute}"/>
+                  value="${NIOHttpEgressConnector.http-sender.maxPerRoute}"/>
         <property name="maxConnections"
-                  value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.maxConnections}"/>
+                  value="${NIOHttpEgressConnector.http-sender.maxConnections}"/>
         <property name="continueOnRuntimeExceptions"
-                  value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.continueOnRuntimeExceptions}"/>
+                  value="${NIOHttpEgressConnector.http-sender.continueOnRuntimeExceptions}"/>
         <property name="continueOnCheckedExceptions"
-                  value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.continueOnCheckedExceptions}"/>
-        <property name="port" value="${NIOHttpEgressConnector.ddef69f1-1e03-9b12-cc2b-100b2c57d37b.port}"/>
-        <property name="responseProcessor" ref="cacc3d9c-9a7f-5ebf-0dfd-dfd5de1adc6b"/>
+                  value="${NIOHttpEgressConnector.http-sender.continueOnCheckedExceptions}"/>
+        <property name="port" value="${NIOHttpEgressConnector.http-sender.port}"/>
+        <property name="responseProcessor" ref="subject-setter"/>
     </bean>
 </beans>

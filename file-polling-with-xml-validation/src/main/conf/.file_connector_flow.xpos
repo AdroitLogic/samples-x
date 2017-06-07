@@ -1,22 +1,10 @@
 {
   "uiConfigFileElementList" : [ {
-    "beanId" : "6c6c380a-61e1-740b-a86c-b9ef537ea1e6",
-    "xPosition" : 720.0,
-    "yPosition" : 400.0,
-    "angle" : 0.0,
-    "elementType" : "IngressConnector"
-  }, {
     "beanId" : "a42f5cb7-9987-7df7-cafe-960e2ece51b3",
     "xPosition" : 960.0,
     "yPosition" : 480.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
-  }, {
-    "beanId" : "1fa05c4a-f6c2-90bd-d0d6-00b46c7ba6a0",
-    "xPosition" : 1120.0,
-    "yPosition" : 320.0,
-    "angle" : 0.0,
-    "elementType" : "EgressConnector"
   }, {
     "beanId" : "fa2cef6e-26cf-8f1f-d080-124d5a5587da",
     "xPosition" : 1120.0,
@@ -29,11 +17,23 @@
     "yPosition" : 320.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "jmsForFileListener",
+    "xPosition" : 1120.0,
+    "yPosition" : 320.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "fileListener",
+    "xPosition" : 720.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "IngressConnector"
   } ],
   "subFlowImportMap" : { },
   "stateConfig" : {
     "zoomScale" : 1.0,
-    "scrollXPosition" : 310.0,
-    "scrollYPosition" : 247.0
+    "scrollXPosition" : 280.0,
+    "scrollYPosition" : 230.0
   }
 }

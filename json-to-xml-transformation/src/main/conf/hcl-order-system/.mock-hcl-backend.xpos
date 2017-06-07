@@ -27,7 +27,7 @@
   "subFlowImportMap" : { },
   "stateConfig" : {
     "zoomScale" : 1.0,
-    "scrollXPosition" : 270.0,
-    "scrollYPosition" : 0.0
+    "scrollXPosition" : 260.0,
+    "scrollYPosition" : 150.0
   }
 }

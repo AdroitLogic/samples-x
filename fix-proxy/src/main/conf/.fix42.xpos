@@ -1,30 +1,12 @@
 {
   "uiConfigFileElementList" : [ {
-    "beanId" : "43b80512-5f92-8d0d-33b9-a90e53d06e3a",
-    "xPosition" : 400.0,
+    "beanId" : "fix-acceptor-4.2",
+    "xPosition" : 320.0,
     "yPosition" : 160.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "2a8be6ab-903d-7862-92e5-357d1428186c",
-    "xPosition" : 400.0,
-    "yPosition" : 160.0,
-    "angle" : 0.0,
-    "elementType" : "ResponseIngressConnector"
-  }, {
-    "beanId" : "86971553-2ed3-cc46-3492-bb6ad653e269",
-    "xPosition" : 560.0,
-    "yPosition" : 160.0,
-    "angle" : 0.0,
-    "elementType" : "EgressConnector"
-  }, {
-    "beanId" : "2a8be6ab-903d-7862-92e5-357d14281456",
-    "xPosition" : 320.0,
-    "yPosition" : 160.0,
-    "angle" : 0.0,
-    "elementType" : "ResponseIngressConnector"
-  }, {
-    "beanId" : "86971553-2ed3-cc46-3492-bb6ad653e112",
+    "beanId" : "fix-initiator-4.2",
     "xPosition" : 480.0,
     "yPosition" : 160.0,
     "angle" : 0.0,
@@ -34,6 +16,6 @@
   "stateConfig" : {
     "zoomScale" : 1.0,
     "scrollXPosition" : 0.0,
-    "scrollYPosition" : 54.0
+    "scrollYPosition" : 0.0
   }
 }
