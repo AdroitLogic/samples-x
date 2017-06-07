@@ -2,24 +2,22 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-    <bean id="6c6c380a-61e1-740b-a86c-b9ef537ea1e6" class="org.adroitlogic.x.connector.file.polling.FileIngressConnector">
-        <property name="filePath" value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.filePath}"/>
-        <property name="fileNamePattern" value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.fileNamePattern}"/>
-        <property name="removeOriginalFile" value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.removeOriginalFile}"/>
-        <property name="moveAfterProcess" value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.moveAfterProcess}"/>
-        <property name="moveAfterFailure" value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.moveAfterFailure}"/>
+    <bean id="fileListener" class="org.adroitlogic.x.connector.file.polling.FileIngressConnector">
+        <property name="filePath" value="${FileIngressConnector.fileListener.filePath}"/>
+        <property name="fileNamePattern" value="${FileIngressConnector.fileListener.fileNamePattern}"/>
+        <property name="removeOriginalFile" value="${FileIngressConnector.fileListener.removeOriginalFile}"/>
+        <property name="moveAfterProcess" value="${FileIngressConnector.fileListener.moveAfterProcess}"/>
+        <property name="moveAfterFailure" value="${FileIngressConnector.fileListener.moveAfterFailure}"/>
         <property name="errorHandler" ref="a42f5cb7-9987-7df7-cafe-960e2ece51b3"/>
         <property name="processingElement" ref="a51aa02d-f5a2-51de-98d6-67d674187a92"/>
-        <property name="cronExpression"
-                  value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.cronExpression}"/>
-        <property name="startDelay" value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.startDelay}"/>
+        <property name="startDelay" value="${FileIngressConnector.fileListener.startDelay}"/>
         <property name="repeatInterval"
-                  value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.repeatInterval}"/>
-        <property name="repeatCount" value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.repeatCount}"/>
+                  value="${FileIngressConnector.fileListener.repeatInterval}"/>
+        <property name="repeatCount" value="${FileIngressConnector.fileListener.repeatCount}"/>
         <property name="concurrentPollingCount"
-                  value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.concurrentPollingCount}"/>
+                  value="${FileIngressConnector.fileListener.concurrentPollingCount}"/>
         <property name="parallelExecutionCount"
-                  value="${FileIngressConnector.6c6c380a-61e1-740b-a86c-b9ef537ea1e6.parallelExecutionCount}"/>
+                  value="${FileIngressConnector.fileListener.parallelExecutionCount}"/>
     </bean>
     <bean id="a42f5cb7-9987-7df7-cafe-960e2ece51b3" class="org.adroitlogic.x.components.flowend.ExceptionalFlowEnd">
         <property name="exceptionMessage" value="file poll/validation error"/>

@@ -24,7 +24,7 @@
     "angle" : 0.0,
     "elementType" : "EgressConnector"
   }, {
-    "beanId" : "6c6c380a-61e1-740b-a86c-b9ef537ea1e6",
+    "beanId" : "fileListener",
     "xPosition" : 720.0,
     "yPosition" : 400.0,
     "angle" : 0.0,
