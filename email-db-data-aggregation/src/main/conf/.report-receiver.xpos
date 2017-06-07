@@ -6,14 +6,14 @@
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "6bf32d58-a491-9478-0c95-e952182875a2",
-    "xPosition" : 480.0,
+    "beanId" : "25ce70b4-0a1b-1449-05c7-85993948f84d",
+    "xPosition" : 640.0,
     "yPosition" : 160.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "25ce70b4-0a1b-1449-05c7-85993948f84d",
-    "xPosition" : 640.0,
+    "beanId" : "6bf32d58-a491-9478-0c95-e952182875a2",
+    "xPosition" : 480.0,
     "yPosition" : 160.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
@@ -23,11 +23,41 @@
     "yPosition" : 160.0,
     "angle" : 0.0,
     "elementType" : "IngressConnector"
+  }, {
+    "beanId" : "emailListener",
+    "xPosition" : 320.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "IngressConnector"
+  }, {
+    "beanId" : "emailRecievedLogger",
+    "xPosition" : 480.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "attatchmenetSaver",
+    "xPosition" : 640.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "attachmentSaver",
+    "xPosition" : 640.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "successfulFlowEnd",
+    "xPosition" : 800.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
   } ],
   "subFlowImportMap" : { },
   "stateConfig" : {
     "zoomScale" : 1.0,
-    "scrollXPosition" : 0.0,
+    "scrollXPosition" : 182.0,
     "scrollYPosition" : 0.0
   }
 }

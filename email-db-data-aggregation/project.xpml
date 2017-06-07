@@ -15,16 +15,16 @@
        <x:resource id="data-src">
             <bean class="org.adroitlogic.ultracp.UltraDataSource" init-method="initialize"
                   destroy-method="destroy">
-                <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/zenythzdb?useSSL=false"/>
+                <property name="driverClass" value="${ultracp.driver}"/>
+                <property name="url" value="${ultracp.url}"/>
                 <property name="initialSize" value="1"/>
                 <property name="minSize" value="1"/>
                 <property name="maxTotal" value="2"/>
-                <property name="poolName" value="zenythz"/>
+                <property name="poolName" value="${ultracp.pool}"/>
                 <property name="connectionProperties">
                     <props>
-                        <prop key="user">zenythz</prop>
-                        <prop key="password">zenythz</prop>
+                        <prop key="user">${ultracp.username}</prop>
+                        <prop key="password">${ultracp.password}</prop>
                     </props>
                 </property>
             </bean>
