@@ -5,6 +5,7 @@
 
     <bean id="6bd79fb2-5208-fde1-e058-26d9a5bf722f"
           class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+        <property name="processingElement" ref="b7b79d34-ae59-4fcb-e183-75bff3bd67fd"/>
         <property name="port" value="${NIOHttpIngressConnector.6bd79fb2-5208-fde1-e058-26d9a5bf722f.port}"/>
         <property name="path" value="${NIOHttpIngressConnector.6bd79fb2-5208-fde1-e058-26d9a5bf722f.path}"/>
         <property name="enableConnectionDebug"
@@ -17,21 +18,15 @@
                   value="${NIOHttpIngressConnector.6bd79fb2-5208-fde1-e058-26d9a5bf722f.continueOnRuntimeExceptions}"/>
         <property name="continueOnCheckedExceptions"
                   value="${NIOHttpIngressConnector.6bd79fb2-5208-fde1-e058-26d9a5bf722f.continueOnCheckedExceptions}"/>
-        <property name="processingElement" ref="b7b79d34-ae59-4fcb-e183-75bff3bd67fd"/>
     </bean>
     <bean id="b7b79d34-ae59-4fcb-e183-75bff3bd67fd"
           class="org.adroitlogic.x.processor.extract.path.json.JSONPathExtractProcessor">
+        <property name="nextElement" ref="c0aa0dc5-7de7-d357-87df-6c07863d7210"/>
         <property name="variableName"
                   value="${JSONPathExtractProcessor.b7b79d34-ae59-4fcb-e183-75bff3bd67fd.variableName}"/>
         <property name="jsonPath" value="${JSONPathExtractProcessor.b7b79d34-ae59-4fcb-e183-75bff3bd67fd.jsonPath}"/>
-        <property name="nextElement" ref="c0aa0dc5-7de7-d357-87df-6c07863d7210"/>
     </bean>
     <bean id="c0aa0dc5-7de7-d357-87df-6c07863d7210" class="org.adroitlogic.x.processor.flowControl.SwitchController">
-        <property name="predicateType" value="${SwitchController.c0aa0dc5-7de7-d357-87df-6c07863d7210.predicateType}"/>
-        <property name="varKey" value="${SwitchController.c0aa0dc5-7de7-d357-87df-6c07863d7210.varKey}"/>
-        <property name="varType" value="${SwitchController.c0aa0dc5-7de7-d357-87df-6c07863d7210.varType}"/>
-        <property name="predicateFunction"
-                  value="${SwitchController.c0aa0dc5-7de7-d357-87df-6c07863d7210.predicateFunction}"/>
         <property name="defaultCase" ref="dbb391f0-dd96-dc14-8232-96d2b70c2005"/>
         <property name="cases">
             <list>
@@ -39,6 +34,11 @@
                 <ref bean="e4e7e329-1e51-48ed-7d6b-34b6aa4706bb"/>
             </list>
         </property>
+        <property name="predicateType" value="${SwitchController.c0aa0dc5-7de7-d357-87df-6c07863d7210.predicateType}"/>
+        <property name="varKey" value="${SwitchController.c0aa0dc5-7de7-d357-87df-6c07863d7210.varKey}"/>
+        <property name="varType" value="${SwitchController.c0aa0dc5-7de7-d357-87df-6c07863d7210.varType}"/>
+        <property name="predicateFunction"
+                  value="${SwitchController.c0aa0dc5-7de7-d357-87df-6c07863d7210.predicateFunction}"/>
     </bean>
     <bean id="a00686e1-6bde-7b91-ad8e-2adae18416ad" class="org.adroitlogic.x.processor.flowControl.CaseBranch">
         <property name="caseValue" value="${CaseBranch.a00686e1-6bde-7b91-ad8e-2adae18416ad.caseValue}"/>
@@ -46,6 +46,7 @@
     </bean>
     <bean id="f32f69ec-be33-0b85-04a9-f34df30d6b3e"
           class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+        <property name="responseProcessor" ref="6bd79fb2-5208-fde1-e058-26d9a5bf722f"/>
         <property name="addressTypeStr"
                   value="${NIOHttpEgressConnector.f32f69ec-be33-0b85-04a9-f34df30d6b3e.addressTypeStr}"/>
         <property name="host" value="${NIOHttpEgressConnector.f32f69ec-be33-0b85-04a9-f34df30d6b3e.host}"/>
@@ -70,7 +71,6 @@
                   value="${NIOHttpEgressConnector.f32f69ec-be33-0b85-04a9-f34df30d6b3e.continueOnRuntimeExceptions}"/>
         <property name="continueOnCheckedExceptions"
                   value="${NIOHttpEgressConnector.f32f69ec-be33-0b85-04a9-f34df30d6b3e.continueOnCheckedExceptions}"/>
-        <property name="responseProcessor" ref="6bd79fb2-5208-fde1-e058-26d9a5bf722f"/>
     </bean>
     <bean id="e4e7e329-1e51-48ed-7d6b-34b6aa4706bb" class="org.adroitlogic.x.processor.flowControl.CaseBranch">
         <property name="caseValue" value="${CaseBranch.e4e7e329-1e51-48ed-7d6b-34b6aa4706bb.caseValue}"/>
@@ -78,6 +78,8 @@
     </bean>
     <bean id="b61465fc-3bd4-b93f-b9b2-f93d37a99679"
           class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+
+        <property name="responseProcessor" ref="6bd79fb2-5208-fde1-e058-26d9a5bf722f"/>
         <property name="addressTypeStr"
                   value="${NIOHttpEgressConnector.b61465fc-3bd4-b93f-b9b2-f93d37a99679.addressTypeStr}"/>
         <property name="host" value="${NIOHttpEgressConnector.b61465fc-3bd4-b93f-b9b2-f93d37a99679.host}"/>
@@ -102,10 +104,11 @@
                   value="${NIOHttpEgressConnector.b61465fc-3bd4-b93f-b9b2-f93d37a99679.continueOnRuntimeExceptions}"/>
         <property name="continueOnCheckedExceptions"
                   value="${NIOHttpEgressConnector.b61465fc-3bd4-b93f-b9b2-f93d37a99679.continueOnCheckedExceptions}"/>
-        <property name="responseProcessor" ref="6bd79fb2-5208-fde1-e058-26d9a5bf722f"/>
     </bean>
     <bean id="dbb391f0-dd96-dc14-8232-96d2b70c2005"
           class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+
+        <property name="responseProcessor" ref="6bd79fb2-5208-fde1-e058-26d9a5bf722f"/>
         <property name="addressTypeStr"
                   value="${NIOHttpEgressConnector.dbb391f0-dd96-dc14-8232-96d2b70c2005.addressTypeStr}"/>
         <property name="host" value="${NIOHttpEgressConnector.dbb391f0-dd96-dc14-8232-96d2b70c2005.host}"/>
@@ -130,6 +133,5 @@
                   value="${NIOHttpEgressConnector.dbb391f0-dd96-dc14-8232-96d2b70c2005.continueOnRuntimeExceptions}"/>
         <property name="continueOnCheckedExceptions"
                   value="${NIOHttpEgressConnector.dbb391f0-dd96-dc14-8232-96d2b70c2005.continueOnCheckedExceptions}"/>
-        <property name="responseProcessor" ref="6bd79fb2-5208-fde1-e058-26d9a5bf722f"/>
     </bean>
 </beans>

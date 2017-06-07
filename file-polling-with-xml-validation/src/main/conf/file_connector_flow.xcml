@@ -10,6 +10,8 @@
         <property name="moveAfterFailure" value="${FileIngressConnector.fileListener.moveAfterFailure}"/>
         <property name="errorHandler" ref="a42f5cb7-9987-7df7-cafe-960e2ece51b3"/>
         <property name="processingElement" ref="a51aa02d-f5a2-51de-98d6-67d674187a92"/>
+        <property name="cronExpression"
+                  value="${FileIngressConnector.fileListener.cronExpression}"/>
         <property name="startDelay" value="${FileIngressConnector.fileListener.startDelay}"/>
         <property name="repeatInterval"
                   value="${FileIngressConnector.fileListener.repeatInterval}"/>
