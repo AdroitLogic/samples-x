@@ -53,6 +53,12 @@
     "yPosition" : 160.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "emailReceivedLogger",
+    "xPosition" : 480.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
   } ],
   "subFlowImportMap" : { },
   "stateConfig" : {

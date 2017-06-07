@@ -15,14 +15,14 @@
         <property name="name" value="${SaveAttachmentToFile.attachmentSaver.name}"/>
     </bean>
     <bean id="successfulFlowEnd" class="org.adroitlogic.x.components.flowend.SuccessfulFlowEnd"/>
-    <bean id="emailRecievedLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+    <bean id="emailReceivedLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
         <property name="logTemplate"
-                  value="${LoggerProcessingElement.emailRecievedLogger.logTemplate}"/>
-        <property name="logLevel" value="${LoggerProcessingElement.emailRecievedLogger.logLevel}"/>
+                  value="${LoggerProcessingElement.emailReceivedLogger.logTemplate}"/>
+        <property name="logLevel" value="${LoggerProcessingElement.emailReceivedLogger.logLevel}"/>
         <property name="nextElement" ref="attachmentSaver"/>
     </bean>
     <bean id="emailListener" class="org.adroitlogic.x.connector.mail.MailIngressConnector">
-        <property name="processingElement" ref="emailRecievedLogger"/>
+        <property name="processingElement" ref="emailReceivedLogger"/>
         <property name="protocol" value="${MailIngressConnector.emailListener.protocol}"/>
         <property name="host" value="${MailIngressConnector.emailListener.host}"/>
         <property name="port" value="${MailIngressConnector.emailListener.port}"/>
