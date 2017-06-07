@@ -6,12 +6,6 @@
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "d176cb3e-9e52-05df-a572-ad1887c46298",
-    "xPosition" : 240.0,
-    "yPosition" : 160.0,
-    "angle" : 0.0,
-    "elementType" : "IngressConnector"
-  }, {
     "beanId" : "3f4fe662-fba3-aaa2-f8af-cde061fb2a00",
     "xPosition" : 400.0,
     "yPosition" : 160.0,
@@ -36,36 +30,6 @@
     "angle" : 90.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "c90b193a-de24-9d25-e7d9-3ed4339951ae",
-    "xPosition" : 480.0,
-    "yPosition" : 320.0,
-    "angle" : 90.0,
-    "elementType" : "EgressConnector"
-  }, {
-    "beanId" : "2789fcfa-812a-2810-e3c8-2e09a77407aa",
-    "xPosition" : 480.0,
-    "yPosition" : 480.0,
-    "angle" : 180.0,
-    "elementType" : "EgressConnector"
-  }, {
-    "beanId" : "4e6c22ca-f46a-bdbf-8a29-1b51816b4150",
-    "xPosition" : 720.0,
-    "yPosition" : 560.0,
-    "angle" : 90.0,
-    "elementType" : "EgressConnector"
-  }, {
-    "beanId" : "3cc096a2-91e8-0a41-8360-5b3b7f55342e",
-    "xPosition" : 880.0,
-    "yPosition" : 560.0,
-    "angle" : 90.0,
-    "elementType" : "EgressConnector"
-  }, {
-    "beanId" : "1622dd51-9712-6f08-26bf-6fc142eb145f",
-    "xPosition" : 1040.0,
-    "yPosition" : 560.0,
-    "angle" : 90.0,
-    "elementType" : "EgressConnector"
-  }, {
     "beanId" : "8791eb5c-2c58-bf0a-755d-cac87ac42cb0",
     "xPosition" : 560.0,
     "yPosition" : 160.0,
@@ -80,20 +44,134 @@
   }, {
     "beanId" : "b51f570b-95e3-17eb-30c1-635ad6f53d34",
     "xPosition" : 880.0,
-    "yPosition" : 160.0,
+    "yPosition" : 80.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
   }, {
     "beanId" : "e1896ad5-d5c2-5618-6e47-55474f5a0a5a",
-    "xPosition" : 720.0,
-    "yPosition" : 160.0,
+    "xPosition" : 640.0,
+    "yPosition" : 80.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "d176cb3e-9e52-05df-a572-ad1887c46298",
+    "xPosition" : 240.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "IngressConnector"
+  }, {
+    "beanId" : "c90b193a-de24-9d25-e7d9-3ed4339951ae",
+    "xPosition" : 240.0,
+    "yPosition" : 400.0,
+    "angle" : 90.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "1622dd51-9712-6f08-26bf-6fc142eb145f",
+    "xPosition" : 1040.0,
+    "yPosition" : 400.0,
+    "angle" : 90.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "3cc096a2-91e8-0a41-8360-5b3b7f55342e",
+    "xPosition" : 1040.0,
+    "yPosition" : 400.0,
+    "angle" : 90.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "4e6c22ca-f46a-bdbf-8a29-1b51816b4150",
+    "xPosition" : 400.0,
+    "yPosition" : 400.0,
+    "angle" : 90.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "2789fcfa-812a-2810-e3c8-2e09a77407aa",
+    "xPosition" : 480.0,
+    "yPosition" : 400.0,
+    "angle" : 180.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "cloneOriginalMessageProcessor",
+    "xPosition" : 320.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "csvToXmlProcessor",
+    "xPosition" : 480.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "cloneTransformedMessageProcessor",
+    "xPosition" : 960.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "cloneTransformedMessage2Processor",
+    "xPosition" : 960.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "cloneTransformedMessage3Processor",
+    "xPosition" : 720.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "XSLTTransformProcessor",
+    "xPosition" : 640.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "xPathExtractProcessor",
+    "xPosition" : 800.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "sftpListner",
+    "xPosition" : 240.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "IngressConnector"
+  }, {
+    "beanId" : "sftpEgressConnector3",
+    "xPosition" : 400.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "sftpEgressConnector2",
+    "xPosition" : 1200.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "sftpEgressConnector5",
+    "xPosition" : 1040.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "sftpEgressConnector4",
+    "xPosition" : 880.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "sftpEgressConnector1",
+    "xPosition" : 720.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
   } ],
   "subFlowImportMap" : { },
   "stateConfig" : {
     "zoomScale" : 1.0,
-    "scrollXPosition" : 50.0,
-    "scrollYPosition" : 60.0
+    "scrollXPosition" : 0.0,
+    "scrollYPosition" : 150.0
   }
 }
