@@ -1,0 +1,72 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+
+    <bean id="electronics-http-listener"
+          class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+        <property name="port" value="${NIOHttpIngressConnector.electronics-http-listener.port}"/>
+        <property name="path" value="${NIOHttpIngressConnector.electronics-http-listener.path}"/>
+        <property name="enableConnectionDebug"
+                  value="${NIOHttpIngressConnector.electronics-http-listener.enableConnectionDebug}"/>
+        <property name="zeroCopyEnabled"
+                  value="${NIOHttpIngressConnector.electronics-http-listener.zeroCopyEnabled}"/>
+        <property name="noCompression"
+                  value="${NIOHttpIngressConnector.electronics-http-listener.noCompression}"/>
+        <property name="continueOnRuntimeExceptions"
+                  value="${NIOHttpIngressConnector.electronics-http-listener.continueOnRuntimeExceptions}"/>
+        <property name="continueOnCheckedExceptions"
+                  value="${NIOHttpIngressConnector.electronics-http-listener.continueOnCheckedExceptions}"/>
+        <property name="processingElement" ref="electronics-string-payload-setter"/>
+    </bean>
+    <bean id="computer-science-http-listener"
+          class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+        <property name="port" value="${NIOHttpIngressConnector.computer-science-http-listener.port}"/>
+        <property name="path" value="${NIOHttpIngressConnector.computer-science-http-listener.path}"/>
+        <property name="enableConnectionDebug"
+                  value="${NIOHttpIngressConnector.computer-science-http-listener.enableConnectionDebug}"/>
+        <property name="zeroCopyEnabled"
+                  value="${NIOHttpIngressConnector.computer-science-http-listener.zeroCopyEnabled}"/>
+        <property name="noCompression"
+                  value="${NIOHttpIngressConnector.computer-science-http-listener.noCompression}"/>
+        <property name="continueOnRuntimeExceptions"
+                  value="${NIOHttpIngressConnector.computer-science-http-listener.continueOnRuntimeExceptions}"/>
+        <property name="continueOnCheckedExceptions"
+                  value="${NIOHttpIngressConnector.computer-science-http-listener.continueOnCheckedExceptions}"/>
+        <property name="processingElement" ref="computer-science-string-payload-setter"/>
+    </bean>
+    <bean id="legacy-http-listener"
+          class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+        <property name="port" value="${NIOHttpIngressConnector.legacy-http-listener.port}"/>
+        <property name="path" value="${NIOHttpIngressConnector.legacy-http-listener.path}"/>
+        <property name="enableConnectionDebug"
+                  value="${NIOHttpIngressConnector.legacy-http-listener.enableConnectionDebug}"/>
+        <property name="zeroCopyEnabled"
+                  value="${NIOHttpIngressConnector.legacy-http-listener.zeroCopyEnabled}"/>
+        <property name="noCompression"
+                  value="${NIOHttpIngressConnector.legacy-http-listener.noCompression}"/>
+        <property name="continueOnRuntimeExceptions"
+                  value="${NIOHttpIngressConnector.legacy-http-listener.continueOnRuntimeExceptions}"/>
+        <property name="continueOnCheckedExceptions"
+                  value="${NIOHttpIngressConnector.legacy-http-listener.continueOnCheckedExceptions}"/>
+        <property name="processingElement" ref="legacy-string-payload-setter"/>
+    </bean>
+    <bean id="computer-science-string-payload-setter"
+          class="org.adroitlogic.x.processor.payloadSetter.SetPayloadFromString">
+        <property name="stringPayload"
+                  value="${SetPayloadFromString.computer-science-string-payload-setter.stringPayload}"/>
+        <property name="nextElement" ref="computer-science-http-listener"/>
+    </bean>
+    <bean id="electronics-string-payload-setter"
+          class="org.adroitlogic.x.processor.payloadSetter.SetPayloadFromString">
+        <property name="stringPayload"
+                  value="${SetPayloadFromString.electronics-string-payload-setter.stringPayload}"/>
+        <property name="nextElement" ref="electronics-http-listener"/>
+    </bean>
+    <bean id="legacy-string-payload-setter"
+          class="org.adroitlogic.x.processor.payloadSetter.SetPayloadFromString">
+        <property name="stringPayload"
+                  value="${SetPayloadFromString.legacy-string-payload-setter.stringPayload}"/>
+        <property name="nextElement" ref="legacy-http-listener"/>
+    </bean>
+</beans>

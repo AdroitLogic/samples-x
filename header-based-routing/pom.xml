@@ -140,6 +140,12 @@
             <artifactId>x-processor-regular-flow-control</artifactId>
             <version>17.01.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-payload-setter</artifactId>
+            <version>17.01.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
