@@ -8,6 +8,9 @@
     
     <x:flows>
         <x:flow id="content_based_routing" file="content_based_routing.xcml"/>
+        <x:flow id="backend" file="content-backend/backend.xcml"/>
+        <x:flow id="backend-computer" file="content-backend/backend-computer.xcml"/>
+        <x:flow id="backend-electronics" file="content-backend/backend-electronics.xcml"/>
     </x:flows>
 
     <x:resources>
