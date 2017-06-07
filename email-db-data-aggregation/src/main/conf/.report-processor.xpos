@@ -59,11 +59,71 @@
     "yPosition" : 160.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "csvReader",
+    "xPosition" : 400.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "IngressConnector"
+  }, {
+    "beanId" : "csvReaderLog",
+    "xPosition" : 560.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "csvToXmlConverter",
+    "xPosition" : 720.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "xmlSplitter",
+    "xPosition" : 880.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "exceptionalFlowEnd",
+    "xPosition" : 1040.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "xPathExtractor",
+    "xPosition" : 400.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "databaseActionLogger",
+    "xPosition" : 560.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "databaseProcessingElement",
+    "xPosition" : 720.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "xmlAggregator",
+    "xPosition" : 880.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "successfulFlowEnd",
+    "xPosition" : 1040.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
   } ],
   "subFlowImportMap" : { },
   "stateConfig" : {
     "zoomScale" : 1.0,
-    "scrollXPosition" : 50.0,
-    "scrollYPosition" : 0.0
+    "scrollXPosition" : 284.0,
+    "scrollYPosition" : 75.0
   }
 }

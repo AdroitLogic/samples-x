@@ -3,53 +3,53 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
 
-    <bean id="25ce70b4-0a1b-1449-05c7-85993948f84d"
+    <bean id="attachmentSaver"
           class="org.adroitlogic.x.processor.attachment.SaveAttachmentToFile">
-        <property name="nextElement" ref="5d44b996-a8b1-4fb7-1803-169366b49c72"/>
+        <property name="nextElement" ref="successfulFlowEnd"/>
         <property name="attachmentNameRegex"
-                  value="${SaveAttachmentToFile.25ce70b4-0a1b-1449-05c7-85993948f84d.attachmentNameRegex}"/>
+                  value="${SaveAttachmentToFile.attachmentSaver.attachmentNameRegex}"/>
         <property name="directoryPath"
-                  value="${SaveAttachmentToFile.25ce70b4-0a1b-1449-05c7-85993948f84d.directoryPath}"/>
+                  value="${SaveAttachmentToFile.attachmentSaver.directoryPath}"/>
         <property name="useAttachmentNameAsFileName"
-                  value="${SaveAttachmentToFile.25ce70b4-0a1b-1449-05c7-85993948f84d.useAttachmentNameAsFileName}"/>
-        <property name="name" value="${SaveAttachmentToFile.25ce70b4-0a1b-1449-05c7-85993948f84d.name}"/>
+                  value="${SaveAttachmentToFile.attachmentSaver.useAttachmentNameAsFileName}"/>
+        <property name="name" value="${SaveAttachmentToFile.attachmentSaver.name}"/>
     </bean>
-    <bean id="5d44b996-a8b1-4fb7-1803-169366b49c72" class="org.adroitlogic.x.components.flowend.SuccessfulFlowEnd"/>
-    <bean id="6bf32d58-a491-9478-0c95-e952182875a2" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+    <bean id="successfulFlowEnd" class="org.adroitlogic.x.components.flowend.SuccessfulFlowEnd"/>
+    <bean id="emailRecievedLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
         <property name="logTemplate"
-                  value="${LoggerProcessingElement.6bf32d58-a491-9478-0c95-e952182875a2.logTemplate}"/>
-        <property name="logLevel" value="${LoggerProcessingElement.6bf32d58-a491-9478-0c95-e952182875a2.logLevel}"/>
-        <property name="nextElement" ref="25ce70b4-0a1b-1449-05c7-85993948f84d"/>
+                  value="${LoggerProcessingElement.emailRecievedLogger.logTemplate}"/>
+        <property name="logLevel" value="${LoggerProcessingElement.emailRecievedLogger.logLevel}"/>
+        <property name="nextElement" ref="attachmentSaver"/>
     </bean>
-    <bean id="a709e3d0-70ab-bd13-386a-621ee50aec0b" class="org.adroitlogic.x.connector.mail.MailIngressConnector">
-        <property name="processingElement" ref="6bf32d58-a491-9478-0c95-e952182875a2"/>
-        <property name="protocol" value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.protocol}"/>
-        <property name="host" value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.host}"/>
-        <property name="port" value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.port}"/>
-        <property name="user" value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.user}"/>
-        <property name="password" value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.password}"/>
-        <property name="folder" value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.folder}"/>
+    <bean id="emailListener" class="org.adroitlogic.x.connector.mail.MailIngressConnector">
+        <property name="processingElement" ref="emailRecievedLogger"/>
+        <property name="protocol" value="${MailIngressConnector.emailListener.protocol}"/>
+        <property name="host" value="${MailIngressConnector.emailListener.host}"/>
+        <property name="port" value="${MailIngressConnector.emailListener.port}"/>
+        <property name="user" value="${MailIngressConnector.emailListener.user}"/>
+        <property name="password" value="${MailIngressConnector.emailListener.password}"/>
+        <property name="folder" value="${MailIngressConnector.emailListener.folder}"/>
         <property name="addressCombiner" value="AND"/>
         <property name="searchHeaderCombiner" value="AND"/>
         <property name="searchFlagCombiner" value="AND"/>
         <property name="searchOnServer"
-                  value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.searchOnServer}"/>
+                  value="${MailIngressConnector.emailListener.searchOnServer}"/>
         <property name="lazyFetchPayload"
-                  value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.lazyFetchPayload}"/>
+                  value="${MailIngressConnector.emailListener.lazyFetchPayload}"/>
         <property name="lazyFetchAttachments"
-                  value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.lazyFetchAttachments}"/>
+                  value="${MailIngressConnector.emailListener.lazyFetchAttachments}"/>
         <property name="deleteAfterProcess"
-                  value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.deleteAfterProcess}"/>
+                  value="${MailIngressConnector.emailListener.deleteAfterProcess}"/>
         <property name="deleteOnFailure"
-                  value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.deleteOnFailure}"/>
-        <property name="startDelay" value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.startDelay}"/>
+                  value="${MailIngressConnector.emailListener.deleteOnFailure}"/>
+        <property name="startDelay" value="${MailIngressConnector.emailListener.startDelay}"/>
         <property name="repeatInterval"
-                  value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.repeatInterval}"/>
-        <property name="repeatCount" value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.repeatCount}"/>
+                  value="${MailIngressConnector.emailListener.repeatInterval}"/>
+        <property name="repeatCount" value="${MailIngressConnector.emailListener.repeatCount}"/>
         <property name="concurrentPollingCount"
-                  value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.concurrentPollingCount}"/>
+                  value="${MailIngressConnector.emailListener.concurrentPollingCount}"/>
         <property name="parallelExecutionCount"
-                  value="${MailIngressConnector.a709e3d0-70ab-bd13-386a-621ee50aec0b.parallelExecutionCount}"/>
+                  value="${MailIngressConnector.emailListener.parallelExecutionCount}"/>
         <property name="otherSettings" ref="mail-props"/>
         <property name="searchHeaders" ref="mail-headers"/>
     </bean>
