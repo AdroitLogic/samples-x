@@ -2,32 +2,32 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-    <bean id="2a8be6ab-903d-7862-92e5-357d1428186c" class="org.adroitlogic.x.connector.fix.FIXIngressConnector">
-        <property name="socketAcceptPort" value="${FIXIngressConnector.2a8be6ab-903d-7862-92e5-357d1428186c.socketAcceptPort}"/>
-        <property name="senderCompID" value="${FIXIngressConnector.2a8be6ab-903d-7862-92e5-357d1428186c.senderCompID}"/>
-        <property name="heartBeatIntervalSec" value="${FIXIngressConnector.2a8be6ab-903d-7862-92e5-357d1428186c.heartBeatIntervalSec}"/>
-        <property name="startTime" value="${FIXIngressConnector.2a8be6ab-903d-7862-92e5-357d1428186c.startTime}"/>
-        <property name="endTime" value="${FIXIngressConnector.2a8be6ab-903d-7862-92e5-357d1428186c.endTime}"/>
+    <bean id="fix-initiator" class="org.adroitlogic.x.connector.fix.FIXIngressConnector">
+        <property name="socketAcceptPort" value="${FIXIngressConnector.fix-initiator.socketAcceptPort}"/>
+        <property name="senderCompID" value="${FIXIngressConnector.fix-initiator.senderCompID}"/>
+        <property name="heartBeatIntervalSec" value="${FIXIngressConnector.fix-initiator.heartBeatIntervalSec}"/>
+        <property name="startTime" value="${FIXIngressConnector.fix-initiator.startTime}"/>
+        <property name="endTime" value="${FIXIngressConnector.fix-initiator.endTime}"/>
         <property name="otherSettings" ref="acc-qfSettings-FIX5"/>
         <property name="configuredSessions" ref="acc-fixSessionList-FIX5"/>
         <property name="messageStoreFactory" ref="acc-fileMsgStore"/>
         <property name="logFactory" ref="acc-fileLogFactory"/>
-        <property name="processingElement" ref="86971553-2ed3-cc46-3492-bb6ad653e269"/>
+        <property name="processingElement" ref="fix-acceptor"/>
     </bean>
-    <bean id="86971553-2ed3-cc46-3492-bb6ad653e269" class="org.adroitlogic.x.connector.fix.FIXEgressConnector">
-        <property name="heartBeatIntervalSec" value="${FIXEgressConnector.86971553-2ed3-cc46-3492-bb6ad653e269.heartBeatIntervalSec}"/>
-        <property name="startTime" value="${FIXEgressConnector.86971553-2ed3-cc46-3492-bb6ad653e269.startTime}"/>
-        <property name="endTime" value="${FIXEgressConnector.86971553-2ed3-cc46-3492-bb6ad653e269.endTime}"/>
-        <property name="reconnectInterval" value="${FIXEgressConnector.86971553-2ed3-cc46-3492-bb6ad653e269.reconnectInterval}"/>
+    <bean id="fix-acceptor" class="org.adroitlogic.x.connector.fix.FIXEgressConnector">
+        <property name="heartBeatIntervalSec" value="${FIXEgressConnector.fix-acceptor.heartBeatIntervalSec}"/>
+        <property name="startTime" value="${FIXEgressConnector.fix-acceptor.startTime}"/>
+        <property name="endTime" value="${FIXEgressConnector.fix-acceptor.endTime}"/>
+        <property name="reconnectInterval" value="${FIXEgressConnector.fix-acceptor.reconnectInterval}"/>
         <property name="messageStoreFactory" ref="ini-fileMsgStore"/>
         <property name="logFactory" ref="ini-fileLogFactory"/>
         <property name="otherSettings" ref="ini-qfSettings-FIX5"/>
-        <property name="socketConnectHost" value="${FIXEgressConnector.86971553-2ed3-cc46-3492-bb6ad653e269.socketConnectHost}"/>
-        <property name="socketConnectPort" value="${FIXEgressConnector.86971553-2ed3-cc46-3492-bb6ad653e269.socketConnectPort}"/>
-        <property name="beginString" value="${FIXEgressConnector.86971553-2ed3-cc46-3492-bb6ad653e269.beginString}"/>
-        <property name="senderCompID" value="${FIXEgressConnector.86971553-2ed3-cc46-3492-bb6ad653e269.senderCompID}"/>
-        <property name="targetCompID" value="${FIXEgressConnector.86971553-2ed3-cc46-3492-bb6ad653e269.targetCompID}"/>
-        <property name="responseProcessor" ref="2a8be6ab-903d-7862-92e5-357d1428186c"/>
+        <property name="socketConnectHost" value="${FIXEgressConnector.fix-acceptor.socketConnectHost}"/>
+        <property name="socketConnectPort" value="${FIXEgressConnector.fix-acceptor.socketConnectPort}"/>
+        <property name="beginString" value="${FIXEgressConnector.fix-acceptor.beginString}"/>
+        <property name="senderCompID" value="${FIXEgressConnector.fix-acceptor.senderCompID}"/>
+        <property name="targetCompID" value="${FIXEgressConnector.fix-acceptor.targetCompID}"/>
+        <property name="responseProcessor" ref="fix-initiator"/>
         <property name="endpointConfigurations" ref="ini-endpointSettings-FIX5"/>
     </bean>
 </beans>
