@@ -3,49 +3,49 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
 
-    <bean id="376fe766-8210-f225-7fe0-dfa85a4d3ea8" class="org.adroitlogic.x.connector.sftp.SFTPIngressConnector">
-        <property name="processingElement" ref="5c333819-c6fb-e51d-a840-b6d0441402a1"/>
-        <property name="host" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.host}"/>
-        <property name="port" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.port}"/>
-        <property name="username" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.username}"/>
-        <property name="fetchPath" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.fetchPath}"/>
-        <property name="fileNamePattern" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.fileNamePattern}"/>
-        <property name="removeOriginal" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.removeOriginal}"/>
-        <property name="maxActiveConnections" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.maxActiveConnections}"/>
-        <property name="timeout" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.timeout}"/>
-        <property name="startDelay" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.startDelay}"/>
-        <property name="repeatInterval" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.repeatInterval}"/>
-        <property name="repeatCount" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.repeatCount}"/>
-        <property name="concurrentPollingCount" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.concurrentPollingCount}"/>
-        <property name="parallelExecutionCount" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.parallelExecutionCount}"/>
+    <bean id="sftp-ingress-connector" class="org.adroitlogic.x.connector.sftp.SFTPIngressConnector">
+        <property name="processingElement" ref="json-path-extractor"/>
+        <property name="host" value="${SFTPIngressConnector.sftp-ingress-connector.host}"/>
+        <property name="port" value="${SFTPIngressConnector.sftp-ingress-connector.port}"/>
+        <property name="username" value="${SFTPIngressConnector.sftp-ingress-connector.username}"/>
+        <property name="fetchPath" value="${SFTPIngressConnector.sftp-ingress-connector.fetchPath}"/>
+        <property name="fileNamePattern" value="${SFTPIngressConnector.sftp-ingress-connector.fileNamePattern}"/>
+        <property name="removeOriginal" value="${SFTPIngressConnector.sftp-ingress-connector.removeOriginal}"/>
+        <property name="maxActiveConnections" value="${SFTPIngressConnector.sftp-ingress-connector.maxActiveConnections}"/>
+        <property name="timeout" value="${SFTPIngressConnector.sftp-ingress-connector.timeout}"/>
+        <property name="startDelay" value="${SFTPIngressConnector.sftp-ingress-connector.startDelay}"/>
+        <property name="repeatInterval" value="${SFTPIngressConnector.sftp-ingress-connector.repeatInterval}"/>
+        <property name="repeatCount" value="${SFTPIngressConnector.sftp-ingress-connector.repeatCount}"/>
+        <property name="concurrentPollingCount" value="${SFTPIngressConnector.sftp-ingress-connector.concurrentPollingCount}"/>
+        <property name="parallelExecutionCount" value="${SFTPIngressConnector.sftp-ingress-connector.parallelExecutionCount}"/>
         <property name="hostKeyCheck"
-                  value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.hostKeyCheck}"/>
-        <property name="password" value="${SFTPIngressConnector.376fe766-8210-f225-7fe0-dfa85a4d3ea8.password}"/>
+                  value="${SFTPIngressConnector.sftp-ingress-connector.hostKeyCheck}"/>
+        <property name="password" value="${SFTPIngressConnector.sftp-ingress-connector.password}"/>
     </bean>
 
-    <bean id="5c333819-c6fb-e51d-a840-b6d0441402a1"
+    <bean id="json-path-extractor"
           class="org.adroitlogic.x.processor.extract.path.json.JSONPathExtractProcessor">
-        <property name="jsonPath" value="${JSONPathExtractProcessor.5c333819-c6fb-e51d-a840-b6d0441402a1.jsonPath}"/>
+        <property name="jsonPath" value="${JSONPathExtractProcessor.json-path-extractor.jsonPath}"/>
         <property name="variableName"
-                  value="${JSONPathExtractProcessor.5c333819-c6fb-e51d-a840-b6d0441402a1.variableName}"/>
-        <property name="nextElement" ref="52d2c420-e515-7d20-1bad-3acfd8bea6b2"/>
+                  value="${JSONPathExtractProcessor.json-path-extractor.variableName}"/>
+        <property name="nextElement" ref="logger"/>
     </bean>
 
-    <bean id="52d2c420-e515-7d20-1bad-3acfd8bea6b2" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
-        <property name="logTemplate" value="${LoggerProcessingElement.52d2c420-e515-7d20-1bad-3acfd8bea6b2.logTemplate}"/>
-        <property name="logLevel" value="${LoggerProcessingElement.52d2c420-e515-7d20-1bad-3acfd8bea6b2.logLevel}"/>
-        <property name="nextElement" ref="529f8252-a549-ecbf-58d8-fa0b96ccf7be"/>
+    <bean id="logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+        <property name="logTemplate" value="${LoggerProcessingElement.logger.logTemplate}"/>
+        <property name="logLevel" value="${LoggerProcessingElement.logger.logLevel}"/>
+        <property name="nextElement" ref="sftp-egress-connector"/>
     </bean>
 
-    <bean id="529f8252-a549-ecbf-58d8-fa0b96ccf7be" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
-        <property name="host" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.host}"/>
-        <property name="port" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.port}"/>
-        <property name="filePath" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.filePath}"/>
-        <property name="fileName" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.fileName}"/>
-        <property name="username" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.username}"/>
-        <property name="password" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.password}"/>
-        <property name="maxActiveConnections" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.maxActiveConnections}"/>
-        <property name="timeout" value="${SFTPEgressConnector.529f8252-a549-ecbf-58d8-fa0b96ccf7be.timeout}"/>
+    <bean id="sftp-egress-connector" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
+        <property name="host" value="${SFTPEgressConnector.sftp-egress-connector.host}"/>
+        <property name="port" value="${SFTPEgressConnector.sftp-egress-connector.port}"/>
+        <property name="filePath" value="${SFTPEgressConnector.sftp-egress-connector.filePath}"/>
+        <property name="fileName" value="${SFTPEgressConnector.sftp-egress-connector.fileName}"/>
+        <property name="username" value="${SFTPEgressConnector.sftp-egress-connector.username}"/>
+        <property name="password" value="${SFTPEgressConnector.sftp-egress-connector.password}"/>
+        <property name="maxActiveConnections" value="${SFTPEgressConnector.sftp-egress-connector.maxActiveConnections}"/>
+        <property name="timeout" value="${SFTPEgressConnector.sftp-egress-connector.timeout}"/>
     </bean>
 
 </beans>

@@ -1,0 +1,47 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+
+    <bean id="backend-listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+        <property name="port" value="${NIOHttpIngressConnector.backend-listener.port}"/>
+        <property name="path" value="${NIOHttpIngressConnector.backend-listener.path}"/>
+        <property name="enableConnectionDebug"
+                  value="${NIOHttpIngressConnector.backend-listener.enableConnectionDebug}"/>
+        <property name="zeroCopyEnabled" value="${NIOHttpIngressConnector.backend-listener.zeroCopyEnabled}"/>
+        <property name="noCompression" value="${NIOHttpIngressConnector.backend-listener.noCompression}"/>
+        <property name="continueOnRuntimeExceptions"
+                  value="${NIOHttpIngressConnector.backend-listener.continueOnRuntimeExceptions}"/>
+        <property name="continueOnCheckedExceptions"
+                  value="${NIOHttpIngressConnector.backend-listener.continueOnCheckedExceptions}"/>
+        <property name="processingElement" ref="6481d2cc-13c5-999f-f91e-c54676cfe491"/>
+    </bean>
+    <bean id="6481d2cc-13c5-999f-f91e-c54676cfe491"
+          class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+        <property name="responseProcessor" ref="backend-listener"/>
+        <property name="addressTypeStr"
+                  value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.addressTypeStr}"/>
+        <property name="host" value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.host}"/>
+        <property name="port" value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.port}"/>
+        <property name="servicePath"
+                  value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.servicePath}"/>
+        <property name="zeroCopy" value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.zeroCopy}"/>
+        <property name="connectionDebug"
+                  value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.connectionDebug}"/>
+        <property name="replaceUserAgent"
+                  value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.replaceUserAgent}"/>
+        <property name="unzipResponseEntities"
+                  value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.unzipResponseEntities}"/>
+        <property name="keepalive" value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.keepalive}"/>
+        <property name="keepAliveSafetyThreshold"
+                  value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.keepAliveSafetyThreshold}"/>
+        <property name="maxPerRoute"
+                  value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.maxPerRoute}"/>
+        <property name="maxConnections"
+                  value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.maxConnections}"/>
+        <property name="continueOnRuntimeExceptions"
+                  value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.continueOnRuntimeExceptions}"/>
+        <property name="continueOnCheckedExceptions"
+                  value="${NIOHttpEgressConnector.6481d2cc-13c5-999f-f91e-c54676cfe491.continueOnCheckedExceptions}"/>
+    </bean>
+</beans>
