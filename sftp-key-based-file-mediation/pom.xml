@@ -7,14 +7,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.adroitlogic.x.samples</groupId>
-    <artifactId>SftpFileMediationWithTransformation</artifactId>
+    <artifactId>SFTPFileMediation</artifactId>
     <version>17.01.2</version>
     <packaging>xpr</packaging>
-    <name>AdroitLogic Project-X Sample - SFTP File with Transformation</name>
+    <name>AdroitLogic Project-X Sample - SFTP File Mediation</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's SFTP connector and the transformation features</description>
+        demonstrating it's SFTP connector and the file mediation features</description>
 
-    <url>https://developer.adroitlogic.com/samples/advanced/17.01/sftp-mediation-with-transformation/</url>
+    <url>https://developer.adroitlogic.com/samples/introductory/17.01.2/sftp-file-mediation/</url>
 
     <repositories>
         <repository>
@@ -137,17 +137,12 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-flow-control</artifactId>
-            <version>17.01.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-transform</artifactId>
-            <version>17.01.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-regular-extractor</artifactId>
+            <version>17.01.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-logger</artifactId>
             <version>17.01.2</version>
         </dependency>
     </dependencies>
