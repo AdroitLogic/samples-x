@@ -1,40 +1,22 @@
 {
   "uiConfigFileElementList" : [ {
-    "beanId" : "5070138d-1e0b-023f-8e28-62acd0fa5b49",
-    "xPosition" : 960.0,
+    "beanId" : "httpListener",
+    "xPosition" : 320.0,
     "yPosition" : 160.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "556ced6b-eedd-8f85-9bf3-bc8c7ab90960",
+    "beanId" : "httpSender",
+    "xPosition" : 480.0,
+    "yPosition" : 160.0,
+    "angle" : 0.0,
+    "elementType" : "EgressConnector"
+  }, {
+    "beanId" : "msgLogger",
     "xPosition" : 640.0,
     "yPosition" : 160.0,
     "angle" : 0.0,
-    "elementType" : "ResponseIngressConnector"
-  }, {
-    "beanId" : "3e8d3062-9f96-4b19-e2ed-6376ac1d7ca4",
-    "xPosition" : 800.0,
-    "yPosition" : 160.0,
-    "angle" : 0.0,
-    "elementType" : "EgressConnector"
-  }, {
-    "beanId" : "4d603dba-10ea-c920-fd74-b1235e8d1dba",
-    "xPosition" : 720.0,
-    "yPosition" : 160.0,
-    "angle" : 0.0,
     "elementType" : "ProcessingElement"
-  }, {
-    "beanId" : "d842fab9-c150-91a2-4932-aaa2f82ec5d1",
-    "xPosition" : 400.0,
-    "yPosition" : 160.0,
-    "angle" : 0.0,
-    "elementType" : "ResponseIngressConnector"
-  }, {
-    "beanId" : "b5ee8c28-1c6f-2681-2686-6459effac554",
-    "xPosition" : 560.0,
-    "yPosition" : 160.0,
-    "angle" : 0.0,
-    "elementType" : "EgressConnector"
   } ],
   "subFlowImportMap" : { },
   "stateConfig" : {
