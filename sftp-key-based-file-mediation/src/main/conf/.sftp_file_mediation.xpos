@@ -6,25 +6,25 @@
     "angle" : 0.0,
     "elementType" : "IngressConnector"
   }, {
-    "beanId" : "5c333819-c6fb-e51d-a840-b6d0441402a1",
+    "beanId" : "json-path-extractor",
     "xPosition" : 480.0,
     "yPosition" : 160.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "52d2c420-e515-7d20-1bad-3acfd8bea6b2",
+    "beanId" : "logger",
     "xPosition" : 640.0,
     "yPosition" : 160.0,
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "529f8252-a549-ecbf-58d8-fa0b96ccf7be",
+    "beanId" : "sftp-egress-connector",
     "xPosition" : 800.0,
     "yPosition" : 160.0,
     "angle" : 0.0,
     "elementType" : "EgressConnector"
   }, {
-    "beanId" : "376fe766-8210-f225-7fe0-dfa85a4d3ea8",
+    "beanId" : "sftp-ingress-connector",
     "xPosition" : 320.0,
     "yPosition" : 160.0,
     "angle" : 0.0,
