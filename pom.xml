@@ -43,4 +43,33 @@
         <module>web-service-via-email</module>
     </modules>
 
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.adroitlogic.build</groupId>
+                <artifactId>aws-maven</artifactId>
+                <version>${aws-maven.version}</version>
+            </extension>
+        </extensions>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <properties>
+        <project-plugin-version>17.07-beta1</project-plugin-version>
+        <aws-maven.version>1.0.0</aws-maven.version>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
 </project>
