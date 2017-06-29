@@ -6,7 +6,7 @@
     "angle" : 0.0,
     "elementType" : "ProcessingElement"
   }, {
-    "beanId" : "fa2cef6e-26cf-8f1f-d080-124d5a5587da",
+    "beanId" : "fileSender",
     "xPosition" : 1120.0,
     "yPosition" : 480.0,
     "angle" : 0.0,
@@ -33,7 +33,7 @@
   "subFlowImportMap" : { },
   "stateConfig" : {
     "zoomScale" : 1.0,
-    "scrollXPosition" : 280.0,
-    "scrollYPosition" : 230.0
+    "scrollXPosition" : 210.0,
+    "scrollYPosition" : 0.0
   }
 }

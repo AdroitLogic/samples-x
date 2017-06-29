@@ -31,11 +31,11 @@
     <bean id="a51aa02d-f5a2-51de-98d6-67d674187a92" class="org.adroitlogic.x.processor.validate.xml.XSDValidator">
         <property name="xsdPaths" value="metaValidator.xsd"/>
         <property name="onValidationSuccess" ref="jmsForFileListener"/>
-        <property name="onValidationFailure" ref="fa2cef6e-26cf-8f1f-d080-124d5a5587da"/>
+        <property name="onValidationFailure" ref="fileSender"/>
         <property name="errorHandler" ref="a42f5cb7-9987-7df7-cafe-960e2ece51b3"/>
     </bean>
-    <bean id="fa2cef6e-26cf-8f1f-d080-124d5a5587da" class="org.adroitlogic.x.connector.file.polling.FileEgressConnector">
-        <property name="filePath" value="error"/>
+    <bean id="fileSender" class="org.adroitlogic.x.connector.file.polling.FileEgressConnector">
+        <property name="filePath" value="${FileEgressConnector.fileSender.filePath}"/>
     </bean>
 
 </beans>

@@ -1,0 +1,81 @@
+{
+  "uiConfigFileElementList" : [ {
+    "beanId" : "5acb45b0-6a02-004c-1f29-0f7ec759a327",
+    "xPosition" : 400.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "ResponseIngressConnector"
+  }, {
+    "beanId" : "4e5519d9-cd6d-a447-c9df-0b93cf725471",
+    "xPosition" : 400.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ResponseIngressConnector"
+  }, {
+    "beanId" : "f5a05fa9-1fd4-21dc-6a24-18c007e23328",
+    "xPosition" : 640.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "369e95af-1f08-37a8-60e0-62d2eee77dd2",
+    "xPosition" : 640.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "ab6f9284-3f9a-6409-1efa-9e46b70c3e71",
+    "xPosition" : 1280.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ResponseIngressConnector"
+  }, {
+    "beanId" : "d6cd0a8c-52fd-0112-c284-a44bfa83a260",
+    "xPosition" : 640.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "electronics-http-listener",
+    "xPosition" : 400.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ResponseIngressConnector"
+  }, {
+    "beanId" : "computer-science-http-listener",
+    "xPosition" : 400.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ResponseIngressConnector"
+  }, {
+    "beanId" : "legacy-http-listener",
+    "xPosition" : 400.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "ResponseIngressConnector"
+  }, {
+    "beanId" : "computer-science-string-payload-setter",
+    "xPosition" : 640.0,
+    "yPosition" : 240.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "electronics-string-payload-setter",
+    "xPosition" : 640.0,
+    "yPosition" : 80.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  }, {
+    "beanId" : "legacy-string-payload-setter",
+    "xPosition" : 640.0,
+    "yPosition" : 400.0,
+    "angle" : 0.0,
+    "elementType" : "ProcessingElement"
+  } ],
+  "subFlowImportMap" : { },
+  "stateConfig" : {
+    "zoomScale" : 1.0,
+    "scrollXPosition" : 0.0,
+    "scrollYPosition" : 150.0
+  }
+}

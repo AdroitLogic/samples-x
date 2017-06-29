@@ -8,6 +8,7 @@
 
     <x:flows>
         <x:flow id="header-based-routing" file="header-based-routing.xcml"/>
+        <x:flow id="department-services" file="backendServices/department-services.xcml"/>
     </x:flows>
 
     <x:resources>
