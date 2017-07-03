@@ -1,0 +1,36 @@
+<x:flow id="back-end.generic-results" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+        <bean id="c189b795-fe5c-1572-5824-1d669b2853fb"
+              class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="processingElement" ref="16ab4720-2a8a-9bf6-31f2-e441c7e10c57"/>
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="/service/getResults"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="9290"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+        </bean>
+        <bean id="16ab4720-2a8a-9bf6-31f2-e441c7e10c57" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="nextElement" ref="c189b795-fe5c-1572-5824-1d669b2853fb"/>
+            <property name="logLevel" value="INFO"/>
+            <property name="logTemplate" value="No department Found in the message"/>
+        </bean>
+    </x:components>
+
+    <x:layout>
+
+        <x:position id="c189b795-fe5c-1572-5824-1d669b2853fb" xPos="320.0" yPos="160.0" angle="0.0"
+                    elementType="ResponseIngressConnector"/>
+        <x:position id="16ab4720-2a8a-9bf6-31f2-e441c7e10c57" xPos="560.0" yPos="160.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+        <x:position id="c189b795-fe5c-1572-5824-1d669b2853fb" xPos="320.0" yPos="160.0" angle="0.0" elementType="ResponseIngressConnector"/>
+    </x:layout>
+
+
+</x:flow>

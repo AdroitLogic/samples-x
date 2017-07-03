@@ -20,7 +20,7 @@
         <repository>
             <id>adroitlogic-x-releases</id>
             <name>AdroitLogic Project-X releases repository</name>
-            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
+            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>true</enabled>
                 <checksumPolicy>fail</checksumPolicy>
@@ -33,7 +33,7 @@
         <repository>
             <id>adroitlogic-x-snapshots</id>
             <name>AdroitLogic Project-X snapshots repository</name>
-            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
+            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -49,7 +49,7 @@
         <pluginRepository>
             <id>adroitlogic-x-releases</id>
             <name>AdroitLogic Project-X plugin releases repository</name>
-            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
+            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>true</enabled>
                 <checksumPolicy>fail</checksumPolicy>
@@ -62,7 +62,7 @@
         <pluginRepository>
             <id>adroitlogic-x-snapshots</id>
             <name>AdroitLogic Project-X plugin snapshots repository</name>
-            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
+            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -113,9 +113,33 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.adroitlogic.x.logging</groupId>
+            <artifactId>x-logging-log4j2</artifactId>
+            <version>${ultraesb.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.adroitlogic.x</groupId>
             <artifactId>x-server</artifactId>
             <version>${ultraesb.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <version>2.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.7</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -137,12 +161,12 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-flow-control</artifactId>
+            <artifactId>x-processor-regular-extractor</artifactId>
             <version>17.07-beta1</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-extractor</artifactId>
+            <artifactId>x-processor-regular-flow-control</artifactId>
             <version>17.07-beta1</version>
         </dependency>
         <dependency>
@@ -150,6 +174,7 @@
             <artifactId>x-processor-regular-logger</artifactId>
             <version>17.07-beta1</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -215,7 +240,6 @@
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
 </project>
