@@ -1,0 +1,59 @@
+<x:flow id="sftp-file-mediation_flow" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+
+        <bean id="sftp-ingress-connector" class="org.adroitlogic.x.connector.sftp.SFTPIngressConnector">
+            <property name="processingElement" ref="json-path-extractor"/>
+            <property name="parallelExecutionCount" value="4"/>
+            <property name="fetchPath" value="input-x"/>
+            <property name="hostKeyCheck" value="false"/>
+            <property name="timeout" value="60000"/>
+            <property name="concurrentPollingCount" value="1"/>
+            <property name="password" value="adrt2013#"/>
+            <property name="host" value="centosvm"/>
+            <property name="repeatInterval" value="1000"/>
+            <property name="maxActiveConnections" value="10"/>
+            <property name="removeOriginal" value="true"/>
+            <property name="repeatCount" value="-1"/>
+            <property name="fileNamePattern" value=".*\.json"/>
+            <property name="port" value="22"/>
+            <property name="startDelay" value="1000"/>
+            <property name="username" value="asankha"/>
+        </bean>
+        <bean id="json-path-extractor" class="org.adroitlogic.x.processor.extract.path.json.JSONPathExtractProcessor">
+            <property name="nextElement" ref="logger"/>
+            <property name="variableName" value="CLIENT_ID"/>
+            <property name="jsonPath" value="$.Client-ID"/>
+        </bean>
+        <bean id="logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="nextElement" ref="sftp-egress-connector"/>
+            <property name="logLevel" value="INFO"/>
+            <property name="logTemplate"
+                      value="Received file with name \: @{message.headers.ultra.file.name} for client ID \: @{variable.CLIENT_ID}"/>
+        </bean>
+        <bean id="sftp-egress-connector" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
+            <property name="fileName" value="@{variable.CLIENT_ID}_@{message.headers.ultra.file.name}"/>
+            <property name="filePath" value="output-x"/>
+            <property name="timeout" value="6000"/>
+            <property name="password" value="adrt2013#"/>
+            <property name="port" value="22"/>
+            <property name="host" value="centosvm"/>
+            <property name="maxActiveConnections" value="10"/>
+            <property name="username" value="asankha"/>
+        </bean>
+    </x:components>
+
+    <x:layout>
+
+        <x:position id="sftp-ingress-connector" xPos="320.0" yPos="160.0" angle="0.0" elementType="IngressConnector"/>
+        <x:position id="json-path-extractor" xPos="480.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="logger" xPos="640.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="sftp-egress-connector" xPos="800.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
+    </x:layout>
+
+
+</x:flow>
