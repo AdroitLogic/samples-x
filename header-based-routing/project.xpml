@@ -1,14 +1,14 @@
-<x:project id="HeaderBasedRouting" name="HeaderBasedRouting" version="17.01"
+<x:project id="header-based-routing" name="header-based-routing" version="1.0-SNAPSHOT"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-    <x:description>Header based routing sample use case implementation to route receiving messages based on a pre-configured header value</x:description>
+    <x:description>A sample project that demonstrates the projects concept</x:description>
 
     <x:flows>
-        <x:flow id="header-based-routing" file="header-based-routing.xcml"/>
-        <x:flow id="department-services" file="backendServices/department-services.xcml"/>
+        <x:flow id="header-based-routing-flow" file="header-based-routing-flow.xcml"/>
+        <x:flow id="backendServices.department-services" file="backendServices/department-services.xcml"/>
     </x:flows>
 
     <x:resources>

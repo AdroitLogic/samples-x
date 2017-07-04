@@ -1,0 +1,124 @@
+<x:flow id="header-based-routing-flow" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+        <bean id="38f996f9-04bc-0b83-07f1-1ceda32b3945"
+              class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="processingElement" ref="d20e146b-64fc-3244-f07a-e3b7d5f8e926"/>
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="${header-based-routing-flow.38f996f9-04bc-0b83-07f1-1ceda32b3945.path}"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="${header-based-routing-flow.38f996f9-04bc-0b83-07f1-1ceda32b3945.port}"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+        </bean>
+
+        <bean id="d20e146b-64fc-3244-f07a-e3b7d5f8e926" class="org.adroitlogic.x.processor.flowControl.SwitchController">
+            <property name="defaultCase" ref="a659bd13-0caa-6412-65cc-907d2601231b"/>
+            <property name="cases">
+                <list>
+                    <ref bean="a47e14ee-aca9-cd02-ccaa-45eea7d4e6e2"/>
+                    <ref bean="1996872b-ec10-f4af-3015-b519feea7c30"/>
+                </list>
+            </property>
+            <property name="varType" value="String"/>
+            <property name="predicateType" value="HEADER"/>
+            <property name="predicateFunction" value="EQUALS"/>
+            <property name="varKey" value="xyz-department"/>
+        </bean>
+
+        <bean id="a47e14ee-aca9-cd02-ccaa-45eea7d4e6e2" class="org.adroitlogic.x.processor.flowControl.CaseBranch">
+            <property name="onMatch" ref="32de3aef-bbfc-a8ab-4d78-282ad2c5faf1"/>
+            <property name="caseValue" value="Computer Science"/>
+        </bean>
+        <bean id="1996872b-ec10-f4af-3015-b519feea7c30" class="org.adroitlogic.x.processor.flowControl.CaseBranch">
+            <property name="onMatch" ref="a3b9d3fe-f0e3-e8b2-7c4d-669bee41f47a"/>
+            <property name="caseValue" value="Electronics"/>
+        </bean>
+
+        <bean id="a3b9d3fe-f0e3-e8b2-7c4d-669bee41f47a"
+              class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="responseProcessor" ref="38f996f9-04bc-0b83-07f1-1ceda32b3945"/>
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="keepalive" value="30000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="addressTypeStr" value="URL"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="port" value="${header-based-routing-flow.a3b9d3fe-f0e3-e8b2-7c4d-669bee41f47a.port}"/>
+            <property name="servicePath"
+                      value="${header-based-routing-flow.a3b9d3fe-f0e3-e8b2-7c4d-669bee41f47a.servicePath}"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="host" value="localhost"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="maxConnections" value="4096"/>
+        </bean>
+        <bean id="32de3aef-bbfc-a8ab-4d78-282ad2c5faf1"
+              class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="responseProcessor" ref="38f996f9-04bc-0b83-07f1-1ceda32b3945"/>
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="keepalive" value="30000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="addressTypeStr" value="URL"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="port" value="${header-based-routing-flow.32de3aef-bbfc-a8ab-4d78-282ad2c5faf1.port}"/>
+            <property name="servicePath"
+                      value="${header-based-routing-flow.32de3aef-bbfc-a8ab-4d78-282ad2c5faf1.servicePath}"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="host" value="localhost"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="maxConnections" value="4096"/>
+        </bean>
+
+
+        <bean id="a659bd13-0caa-6412-65cc-907d2601231b"
+              class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="responseProcessor" ref="38f996f9-04bc-0b83-07f1-1ceda32b3945"/>
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="keepalive" value="30000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="addressTypeStr" value="URL"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="port" value="${header-based-routing-flow.a659bd13-0caa-6412-65cc-907d2601231b.port}"/>
+            <property name="servicePath"
+                      value="${header-based-routing-flow.a659bd13-0caa-6412-65cc-907d2601231b.servicePath}"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="host" value="localhost"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="maxConnections" value="4096"/>
+        </bean>
+
+    </x:components>
+
+    <x:layout>
+
+        <x:position id="a3b9d3fe-f0e3-e8b2-7c4d-669bee41f47a" xPos="800.0" yPos="400.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+        <x:position id="a47e14ee-aca9-cd02-ccaa-45eea7d4e6e2" xPos="560.0" yPos="320.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+        <x:position id="a659bd13-0caa-6412-65cc-907d2601231b" xPos="800.0" yPos="80.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+        <x:position id="d20e146b-64fc-3244-f07a-e3b7d5f8e926" xPos="400.0" yPos="240.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+        <x:position id="1996872b-ec10-f4af-3015-b519feea7c30" xPos="560.0" yPos="160.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+        <x:position id="32de3aef-bbfc-a8ab-4d78-282ad2c5faf1" xPos="800.0" yPos="240.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+        <x:position id="38f996f9-04bc-0b83-07f1-1ceda32b3945" xPos="240.0" yPos="240.0" angle="0.0"
+                    elementType="ResponseIngressConnector"/>
+    </x:layout>
+
+
+</x:flow>

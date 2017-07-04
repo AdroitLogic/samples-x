@@ -2,8 +2,9 @@
   "First name": "Brian",
   "Last name": "Novik",
   "Registration": {
-    "id": "100123H",
-    "batch": "batch-10"
+    "id": "090097C",
+    "department": "Computer Science",
+    "batch": "batch-09"
   },
   "Subjects": [
     {
