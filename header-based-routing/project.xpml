@@ -7,8 +7,8 @@
     <x:description>A sample project that demonstrates the projects concept</x:description>
 
     <x:flows>
-        <x:flow id="header-based-routing-flow" file="header-based-routing-flow.xcml"/>
         <x:flow id="backendServices.department-services" file="backendServices/department-services.xcml"/>
+        <x:flow id="header-based-routing-flow" file="header-based-routing-flow.xcml"/>
     </x:flows>
 
     <x:resources>
