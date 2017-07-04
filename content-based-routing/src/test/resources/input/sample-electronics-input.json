@@ -1,0 +1,29 @@
+{
+  "First name": "Nick",
+  "Last name": "Carter",
+  "Registration": {
+    "id": "090123E",
+    "department": "Electronics",
+    "batch": "batch-09"
+  },
+  "Subjects": [
+    {
+      "id": 19292,
+      "subject-code": "EL309",
+      "name": "Digital Electronics",
+      "category": "compulsory"
+    },
+    {
+      "id": 19420,
+      "subject-code": "EL328",
+      "name": "Signal and Systems",
+      "category": "compulsory"
+    },
+    {
+      "id": 19855,
+      "subject-code": "EL354",
+      "name": "Telecommunication System Design",
+      "category": "optional"
+    }
+  ]
+}

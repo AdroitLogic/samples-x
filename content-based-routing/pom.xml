@@ -174,7 +174,11 @@
             <artifactId>x-processor-regular-logger</artifactId>
             <version>17.07-beta1</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-payload-setter</artifactId>
+            <version>17.07-beta1</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,29 +1,29 @@
 {
   "First name": "Nick",
   "Last name": "Carter",
-  "Registration": {
-    "id": "100193I",
-    "department" : "Electronics and Telecommunication",
-    "batch": "batch-10"
-  },
-  "Subjects": [
+  "Registration ID": "090123E",
+  "Results": [
     {
       "id": 19292,
       "subject-code": "EL309",
       "name": "Digital Electronics",
-      "category": "compulsory"
+      "marks": 73,
+      "grade": "A-"
     },
     {
       "id": 19420,
       "subject-code": "EL328",
       "name": "Signal and Systems",
-      "category": "compulsory"
+      "marks": 56,
+      "grade": "B-"
     },
     {
       "id": 19855,
       "subject-code": "EL354",
       "name": "Telecommunication System Design",
-      "category": "optional"
+      "marks": 67,
+      "grade": "B+"
     }
-  ]
+  ],
+  "GPA": "3.3032"
 }
