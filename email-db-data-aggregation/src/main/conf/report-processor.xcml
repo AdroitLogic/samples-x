@@ -1,79 +1,72 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
-
-
-    <bean id="csvReader"
-          class="org.adroitlogic.x.connector.file.nio.NIOFileIngressConnector">
-        <property name="rootPath" value="${NIOFileIngressConnector.csvReader.rootPath}"/>
-        <property name="patternSyntax"
-                  value="${NIOFileIngressConnector.csvReader.patternSyntax}"/>
-        <property name="filePathPattern"
-                  value="${NIOFileIngressConnector.csvReader.filePathPattern}"/>
-        <property name="removeOriginalFile"
-                  value="${NIOFileIngressConnector.csvReader.removeOriginalFile}"/>
-        <property name="fetchAfterModification"
-                  value="${NIOFileIngressConnector.csvReader.fetchAfterModification}"/>
-        <property name="processingElement" ref="csvReaderLog"/>
-        <property name="moveAfterProcess"
-                  value="${NIOFileIngressConnector.csvReader.moveAfterProcess}"/>
-        <property name="moveAfterFailure"
-                  value="${NIOFileIngressConnector.csvReader.moveAfterFailure}"/>
-        <property name="moveTimeStampFormat"
-                  value="${NIOFileIngressConnector.csvReader.moveTimeStampFormat}"/>
-    </bean>
-    <bean id="xmlSplitter"
-          class="org.adroitlogic.x.processor.eip.routing.split.xml.XMLSplitter">
-        <property name="splitStrategy" value="${XMLSplitter.xmlSplitter.splitStrategy}"/>
-        <property name="splitXPath" value="${XMLSplitter.xmlSplitter.splitXPath}"/>
-        <property name="aggregationTimeout"
-                  value="${XMLSplitter.xmlSplitter.aggregationTimeout}"/>
-        <property name="splitProcessor" ref="xPathExtractor"/>
-        <property name="timeoutProcessor" ref="exceptionalFlowEnd"/>
-    </bean>
-    <bean id="csvToXmlConverter" class="org.adroitlogic.x.processor.transform.CSVToXMLTransformer">
-        <property name="rootElementName"
-                  value="${CSVToXMLTransformer.csvToXmlConverter.rootElementName}"/>
-        <property name="rowElementName"
-                  value="${CSVToXMLTransformer.csvToXmlConverter.rowElementName}"/>
-        <property name="allowSingleColumn"
-                  value="${CSVToXMLTransformer.csvToXmlConverter.allowSingleColumn}"/>
-        <property name="nextElement" ref="xmlSplitter"/>
-    </bean>
-    <bean id="databaseProcessingElement" class="org.adroitlogic.x.processor.db.DBProcessingElement">
-        <property name="dataSource" ref="data-src"/>
-        <property name="mappingFile" value="${DBProcessingElement.databaseProcessingElement.mappingFile}"/>
-        <property name="sql" value="${DBProcessingElement.databaseProcessingElement.sql}"/>
-        <property name="nextElement" ref="xmlAggregator"/>
-    </bean>
-    <bean id="xmlAggregator"
-          class="org.adroitlogic.x.processor.eip.routing.aggregate.xml.XMLAggregationProcessor">
-        <property name="aggregatedProcessor" ref="successfulFlowEnd"/>
-        <property name="aggregationXPath"
-                  value="${XMLAggregationProcessor.xmlAggregator.aggregationXPath}"/>
-        <property name="wrapperElement"
-                  value="${XMLAggregationProcessor.xmlAggregator.wrapperElement}"/>
-        <property name="delayedCompletionProcessor" ref="successfulFlowEnd"/>
-    </bean>
-    <bean id="successfulFlowEnd" class="org.adroitlogic.x.components.flowend.SuccessfulFlowEnd"/>
-    <bean id="csvReaderLog" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
-        <property name="logTemplate"
-                  value="${LoggerProcessingElement.csvReaderLog.logTemplate}"/>
-        <property name="logLevel" value="${LoggerProcessingElement.csvReaderLog.logLevel}"/>
-        <property name="nextElement" ref="csvToXmlConverter"/>
-    </bean>
-    <bean id="databaseActionLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
-        <property name="nextElement" ref="databaseProcessingElement"/>
-        <property name="logTemplate"
-                  value="${LoggerProcessingElement.databaseActionLogger.logTemplate}"/>
-        <property name="logLevel" value="${LoggerProcessingElement.databaseActionLogger.logLevel}"/>
-    </bean>
-    <bean id="xPathExtractor"
-          class="org.adroitlogic.x.processor.extract.path.xpath.XPathExtractProcessor">
-        <property name="variableName"
-                  value="${XPathPathExtractProcessor.xPathExtractor.variableName}"/>
-        <property name="xpath" value="${XPathPathExtractProcessor.xPathExtractor.xpath}"/>
-        <property name="nextElement" ref="databaseActionLogger"/>
-    </bean>
-    <bean id="exceptionalFlowEnd" class="org.adroitlogic.x.components.flowend.ExceptionalFlowEnd"/>
-</beans>
+<x:flow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        id="report-processor" type="integrationFlow" xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+    <x:components>
+        <bean id="csvReader" class="org.adroitlogic.x.connector.file.nio.NIOFileIngressConnector">
+            <property name="rootPath" value="${NIOFileIngressConnector.csvReader.rootPath}"/>
+            <property name="patternSyntax" value="${NIOFileIngressConnector.csvReader.patternSyntax}"/>
+            <property name="filePathPattern" value="${NIOFileIngressConnector.csvReader.filePathPattern}"/>
+            <property name="removeOriginalFile" value="${NIOFileIngressConnector.csvReader.removeOriginalFile}"/>
+            <property name="fetchAfterModification" value="${NIOFileIngressConnector.csvReader.fetchAfterModification}"/>
+            <property name="processingElement" ref="csvReaderLog"/>
+            <property name="moveAfterProcess" value="${NIOFileIngressConnector.csvReader.moveAfterProcess}"/>
+            <property name="moveAfterFailure" value="${NIOFileIngressConnector.csvReader.moveAfterFailure}"/>
+            <property name="moveTimeStampFormat" value="${NIOFileIngressConnector.csvReader.moveTimeStampFormat}"/>
+        </bean>
+        <bean id="xmlSplitter" class="org.adroitlogic.x.processor.eip.routing.split.xml.XMLSplitter">
+            <property name="splitStrategy" value="${XMLSplitter.xmlSplitter.splitStrategy}"/>
+            <property name="splitXPath" value="${XMLSplitter.xmlSplitter.splitXPath}"/>
+            <property name="aggregationTimeout" value="${XMLSplitter.xmlSplitter.aggregationTimeout}"/>
+            <property name="splitProcessor" ref="xPathExtractor"/>
+            <property name="timeoutProcessor" ref="exceptionalFlowEnd"/>
+        </bean>
+        <bean id="csvToXmlConverter" class="org.adroitlogic.x.processor.transform.CSVToXMLTransformer">
+            <property name="rootElementName" value="${CSVToXMLTransformer.csvToXmlConverter.rootElementName}"/>
+            <property name="rowElementName" value="${CSVToXMLTransformer.csvToXmlConverter.rowElementName}"/>
+            <property name="allowSingleColumn" value="${CSVToXMLTransformer.csvToXmlConverter.allowSingleColumn}"/>
+            <property name="nextElement" ref="xmlSplitter"/>
+        </bean>
+        <bean id="databaseProcessingElement" class="org.adroitlogic.x.processor.db.DBProcessingElement">
+            <property name="dataSource" ref="data-src"/>
+            <property name="mappingFile" value="${DBProcessingElement.databaseProcessingElement.mappingFile}"/>
+            <property name="sql" value="${DBProcessingElement.databaseProcessingElement.sql}"/>
+            <property name="nextElement" ref="xmlAggregator"/>
+        </bean>
+        <bean id="xmlAggregator" class="org.adroitlogic.x.processor.eip.routing.aggregate.xml.XMLAggregationProcessor">
+            <property name="aggregatedProcessor" ref="successfulFlowEnd"/>
+            <property name="aggregationXPath" value="${XMLAggregationProcessor.xmlAggregator.aggregationXPath}"/>
+            <property name="wrapperElement" value="${XMLAggregationProcessor.xmlAggregator.wrapperElement}"/>
+            <property name="delayedCompletionProcessor" ref="successfulFlowEnd"/>
+        </bean>
+        <bean id="successfulFlowEnd" class="org.adroitlogic.x.components.flowend.SuccessfulFlowEnd"/>
+        <bean id="csvReaderLog" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="logTemplate" value="${LoggerProcessingElement.csvReaderLog.logTemplate}"/>
+            <property name="logLevel" value="${LoggerProcessingElement.csvReaderLog.logLevel}"/>
+            <property name="nextElement" ref="csvToXmlConverter"/>
+        </bean>
+        <bean id="databaseActionLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="nextElement" ref="databaseProcessingElement"/>
+            <property name="logTemplate" value="${LoggerProcessingElement.databaseActionLogger.logTemplate}"/>
+            <property name="logLevel" value="${LoggerProcessingElement.databaseActionLogger.logLevel}"/>
+        </bean>
+        <bean id="xPathExtractor" class="org.adroitlogic.x.processor.extract.path.xpath.XPathExtractProcessor">
+            <property name="variableName" value="${XPathPathExtractProcessor.xPathExtractor.variableName}"/>
+            <property name="xpath" value="${XPathPathExtractProcessor.xPathExtractor.xpath}"/>
+            <property name="nextElement" ref="databaseActionLogger"/>
+        </bean>
+        <bean id="exceptionalFlowEnd" class="org.adroitlogic.x.components.flowend.ExceptionalFlowEnd"/>
+    </x:components>
+    <x:layout>
+        <x:position id="csvReader" xPos="240.0" yPos="80.0" angle="0.0" elementType="IngressConnector"/>
+        <x:position id="csvReaderLog" xPos="400.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="csvToXmlConverter" xPos="560.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="xmlSplitter" xPos="720.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="xPathExtractor" xPos="240.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="databaseActionLogger" xPos="400.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="databaseProcessingElement" xPos="560.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="xmlAggregator" xPos="720.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="successfulFlowEnd" xPos="880.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="exceptionalFlowEnd" xPos="880.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+    </x:layout>
+</x:flow>
