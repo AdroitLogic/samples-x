@@ -1,33 +1,39 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
-
-    <bean id="fix-acceptor-4.2" class="org.adroitlogic.x.connector.fix.FIXIngressConnector">
-        <property name="socketAcceptPort" value="${FIXIngressConnector.fix-acceptor-4.2.socketAcceptPort}"/>
-        <property name="senderCompID" value="${FIXIngressConnector.fix-acceptor-4.2.senderCompID}"/>
-        <property name="heartBeatIntervalSec" value="${FIXIngressConnector.fix-acceptor-4.2.heartBeatIntervalSec}"/>
-        <property name="startTime" value="${FIXIngressConnector.fix-acceptor-4.2.startTime}"/>
-        <property name="endTime" value="${FIXIngressConnector.fix-acceptor-4.2.endTime}"/>
-        <property name="otherSettings" ref="acc-qfSettings-FIX42"/>
-        <property name="configuredSessions" ref="acc-fixSessionList-FIX42"/>
-        <property name="messageStoreFactory" ref="acc-fileMsgStore"/>
-        <property name="logFactory" ref="acc-fileLogFactory"/>
-        <property name="processingElement" ref="fix-initiator-4.2"/>
-    </bean>
-    <bean id="fix-initiator-4.2" class="org.adroitlogic.x.connector.fix.FIXEgressConnector">
-        <property name="heartBeatIntervalSec" value="${FIXEgressConnector.fix-initiator-4.2.heartBeatIntervalSec}"/>
-        <property name="startTime" value="${FIXEgressConnector.fix-initiator-4.2.startTime}"/>
-        <property name="endTime" value="${FIXEgressConnector.fix-initiator-4.2.endTime}"/>
-        <property name="reconnectInterval" value="${FIXEgressConnector.fix-initiator-4.2.reconnectInterval}"/>
-        <property name="messageStoreFactory" ref="ini-fileMsgStore"/>
-        <property name="logFactory" ref="ini-fileLogFactory"/>
-        <property name="otherSettings" ref="ini-qfSettings-FIX42"/>
-        <property name="socketConnectHost" value="${FIXEgressConnector.fix-initiator-4.2.socketConnectHost}"/>
-        <property name="socketConnectPort" value="${FIXEgressConnector.fix-initiator-4.2.socketConnectPort}"/>
-        <property name="beginString" value="${FIXEgressConnector.fix-initiator-4.2.beginString}"/>
-        <property name="senderCompID" value="${FIXEgressConnector.fix-initiator-4.2.senderCompID}"/>
-        <property name="targetCompID" value="${FIXEgressConnector.fix-initiator-4.2.targetCompID}"/>
-        <property name="responseProcessor" ref="fix-acceptor-4.2"/>
-        <property name="endpointConfigurations" ref="ini-endpointSettings-FIX42"/>
-    </bean>
-</beans>
+<x:flow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        id="fix42" type="integrationFlow" xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+    <x:components>
+        <bean id="fix-acceptor-4.2" class="org.adroitlogic.x.connector.fix.FIXIngressConnector">
+            <property name="socketAcceptPort" value="${FIXIngressConnector.fix-acceptor-4.2.socketAcceptPort}"/>
+            <property name="senderCompID" value="${FIXIngressConnector.fix-acceptor-4.2.senderCompID}"/>
+            <property name="heartBeatIntervalSec" value="${FIXIngressConnector.fix-acceptor-4.2.heartBeatIntervalSec}"/>
+            <property name="startTime" value="${FIXIngressConnector.fix-acceptor-4.2.startTime}"/>
+            <property name="endTime" value="${FIXIngressConnector.fix-acceptor-4.2.endTime}"/>
+            <property name="otherSettings" ref="acc-qfSettings-FIX42"/>
+            <property name="configuredSessions" ref="acc-fixSessionList-FIX42"/>
+            <property name="messageStoreFactory" ref="acc-fileMsgStore"/>
+            <property name="logFactory" ref="acc-fileLogFactory"/>
+            <property name="processingElement" ref="fix-initiator-4.2"/>
+        </bean>
+        <bean id="fix-initiator-4.2" class="org.adroitlogic.x.connector.fix.FIXEgressConnector">
+            <property name="heartBeatIntervalSec" value="${FIXEgressConnector.fix-initiator-4.2.heartBeatIntervalSec}"/>
+            <property name="startTime" value="${FIXEgressConnector.fix-initiator-4.2.startTime}"/>
+            <property name="endTime" value="${FIXEgressConnector.fix-initiator-4.2.endTime}"/>
+            <property name="reconnectInterval" value="${FIXEgressConnector.fix-initiator-4.2.reconnectInterval}"/>
+            <property name="messageStoreFactory" ref="ini-fileMsgStore"/>
+            <property name="logFactory" ref="ini-fileLogFactory"/>
+            <property name="otherSettings" ref="ini-qfSettings-FIX42"/>
+            <property name="socketConnectHost" value="${FIXEgressConnector.fix-initiator-4.2.socketConnectHost}"/>
+            <property name="socketConnectPort" value="${FIXEgressConnector.fix-initiator-4.2.socketConnectPort}"/>
+            <property name="beginString" value="${FIXEgressConnector.fix-initiator-4.2.beginString}"/>
+            <property name="senderCompID" value="${FIXEgressConnector.fix-initiator-4.2.senderCompID}"/>
+            <property name="targetCompID" value="${FIXEgressConnector.fix-initiator-4.2.targetCompID}"/>
+            <property name="responseProcessor" ref="fix-acceptor-4.2"/>
+            <property name="endpointConfigurations" ref="ini-endpointSettings-FIX42"/>
+        </bean>
+    </x:components>
+    <x:layout>
+        <x:position id="fix-initiator-4.2" xPos="240.0" yPos="80.0" angle="0.0" elementType="ResponseIngressConnector"/>
+        <x:position id="fix-acceptor-4.2" xPos="400.0" yPos="80.0" angle="0.0" elementType="EgressConnector"/>
+    </x:layout>
+</x:flow>

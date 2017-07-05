@@ -10,9 +10,9 @@
     <artifactId>FixProxy</artifactId>
     <version>17.07-beta1</version>
     <packaging>xpr</packaging>
-    <name>AdroitLogic Project-X Sample - Fix Proxy</name>
+    <name>AdroitLogic Project-X Sample - FIX Proxy</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's FIX connector</description>
+        demonstrating the proxying of FIX messages between an initiator and an acceptor</description>
 
     <url>https://developer.adroitlogic.com/samples/introductory/17.01/fix-message-proxying/</url>
 
@@ -20,7 +20,7 @@
         <repository>
             <id>adroitlogic-x-releases</id>
             <name>AdroitLogic Project-X releases repository</name>
-            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
+            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>true</enabled>
                 <checksumPolicy>fail</checksumPolicy>
@@ -33,7 +33,7 @@
         <repository>
             <id>adroitlogic-x-snapshots</id>
             <name>AdroitLogic Project-X snapshots repository</name>
-            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
+            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -49,7 +49,7 @@
         <pluginRepository>
             <id>adroitlogic-x-releases</id>
             <name>AdroitLogic Project-X plugin releases repository</name>
-            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
+            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>true</enabled>
                 <checksumPolicy>fail</checksumPolicy>
@@ -62,7 +62,7 @@
         <pluginRepository>
             <id>adroitlogic-x-snapshots</id>
             <name>AdroitLogic Project-X plugin snapshots repository</name>
-            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
+            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -117,6 +117,24 @@
             <artifactId>x-server</artifactId>
             <version>${ultraesb.version}</version>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <version>2.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.7</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.bouncycastle</groupId>
@@ -133,7 +151,7 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-fix</artifactId>
-            <version>17.07-beta1</version>
+            <version>${ultraesb.version}</version>
         </dependency>
     </dependencies>
 
@@ -195,8 +213,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>17.07-beta1</ultraesb.version>
-        <project-plugin-version>17.07-beta1</project-plugin-version>
+        <ultraesb.version>${project.version}</ultraesb.version>
+        <project-plugin-version>${ultraesb.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>
