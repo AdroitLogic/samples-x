@@ -1,35 +1,45 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+<x:flow id="hcl-order-system.mock-hcl-backend" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
     <!-- This Integration Flow is used to mock the Ordering System of Happy Confectionery Limited for this sample  -->
+    <x:components>
+        <bean id="hcl-mock-listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="processingElement" ref="hcl-mock-validator"/>
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="${hcl-order-system.mock-hcl-backend.hcl-mock-listener.path}"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="${hcl-order-system.mock-hcl-backend.hcl-mock-listener.port}"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+        </bean>
+        <bean id="hcl-mock-validator" class="org.adroitlogic.x.processor.validate.xml.XSDValidator">
+            <property name="xsdPaths" value="biscuits.xsd"/>
+            <property name="onValidationSuccess" ref="hcl-mock-200-setter"/>
+            <property name="onValidationFailure" ref="hcl-mock-400-setter"/>
+        </bean>
+        <bean id="hcl-mock-200-setter" class="com.esb.samples.hclOrderSystem.ResponseCodeSetter">
+            <property name="nextElement" ref="hcl-mock-listener"/>
+            <property name="setEmptyPayload" value="true"/>
+            <property name="responseCode" value="200"/>
+        </bean>
+        <bean id="hcl-mock-400-setter" class="com.esb.samples.hclOrderSystem.ResponseCodeSetter">
+            <property name="nextElement" ref="hcl-mock-listener"/>
+            <property name="setEmptyPayload" value="true"/>
+            <property name="responseCode" value="400"/>
+        </bean>
+    </x:components>
 
-    <bean id="hcl-mock-listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
-        <property name="port" value="${NIOHttpIngressConnector.hcl-mock-listener.port}"/>
-        <property name="path" value="${NIOHttpIngressConnector.hcl-mock-listener.path}"/>
-        <property name="enableConnectionDebug"
-                  value="${NIOHttpIngressConnector.hcl-mock-listener.enableConnectionDebug}"/>
-        <property name="zeroCopyEnabled" value="${NIOHttpIngressConnector.hcl-mock-listener.zeroCopyEnabled}"/>
-        <property name="noCompression" value="${NIOHttpIngressConnector.hcl-mock-listener.noCompression}"/>
-        <property name="continueOnRuntimeExceptions"
-                  value="${NIOHttpIngressConnector.hcl-mock-listener.continueOnRuntimeExceptions}"/>
-        <property name="continueOnCheckedExceptions"
-                  value="${NIOHttpIngressConnector.hcl-mock-listener.continueOnCheckedExceptions}"/>
-        <property name="processingElement" ref="hcl-mock-validator"/>
-    </bean>
-    <bean id="hcl-mock-validator" class="org.adroitlogic.x.processor.validate.xml.XSDValidator">
-        <property name="xsdPaths" value="biscuits.xsd"/>
-        <property name="onValidationSuccess" ref="hcl-mock-200-setter"/>
-        <property name="onValidationFailure" ref="hcl-mock-400-setter"/>
-    </bean>
-    <bean id="hcl-mock-200-setter" class="com.esb.samples.hclOrderSystem.ResponseCodeSetter">
-        <property name="responseCode" value="200"/>
-        <property name="setEmptyPayload" value="true"/>
-        <property name="nextElement" ref="hcl-mock-listener"/>
-    </bean>
-    <bean id="hcl-mock-400-setter" class="com.esb.samples.hclOrderSystem.ResponseCodeSetter">
-        <property name="responseCode" value="400"/>
-        <property name="setEmptyPayload" value="true"/>
-        <property name="nextElement" ref="hcl-mock-listener"/>
-    </bean>
-</beans>
+    <x:layout>
+
+        <x:position id="hcl-mock-listener" xPos="320.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="hcl-mock-validator" xPos="560.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="hcl-mock-200-setter" xPos="960.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="hcl-mock-400-setter" xPos="880.0" yPos="400.0" angle="0.0" elementType="ProcessingElement"/>
+    </x:layout>
+
+
+</x:flow>
