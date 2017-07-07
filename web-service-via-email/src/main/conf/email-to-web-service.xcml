@@ -1,105 +1,88 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
-
-
-    <bean id="email-listener" class="org.adroitlogic.x.connector.mail.MailIngressConnector">
-        <property name="protocol" value="${MailIngressConnector.email-listener.protocol}"/>
-        <property name="host" value="${MailIngressConnector.email-listener.host}"/>
-        <property name="port" value="${MailIngressConnector.email-listener.port}"/>
-        <property name="user" value="${MailIngressConnector.email-listener.user}"/>
-        <property name="password" value="${MailIngressConnector.email-listener.password}"/>
-        <property name="folder" value="${MailIngressConnector.email-listener.folder}"/>
-        <property name="addressCombiner" value="AND"/>
-        <property name="searchHeaderCombiner" value="AND"/>
-        <property name="searchFlagCombiner" value="AND"/>
-        <property name="searchOnServer"
-                  value="${MailIngressConnector.email-listener.searchOnServer}"/>
-        <property name="lazyFetchPayload"
-                  value="${MailIngressConnector.email-listener.lazyFetchPayload}"/>
-        <property name="lazyFetchAttachments"
-                  value="${MailIngressConnector.email-listener.lazyFetchAttachments}"/>
-        <property name="deleteAfterProcess"
-                  value="${MailIngressConnector.email-listener.deleteAfterProcess}"/>
-        <property name="deleteOnFailure"
-                  value="${MailIngressConnector.email-listener.deleteOnFailure}"/>
-        <property name="repeatCount" value="${MailIngressConnector.email-listener.repeatCount}"/>
-        <property name="concurrentPollingCount"
-                  value="${MailIngressConnector.email-listener.concurrentPollingCount}"/>
-        <property name="parallelExecutionCount"
-                  value="${MailIngressConnector.email-listener.parallelExecutionCount}"/>
-        <property name="otherSettings" ref="mail-props"/>
-        <property name="preserveHeaders"
-                  value="${MailIngressConnector.email-listener.preserveHeaders}"/>
-        <property name="processingElement" ref="recipient-extractor"/>
-        <property name="startDelay" value="${MailIngressConnector.email-listener.startDelay}"/>
-        <property name="repeatInterval"
-                  value="${MailIngressConnector.email-listener.repeatInterval}"/>
-    </bean>
-    <bean id="email-sender" class="org.adroitlogic.x.connector.mail.MailEgressConnector">
-        <property name="protocol" value="${MailEgressConnector.email-sender.protocol}"/>
-        <property name="host" value="${MailEgressConnector.email-sender.host}"/>
-        <property name="port" value="${MailEgressConnector.email-sender.port}"/>
-        <property name="user" value="${MailEgressConnector.email-sender.user}"/>
-        <property name="password" value="${MailEgressConnector.email-sender.password}"/>
-        <property name="otherSettings" ref="mail-props"/>
-        <property name="to" value="${MailEgressConnector.email-sender.to}"/>
-    </bean>
-    <bean id="subject-setter"
-          class="org.adroitlogic.x.processor.headerManagement.AddNewTransportHeader">
-        <property name="headerName" value="${AddNewTransportHeader.subject-setter.headerName}"/>
-        <property name="useVariable" value="${AddNewTransportHeader.subject-setter.useVariable}"/>
-        <property name="value" value="${AddNewTransportHeader.subject-setter.value}"/>
-        <property name="headerVarType"
-                  value="${AddNewTransportHeader.subject-setter.headerVarType}"/>
-        <property name="propagateToParent"
-                  value="${AddNewTransportHeader.subject-setter.propagateToParent}"/>
-        <property name="nextElement" ref="recipient-setter"/>
-    </bean>
-    <bean id="recipient-extractor" class="org.adroitlogic.x.components.variable.AddVariable">
-        <property name="varName" value="${AddVariable.recipient-extractor.varName}"/>
-        <property name="extractionType" value="${AddVariable.recipient-extractor.extractionType}"/>
-        <property name="value" value="${AddVariable.recipient-extractor.value}"/>
-        <property name="varType" value="${AddVariable.recipient-extractor.varType}"/>
-        <property name="nextElement" ref="http-sender"/>
-    </bean>
-    <bean id="recipient-setter"
-          class="org.adroitlogic.x.processor.headerManagement.AddNewTransportHeader">
-        <property name="headerName" value="${AddNewTransportHeader.recipient-setter.headerName}"/>
-        <property name="useVariable" value="${AddNewTransportHeader.recipient-setter.useVariable}"/>
-        <property name="value" value="${AddNewTransportHeader.recipient-setter.value}"/>
-        <property name="headerVarType"
-                  value="${AddNewTransportHeader.recipient-setter.headerVarType}"/>
-        <property name="propagateToParent"
-                  value="${AddNewTransportHeader.recipient-setter.propagateToParent}"/>
-        <property name="nextElement" ref="email-sender"/>
-    </bean>
-    <bean id="http-sender"
-          class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
-        <property name="addressTypeStr"
-                  value="${NIOHttpEgressConnector.http-sender.addressTypeStr}"/>
-        <property name="host" value="${NIOHttpEgressConnector.http-sender.host}"/>
-        <property name="servicePath"
-                  value="${NIOHttpEgressConnector.http-sender.servicePath}"/>
-        <property name="zeroCopy" value="${NIOHttpEgressConnector.http-sender.zeroCopy}"/>
-        <property name="connectionDebug"
-                  value="${NIOHttpEgressConnector.http-sender.connectionDebug}"/>
-        <property name="replaceUserAgent"
-                  value="${NIOHttpEgressConnector.http-sender.replaceUserAgent}"/>
-        <property name="unzipResponseEntities"
-                  value="${NIOHttpEgressConnector.http-sender.unzipResponseEntities}"/>
-        <property name="keepalive" value="${NIOHttpEgressConnector.http-sender.keepalive}"/>
-        <property name="keepAliveSafetyThreshold"
-                  value="${NIOHttpEgressConnector.http-sender.keepAliveSafetyThreshold}"/>
-        <property name="maxPerRoute"
-                  value="${NIOHttpEgressConnector.http-sender.maxPerRoute}"/>
-        <property name="maxConnections"
-                  value="${NIOHttpEgressConnector.http-sender.maxConnections}"/>
-        <property name="continueOnRuntimeExceptions"
-                  value="${NIOHttpEgressConnector.http-sender.continueOnRuntimeExceptions}"/>
-        <property name="continueOnCheckedExceptions"
-                  value="${NIOHttpEgressConnector.http-sender.continueOnCheckedExceptions}"/>
-        <property name="port" value="${NIOHttpEgressConnector.http-sender.port}"/>
-        <property name="responseProcessor" ref="subject-setter"/>
-    </bean>
-</beans>
+<x:flow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        id="email-to-web-service" type="integrationFlow" xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+    <x:components>
+        <bean id="email-listener" class="org.adroitlogic.x.connector.mail.MailIngressConnector">
+            <property name="protocol" value="${MailIngressConnector.email-listener.protocol}"/>
+            <property name="host" value="${MailIngressConnector.email-listener.host}"/>
+            <property name="port" value="${MailIngressConnector.email-listener.port}"/>
+            <property name="user" value="${MailIngressConnector.email-listener.user}"/>
+            <property name="password" value="${MailIngressConnector.email-listener.password}"/>
+            <property name="folder" value="${MailIngressConnector.email-listener.folder}"/>
+            <property name="addressCombiner" value="AND"/>
+            <property name="searchHeaderCombiner" value="AND"/>
+            <property name="searchFlagCombiner" value="AND"/>
+            <property name="searchOnServer" value="${MailIngressConnector.email-listener.searchOnServer}"/>
+            <property name="lazyFetchPayload" value="${MailIngressConnector.email-listener.lazyFetchPayload}"/>
+            <property name="lazyFetchAttachments" value="${MailIngressConnector.email-listener.lazyFetchAttachments}"/>
+            <property name="deleteAfterProcess" value="${MailIngressConnector.email-listener.deleteAfterProcess}"/>
+            <property name="deleteOnFailure" value="${MailIngressConnector.email-listener.deleteOnFailure}"/>
+            <property name="repeatCount" value="${MailIngressConnector.email-listener.repeatCount}"/>
+            <property name="concurrentPollingCount" value="${MailIngressConnector.email-listener.concurrentPollingCount}"/>
+            <property name="parallelExecutionCount" value="${MailIngressConnector.email-listener.parallelExecutionCount}"/>
+            <property name="otherSettings" ref="mail-props"/>
+            <property name="preserveHeaders" value="${MailIngressConnector.email-listener.preserveHeaders}"/>
+            <property name="processingElement" ref="recipient-extractor"/>
+            <property name="startDelay" value="${MailIngressConnector.email-listener.startDelay}"/>
+            <property name="repeatInterval" value="${MailIngressConnector.email-listener.repeatInterval}"/>
+        </bean>
+        <bean id="email-sender" class="org.adroitlogic.x.connector.mail.MailEgressConnector">
+            <property name="protocol" value="${MailEgressConnector.email-sender.protocol}"/>
+            <property name="host" value="${MailEgressConnector.email-sender.host}"/>
+            <property name="port" value="${MailEgressConnector.email-sender.port}"/>
+            <property name="user" value="${MailEgressConnector.email-sender.user}"/>
+            <property name="password" value="${MailEgressConnector.email-sender.password}"/>
+            <property name="otherSettings" ref="mail-props"/>
+            <property name="to" value="${MailEgressConnector.email-sender.to}"/>
+        </bean>
+        <bean id="subject-setter" class="org.adroitlogic.x.processor.headerManagement.AddNewTransportHeader">
+            <property name="headerName" value="${AddNewTransportHeader.subject-setter.headerName}"/>
+            <property name="useVariable" value="${AddNewTransportHeader.subject-setter.useVariable}"/>
+            <property name="value" value="${AddNewTransportHeader.subject-setter.value}"/>
+            <property name="headerVarType" value="${AddNewTransportHeader.subject-setter.headerVarType}"/>
+            <property name="propagateToParent" value="${AddNewTransportHeader.subject-setter.propagateToParent}"/>
+            <property name="nextElement" ref="recipient-setter"/>
+        </bean>
+        <bean id="recipient-extractor" class="org.adroitlogic.x.components.variable.AddVariable">
+            <property name="varName" value="${AddVariable.recipient-extractor.varName}"/>
+            <property name="extractionType" value="${AddVariable.recipient-extractor.extractionType}"/>
+            <property name="value" value="${AddVariable.recipient-extractor.value}"/>
+            <property name="varType" value="${AddVariable.recipient-extractor.varType}"/>
+            <property name="nextElement" ref="http-sender"/>
+        </bean>
+        <bean id="recipient-setter" class="org.adroitlogic.x.processor.headerManagement.AddNewTransportHeader">
+            <property name="headerName" value="${AddNewTransportHeader.recipient-setter.headerName}"/>
+            <property name="useVariable" value="${AddNewTransportHeader.recipient-setter.useVariable}"/>
+            <property name="value" value="${AddNewTransportHeader.recipient-setter.value}"/>
+            <property name="headerVarType" value="${AddNewTransportHeader.recipient-setter.headerVarType}"/>
+            <property name="propagateToParent" value="${AddNewTransportHeader.recipient-setter.propagateToParent}"/>
+            <property name="nextElement" ref="email-sender"/>
+        </bean>
+        <bean id="http-sender" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="addressTypeStr" value="${NIOHttpEgressConnector.http-sender.addressTypeStr}"/>
+            <property name="host" value="${NIOHttpEgressConnector.http-sender.host}"/>
+            <property name="servicePath" value="${NIOHttpEgressConnector.http-sender.servicePath}"/>
+            <property name="zeroCopy" value="${NIOHttpEgressConnector.http-sender.zeroCopy}"/>
+            <property name="connectionDebug" value="${NIOHttpEgressConnector.http-sender.connectionDebug}"/>
+            <property name="replaceUserAgent" value="${NIOHttpEgressConnector.http-sender.replaceUserAgent}"/>
+            <property name="unzipResponseEntities" value="${NIOHttpEgressConnector.http-sender.unzipResponseEntities}"/>
+            <property name="keepalive" value="${NIOHttpEgressConnector.http-sender.keepalive}"/>
+            <property name="keepAliveSafetyThreshold" value="${NIOHttpEgressConnector.http-sender.keepAliveSafetyThreshold}"/>
+            <property name="maxPerRoute" value="${NIOHttpEgressConnector.http-sender.maxPerRoute}"/>
+            <property name="maxConnections" value="${NIOHttpEgressConnector.http-sender.maxConnections}"/>
+            <property name="continueOnRuntimeExceptions" value="${NIOHttpEgressConnector.http-sender.continueOnRuntimeExceptions}"/>
+            <property name="continueOnCheckedExceptions" value="${NIOHttpEgressConnector.http-sender.continueOnCheckedExceptions}"/>
+            <property name="port" value="${NIOHttpEgressConnector.http-sender.port}"/>
+            <property name="responseProcessor" ref="subject-setter"/>
+        </bean>
+    </x:components>
+    <x:layout>
+        <x:position id="email-listener" xPos="240.0" yPos="80.0" angle="0.0" elementType="IngressConnector"/>
+        <x:position id="recipient-extractor" xPos="400.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="http-sender" xPos="560.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="subject-setter" xPos="240.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="recipient-setter" xPos="400.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="email-sender" xPos="560.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+    </x:layout>
+</x:flow>

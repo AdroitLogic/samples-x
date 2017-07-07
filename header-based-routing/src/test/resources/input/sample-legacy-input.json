@@ -1,0 +1,29 @@
+{
+  "First name": "John",
+  "Last name": "Carlton",
+  "Registration": {
+    "id": "090847T",
+    "department": "Electrical",
+    "batch": "batch-09"
+  },
+  "Subjects": [
+    {
+      "id": 33295,
+      "subject-code": "EE309",
+      "name": "Electrical Systems",
+      "category": "compulsory"
+    },
+    {
+      "id": 67280,
+      "subject-code": "EE103",
+      "name": "Theory of Electricity",
+      "category": "compulsory"
+    },
+    {
+      "id": 87325,
+      "subject-code": "EE209",
+      "name": "Advanced Electrical",
+      "category": "optional"
+    }
+  ]
+}

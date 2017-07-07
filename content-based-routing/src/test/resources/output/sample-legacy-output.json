@@ -1,0 +1,28 @@
+{
+  "First name": "John",
+  "Last name": "Carlton",
+  "Registration ID": "090847T",
+  "Results": [
+    {
+      "id": 33295,
+      "subject-code": "EE309",
+      "name": "Electrical Systems",
+      "marks": 73,
+      "grade": "A-"
+    },
+    {
+      "id": 67280,
+      "subject-code": "EE103",
+      "name": "Theory of Electricity",
+      "marks": 56,
+      "grade": "B-"
+    },
+    {
+      "id": 87325,
+      "subject-code": "EE209",
+      "name": "Advanced Electrical",
+      "marks": 67,
+      "grade": "B+"
+    }
+  ]
+}

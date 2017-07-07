@@ -1,0 +1,29 @@
+{
+  "First name": "Brian",
+  "Last name": "Novik",
+  "Registration": {
+    "id": "090097C",
+    "department": "Computer Science",
+    "batch": "batch-09"
+  },
+  "Subjects": [
+    {
+      "id": 12492,
+      "subject-code": "CS102",
+      "name": "Software Architecture",
+      "category": "compulsory"
+    },
+    {
+      "id": 12280,
+      "subject-code": "CS103",
+      "name": "Database Systems",
+      "category": "compulsory"
+    },
+    {
+      "id": 12325,
+      "subject-code": "CS209",
+      "name": "Computer Vision",
+      "category": "optional"
+    }
+  ]
+}

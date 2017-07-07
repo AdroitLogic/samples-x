@@ -1,0 +1,29 @@
+{
+  "First name": "Nick",
+  "Last name": "Carter",
+  "Registration ID": "090123E",
+  "Results": [
+    {
+      "id": 19292,
+      "subject-code": "EL309",
+      "name": "Digital Electronics",
+      "marks": 73,
+      "grade": "A-"
+    },
+    {
+      "id": 19420,
+      "subject-code": "EL328",
+      "name": "Signal and Systems",
+      "marks": 56,
+      "grade": "B-"
+    },
+    {
+      "id": 19855,
+      "subject-code": "EL354",
+      "name": "Telecommunication System Design",
+      "marks": 67,
+      "grade": "B+"
+    }
+  ],
+  "GPA": "3.3032"
+}

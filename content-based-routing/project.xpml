@@ -1,16 +1,20 @@
-<x:project id="ContentBasedRouting" name="ContentBasedRouting" version="17.01"
+<x:project id="content-based-routing" name="content-based-routing" version="1.0-SNAPSHOT"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-    <x:description>Content based routing sample use case implementation to route receiving JSON messages based on a JSON path extraction</x:description>
-    
+    <x:description>A sample project that demonstrates the projects concept</x:description>
+
     <x:flows>
-        <x:flow id="content_based_routing" file="content_based_routing.xcml"/>
-        <x:flow id="backend" file="content-backend/backend.xcml"/>
-        <x:flow id="backend-computer" file="content-backend/backend-computer.xcml"/>
-        <x:flow id="backend-electronics" file="content-backend/backend-electronics.xcml"/>
+        <x:flow id="content-based-routing-flow" file="content-based-routing-flow.xcml"/>
+        <x:flow id="backendServices.department-services" file="backendServices/department-services.xcml"/>
+        <!--<x:flow id="lapiyumal.Code.Tools-X-Test.content-based-routing.src.test.resources.back-end.generic-results"-->
+                <!--file="../../test/resources/back-end/generic-results.xcml"/>-->
+        <!--<x:flow id="lapiyumal.Code.Tools-X-Test.content-based-routing.src.test.resources.back-end.computer-departement"-->
+                <!--file="../../test/resources/back-end/computer-departement.xcml"/>-->
+        <!--<x:flow id="lapiyumal.Code.Tools-X-Test.content-based-routing.src.test.resources.back-end.electronics-departement"-->
+                <!--file="../../test/resources/back-end/electronics-departement.xcml"/>-->
     </x:flows>
 
     <x:resources>

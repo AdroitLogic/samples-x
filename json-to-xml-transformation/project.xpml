@@ -7,9 +7,9 @@
     <x:description>A sample project that demonstrates Payload transformation</x:description>
 
     <x:flows>
-        <x:flow id="json-to-xml-flow" file="json-to-xml-flow.xcml" />
-        <x:flow id="mock-hcl-backend" file="hcl-order-system/mock-hcl-backend.xcml"/>
-    </x:flows>
+		<x:flow id="hcl-order-system.mock-hcl-backend" file="hcl-order-system/mock-hcl-backend.xcml"/>
+		<x:flow id="json-to-xml-flow" file="json-to-xml-flow.xcml"/>
+	</x:flows>
 
     <x:resources>
     </x:resources>

@@ -1,0 +1,48 @@
+<x:flow id="direct-proxy-flow" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+        <bean id="752efba4-faf5-40b2-d684-8f1677483692"
+              class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="processingElement" ref="f4ebb571-8c6b-33bf-29dc-fe2bd43ce9db"/>
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="${direct-proxy-flow.752efba4-faf5-40b2-d684-8f1677483692.path}"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="${direct-proxy-flow.752efba4-faf5-40b2-d684-8f1677483692.port}"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+        </bean>
+        <bean id="f4ebb571-8c6b-33bf-29dc-fe2bd43ce9db"
+              class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="responseProcessor" ref="752efba4-faf5-40b2-d684-8f1677483692"/>
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="keepalive" value="30000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="addressTypeStr" value="URL"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="port" value="${direct-proxy-flow.f4ebb571-8c6b-33bf-29dc-fe2bd43ce9db.port}"/>
+            <property name="servicePath" value="${direct-proxy-flow.f4ebb571-8c6b-33bf-29dc-fe2bd43ce9db.servicePath}"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="host" value="${direct-proxy-flow.f4ebb571-8c6b-33bf-29dc-fe2bd43ce9db.host}"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="maxConnections" value="4096"/>
+        </bean>
+    </x:components>
+
+    <x:layout>
+
+        <x:position id="f4ebb571-8c6b-33bf-29dc-fe2bd43ce9db" xPos="560.0" yPos="160.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+        <x:position id="752efba4-faf5-40b2-d684-8f1677483692" xPos="320.0" yPos="160.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+    </x:layout>
+
+
+</x:flow>

@@ -1,4 +1,4 @@
-<x:project id="DirectProxyMediation" name="DirectProxyMediation" version="1.0-SNAPSHOT"
+<x:project id="direct-proxy" name="direct-proxy" version="1.0-SNAPSHOT"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
@@ -6,9 +6,8 @@
 
     <x:description>A sample project that demonstrates the projects concept</x:description>
 
-
     <x:flows>
-        <x:flow id="direct_proxy" file="direct_proxy.xcml"/>
+        <x:flow id="direct-proxy-flow" file="direct-proxy-flow.xcml"/>
     </x:flows>
 
     <x:resources>
