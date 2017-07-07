@@ -7,8 +7,8 @@
     <x:description>A sample project that demonstrates securing a REST service with JWT authentication</x:description>
 
     <x:flows>
-        <x:flow id="authFlow" file="authFlow.xcml"/>
-        <x:flow id="requestFlow" file="requestFlow.xcml"/>
+        <x:flow id="auth-flow" file="auth-flow.xcml"/>
+        <x:flow id="request-flow" file="request-flow.xcml"/>
     </x:flows>
 
     <x:resources>

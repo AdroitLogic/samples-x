@@ -1,0 +1,23 @@
+<x:project id="json-data-service" name="json-data-service" version="17.07-beta2"
+           xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
+           xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:description>Creation of a simple JSON/REST API using the JSON Data Service processing element</x:description>
+
+    <x:flows>
+        <x:flow id="json-service-flow" file="json-service-flow.xcml"/>
+    </x:flows>
+
+    <x:resources>
+        <x:resource id="ds-resource">
+            <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+                <property name="url" value="jdbc:mysql://localhost:3306/shop"/>
+                <property name="username" value="username"/>
+                <property name="password" value="password"/>
+            </bean>
+        </x:resource>
+    </x:resources>
+
+</x:project>

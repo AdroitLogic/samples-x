@@ -1,0 +1,53 @@
+<x:flow id="request-flow" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+    <x:components>
+        <bean id="token-decoder" class="com.esb.samples.JWTTokenDecoder">
+            <property name="secretKey" value="${JWTTokenDecoder.token-decoder.secretKey}"/>
+            <property name="nextElement" ref="backend"/>
+            <property name="errorHandler" ref="auth-fail-setter"/>
+            <property name="userCache" ref="userCache"/>
+        </bean>
+        <bean id="req-listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="port" value="${NIOHttpIngressConnector.req-listener.port}"/>
+            <property name="path" value="${NIOHttpIngressConnector.req-listener.path}"/>
+            <property name="enableConnectionDebug" value="${NIOHttpIngressConnector.req-listener.enableConnectionDebug}"/>
+            <property name="zeroCopyEnabled" value="${NIOHttpIngressConnector.req-listener.zeroCopyEnabled}"/>
+            <property name="noCompression" value="${NIOHttpIngressConnector.req-listener.noCompression}"/>
+            <property name="continueOnRuntimeExceptions" value="${NIOHttpIngressConnector.req-listener.continueOnRuntimeExceptions}"/>
+            <property name="continueOnCheckedExceptions" value="${NIOHttpIngressConnector.req-listener.continueOnCheckedExceptions}"/>
+            <property name="processingElement" ref="token-decoder"/>
+            <property name="responseTimeout" value="${NIOHttpIngressConnector.req-listener.responseTimeout}"/>
+        </bean>
+        <bean id="auth-fail-setter" class="org.adroitlogic.x.processor.payloadSetter.SetPayloadFromString">
+            <property name="stringPayload" value="${SetPayloadFromString.auth-fail-setter.stringPayload}"/>
+            <property name="nextElement" ref="req-listener"/>
+        </bean>
+        <bean id="backend" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="addressTypeStr" value="${NIOHttpEgressConnector.backend.addressTypeStr}"/>
+            <property name="host" value="${NIOHttpEgressConnector.backend.host}"/>
+            <property name="servicePath" value="${NIOHttpEgressConnector.backend.servicePath}"/>
+            <property name="zeroCopy" value="${NIOHttpEgressConnector.backend.zeroCopy}"/>
+            <property name="connectionDebug" value="${NIOHttpEgressConnector.backend.connectionDebug}"/>
+            <property name="replaceUserAgent" value="${NIOHttpEgressConnector.backend.replaceUserAgent}"/>
+            <property name="unzipResponseEntities" value="${NIOHttpEgressConnector.backend.unzipResponseEntities}"/>
+            <property name="keepalive" value="${NIOHttpEgressConnector.backend.keepalive}"/>
+            <property name="keepAliveSafetyThreshold" value="${NIOHttpEgressConnector.backend.keepAliveSafetyThreshold}"/>
+            <property name="maxPerRoute" value="${NIOHttpEgressConnector.backend.maxPerRoute}"/>
+            <property name="maxConnections" value="${NIOHttpEgressConnector.backend.maxConnections}"/>
+            <property name="continueOnRuntimeExceptions" value="${NIOHttpEgressConnector.backend.continueOnRuntimeExceptions}"/>
+            <property name="continueOnCheckedExceptions" value="${NIOHttpEgressConnector.backend.continueOnCheckedExceptions}"/>
+            <property name="responseProcessor" ref="req-listener"/>
+            <property name="egressTimeout" value="${NIOHttpEgressConnector.backend.egressTimeout}"/>
+        </bean>
+    </x:components>
+    <x:layout>
+        <x:position id="req-listener" xPos="240.0" yPos="80.0" angle="0.0" elementType="ResponseIngressConnector"/>
+        <x:position id="token-decoder" xPos="400.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="auth-fail-setter" xPos="560.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="auth-error-setter" xPos="560.0" yPos="160.0" angle="180.0" elementType="ProcessingElement"/>
+        <x:position id="backend" xPos="560.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+    </x:layout>
+</x:flow>

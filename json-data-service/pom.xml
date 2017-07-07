@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.adroitlogic.x.samples</groupId>
-    <artifactId>RestAuthJwt</artifactId>
+    <artifactId>JsonDataService</artifactId>
     <version>17.07-beta1</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - REST JWT Authentication</name>
@@ -78,12 +78,12 @@
         <repository>
             <id>adroitlogic-x-releases-deploy</id>
             <name>AdroitLogic Project-X releases repository</name>
-            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
+            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
         </repository>
         <snapshotRepository>
             <id>adroitlogic-x-snapshots-deploy</id>
             <name>AdroitLogic Project-X snapshots repository</name>
-            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
+            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -160,14 +160,15 @@
             <version>17.07-beta1</version>
         </dependency>
         <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.7.0</version>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-data-service</artifactId>
+            <version>17.07-beta1</version>
         </dependency>
         <dependency>
-            <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-payload-setter</artifactId>
-            <version>17.07-beta1</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
