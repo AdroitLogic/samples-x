@@ -113,6 +113,12 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.adroitlogic.x.logging</groupId>
+            <artifactId>x-logging-log4j2</artifactId>
+            <version>${ultraesb.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.adroitlogic.x</groupId>
             <artifactId>x-server</artifactId>
             <version>${ultraesb.version}</version>

@@ -9,12 +9,6 @@
     <x:flows>
         <x:flow id="content-based-routing-flow" file="content-based-routing-flow.xcml"/>
         <x:flow id="backendServices.department-services" file="backendServices/department-services.xcml"/>
-        <!--<x:flow id="lapiyumal.Code.Tools-X-Test.content-based-routing.src.test.resources.back-end.generic-results"-->
-                <!--file="../../test/resources/back-end/generic-results.xcml"/>-->
-        <!--<x:flow id="lapiyumal.Code.Tools-X-Test.content-based-routing.src.test.resources.back-end.computer-departement"-->
-                <!--file="../../test/resources/back-end/computer-departement.xcml"/>-->
-        <!--<x:flow id="lapiyumal.Code.Tools-X-Test.content-based-routing.src.test.resources.back-end.electronics-departement"-->
-                <!--file="../../test/resources/back-end/electronics-departement.xcml"/>-->
     </x:flows>
 
     <x:resources>

@@ -12,7 +12,7 @@
     </x:flows>
 
     <x:resources>
-       <x:resource id="data-src">
+        <x:resource id="data-src">
             <bean class="org.adroitlogic.ultracp.UltraDataSource" init-method="initialize"
                   destroy-method="destroy">
                 <property name="driverClass" value="${ultracp.driver}"/>
