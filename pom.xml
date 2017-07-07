@@ -41,6 +41,7 @@
         <module>sftp-file-mediation</module>
         <module>sftp-file-mediation-with-transformation</module>
         <module>web-service-via-email</module>
+        <module>response-caching</module>
     </modules>
 
     <build>
