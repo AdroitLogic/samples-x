@@ -7,34 +7,38 @@
     <x:components>
 
         <bean id="sftp-ingress-connector" class="org.adroitlogic.x.connector.sftp.SFTPIngressConnector">
-            <property name="processingElement" ref="3f4fe662-fba3-aaa2-f8af-cde061fb2a00"/>
+            <property name="processingElement" ref="initial-clone"/>
             <property name="parallelExecutionCount" value="4"/>
-            <property name="fetchPath" value="exchange-rates/outbox"/>
+            <property name="fetchPath"
+                      value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.fetchPath}"/>
             <property name="hostKeyCheck" value="false"/>
             <property name="timeout" value="60000"/>
             <property name="concurrentPollingCount" value="1"/>
-            <property name="password" value="adrt2013#"/>
-            <property name="host" value="centosvm"/>
+            <property name="password"
+                      value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.password}"/>
+            <property name="host" value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.host}"/>
             <property name="repeatInterval" value="1000"/>
             <property name="maxActiveConnections" value="10"/>
             <property name="removeOriginal" value="true"/>
             <property name="repeatCount" value="10000"/>
-            <property name="fileNamePattern" value=".*\.csv"/>
-            <property name="port" value="22"/>
+            <property name="fileNamePattern"
+                      value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.fileNamePattern}"/>
+            <property name="port" value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.port}"/>
             <property name="startDelay" value="1000"/>
-            <property name="username" value="asankha"/>
+            <property name="username"
+                      value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.username}"/>
         </bean>
 
-        <bean id="3f4fe662-fba3-aaa2-f8af-cde061fb2a00" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
-            <property name="originalOutport" ref="8791eb5c-2c58-bf0a-755d-cac87ac42cb0"/>
+        <bean id="initial-clone" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
+            <property name="originalOutport" ref="csv-to-xml-transformer"/>
             <property name="clonedOutport" ref="sftp-internal-original-file-sender"/>
             <property name="cloneType" value="With full message"/>
             <property name="exchangePattern" value="Keep Original"/>
             <property name="completionType" value="On result of both"/>
         </bean>
 
-        <bean id="8791eb5c-2c58-bf0a-755d-cac87ac42cb0" class="org.adroitlogic.x.processor.transform.CSVToXMLTransformer">
-            <property name="nextElement" ref="e1896ad5-d5c2-5618-6e47-55474f5a0a5a"/>
+        <bean id="csv-to-xml-transformer" class="org.adroitlogic.x.processor.transform.CSVToXMLTransformer">
+            <property name="nextElement" ref="xslt-transformer"/>
             <property name="rowElementName" value="CurrencyInfo"/>
             <property name="nameSpacePrefix" value="adrt"/>
             <property name="nameSpaceURI" value="http://adrt.com/studio/testing"/>
@@ -42,9 +46,9 @@
             <property name="allowSingleColumn" value="false"/>
         </bean>
 
-        <bean id="3cb8a893-7245-b22b-4206-ab1478ee47e8" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
-            <property name="originalOutport" ref="48a1985b-12d3-9936-418f-2ffafbed9ac4"/>
-            <property name="clonedOutport" ref="ae006b9d-f565-deea-2fe7-2c5ece6a2600"/>
+        <bean id="clone-to-sftp-egress1" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
+            <property name="originalOutport" ref="clone-to-sftp-egress3"/>
+            <property name="clonedOutport" ref="clone-to-sftp-egress2"/>
             <property name="cloneType" value="With full message"/>
             <property name="exchangePattern" value="Keep Original"/>
             <property name="completionType" value="On result of both"/>
@@ -80,18 +84,18 @@
         </bean>
 
 
-        <bean id="e1896ad5-d5c2-5618-6e47-55474f5a0a5a" class="org.adroitlogic.x.processor.transform.XSLTTransformer">
-            <property name="nextElement" ref="b51f570b-95e3-17eb-30c1-635ad6f53d34"/>
+        <bean id="xslt-transformer" class="org.adroitlogic.x.processor.transform.XSLTTransformer">
+            <property name="nextElement" ref="xpath-extractor"/>
             <property name="xsltPath" value="global-currency-transformation.xsl"/>
         </bean>
-        <bean id="48a1985b-12d3-9936-418f-2ffafbed9ac4" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
+        <bean id="clone-to-sftp-egress3" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
             <property name="clonedOutport" ref="sftp-bank-b-file-sender"/>
             <property name="originalOutport" ref="sftp-bank-c-file-sender"/>
             <property name="cloneType" value="With full message"/>
             <property name="exchangePattern" value="Keep Original"/>
             <property name="completionType" value="On result of both"/>
         </bean>
-        <bean id="ae006b9d-f565-deea-2fe7-2c5ece6a2600" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
+        <bean id="clone-to-sftp-egress2" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
             <property name="originalOutport" ref="sftp-bank-a-file-sender"/>
             <property name="clonedOutport" ref="sftp-internal-transformed-file-sender"/>
             <property name="cloneType" value="With full message"/>
@@ -140,9 +144,9 @@
             <property name="username"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-internal-original-file-sender.username}"/>
         </bean>
-        <bean id="b51f570b-95e3-17eb-30c1-635ad6f53d34"
+        <bean id="xpath-extractor"
               class="org.adroitlogic.x.processor.extract.path.xpath.XPathExtractProcessor">
-            <property name="nextElement" ref="3cb8a893-7245-b22b-4206-ab1478ee47e8"/>
+            <property name="nextElement" ref="clone-to-sftp-egress1"/>
             <property name="xpath" value="/adrt_ns:ExchangeRates/adrt_ns:ReferenceNo"/>
             <property name="variableName" value="Reference_No"/>
             <property name="namespaces">
@@ -158,21 +162,21 @@
 
         <x:position id="sftp-bank-b-file-sender" xPos="960.0" yPos="560.0" angle="90.0"
                     elementType="ProcessingElement"/>
-        <x:position id="3f4fe662-fba3-aaa2-f8af-cde061fb2a00" xPos="400.0" yPos="160.0" angle="0.0"
+        <x:position id="initial-clone" xPos="400.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
         <x:position id="sftp-ingress-connector" xPos="240.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
-        <x:position id="48a1985b-12d3-9936-418f-2ffafbed9ac4" xPos="1040.0" yPos="400.0" angle="90.0"
+        <x:position id="clone-to-sftp-egress3" xPos="1040.0" yPos="400.0" angle="90.0"
                     elementType="ProcessingElement"/>
         <x:position id="sftp-internal-original-file-sender" xPos="400.0" yPos="320.0" angle="90.0"
                     elementType="ProcessingElement"/>
-        <x:position id="8791eb5c-2c58-bf0a-755d-cac87ac42cb0" xPos="560.0" yPos="160.0" angle="0.0"
+        <x:position id="csv-to-xml-transformer" xPos="560.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
-        <x:position id="ae006b9d-f565-deea-2fe7-2c5ece6a2600" xPos="880.0" yPos="400.0" angle="90.0"
+        <x:position id="clone-to-sftp-egress2" xPos="880.0" yPos="400.0" angle="90.0"
                     elementType="ProcessingElement"/>
-        <x:position id="e1896ad5-d5c2-5618-6e47-55474f5a0a5a" xPos="720.0" yPos="160.0" angle="0.0"
+        <x:position id="xslt-transformer" xPos="720.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
-        <x:position id="3cb8a893-7245-b22b-4206-ab1478ee47e8" xPos="960.0" yPos="240.0" angle="90.0"
+        <x:position id="clone-to-sftp-egress1" xPos="960.0" yPos="240.0" angle="90.0"
                     elementType="ProcessingElement"/>
         <x:position id="sftp-bank-a-file-sender" xPos="800.0" yPos="560.0" angle="90.0"
                     elementType="ProcessingElement"/>
@@ -180,7 +184,7 @@
                     elementType="ProcessingElement"/>
         <x:position id="sftp-bank-c-file-sender" xPos="1120.0" yPos="560.0" angle="90.0"
                     elementType="ProcessingElement"/>
-        <x:position id="b51f570b-95e3-17eb-30c1-635ad6f53d34" xPos="880.0" yPos="160.0" angle="0.0"
+        <x:position id="xpath-extractor" xPos="880.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
     </x:layout>
 
