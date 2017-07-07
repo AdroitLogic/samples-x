@@ -37,7 +37,7 @@ public class ResponseCodeSetter extends AbstractSequencedProcessingElement {
         if (message != null) {
             message.setResponseCode(responseCode);
             if (setEmptyPayload) {
-                message.setPayload(new EmptyFormat());
+                message.setPayload(EmptyFormat.getInstance());
             }
         }
         return ExecutionResult.SUCCESS;
