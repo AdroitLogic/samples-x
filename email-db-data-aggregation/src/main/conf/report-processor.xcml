@@ -2,13 +2,15 @@
         id="report-processor" type="integrationFlow" xmlns="http://www.springframework.org/schema/beans"
         xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
     <x:components>
         <bean id="csvReader" class="org.adroitlogic.x.connector.file.nio.NIOFileIngressConnector">
             <property name="rootPath" value="${NIOFileIngressConnector.csvReader.rootPath}"/>
             <property name="patternSyntax" value="${NIOFileIngressConnector.csvReader.patternSyntax}"/>
             <property name="filePathPattern" value="${NIOFileIngressConnector.csvReader.filePathPattern}"/>
             <property name="removeOriginalFile" value="${NIOFileIngressConnector.csvReader.removeOriginalFile}"/>
-            <property name="fetchAfterModification" value="${NIOFileIngressConnector.csvReader.fetchAfterModification}"/>
+            <property name="fetchAfterModification"
+                      value="${NIOFileIngressConnector.csvReader.fetchAfterModification}"/>
             <property name="processingElement" ref="csvReaderLog"/>
             <property name="moveAfterProcess" value="${NIOFileIngressConnector.csvReader.moveAfterProcess}"/>
             <property name="moveAfterFailure" value="${NIOFileIngressConnector.csvReader.moveAfterFailure}"/>
@@ -64,7 +66,8 @@
         <x:position id="xmlSplitter" xPos="720.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
         <x:position id="xPathExtractor" xPos="240.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
         <x:position id="databaseActionLogger" xPos="400.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="databaseProcessingElement" xPos="560.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="databaseProcessingElement" xPos="560.0" yPos="160.0" angle="0.0"
+                    elementType="ProcessingElement"/>
         <x:position id="xmlAggregator" xPos="720.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
         <x:position id="successfulFlowEnd" xPos="880.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
         <x:position id="exceptionalFlowEnd" xPos="880.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>

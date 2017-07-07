@@ -6,12 +6,15 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.acme.esb</groupId>
-    <artifactId>sftp-file-mediation-with-transformation</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>org.adroitlogic.x.samples</groupId>
+    <artifactId>SftpFileMediationWithTransformation</artifactId>
+    <version>17.07-beta1</version>
     <packaging>xpr</packaging>
+    <name>AdroitLogic Project-X Sample - SFTP File with Transformation</name>
+    <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
+        demonstrating it's SFTP connector and the transformation features</description>
 
-    <url>http://adroitlogic.org</url>
+    <url>https://developer.adroitlogic.com/samples/advanced/17.01/sftp-mediation-with-transformation/</url>
 
     <repositories>
         <repository>
@@ -70,6 +73,19 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>adroitlogic-x-releases-deploy</id>
+            <name>AdroitLogic Project-X releases repository</name>
+            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>adroitlogic-x-snapshots-deploy</id>
+            <name>AdroitLogic Project-X snapshots repository</name>
+            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -150,18 +166,24 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-extractor</artifactId>
+            <artifactId>x-processor-regular-transform</artifactId>
             <version>17.07-beta1</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-transform</artifactId>
+            <artifactId>x-processor-regular-extractor</artifactId>
             <version>17.07-beta1</version>
         </dependency>
-
     </dependencies>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>org.adroitlogic.build</groupId>
+                <artifactId>aws-maven</artifactId>
+                <version>${aws-maven.version}</version>
+            </extension>
+        </extensions>
         <pluginManagement>
             <plugins>
                 <plugin>

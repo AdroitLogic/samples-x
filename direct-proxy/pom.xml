@@ -78,12 +78,12 @@
         <repository>
             <id>adroitlogic-x-releases-deploy</id>
             <name>AdroitLogic Project-X releases repository</name>
-            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
+            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
         </repository>
         <snapshotRepository>
             <id>adroitlogic-x-snapshots-deploy</id>
             <name>AdroitLogic Project-X snapshots repository</name>
-            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
+            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -159,7 +159,11 @@
             <artifactId>x-connector-nio-http</artifactId>
             <version>17.07-beta1</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-regular-logger</artifactId>
+            <version>17.07-beta1</version>
+        </dependency>
     </dependencies>
 
     <build>

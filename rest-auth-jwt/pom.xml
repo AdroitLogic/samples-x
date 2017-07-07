@@ -20,7 +20,7 @@
         <repository>
             <id>adroitlogic-x-releases</id>
             <name>AdroitLogic Project-X releases repository</name>
-            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
+            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>true</enabled>
                 <checksumPolicy>fail</checksumPolicy>
@@ -33,7 +33,7 @@
         <repository>
             <id>adroitlogic-x-snapshots</id>
             <name>AdroitLogic Project-X snapshots repository</name>
-            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
+            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -49,7 +49,7 @@
         <pluginRepository>
             <id>adroitlogic-x-releases</id>
             <name>AdroitLogic Project-X plugin releases repository</name>
-            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
+            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>true</enabled>
                 <checksumPolicy>fail</checksumPolicy>
@@ -62,7 +62,7 @@
         <pluginRepository>
             <id>adroitlogic-x-snapshots</id>
             <name>AdroitLogic Project-X plugin snapshots repository</name>
-            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
+            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -78,12 +78,12 @@
         <repository>
             <id>adroitlogic-x-releases-deploy</id>
             <name>AdroitLogic Project-X releases repository</name>
-            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
+            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
         </repository>
         <snapshotRepository>
             <id>adroitlogic-x-snapshots-deploy</id>
             <name>AdroitLogic Project-X snapshots repository</name>
-            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
+            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -113,6 +113,12 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.adroitlogic.x.logging</groupId>
+            <artifactId>x-logging-log4j2</artifactId>
+            <version>${ultraesb.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.adroitlogic.x</groupId>
             <artifactId>x-server</artifactId>
             <version>${ultraesb.version}</version>
@@ -127,6 +133,12 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-1.2-api</artifactId>
+            <version>2.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
             <version>2.7</version>
             <scope>test</scope>
         </dependency>
