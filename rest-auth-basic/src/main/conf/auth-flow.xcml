@@ -1,0 +1,45 @@
+<x:flow id="auth-flow" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+    <x:components>
+        <bean id="listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="port" value="${NIOHttpIngressConnector.listener.port}"/>
+            <property name="path" value="${NIOHttpIngressConnector.listener.path}"/>
+            <property name="enableConnectionDebug" value="${NIOHttpIngressConnector.listener.enableConnectionDebug}"/>
+            <property name="zeroCopyEnabled" value="${NIOHttpIngressConnector.listener.zeroCopyEnabled}"/>
+            <property name="noCompression" value="${NIOHttpIngressConnector.listener.noCompression}"/>
+            <property name="continueOnRuntimeExceptions" value="${NIOHttpIngressConnector.listener.continueOnRuntimeExceptions}"/>
+            <property name="continueOnCheckedExceptions" value="${NIOHttpIngressConnector.listener.continueOnCheckedExceptions}"/>
+            <property name="processingElement" ref="authenticator"/>
+            <property name="responseTimeout" value="${NIOHttpIngressConnector.listener.responseTimeout}"/>
+        </bean>
+        <bean id="authenticator" class="com.esb.samples.BasicAuthenticator">
+            <property name="nextElement" ref="backend"/>
+            <property name="errorHandler" ref="listener"/>
+            <property name="credentialFile" value="${BasicAuthenticator.authenticator.credentialFile}"/>
+        </bean>
+        <bean id="backend" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="addressTypeStr" value="${NIOHttpEgressConnector.backend.addressTypeStr}"/>
+            <property name="host" value="${NIOHttpEgressConnector.backend.host}"/>
+            <property name="servicePath" value="${NIOHttpEgressConnector.backend.servicePath}"/>
+            <property name="zeroCopy" value="${NIOHttpEgressConnector.backend.zeroCopy}"/>
+            <property name="connectionDebug" value="${NIOHttpEgressConnector.backend.connectionDebug}"/>
+            <property name="replaceUserAgent" value="${NIOHttpEgressConnector.backend.replaceUserAgent}"/>
+            <property name="unzipResponseEntities" value="${NIOHttpEgressConnector.backend.unzipResponseEntities}"/>
+            <property name="keepalive" value="${NIOHttpEgressConnector.backend.keepalive}"/>
+            <property name="keepAliveSafetyThreshold" value="${NIOHttpEgressConnector.backend.keepAliveSafetyThreshold}"/>
+            <property name="maxPerRoute" value="${NIOHttpEgressConnector.backend.maxPerRoute}"/>
+            <property name="maxConnections" value="${NIOHttpEgressConnector.backend.maxConnections}"/>
+            <property name="continueOnRuntimeExceptions" value="${NIOHttpEgressConnector.backend.continueOnRuntimeExceptions}"/>
+            <property name="continueOnCheckedExceptions" value="${NIOHttpEgressConnector.backend.continueOnCheckedExceptions}"/>
+            <property name="responseProcessor" ref="listener"/>
+        </bean>
+    </x:components>
+    <x:layout>
+        <x:position id="listener" xPos="240.0" yPos="80.0" angle="0.0" elementType="ResponseIngressConnector"/>
+        <x:position id="authenticator" xPos="400.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="backend" xPos="560.0" yPos="80.0" angle="0.0" elementType="EgressConnector"/>
+    </x:layout>
+</x:flow>

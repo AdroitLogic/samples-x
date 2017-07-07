@@ -7,7 +7,7 @@
     <x:description>A sample project that demonstrates securing a REST service with basic authentication</x:description>
 
     <x:flows>
-        <x:flow id="auth" file="auth.xcml"/>
+        <x:flow id="auth-flow" file="auth-flow.xcml"/>
     </x:flows>
 
 </x:project>
