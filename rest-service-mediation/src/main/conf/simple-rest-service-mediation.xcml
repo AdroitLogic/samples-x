@@ -1,54 +1,44 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
-
-    <bean id="httpListener"
-          class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
-        <property name="processingElement" ref="httpSender"/>
-        <property name="port" value="${NIOHttpIngressConnector.httpListener.port}"/>
-        <property name="path" value="${NIOHttpIngressConnector.httpListener.path}"/>
-        <property name="enableConnectionDebug"
-                  value="${NIOHttpIngressConnector.httpListener.enableConnectionDebug}"/>
-        <property name="zeroCopyEnabled"
-                  value="${NIOHttpIngressConnector.httpListener.zeroCopyEnabled}"/>
-        <property name="noCompression"
-                  value="${NIOHttpIngressConnector.httpListener.noCompression}"/>
-        <property name="continueOnRuntimeExceptions"
-                  value="${NIOHttpIngressConnector.httpListener.continueOnRuntimeExceptions}"/>
-        <property name="continueOnCheckedExceptions"
-                  value="${NIOHttpIngressConnector.httpListener.continueOnCheckedExceptions}"/>
-    </bean>
-    <bean id="httpSender"
-          class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
-        <property name="addressTypeStr"
-                  value="${NIOHttpEgressConnector.httpSender.addressTypeStr}"/>
-        <property name="host" value="${NIOHttpEgressConnector.httpSender.host}"/>
-        <property name="servicePath"
-                  value="${NIOHttpEgressConnector.httpSender.servicePath}"/>
-        <property name="zeroCopy" value="${NIOHttpEgressConnector.httpSender.zeroCopy}"/>
-        <property name="connectionDebug"
-                  value="${NIOHttpEgressConnector.httpSender.connectionDebug}"/>
-        <property name="replaceUserAgent"
-                  value="${NIOHttpEgressConnector.httpSender.replaceUserAgent}"/>
-        <property name="unzipResponseEntities"
-                  value="${NIOHttpEgressConnector.httpSender.unzipResponseEntities}"/>
-        <property name="keepalive" value="${NIOHttpEgressConnector.httpSender.keepalive}"/>
-        <property name="keepAliveSafetyThreshold"
-                  value="${NIOHttpEgressConnector.httpSender.keepAliveSafetyThreshold}"/>
-        <property name="maxPerRoute"
-                  value="${NIOHttpEgressConnector.httpSender.maxPerRoute}"/>
-        <property name="maxConnections"
-                  value="${NIOHttpEgressConnector.httpSender.maxConnections}"/>
-        <property name="continueOnRuntimeExceptions"
-                  value="${NIOHttpEgressConnector.httpSender.continueOnRuntimeExceptions}"/>
-        <property name="continueOnCheckedExceptions"
-                  value="${NIOHttpEgressConnector.httpSender.continueOnCheckedExceptions}"/>
-        <property name="responseProcessor" ref="msgLogger"/>
-    </bean>
-    <bean id="msgLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
-        <property name="logTemplate"
-                  value="${LoggerProcessingElement.msgLogger.logTemplate}"/>
-        <property name="logLevel" value="${LoggerProcessingElement.msgLogger.logLevel}"/>
-        <property name="nextElement" ref="httpListener"/>
-    </bean>
-</beans>
+<x:flow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        id="simple-rest-service-mediation" type="integrationFlow" xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+    <x:components>
+        <bean id="httpListener"
+              class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="processingElement" ref="httpSender"/>
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="/service/rest-proxy"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="8280"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+        </bean>
+        <bean id="httpSender" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="addressTypeStr" value="PREFIX"/>
+            <property name="host" value="api.openweathermap.org"/>
+            <property name="servicePath" value="/data/2.5/weather"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="keepalive" value="30000"/>
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="maxConnections" value="4096"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="responseProcessor" ref="msgLogger"/>
+        </bean>
+        <bean id="msgLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="logTemplate" value="$@{message.payload}"/>
+            <property name="logLevel" value="INFO"/>
+            <property name="nextElement" ref="httpListener"/>
+        </bean>
+    </x:components>
+    <x:layout>
+        <x:position id="httpListener" xPos="320.0" yPos="160.0" angle="0.0" elementType="ResponseIngressConnector"/>
+        <x:position id="httpSender" xPos="480.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="msgLogger" xPos="640.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+    </x:layout>
+</x:flow>
