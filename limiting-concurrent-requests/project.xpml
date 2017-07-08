@@ -10,6 +10,8 @@
     <x:flows>
         <x:flow id="limiting-concurrent-requests-using-throttle"
                 file="limiting-concurrent-requests-using-throttle.xcml"/>
+        <x:flow id="mock-processing-backends.mock-processing-servers"
+                file="mock-processing-backends/mock-processing-servers.xcml"/>
     </x:flows>
 
     <x:resources>

@@ -1,0 +1,54 @@
+<x:flow id="mock-processing-backends.mock-processing-servers" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+
+        <bean id="http-listener-fast-server" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="/service/fastProcessor"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="9000"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+            <property name="processingElement" ref="logger-fast-processor"/>
+        </bean>
+        <bean id="logger-fast-processor" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="nextElement" ref="http-listener-fast-server"/>
+            <property name="logLevel"
+                      value="${mock-processing-backends.mock-processing-servers.logger-fast-processor.logLevel}"/>
+            <property name="logTemplate" value="Request: @{message.payload} received to fast processing server."/>
+        </bean>
+        <bean id="http-listener-slow-server" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="/service/slowProcessor"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="9001"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+            <property name="processingElement" ref="logger-slow-server"/>
+        </bean>
+        <bean id="logger-slow-server" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="nextElement" ref="http-listener-slow-server"/>
+            <property name="logLevel"
+                      value="${mock-processing-backends.mock-processing-servers.logger-slow-server.logLevel}"/>
+            <property name="logTemplate" value="Request: @{message.payload} received to fast processing server."/>
+        </bean>
+    </x:components>
+
+    <x:layout>
+
+        <x:position id="http-listener-fast-server" xPos="400.0" yPos="160.0" angle="0.0"
+                    elementType="ResponseIngressConnector"/>
+        <x:position id="logger-fast-processor" xPos="560.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="http-listener-slow-server" xPos="400.0" yPos="320.0" angle="0.0"
+                    elementType="ResponseIngressConnector"/>
+        <x:position id="logger-slow-server" xPos="560.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+    </x:layout>
+
+
+</x:flow>

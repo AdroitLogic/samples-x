@@ -1,97 +1,80 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
-
-
-    <bean id="http-listener"
-          class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
-        <property name="processingElement" ref="throttle"/>
-        <property name="port" value="${NIOHttpIngressConnector.http-listener.port}"/>
-        <property name="path" value="${NIOHttpIngressConnector.http-listener.path}"/>
-        <property name="enableConnectionDebug"
-                  value="${NIOHttpIngressConnector.http-listener.enableConnectionDebug}"/>
-        <property name="zeroCopyEnabled"
-                  value="${NIOHttpIngressConnector.http-listener.zeroCopyEnabled}"/>
-        <property name="noCompression"
-                  value="${NIOHttpIngressConnector.http-listener.noCompression}"/>
-        <property name="continueOnRuntimeExceptions"
-                  value="${NIOHttpIngressConnector.http-listener.continueOnRuntimeExceptions}"/>
-        <property name="continueOnCheckedExceptions"
-                  value="${NIOHttpIngressConnector.http-listener.continueOnCheckedExceptions}"/>
-    </bean>
-    <bean id="denied-path-http-sender"
-          class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
-        <property name="responseProcessor" ref="http-listener"/>
-        <property name="addressTypeStr"
-                  value="${NIOHttpEgressConnector.denied-path-http-sender.addressTypeStr}"/>
-        <property name="host" value="${NIOHttpEgressConnector.denied-path-http-sender.host}"/>
-        <property name="port" value="${NIOHttpEgressConnector.denied-path-http-sender.port}"/>
-        <property name="servicePath"
-                  value="${NIOHttpEgressConnector.denied-path-http-sender.servicePath}"/>
-        <property name="zeroCopy" value="${NIOHttpEgressConnector.denied-path-http-sender.zeroCopy}"/>
-        <property name="connectionDebug"
-                  value="${NIOHttpEgressConnector.denied-path-http-sender.connectionDebug}"/>
-        <property name="replaceUserAgent"
-                  value="${NIOHttpEgressConnector.denied-path-http-sender.replaceUserAgent}"/>
-        <property name="unzipResponseEntities"
-                  value="${NIOHttpEgressConnector.denied-path-http-sender.unzipResponseEntities}"/>
-        <property name="keepalive" value="${NIOHttpEgressConnector.denied-path-http-sender.keepalive}"/>
-        <property name="keepAliveSafetyThreshold"
-                  value="${NIOHttpEgressConnector.denied-path-http-sender.keepAliveSafetyThreshold}"/>
-        <property name="maxPerRoute"
-                  value="${NIOHttpEgressConnector.denied-path-http-sender.maxPerRoute}"/>
-        <property name="maxConnections"
-                  value="${NIOHttpEgressConnector.denied-path-http-sender.maxConnections}"/>
-        <property name="continueOnRuntimeExceptions"
-                  value="${NIOHttpEgressConnector.denied-path-http-sender.continueOnRuntimeExceptions}"/>
-        <property name="continueOnCheckedExceptions"
-                  value="${NIOHttpEgressConnector.denied-path-http-sender.continueOnCheckedExceptions}"/>
-    </bean>
-    <bean id="throttle" class="org.adroitlogic.x.processor.throttler.ConcurrencyThrottle">
-        <property name="allowedOutPort" ref="allowed-path-logger"/>
-        <property name="deniedOutPort" ref="denied-path-logger"/>
-        <property name="concurrency" value="${ConcurrencyThrottle.throttle.concurrency}"/>
-        <property name="considerAllBranches"
-                  value="${ConcurrencyThrottle.throttle.considerAllBranches}"/>
-    </bean>
-    <bean id="allowed-path-logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
-        <property name="nextElement" ref="allowed-path-http-sender"/>
-        <property name="logTemplate"
-                  value="${LoggerProcessingElement.allowed-path-logger.logTemplate}"/>
-        <property name="logLevel" value="${LoggerProcessingElement.allowed-path-logger.logLevel}"/>
-    </bean>
-    <bean id="denied-path-logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
-        <property name="nextElement" ref="denied-path-http-sender"/>
-        <property name="logTemplate"
-                  value="${LoggerProcessingElement.denied-path-logger.logTemplate}"/>
-        <property name="logLevel" value="${LoggerProcessingElement.denied-path-logger.logLevel}"/>
-    </bean>
-    <bean id="allowed-path-http-sender"
-          class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
-        <property name="responseProcessor" ref="http-listener"/>
-        <property name="addressTypeStr"
-                  value="${NIOHttpEgressConnector.allowed-path-http-sender.addressTypeStr}"/>
-        <property name="host" value="${NIOHttpEgressConnector.allowed-path-http-sender.host}"/>
-        <property name="port" value="${NIOHttpEgressConnector.allowed-path-http-sender.port}"/>
-        <property name="zeroCopy" value="${NIOHttpEgressConnector.allowed-path-http-sender.zeroCopy}"/>
-        <property name="connectionDebug"
-                  value="${NIOHttpEgressConnector.allowed-path-http-sender.connectionDebug}"/>
-        <property name="replaceUserAgent"
-                  value="${NIOHttpEgressConnector.allowed-path-http-sender.replaceUserAgent}"/>
-        <property name="unzipResponseEntities"
-                  value="${NIOHttpEgressConnector.allowed-path-http-sender.unzipResponseEntities}"/>
-        <property name="keepalive" value="${NIOHttpEgressConnector.allowed-path-http-sender.keepalive}"/>
-        <property name="keepAliveSafetyThreshold"
-                  value="${NIOHttpEgressConnector.allowed-path-http-sender.keepAliveSafetyThreshold}"/>
-        <property name="maxPerRoute"
-                  value="${NIOHttpEgressConnector.allowed-path-http-sender.maxPerRoute}"/>
-        <property name="maxConnections"
-                  value="${NIOHttpEgressConnector.allowed-path-http-sender.maxConnections}"/>
-        <property name="continueOnRuntimeExceptions"
-                  value="${NIOHttpEgressConnector.allowed-path-http-sender.continueOnRuntimeExceptions}"/>
-        <property name="continueOnCheckedExceptions"
-                  value="${NIOHttpEgressConnector.allowed-path-http-sender.continueOnCheckedExceptions}"/>
-        <property name="servicePath"
-                  value="${NIOHttpEgressConnector.allowed-path-http-sender.servicePath}"/>
-    </bean>
-</beans>
+<x:flow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        id="limiting-concurrent-requests-using-throttle" type="integrationFlow" xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+    <x:components>
+        <bean id="http-listener"
+              class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="processingElement" ref="throttle"/>
+            <property name="port" value="8280"/>
+            <property name="path" value="/service/throttling-service"/>
+            <property name="enableConnectionDebug" value="true"/>
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+        </bean>
+        <bean id="denied-path-http-sender" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="responseProcessor" ref="http-listener"/>
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="keepalive" value="30000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="addressTypeStr" value="URL"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="port" value="${limiting-concurrent-requests-using-throttle.denied-path-http-sender.port}"/>
+            <property name="servicePath"
+                      value="${limiting-concurrent-requests-using-throttle.denied-path-http-sender.servicePath}"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="host" value="localhost"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="maxConnections" value="4096"/>
+        </bean>
+        <bean id="throttle" class="org.adroitlogic.x.processor.throttler.ConcurrencyThrottle">
+            <property name="allowedOutPort" ref="allowed-path-logger"/>
+            <property name="deniedOutPort" ref="denied-path-logger"/>
+            <property name="concurrency" value="10"/>
+            <property name="considerAllBranches" value="false"/>
+        </bean>
+        <bean id="allowed-path-logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="nextElement" ref="allowed-path-http-sender"/>
+            <property name="logTemplate" value="Forwarding to request to fast processing server."/>
+            <property name="logLevel" value="INFO"/>
+        </bean>
+        <bean id="denied-path-logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="nextElement" ref="denied-path-http-sender"/>
+            <property name="logTemplate"
+                      value="Concurrency limit reached. Forwarding to request to slow processing server."/>
+            <property name="logLevel" value="INFO"/>
+        </bean>
+        <bean id="allowed-path-http-sender" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="responseProcessor" ref="http-listener"/>
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="keepalive" value="30000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="addressTypeStr" value="URL"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="port" value="${limiting-concurrent-requests-using-throttle.allowed-path-http-sender.port}"/>
+            <property name="servicePath"
+                      value="${limiting-concurrent-requests-using-throttle.allowed-path-http-sender.servicePath}"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="host" value="localhost"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="maxConnections" value="4096"/>
+        </bean>
+    </x:components>
+    <x:layout>
+        <x:position id="http-listener" xPos="640.0" yPos="320.0" angle="0.0" elementType="ResponseIngressConnector"/>
+        <x:position id="denied-path-http-sender" xPos="1120.0" yPos="320.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="throttle" xPos="800.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="allowed-path-logger" xPos="960.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="denied-path-logger" xPos="960.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="allowed-path-http-sender" xPos="1120.0" yPos="240.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+    </x:layout>
+</x:flow>
