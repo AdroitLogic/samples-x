@@ -33,7 +33,7 @@
             <property name="responseProcessor" ref="success"/>
         </bean>
         <bean id="xsd" class="org.adroitlogic.x.processor.validate.xml.XSDValidator">
-            <property name="xsdPaths" value="metaValidator.xsd"/>
+            <property name="xsdPaths" value="${XSDValidator.validate.xsdPaths}"/>
             <property name="onValidationSuccess" ref="jmsForFileListener"/>
             <property name="onValidationFailure" ref="fileSender"/>
             <property name="errorHandler" ref="error"/>
