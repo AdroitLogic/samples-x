@@ -5,20 +5,20 @@
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
     <x:components>
-        <bean id="38f996f9-04bc-0b83-07f1-1ceda32b3945"
+        <bean id="ingress-connector"
               class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
             <property name="processingElement" ref="d20e146b-64fc-3244-f07a-e3b7d5f8e926"/>
             <property name="zeroCopyEnabled" value="true"/>
-            <property name="path" value="${header-based-routing-flow.38f996f9-04bc-0b83-07f1-1ceda32b3945.path}"/>
+            <property name="path" value="${header-based-routing-flow.ingress-connector.path}"/>
             <property name="noCompression" value="false"/>
             <property name="continueOnCheckedExceptions" value="false"/>
-            <property name="port" value="${header-based-routing-flow.38f996f9-04bc-0b83-07f1-1ceda32b3945.port}"/>
+            <property name="port" value="${header-based-routing-flow.ingress-connector.port}"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
             <property name="enableConnectionDebug" value="true"/>
         </bean>
 
         <bean id="d20e146b-64fc-3244-f07a-e3b7d5f8e926" class="org.adroitlogic.x.processor.flowControl.SwitchController">
-            <property name="defaultCase" ref="a659bd13-0caa-6412-65cc-907d2601231b"/>
+            <property name="defaultCase" ref="legacy-egress-connector"/>
             <property name="cases">
                 <list>
                     <ref bean="a47e14ee-aca9-cd02-ccaa-45eea7d4e6e2"/>
@@ -32,17 +32,17 @@
         </bean>
 
         <bean id="a47e14ee-aca9-cd02-ccaa-45eea7d4e6e2" class="org.adroitlogic.x.processor.flowControl.CaseBranch">
-            <property name="onMatch" ref="32de3aef-bbfc-a8ab-4d78-282ad2c5faf1"/>
+            <property name="onMatch" ref="computer-egress-connector"/>
             <property name="caseValue" value="Computer Science"/>
         </bean>
         <bean id="1996872b-ec10-f4af-3015-b519feea7c30" class="org.adroitlogic.x.processor.flowControl.CaseBranch">
-            <property name="onMatch" ref="a3b9d3fe-f0e3-e8b2-7c4d-669bee41f47a"/>
+            <property name="onMatch" ref="electronic-egress-connector"/>
             <property name="caseValue" value="Electronics"/>
         </bean>
 
-        <bean id="a3b9d3fe-f0e3-e8b2-7c4d-669bee41f47a"
+        <bean id="electronic-egress-connector"
               class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
-            <property name="responseProcessor" ref="38f996f9-04bc-0b83-07f1-1ceda32b3945"/>
+            <property name="responseProcessor" ref="ingress-connector"/>
             <property name="keepAliveSafetyThreshold" value="5000"/>
             <property name="keepalive" value="30000"/>
             <property name="maxPerRoute" value="2048"/>
@@ -51,17 +51,17 @@
             <property name="addressTypeStr" value="URL"/>
             <property name="continueOnCheckedExceptions" value="false"/>
             <property name="zeroCopy" value="true"/>
-            <property name="port" value="${header-based-routing-flow.a3b9d3fe-f0e3-e8b2-7c4d-669bee41f47a.port}"/>
+            <property name="port" value="${header-based-routing-flow.electronic-egress-connector.port}"/>
             <property name="servicePath"
-                      value="${header-based-routing-flow.a3b9d3fe-f0e3-e8b2-7c4d-669bee41f47a.servicePath}"/>
+                      value="${header-based-routing-flow.electronic-egress-connector.servicePath}"/>
             <property name="replaceUserAgent" value="true"/>
             <property name="host" value="localhost"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
             <property name="maxConnections" value="4096"/>
         </bean>
-        <bean id="32de3aef-bbfc-a8ab-4d78-282ad2c5faf1"
+        <bean id="computer-egress-connector"
               class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
-            <property name="responseProcessor" ref="38f996f9-04bc-0b83-07f1-1ceda32b3945"/>
+            <property name="responseProcessor" ref="ingress-connector"/>
             <property name="keepAliveSafetyThreshold" value="5000"/>
             <property name="keepalive" value="30000"/>
             <property name="maxPerRoute" value="2048"/>
@@ -70,9 +70,9 @@
             <property name="addressTypeStr" value="URL"/>
             <property name="continueOnCheckedExceptions" value="false"/>
             <property name="zeroCopy" value="true"/>
-            <property name="port" value="${header-based-routing-flow.32de3aef-bbfc-a8ab-4d78-282ad2c5faf1.port}"/>
+            <property name="port" value="${header-based-routing-flow.computer-egress-connector.port}"/>
             <property name="servicePath"
-                      value="${header-based-routing-flow.32de3aef-bbfc-a8ab-4d78-282ad2c5faf1.servicePath}"/>
+                      value="${header-based-routing-flow.computer-egress-connector.servicePath}"/>
             <property name="replaceUserAgent" value="true"/>
             <property name="host" value="localhost"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
@@ -80,9 +80,9 @@
         </bean>
 
 
-        <bean id="a659bd13-0caa-6412-65cc-907d2601231b"
+        <bean id="legacy-egress-connector"
               class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
-            <property name="responseProcessor" ref="38f996f9-04bc-0b83-07f1-1ceda32b3945"/>
+            <property name="responseProcessor" ref="ingress-connector"/>
             <property name="keepAliveSafetyThreshold" value="5000"/>
             <property name="keepalive" value="30000"/>
             <property name="maxPerRoute" value="2048"/>
@@ -91,9 +91,9 @@
             <property name="addressTypeStr" value="URL"/>
             <property name="continueOnCheckedExceptions" value="false"/>
             <property name="zeroCopy" value="true"/>
-            <property name="port" value="${header-based-routing-flow.a659bd13-0caa-6412-65cc-907d2601231b.port}"/>
+            <property name="port" value="${header-based-routing-flow.legacy-egress-connector.port}"/>
             <property name="servicePath"
-                      value="${header-based-routing-flow.a659bd13-0caa-6412-65cc-907d2601231b.servicePath}"/>
+                      value="${header-based-routing-flow.legacy-egress-connector.servicePath}"/>
             <property name="replaceUserAgent" value="true"/>
             <property name="host" value="localhost"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
@@ -104,19 +104,19 @@
 
     <x:layout>
 
-        <x:position id="a3b9d3fe-f0e3-e8b2-7c4d-669bee41f47a" xPos="800.0" yPos="400.0" angle="0.0"
+        <x:position id="electronic-egress-connector" xPos="800.0" yPos="400.0" angle="0.0"
                     elementType="ProcessingElement"/>
         <x:position id="a47e14ee-aca9-cd02-ccaa-45eea7d4e6e2" xPos="560.0" yPos="320.0" angle="0.0"
                     elementType="ProcessingElement"/>
-        <x:position id="a659bd13-0caa-6412-65cc-907d2601231b" xPos="800.0" yPos="80.0" angle="0.0"
+        <x:position id="legacy-egress-connector" xPos="800.0" yPos="80.0" angle="0.0"
                     elementType="ProcessingElement"/>
         <x:position id="d20e146b-64fc-3244-f07a-e3b7d5f8e926" xPos="400.0" yPos="240.0" angle="0.0"
                     elementType="ProcessingElement"/>
         <x:position id="1996872b-ec10-f4af-3015-b519feea7c30" xPos="560.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
-        <x:position id="32de3aef-bbfc-a8ab-4d78-282ad2c5faf1" xPos="800.0" yPos="240.0" angle="0.0"
+        <x:position id="computer-egress-connector" xPos="800.0" yPos="240.0" angle="0.0"
                     elementType="ProcessingElement"/>
-        <x:position id="38f996f9-04bc-0b83-07f1-1ceda32b3945" xPos="240.0" yPos="240.0" angle="0.0"
+        <x:position id="ingress-connector" xPos="240.0" yPos="240.0" angle="0.0"
                     elementType="ResponseIngressConnector"/>
     </x:layout>
 
