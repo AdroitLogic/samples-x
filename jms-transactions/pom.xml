@@ -79,12 +79,12 @@
         <repository>
             <id>adroitlogic-x-releases-deploy</id>
             <name>AdroitLogic Project-X releases repository</name>
-            <url>https://releases.xrepo.adroitlogic.com/maven2</url>
+            <url>s3://releases.xrepo.adroitlogic.com/maven2</url>
         </repository>
         <snapshotRepository>
             <id>adroitlogic-x-snapshots-deploy</id>
             <name>AdroitLogic Project-X snapshots repository</name>
-            <url>https://snapshots.xrepo.adroitlogic.com/maven2</url>
+            <url>s3://snapshots.xrepo.adroitlogic.com/maven2</url>
         </snapshotRepository>
     </distributionManagement>
 
