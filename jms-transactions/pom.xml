@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.adroitlogic.x.samples</groupId>
-    <artifactId>JmsTransactions</artifactId>
+    <artifactId>jms-transactions</artifactId>
     <version>17.07-beta2</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - JMS Transactions</name>

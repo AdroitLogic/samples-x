@@ -7,26 +7,26 @@
     <x:components>
 
         <bean id="jms-in" class="org.adroitlogic.x.connector.jms.SpringJMSIngressConnector">
-            <property name="queueName" value="${SpringJMSIngressConnector.jmsListener.queueName}"/>
+            <property name="processingElement" ref="scope-start-txn"/>
+            <property name="queueName" value="${jms-transaction-flow.jms-in.queueName}"/>
             <property name="connectionFactory" ref="activeMq-activeMQ-springCachingConnectionFactory"/>
             <property name="transactionManager" ref="activeMq-activeMQ-ultraTxnManager"/>
-            <property name="processingElement" ref="scope-start-txn"/>
         </bean>
         <bean id="scope-start-txn"
               class="org.adroitlogic.x.components.scope.transaction.TransactionScopeStartElement">
             <property name="firstProcessingElement" ref="msgCloner"/>
+            <property name="transactionManager" ref="activeMq-activeMQ-ultraTxnManager"/>
         </bean>
         <bean id="msgCloner" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
-            <property name="exchangePattern" value="${CloneMessage.msgCloner.exchangePattern}"/>
-            <property name="cloneType" value="${CloneMessage.msgCloner.cloneType}"/>
-            <property name="completionType" value="${CloneMessage.msgCloner.completionType}"/>
             <property name="originalOutport" ref="jsonToXml"/>
             <property name="clonedOutport" ref="auditSender"/>
+            <property name="cloneType" value="With full message"/>
+            <property name="exchangePattern" value="Keep Original"/>
+            <property name="completionType" value="On result of both"/>
         </bean>
         <bean id="jsonToXml" class="org.adroitlogic.x.processor.transform.JSONToXMLTransformer">
-            <property name="rootElementName"
-                      value="${JSONToXMLTransformer.jsonToXml.rootElementName}"/>
             <property name="nextElement" ref="xsdValidation"/>
+            <property name="rootElementName" value="AddBookingRequest"/>
         </bean>
         <bean id="xsdValidation" class="org.adroitlogic.x.processor.validate.xml.XSDValidator">
             <property name="xsdPaths" value="addBooking.xsd"/>
@@ -35,19 +35,20 @@
         </bean>
         <bean id="springSender" class="org.adroitlogic.x.connector.jms.SpringJMSEgressConnector">
             <property name="template" ref="activeMq-activeMQ-jmsTemplate"/>
-            <property name="destination" value="${sample.springSender.destination}"/>
+            <property name="destination" value="${jms-transaction-flow.springSender.destination}"/>
             <property name="completeFlow" value="true"/>
         </bean>
         <bean id="msgLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
-            <property name="logTemplate"
-                      value="${LoggerProcessingElement.msgLogger.logTemplate}"/>
-            <property name="logLevel" value="${LoggerProcessingElement.msgLogger.logLevel}"/>
             <property name="nextElement" ref="endFlow"/>
+            <property name="logLevel" value="WARN"/>
+            <property name="logTemplate" value="XSD Validation Failed for message @{message.current-payload}"/>
         </bean>
-        <bean id="endFlow" class="org.adroitlogic.x.components.flowend.ExceptionalFlowEnd"/>
+        <bean id="endFlow" class="org.adroitlogic.x.components.flowend.ExceptionalFlowEnd">
+            <property name="exceptionMessage" value="Flow completed with validation failure"/>
+        </bean>
         <bean id="auditSender" class="org.adroitlogic.x.connector.jms.SpringJMSEgressConnector">
             <property name="template" ref="activeMq-activeMQ-jmsTemplate"/>
-            <property name="destination" value="${sample.auditSender.destination}"/>
+            <property name="destination" value="${jms-transaction-flow.auditSender.destination}"/>
             <property name="completeFlow" value="true"/>
         </bean>
 

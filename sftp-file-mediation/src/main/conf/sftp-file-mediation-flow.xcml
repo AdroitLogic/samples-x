@@ -1,4 +1,4 @@
-<x:flow id="sftp-file-mediation_flow" type="integrationFlow"
+<x:flow id="sftp-file-mediation-flow" type="integrationFlow"
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
         xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
@@ -9,21 +9,21 @@
         <bean id="sftp-ingress-connector" class="org.adroitlogic.x.connector.sftp.SFTPIngressConnector">
             <property name="processingElement" ref="json-path-extractor"/>
             <property name="parallelExecutionCount" value="4"/>
-            <property name="fetchPath" value="${sftp-file-mediation_flow.sftp-ingress-connector.fetchPath}"/>
+            <property name="fetchPath" value="${sftp-file-mediation-flow.sftp-ingress-connector.fetchPath}"/>
             <property name="hostKeyCheck" value="false"/>
             <property name="timeout" value="60000"/>
             <property name="concurrentPollingCount" value="1"/>
-            <property name="password" value="${sftp-file-mediation_flow.sftp-ingress-connector.password}"/>
-            <property name="host" value="${sftp-file-mediation_flow.sftp-ingress-connector.host}"/>
+            <property name="password" value="${sftp-file-mediation-flow.sftp-ingress-connector.password}"/>
+            <property name="host" value="${sftp-file-mediation-flow.sftp-ingress-connector.host}"/>
             <property name="repeatInterval" value="1000"/>
             <property name="maxActiveConnections" value="10"/>
             <property name="removeOriginal" value="true"/>
             <property name="repeatCount" value="-1"/>
             <property name="fileNamePattern"
-                      value="${sftp-file-mediation_flow.sftp-ingress-connector.fileNamePattern}"/>
-            <property name="port" value="${sftp-file-mediation_flow.sftp-ingress-connector.port}"/>
+                      value="${sftp-file-mediation-flow.sftp-ingress-connector.fileNamePattern}"/>
+            <property name="port" value="${sftp-file-mediation-flow.sftp-ingress-connector.port}"/>
             <property name="startDelay" value="1000"/>
-            <property name="username" value="${sftp-file-mediation_flow.sftp-ingress-connector.username}"/>
+            <property name="username" value="${sftp-file-mediation-flow.sftp-ingress-connector.username}"/>
         </bean>
         <bean id="json-path-extractor" class="org.adroitlogic.x.processor.extract.path.json.JSONPathExtractProcessor">
             <property name="nextElement" ref="logger"/>
@@ -38,13 +38,13 @@
         </bean>
         <bean id="sftp-egress-connector" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
             <property name="fileName" value="@{variable.CLIENT_ID}_@{message.headers.ultra.file.name}"/>
-            <property name="filePath" value="${sftp-file-mediation_flow.sftp-egress-connector.filePath}"/>
+            <property name="filePath" value="${sftp-file-mediation-flow.sftp-egress-connector.filePath}"/>
             <property name="timeout" value="6000"/>
-            <property name="password" value="${sftp-file-mediation_flow.sftp-egress-connector.password}"/>
-            <property name="port" value="${sftp-file-mediation_flow.sftp-egress-connector.port}"/>
-            <property name="host" value="${sftp-file-mediation_flow.sftp-egress-connector.host}"/>
+            <property name="password" value="${sftp-file-mediation-flow.sftp-egress-connector.password}"/>
+            <property name="port" value="${sftp-file-mediation-flow.sftp-egress-connector.port}"/>
+            <property name="host" value="${sftp-file-mediation-flow.sftp-egress-connector.host}"/>
             <property name="maxActiveConnections" value="10"/>
-            <property name="username" value="${sftp-file-mediation_flow.sftp-egress-connector.username}"/>
+            <property name="username" value="${sftp-file-mediation-flow.sftp-egress-connector.username}"/>
         </bean>
     </x:components>
 

@@ -1,4 +1,4 @@
-<x:flow id="json-to-xml-flow" type="integrationFlow"
+<x:flow id="json-to-xml-transformation-flow" type="integrationFlow"
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
         xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
@@ -8,10 +8,10 @@
         <bean id="http-listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
             <property name="processingElement" ref="json-xml-transformer"/>
             <property name="zeroCopyEnabled" value="true"/>
-            <property name="path" value="${json-to-xml-flow.http-listener.path}"/>
+            <property name="path" value="${json-to-xml-transformation-flow.http-listener.path}"/>
             <property name="noCompression" value="false"/>
             <property name="continueOnCheckedExceptions" value="false"/>
-            <property name="port" value="${json-to-xml-flow.http-listener.port}"/>
+            <property name="port" value="${json-to-xml-transformation-flow.http-listener.port}"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
             <property name="enableConnectionDebug" value="true"/>
         </bean>
@@ -22,22 +22,22 @@
             <property name="maxPerRoute" value="2048"/>
             <property name="unzipResponseEntities" value="true"/>
             <property name="connectionDebug" value="true"/>
-            <property name="addressTypeStr" value="${json-to-xml-flow.http-sender.addressTypeStr}"/>
+            <property name="addressTypeStr" value="${json-to-xml-transformation-flow.http-sender.addressTypeStr}"/>
             <property name="continueOnCheckedExceptions" value="false"/>
             <property name="zeroCopy" value="true"/>
-            <property name="port" value="${json-to-xml-flow.http-sender.port}"/>
-            <property name="servicePath" value="${json-to-xml-flow.http-sender.servicePath}"/>
+            <property name="port" value="${json-to-xml-transformation-flow.http-sender.port}"/>
+            <property name="servicePath" value="${json-to-xml-transformation-flow.http-sender.servicePath}"/>
             <property name="replaceUserAgent" value="true"/>
-            <property name="host" value="${json-to-xml-flow.http-sender.host}"/>
+            <property name="host" value="${json-to-xml-transformation-flow.http-sender.host}"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
             <property name="maxConnections" value="4096"/>
         </bean>
         <bean id="json-xml-transformer" class="org.adroitlogic.x.processor.transform.JSONToXMLTransformer">
             <property name="nextElement" ref="http-sender"/>
-            <property name="arrayElementName" value="${json-to-xml-flow.json-xml-transformer.arrayElementName}"/>
-            <property name="nameSpacePrefix" value="${json-to-xml-flow.json-xml-transformer.nameSpacePrefix}"/>
-            <property name="nameSpaceURI" value="${json-to-xml-flow.json-xml-transformer.nameSpaceURI}"/>
-            <property name="rootElementName" value="${json-to-xml-flow.json-xml-transformer.rootElementName}"/>
+            <property name="arrayElementName" value="${json-to-xml-transformation-flow.json-xml-transformer.arrayElementName}"/>
+            <property name="nameSpacePrefix" value="${json-to-xml-transformation-flow.json-xml-transformer.nameSpacePrefix}"/>
+            <property name="nameSpaceURI" value="${json-to-xml-transformation-flow.json-xml-transformer.nameSpaceURI}"/>
+            <property name="rootElementName" value="${json-to-xml-transformation-flow.json-xml-transformer.rootElementName}"/>
         </bean>
     </x:components>
 

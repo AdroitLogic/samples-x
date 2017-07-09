@@ -7,7 +7,7 @@
     <x:description>Creation of a simple JSON/REST API using the JSON Data Service processing element</x:description>
 
     <x:flows>
-        <x:flow id="json-service-flow" file="json-service-flow.xcml"/>
+        <x:flow id="json-data-service-flow" file="json-data-service-flow.xcml"/>
     </x:flows>
 
     <x:resources>

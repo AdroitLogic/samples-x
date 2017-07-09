@@ -7,7 +7,7 @@
     <x:description>A sample project that demonstrates the projects concept</x:description>
 
     <x:flows>
-        <x:flow id="sftp-file-mediation_flow" file="sftp-file-mediation_flow.xcml"/>
+        <x:flow id="sftp-file-mediation-flow" file="sftp-file-mediation-flow.xcml"/>
     </x:flows>
 
     <x:resources>

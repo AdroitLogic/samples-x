@@ -1,4 +1,4 @@
-<x:flow id="json-service-flow" type="integrationFlow"
+<x:flow id="json-data-service-flow" type="integrationFlow"
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
         xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd

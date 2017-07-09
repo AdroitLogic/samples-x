@@ -1,4 +1,4 @@
-<x:project id="RestServiceMediation" name="RestServiceMediation" version="17.01"
+<x:project id="rest-service-mediation" name="RestServiceMediation" version="17.01"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
@@ -7,7 +7,7 @@
     <x:description>A sample project that demonstrates simple rest service mediation</x:description>
 
     <x:flows>
-        <x:flow id="simple-rest-service-mediation" file="simple-rest-service-mediation.xcml"/>
+        <x:flow id="rest-service-mediation-flow" file="rest-service-mediation-flow.xcml"/>
     </x:flows>
 
     <x:resources>

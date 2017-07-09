@@ -1,4 +1,4 @@
-<x:project id="WebServiceViaEmail" name="WebServiceViaEmail" version="17.01"
+<x:project id="web-service-via-email" name="WebServiceViaEmail" version="17.01"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
@@ -7,7 +7,7 @@
     <x:description>Sample demonstrating the invocation of a web service via email</x:description>
 
     <x:flows>
-        <x:flow id="email-to-web-service" file="email-to-web-service.xcml"/>
+        <x:flow id="web-service-via-email-flow" file="web-service-via-email-flow.xcml"/>
     </x:flows>
 
     <x:resources>

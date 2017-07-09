@@ -1,4 +1,4 @@
-<x:project id="FilePollingWithXMLValidation" name="FilePollingWithXMLValidation" version="17.01"
+<x:project id="file-polling-with-xml-validation" name="FilePollingWithXMLValidation" version="17.01"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
@@ -7,7 +7,7 @@
     <x:description>A sample project that demonstrates File polling with validation</x:description>
 
     <x:flows>
-        <x:flow id="file_connector_flow" file="file_connector_flow.xcml"/>
+        <x:flow id="file-polling-with-xml-validation-flow" file="file-polling-with-xml-validation-flow.xcml"/>
     </x:flows>
 
     <x:resources>

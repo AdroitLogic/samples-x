@@ -1,4 +1,4 @@
-<x:project id="JsonToXmlTransformation" name="JsonToXmlTransformation" version="17.01"
+<x:project id="json-to-xml-transformation" name="JsonToXmlTransformation" version="17.01"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
@@ -8,8 +8,8 @@
 
     <x:flows>
 		<x:flow id="hcl-order-system.mock-hcl-backend" file="hcl-order-system/mock-hcl-backend.xcml"/>
-		<x:flow id="json-to-xml-flow" file="json-to-xml-flow.xcml"/>
-	</x:flows>
+        <x:flow id="json-to-xml-transformation-flow" file="json-to-xml-transformation-flow.xcml"/>
+    </x:flows>
 
     <x:resources>
     </x:resources>

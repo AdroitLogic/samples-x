@@ -1,4 +1,4 @@
-<x:project id="LimitingConcurrentRequests" name="LimitingConcurrentRequests" version="17.01"
+<x:project id="limiting-concurrent-requests" name="LimitingConcurrentRequests" version="17.01"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
@@ -8,10 +8,9 @@
     concurrent messages in processing</x:description>
 
     <x:flows>
-        <x:flow id="limiting-concurrent-requests-using-throttle"
-                file="limiting-concurrent-requests-using-throttle.xcml"/>
         <x:flow id="mock-processing-backends.mock-processing-servers"
                 file="mock-processing-backends/mock-processing-servers.xcml"/>
+        <x:flow id="limiting-concurrent-requests-flow" file="limiting-concurrent-requests-flow.xcml"/>
     </x:flows>
 
     <x:resources>
