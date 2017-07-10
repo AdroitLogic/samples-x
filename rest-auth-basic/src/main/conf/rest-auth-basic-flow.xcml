@@ -12,13 +12,8 @@
             <property name="noCompression" value="${NIOHttpIngressConnector.listener.noCompression}"/>
             <property name="continueOnRuntimeExceptions" value="${NIOHttpIngressConnector.listener.continueOnRuntimeExceptions}"/>
             <property name="continueOnCheckedExceptions" value="${NIOHttpIngressConnector.listener.continueOnCheckedExceptions}"/>
-            <property name="processingElement" ref="authenticator"/>
+            <property name="processingElement" ref="basic-auth"/>
             <property name="responseTimeout" value="${NIOHttpIngressConnector.listener.responseTimeout}"/>
-        </bean>
-        <bean id="authenticator" class="com.esb.samples.BasicAuthenticator">
-            <property name="nextElement" ref="backend"/>
-            <property name="errorHandler" ref="listener"/>
-            <property name="credentialFile" value="${BasicAuthenticator.authenticator.credentialFile}"/>
         </bean>
         <bean id="backend" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
             <property name="addressTypeStr" value="${NIOHttpEgressConnector.backend.addressTypeStr}"/>
@@ -36,10 +31,20 @@
             <property name="continueOnCheckedExceptions" value="${NIOHttpEgressConnector.backend.continueOnCheckedExceptions}"/>
             <property name="responseProcessor" ref="listener"/>
         </bean>
+        <bean id="basic-auth" class="org.adroitlogic.x.processor.http.nio.auth.HttpAuthenticator">
+            <property name="successElement" ref="backend"/>
+            <property name="failedElement" ref="listener"/>
+            <property name="ignoreFailure" value="false"/>
+            <property name="authenticationManager" ref="config"/>
+            <property name="realmName" value="adroitlogic"/>
+            <property name="credentialsCharset" value="UTF-8"/>
+            <property name="authScheme" value="Basic"/>
+            <property name="userDetailsService" ref="userDetail"/>
+        </bean>
     </x:components>
     <x:layout>
         <x:position id="listener" xPos="240.0" yPos="80.0" angle="0.0" elementType="ResponseIngressConnector"/>
-        <x:position id="authenticator" xPos="400.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
         <x:position id="backend" xPos="560.0" yPos="80.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="basic-auth" xPos="400.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
     </x:layout>
 </x:flow>

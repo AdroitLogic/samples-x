@@ -10,9 +10,9 @@
     <artifactId>json-data-service</artifactId>
     <version>17.07-beta2</version>
     <packaging>xpr</packaging>
-    <name>AdroitLogic Project-X Sample - REST JWT Authentication</name>
+    <name>AdroitLogic Project-X Sample - JSON Data Service</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's JWT authentication feature for REST requests</description>
+        demonstrating creation of a simple REST API using the JSON Data Service processing element</description>
 
     <url>https://www.adroitlogic.com</url>
 
@@ -157,12 +157,12 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-nio-http</artifactId>
-            <version>17.07-beta2</version>
+            <version>${ultraesb.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-regular-data-service</artifactId>
-            <version>17.07-beta2</version>
+            <version>${ultraesb.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -230,8 +230,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>17.07-beta2</ultraesb.version>
-        <project-plugin-version>17.07-beta2</project-plugin-version>
+        <ultraesb.version>${project.version}</ultraesb.version>
+        <project-plugin-version>${ultraesb.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>

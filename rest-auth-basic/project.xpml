@@ -10,4 +10,40 @@
         <x:flow id="rest-auth-basic-flow" file="rest-auth-basic-flow.xcml"/>
     </x:flows>
 
+    <x:resources>
+        <x:resource id="config">
+            <bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
+                <constructor-arg name="providers">
+                    <list>
+                        <bean class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+                            <property name="userDetailsService" ref="userDetail"/>
+                        </bean>
+                    </list>
+                </constructor-arg>
+            </bean>
+        </x:resource>
+        <x:resource id="userDetail">
+            <bean class="org.springframework.security.provisioning.InMemoryUserDetailsManager" id="userDetail">
+                <constructor-arg name="users">
+                    <list>
+                        <bean class="org.springframework.security.core.userdetails.User">
+                            <constructor-arg name="username" value="admin"/>
+                            <constructor-arg name="password" value="password"/>
+                            <constructor-arg name="authorities">
+                                <list>
+                                    <bean class="org.springframework.security.core.authority.SimpleGrantedAuthority">
+                                        <constructor-arg name="role" value="ROLE_ADMIN"/>
+                                    </bean>
+                                    <bean class="org.springframework.security.core.authority.SimpleGrantedAuthority">
+                                        <constructor-arg name="role" value="ROLE_USER"/>
+                                    </bean>
+                                </list>
+                            </constructor-arg>
+                        </bean>
+                    </list>
+                </constructor-arg>
+            </bean>
+        </x:resource>
+    </x:resources>
+
 </x:project>

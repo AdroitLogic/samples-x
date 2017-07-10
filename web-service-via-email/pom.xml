@@ -10,9 +10,9 @@
     <artifactId>web-service-via-email</artifactId>
     <version>17.07-beta2</version>
     <packaging>xpr</packaging>
-    <name>AdroitLogic Project-X Sample - EMail Web Services</name>
+    <name>AdroitLogic Project-X Sample - Web Service via Email</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's EMail connector and the web services features</description>
+        demonstrating invocation and response delivery of a web service via email</description>
 
     <url>https://developer.adroitlogic.com/samples/introductory/17.01/web-service-via-email/</url>
 
@@ -157,17 +157,17 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-nio-http</artifactId>
-            <version>17.07-beta2</version>
+            <version>${ultraesb.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-mail</artifactId>
-            <version>17.07-beta2</version>
+            <version>${ultraesb.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-regular-header-management</artifactId>
-            <version>17.07-beta2</version>
+            <version>${ultraesb.version}</version>
         </dependency>
     </dependencies>
 
@@ -229,8 +229,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>17.07-beta2</ultraesb.version>
-        <project-plugin-version>17.07-beta2</project-plugin-version>
+        <ultraesb.version>${project.version}</ultraesb.version>
+        <project-plugin-version>${ultraesb.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>
