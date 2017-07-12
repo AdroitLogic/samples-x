@@ -166,7 +166,7 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-header-management</artifactId>
+            <artifactId>x-processor-header</artifactId>
             <version>${ultraesb.version}</version>
         </dependency>
     </dependencies>

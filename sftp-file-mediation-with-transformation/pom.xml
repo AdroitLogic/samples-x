@@ -171,7 +171,12 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-extractor</artifactId>
+            <artifactId>x-processor-json</artifactId>
+            <version>17.07-beta2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x.processors</groupId>
+            <artifactId>x-processor-xml</artifactId>
             <version>17.07-beta2</version>
         </dependency>
     </dependencies>

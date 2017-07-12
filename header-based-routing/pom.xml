@@ -166,7 +166,7 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-payload-setter</artifactId>
+            <artifactId>x-processor-payload</artifactId>
             <version>17.07-beta2</version>
         </dependency>
 

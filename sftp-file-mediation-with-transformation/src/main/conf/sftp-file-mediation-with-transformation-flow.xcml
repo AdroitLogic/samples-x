@@ -145,7 +145,7 @@
                       value="${sftp-file-mediation-with-transformation-flow.sftp-internal-original-file-sender.username}"/>
         </bean>
         <bean id="xpath-extractor"
-              class="org.adroitlogic.x.processor.extract.path.xpath.XPathExtractProcessor">
+              class="org.adroitlogic.x.processor.xml.xpath.XPathExtractProcessor">
             <property name="nextElement" ref="clone-to-sftp-egress1"/>
             <property name="xpath" value="/adrt_ns:ExchangeRates/adrt_ns:ReferenceNo"/>
             <property name="variableName" value="Reference_No"/>

@@ -187,12 +187,12 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-validate</artifactId>
+            <artifactId>x-processor-xml</artifactId>
             <version>17.07-beta2</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-logger</artifactId>
+            <artifactId>x-processor-logger</artifactId>
             <version>17.07-beta2</version>
         </dependency>
     </dependencies>

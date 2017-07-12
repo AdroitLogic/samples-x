@@ -40,6 +40,7 @@
         <module>rest-service-mediation</module>
         <module>sftp-file-mediation</module>
         <module>sftp-file-mediation-with-transformation</module>
+        <module>sftp-key-based-file-mediation</module>
         <module>web-service-via-email</module>
         <module>json-data-service</module>
         <module>response-caching</module>

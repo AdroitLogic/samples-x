@@ -21,7 +21,7 @@
             <property name="processingElement" ref="token-decoder"/>
             <property name="responseTimeout" value="${NIOHttpIngressConnector.req-listener.responseTimeout}"/>
         </bean>
-        <bean id="auth-fail-setter" class="org.adroitlogic.x.processor.payloadSetter.SetPayloadFromString">
+        <bean id="auth-fail-setter" class="org.adroitlogic.x.processor.payload.SetPayloadFromString">
             <property name="stringPayload" value="${SetPayloadFromString.auth-fail-setter.stringPayload}"/>
             <property name="nextElement" ref="req-listener"/>
         </bean>

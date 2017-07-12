@@ -28,7 +28,7 @@
             <property name="nextElement" ref="xsdValidation"/>
             <property name="rootElementName" value="AddBookingRequest"/>
         </bean>
-        <bean id="xsdValidation" class="org.adroitlogic.x.processor.validate.xml.XSDValidator">
+        <bean id="xsdValidation" class="org.adroitlogic.x.processor.xml.xsd.XSDValidator">
             <property name="xsdPaths" value="addBooking.xsd"/>
             <property name="onValidationSuccess" ref="springSender"/>
             <property name="onValidationFailure" ref="msgLogger"/>

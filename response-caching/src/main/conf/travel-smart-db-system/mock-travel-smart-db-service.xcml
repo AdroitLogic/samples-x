@@ -16,7 +16,7 @@
             <property name="enableConnectionDebug" value="true"/>
             <property name="processingElement" ref="if_success_setter"/>
         </bean>
-        <bean id="if_success_setter" class="org.adroitlogic.x.processor.payloadSetter.SetPayloadFromString">
+        <bean id="if_success_setter" class="org.adroitlogic.x.processor.payload.SetPayloadFromString">
             <property name="nextElement" ref="logger"/>
             <property name="stringPayload" value="Query executed successfully."/>
         </bean>

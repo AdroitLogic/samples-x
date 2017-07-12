@@ -32,7 +32,7 @@
             <property name="destination" value="${SpringJMSEgressConnector.jmsForFileListener.destination}"/>
             <property name="responseProcessor" ref="success"/>
         </bean>
-        <bean id="xsd" class="org.adroitlogic.x.processor.validate.xml.XSDValidator">
+        <bean id="xsd" class="org.adroitlogic.x.processor.xml.xsd.XSDValidator">
             <property name="xsdPaths" value="${XSDValidator.validate.xsdPaths}"/>
             <property name="onValidationSuccess" ref="jmsForFileListener"/>
             <property name="onValidationFailure" ref="fileSender"/>

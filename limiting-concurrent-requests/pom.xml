@@ -161,17 +161,17 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-logger</artifactId>
+            <artifactId>x-processor-logger</artifactId>
             <version>17.07-beta2</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-throttle</artifactId>
+            <artifactId>x-processor-throttle</artifactId>
             <version>17.07-beta2</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-db</artifactId>
+            <artifactId>x-processor-database</artifactId>
             <version>17.07-beta2</version>
         </dependency>
     </dependencies>

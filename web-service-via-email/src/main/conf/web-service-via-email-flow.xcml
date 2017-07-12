@@ -37,7 +37,7 @@
             <property name="to" value="${MailEgressConnector.email-sender.to}"/>
             <property name="responseProcessor" ref="end"/>
         </bean>
-        <bean id="subject-setter" class="org.adroitlogic.x.processor.headerManagement.AddNewTransportHeader">
+        <bean id="subject-setter" class="org.adroitlogic.x.processor.header.AddNewTransportHeader">
             <property name="headerName" value="${AddNewTransportHeader.subject-setter.headerName}"/>
             <property name="useVariable" value="${AddNewTransportHeader.subject-setter.useVariable}"/>
             <property name="value" value="${AddNewTransportHeader.subject-setter.value}"/>
@@ -52,7 +52,7 @@
             <property name="varType" value="${AddVariable.recipient-extractor.varType}"/>
             <property name="nextElement" ref="http-sender"/>
         </bean>
-        <bean id="recipient-setter" class="org.adroitlogic.x.processor.headerManagement.AddNewTransportHeader">
+        <bean id="recipient-setter" class="org.adroitlogic.x.processor.header.AddNewTransportHeader">
             <property name="headerName" value="${AddNewTransportHeader.recipient-setter.headerName}"/>
             <property name="useVariable" value="${AddNewTransportHeader.recipient-setter.useVariable}"/>
             <property name="value" value="${AddNewTransportHeader.recipient-setter.value}"/>

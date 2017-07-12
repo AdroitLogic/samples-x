@@ -17,7 +17,7 @@
             <property name="enableConnectionDebug" value="true"/>
         </bean>
         <bean id="b7b79d34-ae59-4fcb-e183-75bff3bd67fd"
-              class="org.adroitlogic.x.processor.extract.path.json.JSONPathExtractProcessor">
+              class="org.adroitlogic.x.processor.json.JSONPathExtractProcessor">
             <property name="nextElement" ref="c0aa0dc5-7de7-d357-87df-6c07863d7210"/>
             <property name="variableName" value="Department"/>
             <property name="jsonPath" value="$.Registration.department"/>

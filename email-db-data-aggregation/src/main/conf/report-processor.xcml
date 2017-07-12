@@ -52,7 +52,7 @@
             <property name="logTemplate" value="${LoggerProcessingElement.databaseActionLogger.logTemplate}"/>
             <property name="logLevel" value="${LoggerProcessingElement.databaseActionLogger.logLevel}"/>
         </bean>
-        <bean id="xPathExtractor" class="org.adroitlogic.x.processor.extract.path.xpath.XPathExtractProcessor">
+        <bean id="xPathExtractor" class="org.adroitlogic.x.processor.xml.xpath.XPathExtractProcessor">
             <property name="variableName" value="${XPathPathExtractProcessor.xPathExtractor.variableName}"/>
             <property name="xpath" value="${XPathPathExtractProcessor.xPathExtractor.xpath}"/>
             <property name="nextElement" ref="databaseActionLogger"/>

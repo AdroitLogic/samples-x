@@ -157,7 +157,7 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-cache</artifactId>
+            <artifactId>x-processor-cache</artifactId>
             <version>17.07-beta2</version>
         </dependency>
         <dependency>
@@ -167,12 +167,12 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-logger</artifactId>
+            <artifactId>x-processor-logger</artifactId>
             <version>17.07-beta2</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-payload-setter</artifactId>
+            <artifactId>x-processor-payload</artifactId>
             <version>17.07-beta2</version>
         </dependency>
     </dependencies>

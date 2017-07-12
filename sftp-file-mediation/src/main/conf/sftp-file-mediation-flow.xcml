@@ -25,7 +25,7 @@
             <property name="startDelay" value="1000"/>
             <property name="username" value="${sftp-file-mediation-flow.sftp-ingress-connector.username}"/>
         </bean>
-        <bean id="json-path-extractor" class="org.adroitlogic.x.processor.extract.path.json.JSONPathExtractProcessor">
+        <bean id="json-path-extractor" class="org.adroitlogic.x.processor.json.JSONPathExtractProcessor">
             <property name="nextElement" ref="logger"/>
             <property name="variableName" value="CLIENT_ID"/>
             <property name="jsonPath" value="$.Client-ID"/>

@@ -39,19 +39,19 @@
             <property name="enableConnectionDebug" value="true"/>
         </bean>
         <bean id="computer-science-string-payload-setter"
-              class="org.adroitlogic.x.processor.payloadSetter.SetPayloadFromString">
+              class="org.adroitlogic.x.processor.payload.SetPayloadFromString">
             <property name="nextElement" ref="computer-science-http-listener"/>
             <property name="stringPayload"
                       value="{   &quot;First name&quot;: &quot;Brian&quot;,   &quot;Last name&quot;: &quot;Novik&quot;,   &quot;Registration ID&quot;: &quot;090097C&quot;,   &quot;Subjects&quot;: [     {       &quot;id&quot;: 12492,       &quot;subject-code&quot;: &quot;CS102&quot;,       &quot;name&quot;: &quot;Software Architecture&quot;,       &quot;marks&quot;: 80,       &quot;grade&quot;: &quot;A&quot;     },     {       &quot;id&quot;: 12280,       &quot;subject-code&quot;: &quot;CS103&quot;,       &quot;name&quot;: &quot;Database Systems&quot;,       &quot;marks&quot;: 63,       &quot;grade&quot;: &quot;B&quot;     },     {       &quot;id&quot;: 12325,       &quot;subject-code&quot;: &quot;CS209&quot;,       &quot;name&quot;: &quot;Computer Vision&quot;,       &quot;marks&quot;: 74,       &quot;grade&quot;: &quot;A-&quot;     }   ] }"/>
         </bean>
         <bean id="electronics-string-payload-setter"
-              class="org.adroitlogic.x.processor.payloadSetter.SetPayloadFromString">
+              class="org.adroitlogic.x.processor.payload.SetPayloadFromString">
             <property name="nextElement" ref="electronics-http-listener"/>
             <property name="stringPayload"
                       value="{   &quot;First name&quot;: &quot;Nick&quot;,   &quot;Last name&quot;: &quot;Carter&quot;,   &quot;Registration ID&quot;: &quot;090123E&quot;,   &quot;Results&quot;: [     {       &quot;id&quot;: 19292,       &quot;subject-code&quot;: &quot;EL309&quot;,       &quot;name&quot;: &quot;Digital Electronics&quot;,       &quot;marks&quot;: 73,       &quot;grade&quot;: &quot;A-&quot;     },     {       &quot;id&quot;: 19420,       &quot;subject-code&quot;: &quot;EL328&quot;,       &quot;name&quot;: &quot;Signal and Systems&quot;,       &quot;marks&quot;: 56,       &quot;grade&quot;: &quot;B-&quot;     },     {       &quot;id&quot;: 19855,       &quot;subject-code&quot;: &quot;EL354&quot;,       &quot;name&quot;: &quot;Telecommunication System Design&quot;,       &quot;marks&quot;: 67,       &quot;grade&quot;: &quot;B+&quot;     }   ],   &quot;GPA&quot;: &quot;3.3032&quot; }"/>
         </bean>
         <bean id="legacy-string-payload-setter"
-              class="org.adroitlogic.x.processor.payloadSetter.SetPayloadFromString">
+              class="org.adroitlogic.x.processor.payload.SetPayloadFromString">
             <property name="nextElement" ref="legacy-http-listener"/>
             <property name="stringPayload"
                       value="{   &quot;First name&quot;: &quot;John&quot;,   &quot;Last name&quot;: &quot;Carlton&quot;,   &quot;Registration ID&quot;: &quot;090847T&quot;,   &quot;Results&quot;: [     {       &quot;id&quot;: 33295,       &quot;subject-code&quot;: &quot;EE309&quot;,       &quot;name&quot;: &quot;Electrical Systems&quot;,       &quot;marks&quot;: 73,       &quot;grade&quot;: &quot;A-&quot;     },     {       &quot;id&quot;: 67280,       &quot;subject-code&quot;: &quot;EE103&quot;,       &quot;name&quot;: &quot;Theory of Electricity&quot;,       &quot;marks&quot;: 56,       &quot;grade&quot;: &quot;B-&quot;     },     {       &quot;id&quot;: 87325,       &quot;subject-code&quot;: &quot;EE209&quot;,       &quot;name&quot;: &quot;Advanced Electrical&quot;,       &quot;marks&quot;: 67,       &quot;grade&quot;: &quot;B+&quot;     }   ] }"/>

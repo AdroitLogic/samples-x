@@ -27,7 +27,7 @@
             <property name="nextElement" ref="auth-listener"/>
             <property name="errorHandler" ref="auth-error-setter"/>
         </bean>
-        <bean id="auth-error-setter" class="org.adroitlogic.x.processor.payloadSetter.SetPayloadFromString">
+        <bean id="auth-error-setter" class="org.adroitlogic.x.processor.payload.SetPayloadFromString">
             <property name="nextElement" ref="auth-listener"/>
             <property name="stringPayload" value="${SetPayloadFromString.auth-error-setter.stringPayload}"/>
         </bean>

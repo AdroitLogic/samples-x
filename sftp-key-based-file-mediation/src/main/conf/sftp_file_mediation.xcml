@@ -24,7 +24,7 @@
     </bean>
 
     <bean id="json-path-extractor"
-          class="org.adroitlogic.x.processor.extract.path.json.JSONPathExtractProcessor">
+          class="org.adroitlogic.x.processor.json.JSONPathExtractProcessor">
         <property name="jsonPath" value="${JSONPathExtractProcessor.json-path-extractor.jsonPath}"/>
         <property name="variableName"
                   value="${JSONPathExtractProcessor.json-path-extractor.variableName}"/>

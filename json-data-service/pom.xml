@@ -161,7 +161,7 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-regular-data-service</artifactId>
+            <artifactId>x-processor-data-service</artifactId>
             <version>${ultraesb.version}</version>
         </dependency>
         <dependency>
