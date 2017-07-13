@@ -38,10 +38,10 @@
 
     <x:layout>
 
-        <x:position id="egress-connector" xPos="560.0" yPos="160.0" angle="0.0"
+        <x:position id="egress-connector" xPos="640.0" yPos="240.0" angle="0.0"
                     elementType="ProcessingElement"/>
-        <x:position id="ingress-connector" xPos="320.0" yPos="160.0" angle="0.0"
-                    elementType="ProcessingElement"/>
+        <x:position id="ingress-connector" xPos="400.0" yPos="240.0" angle="0.0"
+                    elementType="ResponseIngressConnector"/>
     </x:layout>
 
 
