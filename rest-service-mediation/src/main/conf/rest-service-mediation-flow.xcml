@@ -38,7 +38,7 @@
     </x:components>
     <x:layout>
         <x:position id="httpListener" xPos="320.0" yPos="160.0" angle="0.0" elementType="ResponseIngressConnector"/>
-        <x:position id="httpSender" xPos="480.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
-        <x:position id="msgLogger" xPos="640.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="httpSender" xPos="560.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="msgLogger" xPos="800.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
     </x:layout>
 </x:flow>

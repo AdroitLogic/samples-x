@@ -11,12 +11,7 @@
     </x:flows>
 
     <x:resources>
-        <x:resource id="mail-props">
-            <map>
-                <entry key="mail.imap.ssl.enable" value="true"/>
-                <entry key="mail.smtp.starttls.enable" value="true"/>
-            </map>
-        </x:resource>
+
     </x:resources>
 
 </x:project>

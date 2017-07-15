@@ -7,6 +7,7 @@
     <x:components>
 
         <bean id="http-listener-fast-server" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="processingElement" ref="logger-fast-processor"/>
             <property name="zeroCopyEnabled" value="true"/>
             <property name="path" value="/service/fastProcessor"/>
             <property name="noCompression" value="false"/>
@@ -14,7 +15,6 @@
             <property name="port" value="9000"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
             <property name="enableConnectionDebug" value="true"/>
-            <property name="processingElement" ref="logger-fast-processor"/>
         </bean>
         <bean id="logger-fast-processor" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
             <property name="nextElement" ref="http-listener-fast-server"/>
@@ -23,6 +23,7 @@
             <property name="logTemplate" value="Request: @{message.payload} received to fast processing server."/>
         </bean>
         <bean id="http-listener-slow-server" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="processingElement" ref="logger-slow-server"/>
             <property name="zeroCopyEnabled" value="true"/>
             <property name="path" value="/service/slowProcessor"/>
             <property name="noCompression" value="false"/>
@@ -30,7 +31,6 @@
             <property name="port" value="9001"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
             <property name="enableConnectionDebug" value="true"/>
-            <property name="processingElement" ref="logger-slow-server"/>
         </bean>
         <bean id="logger-slow-server" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
             <property name="nextElement" ref="http-listener-slow-server"/>

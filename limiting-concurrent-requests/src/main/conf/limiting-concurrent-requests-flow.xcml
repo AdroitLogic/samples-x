@@ -6,13 +6,13 @@
         <bean id="http-listener"
               class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
             <property name="processingElement" ref="throttle"/>
-            <property name="port" value="8280"/>
-            <property name="path" value="/service/throttling-service"/>
-            <property name="enableConnectionDebug" value="true"/>
             <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="/service/throttling-service"/>
             <property name="noCompression" value="false"/>
-            <property name="continueOnRuntimeExceptions" value="true"/>
             <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="8280"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
         </bean>
         <bean id="denied-path-http-sender" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
             <property name="responseProcessor" ref="http-listener"/>
@@ -35,19 +35,19 @@
         <bean id="throttle" class="org.adroitlogic.x.processor.throttler.ConcurrencyThrottle">
             <property name="allowedOutPort" ref="allowed-path-logger"/>
             <property name="deniedOutPort" ref="denied-path-logger"/>
-            <property name="concurrency" value="10"/>
             <property name="considerAllBranches" value="false"/>
+            <property name="concurrency" value="10"/>
         </bean>
         <bean id="allowed-path-logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
             <property name="nextElement" ref="allowed-path-http-sender"/>
-            <property name="logTemplate" value="Forwarding to request to fast processing server."/>
             <property name="logLevel" value="INFO"/>
+            <property name="logTemplate" value="Forwarding to request to fast processing server."/>
         </bean>
         <bean id="denied-path-logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
             <property name="nextElement" ref="denied-path-http-sender"/>
+            <property name="logLevel" value="INFO"/>
             <property name="logTemplate"
                       value="Concurrency limit reached. Forwarding to request to slow processing server."/>
-            <property name="logLevel" value="INFO"/>
         </bean>
         <bean id="allowed-path-http-sender" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
             <property name="responseProcessor" ref="http-listener"/>
@@ -69,12 +69,12 @@
         </bean>
     </x:components>
     <x:layout>
-        <x:position id="http-listener" xPos="640.0" yPos="320.0" angle="0.0" elementType="ResponseIngressConnector"/>
-        <x:position id="denied-path-http-sender" xPos="1120.0" yPos="320.0" angle="0.0" elementType="EgressConnector"/>
-        <x:position id="throttle" xPos="800.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="allowed-path-logger" xPos="960.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="denied-path-logger" xPos="960.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="allowed-path-http-sender" xPos="1120.0" yPos="240.0" angle="0.0"
+        <x:position id="http-listener" xPos="400.0" yPos="320.0" angle="0.0" elementType="ResponseIngressConnector"/>
+        <x:position id="denied-path-http-sender" xPos="960.0" yPos="400.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="throttle" xPos="640.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="allowed-path-logger" xPos="800.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="denied-path-logger" xPos="800.0" yPos="400.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="allowed-path-http-sender" xPos="960.0" yPos="240.0" angle="0.0"
                     elementType="ProcessingElement"/>
     </x:layout>
 </x:flow>

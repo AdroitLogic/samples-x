@@ -26,10 +26,10 @@
             <property name="addressTypeStr" value="URL"/>
             <property name="continueOnCheckedExceptions" value="false"/>
             <property name="zeroCopy" value="true"/>
-            <property name="port" value="9000"/>
-            <property name="servicePath" value="/service/db"/>
+            <property name="port" value="${response-caching-flow.http_sender.port}"/>
+            <property name="servicePath" value="${response-caching-flow.http_sender.servicePath}"/>
             <property name="replaceUserAgent" value="true"/>
-            <property name="host" value="localhost"/>
+            <property name="host" value="${response-caching-flow.http_sender.host}"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
             <property name="maxConnections" value="4096"/>
         </bean>
@@ -46,8 +46,8 @@
     <x:layout>
 
         <x:position id="http_ingress" xPos="320.0" yPos="160.0" angle="0.0" elementType="ResponseIngressConnector"/>
-        <x:position id="http_sender" xPos="640.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
-        <x:position id="cache_processor" xPos="480.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="http_sender" xPos="800.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="cache_processor" xPos="560.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
     </x:layout>
 
 
