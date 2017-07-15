@@ -8,7 +8,7 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>web-service-via-email</artifactId>
-    <version>17.07-beta2</version>
+    <version>17.07-beta3</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - Web Service via Email</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework

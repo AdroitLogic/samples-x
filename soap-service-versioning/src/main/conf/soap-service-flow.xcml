@@ -1,0 +1,127 @@
+<x:flow id="soap-service-flow" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+
+        <bean id="ingress-connector" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="/service/soapService"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="8280"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+            <property name="processingElement" ref="soap-router"/>
+        </bean>
+        <bean id="soap-router" class="org.adroitlogic.x.processor.soap.detection.SOAPRouter">
+            <property name="soap11Output" ref="soap11-action-setter"/>
+            <property name="soap12Output" ref="soap-12-action-setter"/>
+            <property name="defaultOutput" ref="default-logger"/>
+        </bean>
+        <bean id="soap11-action-setter" class="org.adroitlogic.x.processor.soap.action.SOAPActionSetter">
+            <property name="action" value="soap11Action"/>
+            <property name="nextElement" ref="soap-11-action-getter"/>
+        </bean>
+        <bean id="soap-12-action-setter" class="org.adroitlogic.x.processor.soap.action.SOAPActionSetter">
+            <property name="action" value="soap12Action"/>
+            <property name="nextElement" ref="soap-12-action-getter"/>
+        </bean>
+        <bean id="soap-11-action-getter" class="org.adroitlogic.x.processor.soap.action.SOAPActionGetter">
+            <property name="actionVariableName" value="SOAP_ACTION_NAME"/>
+            <property name="nextElement" ref="soap11-logger"/>
+        </bean>
+        <bean id="soap-12-action-getter" class="org.adroitlogic.x.processor.soap.action.SOAPActionGetter">
+            <property name="actionVariableName" value="SOAP_ACTION_NAME"/>
+            <property name="nextElement" ref="soap_12_logger"/>
+        </bean>
+        <bean id="soap11-logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="logLevel" value="INFO"/>
+            <property name="logTemplate" value="@{variable.SOAP_ACTION_NAME}"/>
+            <property name="nextElement" ref="egress-conector-soap11"/>
+        </bean>
+        <bean id="soap_12_logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="logLevel" value="INFO"/>
+            <property name="logTemplate" value="@{variable.SOAP_ACTION_NAME}"/>
+            <property name="nextElement" ref="egress-connector-soap12"/>
+        </bean>
+        <bean id="default-logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="logLevel" value="INFO"/>
+            <property name="logTemplate" value="Default message"/>
+            <property name="nextElement" ref="egress-connector-default"/>
+        </bean>
+        <bean id="egress-conector-soap11" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="keepalive" value="30000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="addressTypeStr" value="URL"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="port" value="9001"/>
+            <property name="servicePath" value="/service/soap11Service"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="host" value="localhost"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="maxConnections" value="4096"/>
+            <property name="responseProcessor" ref="ingress-connector"/>
+        </bean>
+        <bean id="egress-connector-soap12" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="keepalive" value="30000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="addressTypeStr" value="URL"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="port" value="9002"/>
+            <property name="servicePath" value="/service/soap12Service"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="host" value="localhost"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="maxConnections" value="4096"/>
+            <property name="responseProcessor" ref="ingress-connector"/>
+        </bean>
+        <bean id="egress-connector-default" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="keepalive" value="30000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="addressTypeStr" value="URL"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="port" value="9003"/>
+            <property name="servicePath" value="/service/defaultService"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="host" value="localhost"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="maxConnections" value="4096"/>
+            <property name="responseProcessor" ref="ingress-connector"/>
+        </bean>
+    </x:components>
+
+    <x:layout>
+
+        <x:position id="ingress-connector" xPos="240.0" yPos="320.0" angle="0.0"
+                    elementType="ResponseIngressConnector"/>
+        <x:position id="soap_router" xPos="400.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="soap11-action-setter" xPos="560.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="soap-router" xPos="400.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="soap-12-action-setter" xPos="560.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="soap-11-action-getter" xPos="720.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="soap-12-action-getter" xPos="720.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="soap11-logger" xPos="880.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="soap_12_logger" xPos="880.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="default-logger" xPos="880.0" yPos="400.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="egress-conector-soap11" xPos="1040.0" yPos="240.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="egress-connector-soap12" xPos="1040.0" yPos="320.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="egress-connector-default" xPos="1040.0" yPos="400.0" angle="0.0" elementType="EgressConnector"/>
+    </x:layout>
+
+
+</x:flow>
