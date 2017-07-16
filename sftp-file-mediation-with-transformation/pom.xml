@@ -10,9 +10,9 @@
     <artifactId>sftp-file-mediation-with-transformation</artifactId>
     <version>17.07-beta3</version>
     <packaging>xpr</packaging>
-    <name>AdroitLogic Project-X Sample - SFTP File with Transformation</name>
+    <name>AdroitLogic Project-X Sample - SFTP File Mediation with Transformation</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's SFTP connector and the transformation features</description>
+        demonstrating its SFTP connector and the transformation features</description>
 
     <url>https://developer.adroitlogic.com/samples/advanced/17.01/sftp-mediation-with-transformation/</url>
 

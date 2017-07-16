@@ -12,7 +12,7 @@
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - Header Based Routing</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's header based routing features</description>
+        demonstrating its header based routing features</description>
 
     <url>https://developer.adroitlogic.com/samples/intermediary/17.01/header-based-routing/</url>
 

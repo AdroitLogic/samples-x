@@ -12,7 +12,7 @@
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - SFTP File Mediation</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's SFTP connector and the file mediation features</description>
+        demonstrating its SFTP connector and the file mediation features</description>
 
     <url>https://developer.adroitlogic.com/samples/introductory/17.01/sftp-file-mediation/</url>
 

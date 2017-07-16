@@ -12,7 +12,7 @@
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - REST Service Mediation</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's REST service mediation features</description>
+        demonstrating its REST service mediation features</description>
 
     <url>https://developer.adroitlogic.com/samples/introductory/17.01/rest-service-mediation/</url>
 

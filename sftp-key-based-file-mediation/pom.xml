@@ -7,12 +7,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.adroitlogic.x.samples</groupId>
-    <artifactId>SFTPFileMediation</artifactId>
+    <artifactId>sftp-key-based-file-mediation</artifactId>
     <version>17.07-beta3</version>
     <packaging>xpr</packaging>
-    <name>AdroitLogic Project-X Sample - SFTP File Mediation</name>
+    <name>AdroitLogic Project-X Sample - SFTP Key-based File Mediation</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's SFTP connector and the file mediation features</description>
+        demonstrating its SFTP connector with key-based authentication and its file mediation features</description>
 
     <url>https://developer.adroitlogic.com/samples/introductory/17.07-beta3/sftp-file-mediation/</url>
 
