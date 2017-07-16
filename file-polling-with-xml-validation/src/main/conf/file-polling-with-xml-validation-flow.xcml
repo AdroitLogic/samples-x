@@ -6,40 +6,46 @@
 
     <x:components>
         <bean id="fileListener" class="org.adroitlogic.x.connector.file.polling.FileIngressConnector">
-            <property name="filePath" value="${FileIngressConnector.fileListener.filePath}"/>
-            <property name="fileNamePattern" value="${FileIngressConnector.fileListener.fileNamePattern}"/>
-            <property name="removeOriginalFile" value="${FileIngressConnector.fileListener.removeOriginalFile}"/>
-            <property name="moveAfterProcess" value="${FileIngressConnector.fileListener.moveAfterProcess}"/>
-            <property name="moveAfterFailure" value="${FileIngressConnector.fileListener.moveAfterFailure}"/>
             <property name="errorHandler" ref="error"/>
             <property name="processingElement" ref="xsd"/>
-            <property name="cronExpression"
-                      value="${FileIngressConnector.fileListener.cronExpression}"/>
-            <property name="startDelay" value="${FileIngressConnector.fileListener.startDelay}"/>
-            <property name="repeatInterval"
-                      value="${FileIngressConnector.fileListener.repeatInterval}"/>
-            <property name="repeatCount" value="${FileIngressConnector.fileListener.repeatCount}"/>
-            <property name="concurrentPollingCount"
-                      value="${FileIngressConnector.fileListener.concurrentPollingCount}"/>
             <property name="parallelExecutionCount"
-                      value="${FileIngressConnector.fileListener.parallelExecutionCount}"/>
+                      value="${file-polling-with-xml-validation-flow.fileListener.parallelExecutionCount}"/>
+            <property name="filePath" value="${file-polling-with-xml-validation-flow.fileListener.filePath}"/>
+            <property name="fileNamePattern"
+                      value="${file-polling-with-xml-validation-flow.fileListener.fileNamePattern}"/>
+            <property name="removeOriginalFile"
+                      value="${file-polling-with-xml-validation-flow.fileListener.removeOriginalFile}"/>
+            <property name="cronExpression"
+                      value="${file-polling-with-xml-validation-flow.fileListener.cronExpression}"/>
+            <property name="concurrentPollingCount"
+                      value="${file-polling-with-xml-validation-flow.fileListener.concurrentPollingCount}"/>
+            <property name="moveAfterProcess"
+                      value="${file-polling-with-xml-validation-flow.fileListener.moveAfterProcess}"/>
+            <property name="moveAfterFailure"
+                      value="${file-polling-with-xml-validation-flow.fileListener.moveAfterFailure}"/>
+            <property name="repeatInterval"
+                      value="${file-polling-with-xml-validation-flow.fileListener.repeatInterval}"/>
+            <property name="startDelay" value="${file-polling-with-xml-validation-flow.fileListener.startDelay}"/>
+            <property name="repeatCount" value="${file-polling-with-xml-validation-flow.fileListener.repeatCount}"/>
         </bean>
         <bean id="error" class="org.adroitlogic.x.components.flowend.ExceptionalFlowEnd">
-            <property name="exceptionMessage" value="file poll/validation error"/>
+            <property name="exceptionMessage" value="file polling validation error"/>
         </bean>
         <bean id="jmsForFileListener" class="org.adroitlogic.x.connector.jms.SpringJMSEgressConnector">
-            <property name="template" ref="activeMq-jmsTemplate"/>
-            <property name="destination" value="${SpringJMSEgressConnector.jmsForFileListener.destination}"/>
             <property name="responseProcessor" ref="success"/>
+            <property name="template" ref="activeMq-jmsTemplate"/>
+            <property name="destination"
+                      value="${file-polling-with-xml-validation-flow.jmsForFileListener.destination}"/>
+            <property name="completeFlow" value="false"/>
         </bean>
         <bean id="xsd" class="org.adroitlogic.x.processor.xml.xsd.XSDValidator">
-            <property name="xsdPaths" value="${XSDValidator.validate.xsdPaths}"/>
             <property name="onValidationSuccess" ref="jmsForFileListener"/>
             <property name="onValidationFailure" ref="fileSender"/>
             <property name="errorHandler" ref="error"/>
+            <property name="xsdPaths" value="${file-polling-with-xml-validation-flow.xsd.xsdPaths}"/>
         </bean>
         <bean id="fileSender" class="org.adroitlogic.x.connector.file.polling.FileEgressConnector">
-            <property name="filePath" value="${FileEgressConnector.fileSender.filePath}"/>
+            <property name="filePath" value="${file-polling-with-xml-validation-flow.fileSender.filePath}"/>
         </bean>
         <bean id="success" class="org.adroitlogic.x.components.flowend.SuccessfulFlowEnd"/>
 
@@ -47,12 +53,12 @@
 
     <x:layout>
 
-        <x:position id="jmsForFileListener" xPos="640.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="fileSender" xPos="800.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="error" xPos="560.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="xsd" xPos="400.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="fileListener" xPos="240.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="success" xPos="800.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="jmsForFileListener" xPos="800.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="fileSender" xPos="800.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="error" xPos="640.0" yPos="480.0" angle="90.0" elementType="ProcessingElement"/>
+        <x:position id="xsd" xPos="640.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="fileListener" xPos="480.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="success" xPos="960.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
     </x:layout>
 
 
