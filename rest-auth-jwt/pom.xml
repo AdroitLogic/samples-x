@@ -12,7 +12,7 @@
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - REST JWT Authentication</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's JWT authentication feature for REST requests</description>
+        demonstrating its JWT authentication feature for REST requests</description>
 
     <url>https://www.adroitlogic.com</url>
 

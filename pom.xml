@@ -45,7 +45,6 @@
         <module>web-service-via-email</module>
         <module>json-data-service</module>
         <module>response-caching</module>
-        <module>soap-service-versioning</module>
     </modules>
 
     <build>

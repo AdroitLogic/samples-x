@@ -12,7 +12,7 @@
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - JSON to XML Transformation</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's JSON to XML transformation features</description>
+        demonstrating its JSON-to-XML transformation features</description>
 
     <url>https://developer.adroitlogic.com/samples/introductory/17.07/json-xml-transformation/</url>
 

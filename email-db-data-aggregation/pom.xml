@@ -10,9 +10,9 @@
     <artifactId>email-db-data-aggregation</artifactId>
     <version>17.07-beta3</version>
     <packaging>xpr</packaging>
-    <name>AdroitLogic Project-X Sample - Web Service via Email</name>
+    <name>AdroitLogic Project-X Sample - Data Aggregation via Email into Database</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating exposing access to a web service via an email-driven interface</description>
+        demonstrating transformation and aggregation of data received as mail attachments into a database</description>
 
     <url>https://developer.adroitlogic.com/samples/advanced/17.01/email-db-data-aggregation/</url>
 

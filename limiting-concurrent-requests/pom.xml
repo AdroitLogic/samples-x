@@ -12,7 +12,7 @@
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - Limiting Concurrent Requests</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating it's concurrency limiting features</description>
+        demonstrating its concurrency limiting features</description>
 
     <url>https://developer.adroitlogic.com/samples/introductory/17.01/limiting-concurrent-request/</url>
 

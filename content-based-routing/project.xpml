@@ -4,7 +4,7 @@
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-    <x:description>A sample project that demonstrates the projects concept</x:description>
+    <x:description>A sample project that demonstrates content-based routing</x:description>
 
     <x:flows>
         <x:flow id="content-based-routing-flow" file="content-based-routing-flow.xcml"/>

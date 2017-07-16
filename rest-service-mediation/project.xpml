@@ -4,7 +4,7 @@
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-    <x:description>A sample project that demonstrates simple rest service mediation</x:description>
+    <x:description>A sample project that demonstrates simple REST service mediation</x:description>
 
     <x:flows>
         <x:flow id="rest-service-mediation-flow" file="rest-service-mediation-flow.xcml"/>
