@@ -5,31 +5,33 @@
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
     <x:components>
         <bean id="auth-listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
-            <property name="port" value="${NIOHttpIngressConnector.auth-listener.port}"/>
-            <property name="path" value="${NIOHttpIngressConnector.auth-listener.path}"/>
-            <property name="enableConnectionDebug" value="${NIOHttpIngressConnector.auth-listener.enableConnectionDebug}"/>
-            <property name="zeroCopyEnabled" value="${NIOHttpIngressConnector.auth-listener.zeroCopyEnabled}"/>
-            <property name="noCompression" value="${NIOHttpIngressConnector.auth-listener.noCompression}"/>
-            <property name="continueOnRuntimeExceptions" value="${NIOHttpIngressConnector.auth-listener.continueOnRuntimeExceptions}"/>
-            <property name="continueOnCheckedExceptions" value="${NIOHttpIngressConnector.auth-listener.continueOnCheckedExceptions}"/>
             <property name="processingElement" ref="authenticator"/>
-            <property name="responseTimeout" value="${NIOHttpIngressConnector.auth-listener.responseTimeout}"/>
+            <property name="zeroCopyEnabled" value="${rest-auth-jwt-flow.auth-listener.zeroCopyEnabled}"/>
+            <property name="path" value="${rest-auth-jwt-flow.auth-listener.path}"/>
+            <property name="noCompression" value="${rest-auth-jwt-flow.auth-listener.noCompression}"/>
+            <property name="continueOnCheckedExceptions"
+                      value="${rest-auth-jwt-flow.auth-listener.continueOnCheckedExceptions}"/>
+            <property name="port" value="${rest-auth-jwt-flow.auth-listener.port}"/>
+            <property name="continueOnRuntimeExceptions"
+                      value="${rest-auth-jwt-flow.auth-listener.continueOnRuntimeExceptions}"/>
+            <property name="enableConnectionDebug" value="${rest-auth-jwt-flow.auth-listener.enableConnectionDebug}"/>
+            <property name="responseTimeout" value="${rest-auth-jwt-flow.auth-listener.responseTimeout}"/>
         </bean>
         <bean id="authenticator" class="com.esb.samples.UserAuthenticator">
             <property name="nextElement" ref="token-generator"/>
             <property name="errorHandler" ref="auth-error-setter"/>
-            <property name="credentialFile" value="${UserAuthenticator.authenticator.credentialFile}"/>
+            <property name="credentialFile" value="${rest-auth-jwt-flow.authenticator.credentialFile}"/>
             <property name="userCache" ref="userCache"/>
         </bean>
         <bean id="token-generator" class="com.esb.samples.JWTTokenGenerator">
-            <property name="secretKey" value="${JWTTokenGenerator.token-generator.secretKey}"/>
-            <property name="validTimePeriod" value="${JWTTokenGenerator.token-generator.validTimePeriod}"/>
             <property name="nextElement" ref="auth-listener"/>
             <property name="errorHandler" ref="auth-error-setter"/>
+            <property name="secretKey" value="${rest-auth-jwt-flow.token-generator.secretKey}"/>
+            <property name="validTimePeriod" value="${rest-auth-jwt-flow.token-generator.validTimePeriod}"/>
         </bean>
         <bean id="auth-error-setter" class="org.adroitlogic.x.processor.payload.SetPayloadFromString">
             <property name="nextElement" ref="auth-listener"/>
-            <property name="stringPayload" value="${SetPayloadFromString.auth-error-setter.stringPayload}"/>
+            <property name="stringPayload" value="${rest-auth-jwt-flow.auth-error-setter.stringPayload}"/>
         </bean>
     </x:components>
     <x:layout>

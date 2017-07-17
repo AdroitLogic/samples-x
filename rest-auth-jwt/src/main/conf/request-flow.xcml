@@ -5,42 +5,44 @@
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
     <x:components>
         <bean id="token-decoder" class="com.esb.samples.JWTTokenDecoder">
-            <property name="secretKey" value="${JWTTokenDecoder.token-decoder.secretKey}"/>
             <property name="nextElement" ref="backend"/>
             <property name="errorHandler" ref="auth-fail-setter"/>
+            <property name="secretKey" value="${request-flow.token-decoder.secretKey}"/>
             <property name="userCache" ref="userCache"/>
         </bean>
         <bean id="req-listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
-            <property name="port" value="${NIOHttpIngressConnector.req-listener.port}"/>
-            <property name="path" value="${NIOHttpIngressConnector.req-listener.path}"/>
-            <property name="enableConnectionDebug" value="${NIOHttpIngressConnector.req-listener.enableConnectionDebug}"/>
-            <property name="zeroCopyEnabled" value="${NIOHttpIngressConnector.req-listener.zeroCopyEnabled}"/>
-            <property name="noCompression" value="${NIOHttpIngressConnector.req-listener.noCompression}"/>
-            <property name="continueOnRuntimeExceptions" value="${NIOHttpIngressConnector.req-listener.continueOnRuntimeExceptions}"/>
-            <property name="continueOnCheckedExceptions" value="${NIOHttpIngressConnector.req-listener.continueOnCheckedExceptions}"/>
             <property name="processingElement" ref="token-decoder"/>
-            <property name="responseTimeout" value="${NIOHttpIngressConnector.req-listener.responseTimeout}"/>
+            <property name="zeroCopyEnabled" value="${request-flow.req-listener.zeroCopyEnabled}"/>
+            <property name="path" value="${request-flow.req-listener.path}"/>
+            <property name="noCompression" value="${request-flow.req-listener.noCompression}"/>
+            <property name="continueOnCheckedExceptions"
+                      value="${request-flow.req-listener.continueOnCheckedExceptions}"/>
+            <property name="port" value="${request-flow.req-listener.port}"/>
+            <property name="continueOnRuntimeExceptions"
+                      value="${request-flow.req-listener.continueOnRuntimeExceptions}"/>
+            <property name="enableConnectionDebug" value="${request-flow.req-listener.enableConnectionDebug}"/>
+            <property name="responseTimeout" value="${request-flow.req-listener.responseTimeout}"/>
         </bean>
         <bean id="auth-fail-setter" class="org.adroitlogic.x.processor.payload.SetPayloadFromString">
-            <property name="stringPayload" value="${SetPayloadFromString.auth-fail-setter.stringPayload}"/>
             <property name="nextElement" ref="req-listener"/>
+            <property name="stringPayload" value="${request-flow.auth-fail-setter.stringPayload}"/>
         </bean>
         <bean id="backend" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
-            <property name="addressTypeStr" value="${NIOHttpEgressConnector.backend.addressTypeStr}"/>
-            <property name="host" value="${NIOHttpEgressConnector.backend.host}"/>
-            <property name="servicePath" value="${NIOHttpEgressConnector.backend.servicePath}"/>
-            <property name="zeroCopy" value="${NIOHttpEgressConnector.backend.zeroCopy}"/>
-            <property name="connectionDebug" value="${NIOHttpEgressConnector.backend.connectionDebug}"/>
-            <property name="replaceUserAgent" value="${NIOHttpEgressConnector.backend.replaceUserAgent}"/>
-            <property name="unzipResponseEntities" value="${NIOHttpEgressConnector.backend.unzipResponseEntities}"/>
-            <property name="keepalive" value="${NIOHttpEgressConnector.backend.keepalive}"/>
-            <property name="keepAliveSafetyThreshold" value="${NIOHttpEgressConnector.backend.keepAliveSafetyThreshold}"/>
-            <property name="maxPerRoute" value="${NIOHttpEgressConnector.backend.maxPerRoute}"/>
-            <property name="maxConnections" value="${NIOHttpEgressConnector.backend.maxConnections}"/>
-            <property name="continueOnRuntimeExceptions" value="${NIOHttpEgressConnector.backend.continueOnRuntimeExceptions}"/>
-            <property name="continueOnCheckedExceptions" value="${NIOHttpEgressConnector.backend.continueOnCheckedExceptions}"/>
             <property name="responseProcessor" ref="req-listener"/>
-            <property name="egressTimeout" value="${NIOHttpEgressConnector.backend.egressTimeout}"/>
+            <property name="keepAliveSafetyThreshold" value="${request-flow.backend.keepAliveSafetyThreshold}"/>
+            <property name="egressTimeout" value="${request-flow.backend.egressTimeout}"/>
+            <property name="keepalive" value="${request-flow.backend.keepalive}"/>
+            <property name="maxPerRoute" value="${request-flow.backend.maxPerRoute}"/>
+            <property name="unzipResponseEntities" value="${request-flow.backend.unzipResponseEntities}"/>
+            <property name="connectionDebug" value="${request-flow.backend.connectionDebug}"/>
+            <property name="addressTypeStr" value="${request-flow.backend.addressTypeStr}"/>
+            <property name="continueOnCheckedExceptions" value="${request-flow.backend.continueOnCheckedExceptions}"/>
+            <property name="zeroCopy" value="${request-flow.backend.zeroCopy}"/>
+            <property name="servicePath" value="${request-flow.backend.servicePath}"/>
+            <property name="replaceUserAgent" value="${request-flow.backend.replaceUserAgent}"/>
+            <property name="host" value="${request-flow.backend.host}"/>
+            <property name="continueOnRuntimeExceptions" value="${request-flow.backend.continueOnRuntimeExceptions}"/>
+            <property name="maxConnections" value="${request-flow.backend.maxConnections}"/>
         </bean>
     </x:components>
     <x:layout>
