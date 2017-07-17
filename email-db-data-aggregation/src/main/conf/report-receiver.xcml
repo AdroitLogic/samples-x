@@ -5,46 +5,56 @@
     <x:components>
         <bean id="attachmentSaver" class="org.adroitlogic.x.processor.attachment.SaveAttachmentToFile">
             <property name="nextElement" ref="successfulFlowEnd"/>
-            <property name="attachmentNameRegex" value="${SaveAttachmentToFile.attachmentSaver.attachmentNameRegex}"/>
-            <property name="directoryPath" value="${SaveAttachmentToFile.attachmentSaver.directoryPath}"/>
-            <property name="useAttachmentNameAsFileName" value="${SaveAttachmentToFile.attachmentSaver.useAttachmentNameAsFileName}"/>
-            <property name="name" value="${SaveAttachmentToFile.attachmentSaver.name}"/>
+            <property name="directoryPath" value="${report-receiver.attachmentSaver.directoryPath}"/>
+            <property name="useAttachmentNameAsFileName"
+                      value="${report-receiver.attachmentSaver.useAttachmentNameAsFileName}"/>
+            <property name="name" value="${report-receiver.attachmentSaver.name}"/>
+            <property name="attachmentNameRegex" value="${report-receiver.attachmentSaver.attachmentNameRegex}"/>
         </bean>
         <bean id="successfulFlowEnd" class="org.adroitlogic.x.components.flowend.SuccessfulFlowEnd"/>
         <bean id="emailReceivedLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
-            <property name="logTemplate" value="${LoggerProcessingElement.emailReceivedLogger.logTemplate}"/>
-            <property name="logLevel" value="${LoggerProcessingElement.emailReceivedLogger.logLevel}"/>
             <property name="nextElement" ref="attachmentSaver"/>
+            <property name="logLevel" value="${report-receiver.emailReceivedLogger.logLevel}"/>
+            <property name="logTemplate" value="${report-receiver.emailReceivedLogger.logTemplate}"/>
         </bean>
         <bean id="emailListener" class="org.adroitlogic.x.connector.mail.MailIngressConnector">
             <property name="processingElement" ref="emailReceivedLogger"/>
-            <property name="protocol" value="${MailIngressConnector.emailListener.protocol}"/>
-            <property name="host" value="${MailIngressConnector.emailListener.host}"/>
-            <property name="port" value="${MailIngressConnector.emailListener.port}"/>
-            <property name="user" value="${MailIngressConnector.emailListener.user}"/>
-            <property name="password" value="${MailIngressConnector.emailListener.password}"/>
-            <property name="folder" value="${MailIngressConnector.emailListener.folder}"/>
-            <property name="addressCombiner" value="AND"/>
-            <property name="searchHeaderCombiner" value="AND"/>
+            <property name="parallelExecutionCount" value="${report-receiver.emailListener.parallelExecutionCount}"/>
+            <property name="deleteOnFailure" value="${report-receiver.emailListener.deleteOnFailure}"/>
+            <property name="concurrentPollingCount" value="${report-receiver.emailListener.concurrentPollingCount}"/>
+            <property name="protocol" value="${report-receiver.emailListener.protocol}"/>
+            <property name="password" value="${report-receiver.emailListener.password}"/>
+            <property name="otherSettings">
+                <map>
+                    <entry key="mail.imap.ssl.enable" value="true"/>
+                </map>
+            </property>
+            <property name="host" value="${report-receiver.emailListener.host}"/>
+            <property name="repeatInterval" value="${report-receiver.emailListener.repeatInterval}"/>
+            <property name="repeatCount" value="${report-receiver.emailListener.repeatCount}"/>
+            <property name="searchHeaders">
+                <map>
+                    <entry key="X-Zenythz-Factory" value="1"/>
+                </map>
+            </property>
+            <property name="lazyFetchAttachments" value="${report-receiver.emailListener.lazyFetchAttachments}"/>
+            <property name="deleteAfterProcess" value="${report-receiver.emailListener.deleteAfterProcess}"/>
             <property name="searchFlagCombiner" value="AND"/>
-            <property name="searchOnServer" value="${MailIngressConnector.emailListener.searchOnServer}"/>
-            <property name="lazyFetchPayload" value="${MailIngressConnector.emailListener.lazyFetchPayload}"/>
-            <property name="lazyFetchAttachments" value="${MailIngressConnector.emailListener.lazyFetchAttachments}"/>
-            <property name="deleteAfterProcess" value="${MailIngressConnector.emailListener.deleteAfterProcess}"/>
-            <property name="deleteOnFailure" value="${MailIngressConnector.emailListener.deleteOnFailure}"/>
-            <property name="startDelay" value="${MailIngressConnector.emailListener.startDelay}"/>
-            <property name="repeatInterval" value="${MailIngressConnector.emailListener.repeatInterval}"/>
-            <property name="repeatCount" value="${MailIngressConnector.emailListener.repeatCount}"/>
-            <property name="concurrentPollingCount" value="${MailIngressConnector.emailListener.concurrentPollingCount}"/>
-            <property name="parallelExecutionCount" value="${MailIngressConnector.emailListener.parallelExecutionCount}"/>
-            <property name="otherSettings" ref="mail-props"/>
-            <property name="searchHeaders" ref="mail-headers"/>
+            <property name="searchHeaderCombiner" value="AND"/>
+            <property name="lazyFetchPayload" value="${report-receiver.emailListener.lazyFetchPayload}"/>
+            <property name="cronExpression" value="0 0 23 ? * 1-7"/>
+            <property name="folder" value="${report-receiver.emailListener.folder}"/>
+            <property name="port" value="${report-receiver.emailListener.port}"/>
+            <property name="searchOnServer" value="${report-receiver.emailListener.searchOnServer}"/>
+            <property name="addressCombiner" value="AND"/>
+            <property name="startDelay" value="${report-receiver.emailListener.startDelay}"/>
+            <property name="user" value="${report-receiver.emailListener.user}"/>
         </bean>
     </x:components>
     <x:layout>
-        <x:position id="emailListener" xPos="240.0" yPos="80.0" angle="0.0" elementType="IngressConnector"/>
-        <x:position id="emailReceivedLogger" xPos="400.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="attachmentSaver" xPos="560.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="successfulFlowEnd" xPos="720.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="emailListener" xPos="480.0" yPos="320.0" angle="0.0" elementType="IngressConnector"/>
+        <x:position id="emailReceivedLogger" xPos="640.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="attachmentSaver" xPos="800.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="successfulFlowEnd" xPos="960.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
     </x:layout>
 </x:flow>

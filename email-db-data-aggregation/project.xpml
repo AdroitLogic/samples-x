@@ -29,20 +29,6 @@
                 </property>
             </bean>
         </x:resource>
-
-        <x:resource id="no-ns">
-            <map/>
-        </x:resource>
-        <x:resource id="mail-props">
-            <map>
-                <entry key="mail.imap.ssl.enable" value="true"/>
-            </map>
-        </x:resource>
-        <x:resource id="mail-headers">
-            <map>
-                <entry key="X-Zenythz-Factory" value=""/>
-            </map>
-        </x:resource>
     </x:resources>
 
 </x:project>

@@ -11,22 +11,22 @@
             <property name="parallelExecutionCount" value="4"/>
             <property name="fetchPath"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.fetchPath}"/>
+            <property name="fileNamePattern"
+                      value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.fileNamePattern}"/>
             <property name="hostKeyCheck" value="false"/>
             <property name="timeout" value="60000"/>
             <property name="concurrentPollingCount" value="1"/>
             <property name="password"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.password}"/>
+            <property name="port" value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.port}"/>
             <property name="host" value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.host}"/>
             <property name="repeatInterval" value="1000"/>
+            <property name="startDelay" value="1000"/>
             <property name="maxActiveConnections" value="10"/>
             <property name="removeOriginal" value="true"/>
-            <property name="repeatCount" value="10000"/>
-            <property name="fileNamePattern"
-                      value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.fileNamePattern}"/>
-            <property name="port" value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.port}"/>
-            <property name="startDelay" value="1000"/>
             <property name="username"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-ingress-connector.username}"/>
+            <property name="repeatCount" value="10000"/>
         </bean>
 
         <bean id="initial-clone" class="org.adroitlogic.x.processor.flowControl.CloneMessage">
@@ -161,15 +161,15 @@
     <x:layout>
 
         <x:position id="sftp-bank-b-file-sender" xPos="960.0" yPos="560.0" angle="90.0"
-                    elementType="ProcessingElement"/>
+                    elementType="EgressConnector"/>
         <x:position id="initial-clone" xPos="400.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
         <x:position id="sftp-ingress-connector" xPos="240.0" yPos="160.0" angle="0.0"
-                    elementType="ProcessingElement"/>
+                    elementType="IngressConnector"/>
         <x:position id="clone-to-sftp-egress3" xPos="1040.0" yPos="400.0" angle="90.0"
                     elementType="ProcessingElement"/>
         <x:position id="sftp-internal-original-file-sender" xPos="400.0" yPos="320.0" angle="90.0"
-                    elementType="ProcessingElement"/>
+                    elementType="EgressConnector"/>
         <x:position id="csv-to-xml-transformer" xPos="560.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
         <x:position id="clone-to-sftp-egress2" xPos="880.0" yPos="400.0" angle="90.0"
@@ -179,11 +179,11 @@
         <x:position id="clone-to-sftp-egress1" xPos="960.0" yPos="240.0" angle="90.0"
                     elementType="ProcessingElement"/>
         <x:position id="sftp-bank-a-file-sender" xPos="800.0" yPos="560.0" angle="90.0"
-                    elementType="ProcessingElement"/>
+                    elementType="EgressConnector"/>
         <x:position id="sftp-internal-transformed-file-sender" xPos="560.0" yPos="480.0" angle="180.0"
-                    elementType="ProcessingElement"/>
+                    elementType="EgressConnector"/>
         <x:position id="sftp-bank-c-file-sender" xPos="1120.0" yPos="560.0" angle="90.0"
-                    elementType="ProcessingElement"/>
+                    elementType="EgressConnector"/>
         <x:position id="xpath-extractor" xPos="880.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
     </x:layout>
