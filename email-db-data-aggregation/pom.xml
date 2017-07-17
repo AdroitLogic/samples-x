@@ -158,6 +158,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.38</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>

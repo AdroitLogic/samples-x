@@ -34,7 +34,7 @@
             <property name="nextElement" ref="sftp-egress-connector"/>
             <property name="logLevel" value="INFO"/>
             <property name="logTemplate"
-                      value="Received file with name \: @{message.headers.ultra.file.name} for client ID \: @{variable.CLIENT_ID}"/>
+                      value="Received file with name : @{message.headers.ultra.file.name} for client ID : @{variable.CLIENT_ID}"/>
         </bean>
         <bean id="sftp-egress-connector" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
             <property name="fileName" value="@{variable.CLIENT_ID}_@{message.headers.ultra.file.name}"/>
