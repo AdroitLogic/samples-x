@@ -1,0 +1,54 @@
+<x:flow id="JAXBIntervention" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+
+        <bean id="DB-Ingress" class="org.adroitlogic.x.connector.db.DBIngressConnector">
+            <property name="parallelExecutionCount" value="4"/>
+            <property name="concurrentPollingCount" value="1"/>
+            <property name="repeatInterval" value="1000"/>
+            <property name="startDelay" value="1000"/>
+            <property name="dataSource" ref="DB1-ultracp-datasource"/>
+            <property name="sql" value="SELECT * FROM PurchaseType where OrderID = 2"/>
+            <property name="repeatCount" value="-1"/>
+            <property name="processingElement" ref="object extractor"/>
+        </bean>
+        <bean id="object extractor" class="com.acme.esb.ObjectExtractor">
+            <property name="nextElement" ref="jaxb_to_xml"/>
+        </bean>
+        <bean id="jaxb_to_xml" class="org.adroitlogic.x.processor.transform.JAXBToXMLTransformer">
+            <property name="rootElement" value="PurchaseType"/>
+            <property name="objectGivenAsScopeVariable" value="false"/>
+            <property name="uri" value="Gringotts"/>
+            <property name="errorHandler" ref="logger"/>
+            <property name="nextElement" ref="file_egress"/>
+        </bean>
+        <bean id="exceptional_end" class="org.adroitlogic.x.components.flowend.ExceptionalFlowEnd">
+            <property name="exceptionMessage" value="Flow action failed"/>
+        </bean>
+        <bean id="logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
+            <property name="logLevel" value="DEBUG"/>
+            <property name="logTemplate" value="@{message.payload}"/>
+            <property name="nextElement" ref="exceptional_end"/>
+        </bean>
+        <bean id="file_egress" class="org.adroitlogic.x.connector.file.polling.FileEgressConnector">
+            <property name="fileName" value="purchaseType.xml"/>
+            <property name="filePath" value="/home/hasangi/projects/samples-x/jaxb-transformation/src/main/resources"/>
+        </bean>
+    </x:components>
+
+    <x:layout>
+
+        <x:position id="DB-Ingress" xPos="320.0" yPos="160.0" angle="90.0" elementType="IngressConnector"/>
+        <x:position id="object extractor" xPos="320.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="jaxb_to_xml" xPos="480.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="exceptional_end" xPos="640.0" yPos="160.0" angle="90.0" elementType="ProcessingElement"/>
+        <x:position id="logger" xPos="640.0" yPos="320.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="file_egress" xPos="480.0" yPos="160.0" angle="90.0" elementType="EgressConnector"/>
+    </x:layout>
+
+
+</x:flow>

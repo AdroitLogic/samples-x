@@ -45,6 +45,7 @@
         <module>web-service-via-email</module>
         <module>json-data-service</module>
         <module>response-caching</module>
+        <module>jaxb-transformation</module>
     </modules>
 
     <build>
