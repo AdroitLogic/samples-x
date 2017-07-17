@@ -71,8 +71,7 @@
             <property name="continueOnCheckedExceptions" value="false"/>
             <property name="zeroCopy" value="true"/>
             <property name="port" value="${header-based-routing-flow.computer-egress-connector.port}"/>
-            <property name="servicePath"
-                      value="${header-based-routing-flow.computer-egress-connector.servicePath}"/>
+            <property name="servicePath" value="${header-based-routing-flow.computer-egress-connector.servicePath}"/>
             <property name="replaceUserAgent" value="true"/>
             <property name="host" value="localhost"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
