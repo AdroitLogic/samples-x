@@ -36,7 +36,7 @@
             <property name="allowedOutPort" ref="allowed-path-logger"/>
             <property name="deniedOutPort" ref="denied-path-logger"/>
             <property name="considerAllBranches" value="false"/>
-            <property name="concurrency" value="10"/>
+            <property name="concurrency" value="${limiting-concurrent-requests-flow.throttle.concurrency}"/>
         </bean>
         <bean id="allowed-path-logger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
             <property name="nextElement" ref="allowed-path-http-sender"/>
