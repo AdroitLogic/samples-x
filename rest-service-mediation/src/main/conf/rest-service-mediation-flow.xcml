@@ -7,33 +7,33 @@
               class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
             <property name="processingElement" ref="httpSender"/>
             <property name="zeroCopyEnabled" value="true"/>
-            <property name="path" value="/service/rest-proxy"/>
+            <property name="path" value="${rest-service-mediation-flow.httpListener.path}"/>
             <property name="noCompression" value="false"/>
             <property name="continueOnCheckedExceptions" value="false"/>
-            <property name="port" value="8280"/>
+            <property name="port" value="${rest-service-mediation-flow.httpListener.port}"/>
             <property name="continueOnRuntimeExceptions" value="true"/>
             <property name="enableConnectionDebug" value="true"/>
         </bean>
         <bean id="httpSender" class="org.adroitlogic.x.connector.http.nio.NIOHttpEgressConnector">
-            <property name="addressTypeStr" value="PREFIX"/>
-            <property name="host" value="api.openweathermap.org"/>
-            <property name="servicePath" value="/data/2.5/weather"/>
-            <property name="zeroCopy" value="true"/>
-            <property name="connectionDebug" value="true"/>
-            <property name="replaceUserAgent" value="true"/>
-            <property name="unzipResponseEntities" value="true"/>
-            <property name="keepalive" value="30000"/>
-            <property name="keepAliveSafetyThreshold" value="5000"/>
-            <property name="maxPerRoute" value="2048"/>
-            <property name="maxConnections" value="4096"/>
-            <property name="continueOnRuntimeExceptions" value="true"/>
-            <property name="continueOnCheckedExceptions" value="false"/>
             <property name="responseProcessor" ref="msgLogger"/>
+            <property name="keepAliveSafetyThreshold" value="5000"/>
+            <property name="keepalive" value="30000"/>
+            <property name="maxPerRoute" value="2048"/>
+            <property name="unzipResponseEntities" value="true"/>
+            <property name="connectionDebug" value="true"/>
+            <property name="addressTypeStr" value="${rest-service-mediation-flow.httpSender.addressTypeStr}"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="zeroCopy" value="true"/>
+            <property name="servicePath" value="${rest-service-mediation-flow.httpSender.servicePath}"/>
+            <property name="replaceUserAgent" value="true"/>
+            <property name="host" value="${rest-service-mediation-flow.httpSender.host}"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="maxConnections" value="4096"/>
         </bean>
         <bean id="msgLogger" class="org.adroitlogic.x.processor.logger.LoggerProcessingElement">
-            <property name="logTemplate" value="$@{message.payload}"/>
-            <property name="logLevel" value="INFO"/>
             <property name="nextElement" ref="httpListener"/>
+            <property name="logLevel" value="${rest-service-mediation-flow.msgLogger.logLevel}"/>
+            <property name="logTemplate" value="${rest-service-mediation-flow.msgLogger.logTemplate}"/>
         </bean>
     </x:components>
     <x:layout>
