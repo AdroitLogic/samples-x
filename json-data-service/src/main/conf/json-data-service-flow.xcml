@@ -7,7 +7,7 @@
         <bean id="listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
             <property name="processingElement" ref="data-svc"/>
             <property name="zeroCopyEnabled" value="true"/>
-            <property name="path" value="/.+"/>
+            <property name="path" value="/product/.+"/>
             <property name="noCompression" value="false"/>
             <property name="continueOnCheckedExceptions" value="false"/>
             <property name="port" value="8280"/>
