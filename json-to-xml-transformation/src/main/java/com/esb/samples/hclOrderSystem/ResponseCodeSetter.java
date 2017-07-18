@@ -22,7 +22,9 @@ import org.adroitlogic.x.base.processor.AbstractSequencedProcessingElement;
  * <p>
  * This element is intended for the use of mock backend service used in this sample.
  */
-@Processor(displayName = "Response Code Setter", type = ProcessorType.CUSTOM)
+@Processor(displayName = "Response Code Setter", type = ProcessorType.CUSTOM,
+        description = "This processing element is used to set the response code", iconFileName = "default",
+        documentationURL = "https://developer.adroitlogic.com")
 public class ResponseCodeSetter extends AbstractSequencedProcessingElement {
 
     @Parameter(displayName = "Response Code", inputType = InputType.TEXT_BOX, placeHolder = "200")
