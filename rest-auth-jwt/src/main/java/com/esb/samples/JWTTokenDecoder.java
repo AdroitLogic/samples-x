@@ -30,7 +30,9 @@ import static com.esb.samples.AuthHeaderUtil.ERROR_KEY;
  * This processing element decodes the JWT token received as a bearer token in the Authorization transport header of
  * the request, validates it against the shared user cache, and allows the message flow to proceed upon success
  */
-@Processor(displayName = "JWT Token Decoder", type = ProcessorType.CUSTOM)
+@Processor(displayName = "JWT Token Decoder", type = ProcessorType.CUSTOM, iconFileName = "default",
+        description = "This processing element decodes the JWT token in the Authorization transport header and " +
+        "validates it against the user base", documentationURL = "https://developer.adroitlogic.com")
 public class JWTTokenDecoder extends AbstractProcessingElement {
 
     @OutPort(displayName = "Next element")

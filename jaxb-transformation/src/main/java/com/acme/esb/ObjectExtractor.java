@@ -24,8 +24,9 @@ import test.PurchaseType;
  * @author Hasangi Thathsarani
  * @since 17.07
  */
-
-@Processor(displayName = "Object Extractor", type = ProcessorType.CUSTOM)
+@Processor(displayName = "Object Extractor", type = ProcessorType.CUSTOM, iconFileName = "default",
+        description = "This processing element generates an object using data from the database and " +
+        "sets the created object as the message payload", documentationURL = "https://developer.adroitlogic.com")
 public class ObjectExtractor extends AbstractProcessingElement {
 
     @OutPort(displayName = "Next", description = "Next processing element")

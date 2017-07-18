@@ -33,7 +33,9 @@ import static org.adroitlogic.x.annotation.config.Parameter.Validators.POSITIVE_
  * This processing element generates a JWT token using the username passed as a message context parameter and sets
  * it as the message payload
  */
-@Processor(displayName = "JWT Token Generator", type = ProcessorType.CUSTOM)
+@Processor(displayName = "JWT Token Generator", type = ProcessorType.CUSTOM, iconFileName = "default",
+        description = "This processing element generates a JWT token using the username passed as a message context " +
+        "parameter and sets it as the message payload", documentationURL = "https://developer.adroitlogic.com")
 public class JWTTokenGenerator extends AbstractProcessingElement {
 
     @OutPort(displayName = "Next Element")

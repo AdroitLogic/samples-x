@@ -28,7 +28,10 @@ import java.util.Scanner;
  * At initialization, this processing element loads a set of credentials from a comma-separated username-password file
  * into a project-wide shared map (cache), and utilizes it at runtime to authenticate users
  */
-@Processor(displayName = "User Authenticator", type = ProcessorType.CUSTOM)
+@Processor(displayName = "User Authenticator", type = ProcessorType.CUSTOM, iconFileName = "default",
+        description = "This processing element loads a set of credentials from a comma-separated username-password file " +
+        "into a project-wide shared map (cache) at server startup, and utilizes it at runtime to authenticate users.",
+        documentationURL = "https://developer.adroitlogic.com")
 public class UserAuthenticator extends AbstractProcessingElement {
 
     @OutPort(displayName = "Next Element")
