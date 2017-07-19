@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating creation of a simple REST API using the JSON Data Service processing element</description>
 
-    <url>https://www.adroitlogic.com</url>
+    <url>https://developer.adroitlogic.com/samples/17.07/intermediary/json-data-service/</url>
 
     <repositories>
         <repository>

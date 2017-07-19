@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its concurrency limiting features</description>
 
-    <url>https://developer.adroitlogic.com/samples/introductory/17.07/limiting-concurrent-request/</url>
+    <url>https://developer.adroitlogic.com/samples/17.07/introductory/limiting-concurrent-request/</url>
 
     <repositories>
         <repository>

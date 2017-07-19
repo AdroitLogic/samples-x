@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its JAXB feature usage</description>
 
-    <url>http://adroitlogic.org</url>
+    <url>https://developer.adroitlogic.com/samples/17.07/intermediary/jaxb-transformation/</url>
 
     <repositories>
         <repository>

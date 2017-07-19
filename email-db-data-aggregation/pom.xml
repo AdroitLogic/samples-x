@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating transformation and aggregation of data received as mail attachments into a database</description>
 
-    <url>https://developer.adroitlogic.com/samples/advanced/17.07/email-db-data-aggregation/</url>
+    <url>https://developer.adroitlogic.com/samples/17.07/advanced/email-db-data-aggregation/</url>
 
     <repositories>
         <repository>
