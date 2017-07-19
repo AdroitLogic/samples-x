@@ -15,7 +15,7 @@
         demonstrating its SFTP connector and the transformation features
     </description>
 
-    <url>https://developer.adroitlogic.com/samples/advanced/17.07/sftp-mediation-with-transformation/</url>
+    <url>https://developer.adroitlogic.com/samples/17.07/advanced/sftp-mediation-with-transformation/</url>
 
     <repositories>
         <repository>

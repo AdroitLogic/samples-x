@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its SFTP connector with key-based authentication and its file mediation features</description>
 
-    <url>https://developer.adroitlogic.com/samples/introductory/17.07/sftp-file-mediation/</url>
+    <url>https://developer.adroitlogic.com/samples/17.07/introductory/sftp-file-mediation/</url>
 
     <repositories>
         <repository>
