@@ -15,7 +15,7 @@
         demonstrating it's JMS transactional features
     </description>
 
-    <url>https://developer.adroitlogic.com/samples/advanced/17.01/jms-transaction/</url>
+    <url>https://developer.adroitlogic.com/samples/17.01/advanced/jms-transaction/</url>
 
     <repositories>
         <repository>

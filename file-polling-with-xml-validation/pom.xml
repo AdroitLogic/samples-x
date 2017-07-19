@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating it's file connector with XML validation features</description>
 
-    <url>https://developer.adroitlogic.com/samples/intermediary/17.01/file-polling/</url>
+    <url>https://developer.adroitlogic.com/samples/17.01/intermediary/file-polling/</url>
 
     <repositories>
         <repository>

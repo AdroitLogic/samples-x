@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating it's basic authentication feature for REST requests</description>
 
-    <url>https://www.adroitlogic.com</url>
+    <url>https://developer.adroitlogic.com/samples/17.01/intermediary/rest-auth-basic/</url>
 
     <repositories>
         <repository>

@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating it's FIX connector</description>
 
-    <url>https://developer.adroitlogic.com/samples/introductory/17.01/fix-message-proxying/</url>
+    <url>https://developer.adroitlogic.com/samples/17.01/introductory/fix-message-proxying/</url>
 
     <repositories>
         <repository>

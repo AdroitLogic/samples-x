@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating it's EMail connector and the web services features</description>
 
-    <url>https://developer.adroitlogic.com/samples/introductory/17.01/web-service-via-email/</url>
+    <url>https://developer.adroitlogic.com/samples/17.01/introductory/web-service-via-email/</url>
 
     <repositories>
         <repository>

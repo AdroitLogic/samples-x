@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating it's SFTP connector and the transformation features</description>
 
-    <url>https://developer.adroitlogic.com/samples/advanced/17.01/sftp-mediation-with-transformation/</url>
+    <url>https://developer.adroitlogic.com/samples/17.01/advanced/sftp-mediation-with-transformation/</url>
 
     <repositories>
         <repository>
