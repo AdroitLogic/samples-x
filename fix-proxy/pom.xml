@@ -8,13 +8,13 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>fix-proxy</artifactId>
-    <version>17.07-beta3</version>
+    <version>17.07</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - FIX Proxy</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating the proxying of FIX messages between an initiator and an acceptor</description>
 
-    <url>https://developer.adroitlogic.com/samples/introductory/17.01/fix-message-proxying/</url>
+    <url>https://developer.adroitlogic.com/samples/introductory/17.07/fix-message-proxying/</url>
 
     <repositories>
         <repository>
@@ -157,7 +157,7 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-fix</artifactId>
-            <version>17.07-beta3</version>
+            <version>17.07</version>
         </dependency>
     </dependencies>
 
@@ -219,8 +219,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>17.07-beta3</ultraesb.version>
-        <project-plugin-version>17.07-beta3</project-plugin-version>
+        <ultraesb.version>17.07</ultraesb.version>
+        <project-plugin-version>17.07</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>

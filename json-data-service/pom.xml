@@ -8,7 +8,7 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>json-data-service</artifactId>
-    <version>17.07-beta3</version>
+    <version>17.07</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - JSON Data Service</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
