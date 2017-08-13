@@ -8,14 +8,14 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>response-caching</artifactId>
-    <version>17.07</version>
+    <version>18.01-SNAPSHOT</version>
     <packaging>xpr</packaging>
 
     <name>AdroitLogic Project-X Sample - Response Caching</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its response caching features</description>
 
-    <url>https://developer.adroitlogic.com/samples/introductory/17.07/cache/</url>
+    <url>https://developer.adroitlogic.com/samples/introductory/18.01/cache/</url>
 
     <repositories>
         <repository>
@@ -158,22 +158,22 @@
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-cache</artifactId>
-            <version>17.07</version>
+            <version>18.01-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-nio-http</artifactId>
-            <version>17.07</version>
+            <version>18.01-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-logger</artifactId>
-            <version>17.07</version>
+            <version>18.01-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-payload</artifactId>
-            <version>17.07</version>
+            <version>18.01-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -235,8 +235,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>17.07</ultraesb.version>
-        <project-plugin-version>17.07</project-plugin-version>
+        <ultraesb.version>18.01-SNAPSHOT</ultraesb.version>
+        <project-plugin-version>18.01-SNAPSHOT</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>

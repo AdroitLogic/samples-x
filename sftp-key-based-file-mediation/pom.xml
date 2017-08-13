@@ -8,13 +8,13 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>sftp-key-based-file-mediation</artifactId>
-    <version>17.07</version>
+    <version>18.01-SNAPSHOT</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - SFTP Key-based File Mediation</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its SFTP connector with key-based authentication and its file mediation features</description>
 
-    <url>https://developer.adroitlogic.com/samples/introductory/17.07/sftp-file-mediation/</url>
+    <url>https://developer.adroitlogic.com/samples/introductory/18.01/sftp-file-mediation/</url>
 
     <repositories>
         <repository>
@@ -157,17 +157,17 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-sftp</artifactId>
-            <version>17.07</version>
+            <version>18.01-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-json</artifactId>
-            <version>17.07</version>
+            <version>18.01-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-logger</artifactId>
-            <version>17.07</version>
+            <version>18.01-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -229,8 +229,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>17.07</ultraesb.version>
-        <project-plugin-version>17.07</project-plugin-version>
+        <ultraesb.version>18.01-SNAPSHOT</ultraesb.version>
+        <project-plugin-version>18.01-SNAPSHOT</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>
