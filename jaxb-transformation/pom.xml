@@ -6,7 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.acme.esb</groupId>
+    <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>jaxb-transformation</artifactId>
     <version>17.07</version>
     <packaging>xpr</packaging>
