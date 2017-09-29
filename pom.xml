@@ -8,7 +8,7 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>x-samples</artifactId>
-    <version>17.07</version>
+    <version>17.07.1</version>
     <packaging>pom</packaging>
     <name>AdroitLogic Project-X Samples</name>
 
