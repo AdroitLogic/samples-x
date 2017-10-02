@@ -63,9 +63,9 @@
 
     <x:layout>
 
-        <x:position id="news-kafka-listener" xPos="320.0" yPos="80.0" angle="0.0" elementType="IngressConnector"/>
-        <x:position id="news-id-extractor" xPos="480.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
-        <x:position id="news-read-injector" xPos="640.0" yPos="80.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="news-kafka-listener" xPos="400.0" yPos="240.0" angle="0.0" elementType="IngressConnector"/>
+        <x:position id="news-id-extractor" xPos="560.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="news-read-injector" xPos="720.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
     </x:layout>
 
 

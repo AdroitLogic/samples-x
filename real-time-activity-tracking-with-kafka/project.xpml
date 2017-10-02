@@ -1,16 +1,17 @@
-<x:project id="real-time-activity-tracking-with-kafka" name="real-time-activity-tracking-with-kafka" version="17.07.1"
+<x:project id="real-time-activity-tracking-with-kafka" name="RealTimeActivityTrackingWithKafka" version="17.07.1"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-    <x:description>A sample project that demonstrates the projects concept</x:description>
+    <x:description>A sample project that demonstrates real-time activity tracking with Kafka</x:description>
 
     <x:flows>
         <x:flow id="persist-record-to-stat-engine-flow" file="persist-record-to-stat-engine-flow.xcml"/>
         <x:flow id="retrieve-article-and-record-impression-flow"
                 file="retrieve-article-and-record-impression-flow.xcml"/>
         <x:flow id="retrieve-read-count-flow" file="retrieve-read-count-flow.xcml"/>
+        <x:flow id="web.web-server-flow" file="web/web-server-flow.xcml"/>
     </x:flows>
 
     <x:resources>

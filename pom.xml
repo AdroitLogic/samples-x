@@ -35,6 +35,7 @@
         <module>jms-transactions</module>
         <module>json-to-xml-transformation</module>
         <module>limiting-concurrent-requests</module>
+        <module>real-time-activity-tracking-with-kafka</module>
         <module>rest-auth-basic</module>
         <module>rest-auth-jwt</module>
         <module>rest-service-mediation</module>

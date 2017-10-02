@@ -6,21 +6,11 @@
 
     <x:components>
 
-        <bean id="news-http-listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
-            <property name="processingElement" ref="newsId-query-param-extractor"/>
-            <property name="zeroCopyEnabled" value="true"/>
-            <property name="path" value="/hogwarts/news"/>
-            <property name="noCompression" value="false"/>
-            <property name="continueOnCheckedExceptions" value="false"/>
-            <property name="port" value="8280"/>
-            <property name="continueOnRuntimeExceptions" value="true"/>
-            <property name="enableConnectionDebug" value="true"/>
-        </bean>
         <bean id="newsId-query-param-extractor"
               class="org.adroitlogic.x.processor.http.nio.query.ExtractQueryParameter">
             <property name="nextElement" ref="news-article-payload-setter"/>
             <property name="variableName" value="key"/>
-            <property name="name" value="newsId"/>
+            <property name="name" value="id"/>
         </bean>
         <bean id="news-article-payload-setter" class="org.adroitlogic.x.processor.payload.SetPayloadFromString">
             <property name="nextElement" ref="news-kafka-reporter"/>
@@ -73,25 +63,35 @@
             <property name="metricsSampleWindow" value="30000"/>
         </bean>
         <bean id="news-cors-header-adder" class="org.adroitlogic.x.processor.header.AddNewTransportHeader">
+            <property name="nextElement" ref="news-http-listener"/>
             <property name="useVariable" value="false"/>
             <property name="headerName" value="Access-Control-Allow-Origin"/>
             <property name="propagateToParent" value="true"/>
             <property name="value" value="*"/>
             <property name="headerVarType" value="String"/>
-            <property name="nextElement" ref="news-http-listener"/>
+        </bean>
+        <bean id="news-http-listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="/hogwarts/news"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="8280"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+            <property name="processingElement" ref="newsId-query-param-extractor"/>
         </bean>
     </x:components>
 
     <x:layout>
 
-        <x:position id="news-http-listener" xPos="320.0" yPos="160.0" angle="0.0"
-                    elementType="ResponseIngressConnector"/>
         <x:position id="newsId-query-param-extractor" xPos="480.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
         <x:position id="news-article-payload-setter" xPos="640.0" yPos="160.0" angle="0.0"
                     elementType="ProcessingElement"/>
         <x:position id="news-kafka-reporter" xPos="800.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
         <x:position id="news-cors-header-adder" xPos="800.0" yPos="240.0" angle="180.0" elementType="ProcessingElement"/>
+        <x:position id="news-http-listener" xPos="320.0" yPos="160.0" angle="0.0"
+                    elementType="ResponseIngressConnector"/>
     </x:layout>
 
 
