@@ -40,6 +40,8 @@ public class ImpressionInjector extends AbstractProcessingElement {
             String key = XBaseUtils.extractStringByReplacingPlaceHolders(messageContext, newsId);
             StatisticsEngine.INSTANCE.incrementReadCountByOne(key);
 
+            messageContext.completeMessageFlowSuccessfully();
+
             return ExecutionResult.SUCCESS;
         } catch (Exception e) {
             logger.error(1, "Error while injecting the news read impressions into the internal Statistics Engine for " +
