@@ -8,7 +8,7 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>direct-proxy</artifactId>
-    <version>17.07.1</version>
+    <version>17.07.2</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - Direct Proxy</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
@@ -157,12 +157,12 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-nio-http</artifactId>
-            <version>17.07.1</version>
+            <version>17.07.2</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-logger</artifactId>
-            <version>17.07.1</version>
+            <version>17.07.2</version>
         </dependency>
     </dependencies>
 
@@ -224,8 +224,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>17.07.1</ultraesb.version>
-        <project-plugin-version>17.07.1</project-plugin-version>
+        <ultraesb.version>17.07.2</ultraesb.version>
+        <project-plugin-version>17.07.2</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>
