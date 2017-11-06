@@ -32,11 +32,11 @@
             <property name="continueOnRuntimeExceptions" value="true"/>
             <property name="maxConnections" value="4096"/>
         </bean>
-        <bean id="json-xml-transformer" class="org.adroitlogic.x.processor.transform.JSONToXMLTransformer">
+        <bean id="json-xml-transformer" class="org.adroitlogic.x.processor.json.JSONToXMLTransformer">
             <property name="nextElement" ref="http-sender"/>
             <property name="arrayElementName" value="${json-to-xml-transformation-flow.json-xml-transformer.arrayElementName}"/>
-            <property name="nameSpacePrefix" value="${json-to-xml-transformation-flow.json-xml-transformer.nameSpacePrefix}"/>
-            <property name="nameSpaceURI" value="${json-to-xml-transformation-flow.json-xml-transformer.nameSpaceURI}"/>
+            <property name="namespacePrefix" value="${json-to-xml-transformation-flow.json-xml-transformer.nameSpacePrefix}"/>
+            <property name="namespaceURI" value="${json-to-xml-transformation-flow.json-xml-transformer.nameSpaceURI}"/>
             <property name="rootElementName" value="${json-to-xml-transformation-flow.json-xml-transformer.rootElementName}"/>
         </bean>
     </x:components>
