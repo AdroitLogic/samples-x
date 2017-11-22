@@ -47,6 +47,7 @@
         <module>json-data-service</module>
         <module>response-caching</module>
         <module>jaxb-transformation</module>
+        <module>dropbox-sync</module>
     </modules>
 
     <build>
