@@ -1,4 +1,4 @@
-<x:project id="fix-proxy" name="FIXProxy" version="17.07.2"
+<x:project id="fix-proxy" name="FIXProxy" version="17.07.3"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd

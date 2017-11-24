@@ -8,7 +8,7 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>email-db-data-aggregation</artifactId>
-    <version>17.07.2</version>
+    <version>17.07.3</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - Data Aggregation via Email into Database</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
@@ -314,8 +314,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>17.07.2</ultraesb.version>
-        <project-plugin-version>17.07.2</project-plugin-version>
+        <ultraesb.version>17.07.3</ultraesb.version>
+        <project-plugin-version>17.07.3</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>
