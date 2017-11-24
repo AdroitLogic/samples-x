@@ -37,14 +37,16 @@
         </bean>
 
         <bean id="sftp-egress-connector" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
-            <property name="host" value="${SFTPEgressConnector.sftp-egress-connector.host}"/>
-            <property name="port" value="${SFTPEgressConnector.sftp-egress-connector.port}"/>
-            <property name="filePath" value="${SFTPEgressConnector.sftp-egress-connector.filePath}"/>
-            <property name="fileName" value="${SFTPEgressConnector.sftp-egress-connector.fileName}"/>
-            <property name="username" value="${SFTPEgressConnector.sftp-egress-connector.username}"/>
-            <property name="password" value="${SFTPEgressConnector.sftp-egress-connector.password}"/>
-            <property name="maxActiveConnections" value="${SFTPEgressConnector.sftp-egress-connector.maxActiveConnections}"/>
-            <property name="timeout" value="${SFTPEgressConnector.sftp-egress-connector.timeout}"/>
+            <property name="fileName" value="${sftp-key-based-file-mediation-flow.sftp-egress-connector.fileName}"/>
+            <property name="filePath" value="${sftp-key-based-file-mediation-flow.sftp-egress-connector.filePath}"/>
+            <property name="timeout" value="${sftp-key-based-file-mediation-flow.sftp-egress-connector.timeout}"/>
+            <property name="completeFlow" value="true"/>
+            <property name="password" value="${sftp-key-based-file-mediation-flow.sftp-egress-connector.password}"/>
+            <property name="port" value="${sftp-key-based-file-mediation-flow.sftp-egress-connector.port}"/>
+            <property name="host" value="${sftp-key-based-file-mediation-flow.sftp-egress-connector.host}"/>
+            <property name="maxActiveConnections"
+                      value="${sftp-key-based-file-mediation-flow.sftp-egress-connector.maxActiveConnections}"/>
+            <property name="username" value="${sftp-key-based-file-mediation-flow.sftp-egress-connector.username}"/>
         </bean>
     </x:components>
 
