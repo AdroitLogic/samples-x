@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>FilePit Uploader!</title>
+</head>
+<body>
+<form method="post" onsubmit="return runUpload()">
+    <label for="file">Select the file to upload:</label>
+    <input type="file" id="file" name="file"/>
+    <input type="submit" value="Upload"/>
+</form>
+<script type="text/javascript">
+
+    function runUpload() {
+        var file = document.forms[0].file.files[0];
+        if (!file) {
+            alert("Please select a file for uploading :)");
+            return false;
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "upload");
+        xhr.setRequestHeader("Upload-Filename", file.name);
+        xhr.onload = function () {
+            alert(this.responseText);
+        };
+        xhr.onerror = function (e) {
+            alert("Failed to upload file: " + e);
+        };
+
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+            xhr.setRequestHeader("Content-Type", file.type);
+            xhr.send(evt.target.result);
+        };
+        reader.readAsArrayBuffer(file);
+
+        return false;
+    }
+</script>
+</body>
+</html>
