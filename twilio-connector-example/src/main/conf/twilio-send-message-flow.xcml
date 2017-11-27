@@ -1,0 +1,40 @@
+<x:flow id="twilio-send-message-flow" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+
+        <bean id="IngressHTTP" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="/service/echo-proxy"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="8280"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+            <property name="processingElement" ref="Twillio"/>
+        </bean>
+        <bean id="Twillio" class="com.acme.esb.TwilioEgressConnector">
+            <property name="operation" ref="sendMessage"/>
+            <property name="responseProcessor" ref="IngressHTTP"/>
+            <property name="password" value="2eXXXXXXXXXXXX"/>
+            <property name="userName" value="ACXXXXXXXXXXXXXXXXX"/>
+        </bean>
+        <bean id="sendMessage" class="com.acme.esb.operations.SendMessage">
+            <property name="fromNumber" value="+94771234567"/>
+            <property name="messageBody" value="Hello! This is a Twilio Test"/>
+            <property name="toNumber" value="15005550006"/>
+        </bean>
+    </x:components>
+
+    <x:layout>
+
+        <x:position id="IngressHTTP" xPos="320.0" yPos="160.0" angle="0.0" elementType="ResponseIngressConnector"/>
+        <x:position id="Twillio" xPos="480.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="sendMessage" xPos="480.0" yPos="320.0" angle="0.0" elementType="ConnectorOperation"/>
+    </x:layout>
+
+
+</x:flow>

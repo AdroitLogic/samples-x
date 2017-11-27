@@ -1,0 +1,16 @@
+<x:project id="twilio-connector-example" name="twilio-connector-example" version="1.0-SNAPSHOT"
+           xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
+           xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:description>A sample project that demonstrates the projects concept</x:description>
+
+    <x:flows>
+        <x:flow id="twilio-send-message-flow" file="twilio-send-message-flow.xcml"/>
+    </x:flows>
+
+    <x:resources>
+    </x:resources>
+
+</x:project>

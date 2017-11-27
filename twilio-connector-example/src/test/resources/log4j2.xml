@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~ Copyright (c) 2010-2016 AdroitLogic Private Ltd. (http://adroitlogic.org). All Rights Reserved.
+ ~
+ ~ AdroitLogic PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ -->
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config" shutdownHook="disable">
+
+    <Loggers>
+        <Logger name="org.adroitlogic" level="INFO"/>
+        <Logger name="com.acme.esb" level="INFO"/>
+        <Logger name="org.springframework" level="ERROR"/>
+
+        <Logger name="sys-info" level="INFO" additivity="false">
+            <AppenderRef ref="SYS_INFO_APPENDER"/>
+        </Logger>
+
+        <Root level="ERROR">
+            <AppenderRef ref="LOG_APPENDER"/>
+            <AppenderRef ref="CONSOLE_APPENDER"/>
+        </Root>
+
+        <!-- Logger configuration for FileBasedAuditor -->
+        <!--<Logger name="AUDIT_LOGGER" level="ALL" additivity="false">-->
+        <!--<AppenderRef ref="AUDIT_APPENDER"/>-->
+        <!--</Logger>-->
+    </Loggers>
+
+    <Appenders>
+        <!-- RollingRandomAccessFile configuration for FileBasedAuditor -->
+        <!--<RollingRandomAccessFile name="AUDIT_APPENDER" fileName="logs/audit-x.log"
+                                 filePattern="logs/$${date:yyyy-MM}/audit-x-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d{ISO8601} [%X{ip}-%X{host}] [%t] [%X{xc}] %5p %c{1} %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingRandomAccessFile>-->
+
+        <RollingRandomAccessFile name="LOG_APPENDER" fileName="logs/ultraesb-x.log"
+                                 filePattern="logs/$${date:yyyy-MM}/ultraesb-x-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d{ISO8601} [%X{ip}-%X{host}] [%t] [%X{xc}] %5p %c{1} %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="SYS_INFO_APPENDER" fileName="logs/x-sys.log"
+                                 filePattern="logs/$${date:yyyy-MM}/x-sys-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d{ISO8601} [%t] [%X{xc}] %5p %c{1} %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingRandomAccessFile>
+
+        <Console name="CONSOLE_APPENDER" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ISO8601} [%X{ip}-%X{host}] [%t] [%X{xsn}-%X{xsv}] [%X{xc}] %highlight{%5p %c{1} %m%n}{TRACE=white,DEBUG=green,INFO=blue,WARN=bright yellow,ERROR=bright red}"/>
+        </Console>
+    </Appenders>
+
+</Configuration>
