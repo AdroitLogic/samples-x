@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~ Copyright (c) 2010-2017 AdroitLogic Private Ltd. (https://www.adroitlogic.com). All Rights Reserved.
+ ~
+ ~ AdroitLogic PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ -->
+
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config" shutdownHook="disable">
+
+    <Loggers>
+        <Logger name="org.adroitlogic" level="INFO"/>
+        <Logger name="org.springframework" level="ERROR"/>
+        <!--<Logger name="org.adroitlogic.x.processor.webserver" level="TRACE"/>-->
+
+        <Root level="ERROR">
+            <AppenderRef ref="LOG_APPENDER"/>
+            <AppenderRef ref="CONSOLE_APPENDER"/>
+        </Root>
+    </Loggers>
+
+    <Appenders>
+        <RollingRandomAccessFile name="LOG_APPENDER" fileName="logs/ultraesb-x.log"
+                                 filePattern="logs/$${date:yyyy-MM}/ultraesb-x-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d{ISO8601} [%X{ip}-%X{host}] [%t] [%X{xc}] %5p %c{1} %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingRandomAccessFile>
+
+        <Console name="CONSOLE_APPENDER" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ISO8601} [%X{ip}-%X{host}] [%t] [%X{xsn}-%X{xsv}] [%X{xc}] %highlight{%5p %c{1} %m%n}{TRACE=white,DEBUG=green,INFO=blue,WARN=bright yellow,ERROR=bright red}"/>
+        </Console>
+    </Appenders>
+
+</Configuration>

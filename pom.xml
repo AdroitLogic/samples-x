@@ -48,6 +48,7 @@
         <module>response-caching</module>
         <module>jaxb-transformation</module>
         <module>dropbox-sync</module>
+        <module>web-server</module>
     </modules>
 
     <build>
