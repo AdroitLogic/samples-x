@@ -16,13 +16,13 @@
             <property name="enableConnectionDebug" value="true"/>
             <property name="processingElement" ref="Twillio"/>
         </bean>
-        <bean id="Twillio" class="com.acme.esb.TwilioEgressConnector">
+        <bean id="Twillio" class="com.esb.samples.TwilioEgressConnector">
             <property name="operation" ref="sendMessage"/>
             <property name="responseProcessor" ref="IngressHTTP"/>
             <property name="password" value="2eXXXXXXXXXXXX"/>
             <property name="userName" value="ACXXXXXXXXXXXXXXXXX"/>
         </bean>
-        <bean id="sendMessage" class="com.acme.esb.operations.SendMessage">
+        <bean id="sendMessage" class="com.esb.samples.operations.SendMessage">
             <property name="fromNumber" value="+94771234567"/>
             <property name="messageBody" value="Hello! This is a Twilio Test"/>
             <property name="toNumber" value="15005550006"/>

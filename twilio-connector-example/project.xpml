@@ -4,7 +4,7 @@
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-    <x:description>A sample project that demonstrates the projects concept</x:description>
+    <x:description>A sample project that demonstrates how to write a connector for Twilio</x:description>
 
     <x:flows>
         <x:flow id="twilio-send-message-flow" file="twilio-send-message-flow.xcml"/>

@@ -6,10 +6,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.acme.esb</groupId>
+    <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>twilio-connector-example</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>18.01-SNAPSHOT</version>
     <packaging>xpr</packaging>
+    <name>AdroitLogic Project-X Sample - Twilio Connector Example</name>
+    <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
+        demonstrating how to write a connector for Twilio</description>
 
     <url>http://adroitlogic.org</url>
 

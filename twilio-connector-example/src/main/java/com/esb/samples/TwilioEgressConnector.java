@@ -4,7 +4,7 @@
  * AdroitLogic PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 
-package com.acme.esb;
+package com.esb.samples;
 
 import com.twilio.Twilio;
 import org.adroitlogic.x.annotation.config.EgressConnector;
@@ -18,7 +18,7 @@ import org.springframework.context.ApplicationContext;
 
 /**
  * @author Hasangi Thathsarani
- * @since 18.01
+ * @since 17.07.3
  */
 @LogInfo(loggerId = 1, nextLogCode = 2)
 @EgressConnector(displayName = "Twilio Egress Connector",

@@ -4,9 +4,9 @@
  * AdroitLogic PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 
-package com.acme.esb.operations;
+package com.esb.samples.operations;
 
-import com.acme.esb.TwilioEgressConnector;
+import com.esb.samples.TwilioEgressConnector;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import org.adroitlogic.x.annotation.config.ConnectorOperation;
@@ -18,7 +18,7 @@ import org.adroitlogic.x.logging.LogInfo;
 
 /**
  * @author Hasangi Thathsarani
- * @since 18.01
+ * @since 17.07.3
  */
 @LogInfo(loggerId = 4, nextLogCode = 3)
 @ConnectorOperation(displayName = "Send Messages", belongsTo = TwilioEgressConnector.class,
