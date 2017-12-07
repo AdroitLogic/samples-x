@@ -1,3 +1,7 @@
 .idea/
 target/
+*/logs
+*/src/main/conf/**/*-json.xpos
+*/src/test/resources/conf/license/*.key.properties
+*/src/test/resources/conf/license/license.properties
 *.iml

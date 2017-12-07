@@ -10,6 +10,7 @@
     <artifactId>web-ftp-upload</artifactId>
     <version>17.07.3</version>
     <packaging>xpr</packaging>
+
     <name>AdroitLogic Project-X Sample - Web-based File Uploader</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its HTTP serving and FTP persistence capabilities</description>
@@ -196,11 +197,6 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-ftp</artifactId>
-            <version>${ultraesb.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.adroitlogic.x.processors</groupId>
-            <artifactId>x-processor-string</artifactId>
             <version>${ultraesb.version}</version>
         </dependency>
         <dependency>

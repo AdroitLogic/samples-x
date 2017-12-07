@@ -10,10 +10,10 @@
     <artifactId>web-server</artifactId>
     <version>17.07.3</version>
     <packaging>xpr</packaging>
-    <name>AdroitLogic Project-X Sample - JMS Transactions</name>
+
+    <name>AdroitLogic Project-X Sample - Web Server</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating the easy provisioning of a simple web server for static content
-    </description>
+        demonstrating the easy provisioning of a simple web server for static content</description>
 
     <url>https://developer.adroitlogic.com/samples/17.07/introductory/web-server/</url>
 
