@@ -40,6 +40,7 @@
             <property name="fileName" value="@{variable.CLIENT_ID}_@{message.headers.ultra.file.name}"/>
             <property name="filePath" value="${sftp-file-mediation-flow.sftp-egress-connector.filePath}"/>
             <property name="timeout" value="6000"/>
+            <property name="completeFlow" value="true"/>
             <property name="password" value="${sftp-file-mediation-flow.sftp-egress-connector.password}"/>
             <property name="port" value="${sftp-file-mediation-flow.sftp-egress-connector.port}"/>
             <property name="host" value="${sftp-file-mediation-flow.sftp-egress-connector.host}"/>
