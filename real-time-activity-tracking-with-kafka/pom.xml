@@ -8,13 +8,13 @@
 
     <groupId>org.adroitlogic.x.sample</groupId>
     <artifactId>real-time-activity-tracking-with-kafka</artifactId>
-    <version>17.07.3</version>
+    <version>17.07.4</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - Real-time activity tracking with Kafka</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its Kafka features</description>
 
-    <url>https://developer.adroitlogic.com/samples/17.07.3/advanced/real-time-activity-tracking-with-kafka/</url>
+    <url>https://developer.adroitlogic.com/samples/17.07.4/advanced/real-time-activity-tracking-with-kafka/</url>
 
     <repositories>
         <repository>
@@ -296,8 +296,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>17.07.3</ultraesb.version>
-        <project-plugin-version>17.07.3</project-plugin-version>
+        <ultraesb.version>17.07.4</ultraesb.version>
+        <project-plugin-version>17.07.4</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>
