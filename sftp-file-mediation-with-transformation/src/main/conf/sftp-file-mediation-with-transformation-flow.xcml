@@ -58,12 +58,11 @@
             <property name="fileName" value="@{variable.Reference_No}_bank-B_GB_CURR_EXCG.xml"/>
             <property name="filePath" value="outbox-bank-b"/>
             <property name="timeout" value="6000"/>
+            <property name="completeFlow" value="true"/>
             <property name="password"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-bank-b-file-sender.password}"/>
-            <property name="port"
-                      value="${sftp-file-mediation-with-transformation-flow.sftp-bank-b-file-sender.port}"/>
-            <property name="host"
-                      value="${sftp-file-mediation-with-transformation-flow.sftp-bank-b-file-sender.host}"/>
+            <property name="port" value="${sftp-file-mediation-with-transformation-flow.sftp-bank-b-file-sender.port}"/>
+            <property name="host" value="${sftp-file-mediation-with-transformation-flow.sftp-bank-b-file-sender.host}"/>
             <property name="maxActiveConnections" value="10"/>
             <property name="username"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-bank-b-file-sender.username}"/>
@@ -72,12 +71,11 @@
             <property name="fileName" value="@{variable.Reference_No}_bank-A_GB_CURR_EXCG.xml"/>
             <property name="filePath" value="outbox-bank-a"/>
             <property name="timeout" value="6000"/>
+            <property name="completeFlow" value="true"/>
             <property name="password"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-bank-a-file-sender.password}"/>
-            <property name="port"
-                      value="${sftp-file-mediation-with-transformation-flow.sftp-bank-a-file-sender.port}"/>
-            <property name="host"
-                      value="${sftp-file-mediation-with-transformation-flow.sftp-bank-a-file-sender.host}"/>
+            <property name="port" value="${sftp-file-mediation-with-transformation-flow.sftp-bank-a-file-sender.port}"/>
+            <property name="host" value="${sftp-file-mediation-with-transformation-flow.sftp-bank-a-file-sender.host}"/>
             <property name="maxActiveConnections" value="10"/>
             <property name="username"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-bank-a-file-sender.username}"/>
@@ -106,6 +104,7 @@
             <property name="fileName" value="@{variable.Reference_No}_internal_GB_CURR_EXCG.xml"/>
             <property name="filePath" value="received/transformed"/>
             <property name="timeout" value="6000"/>
+            <property name="completeFlow" value="true"/>
             <property name="password"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-internal-transformed-file-sender.password}"/>
             <property name="port"
@@ -121,12 +120,11 @@
             <property name="fileName" value="@{variable.Reference_No}_bank-C_GB_CURR_EXCG.xml"/>
             <property name="filePath" value="outbox-bank-c"/>
             <property name="timeout" value="6000"/>
+            <property name="completeFlow" value="true"/>
             <property name="password"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-bank-c-file-sender.password}"/>
-            <property name="port"
-                      value="${sftp-file-mediation-with-transformation-flow.sftp-bank-c-file-sender.port}"/>
-            <property name="host"
-                      value="${sftp-file-mediation-with-transformation-flow.sftp-bank-c-file-sender.host}"/>
+            <property name="port" value="${sftp-file-mediation-with-transformation-flow.sftp-bank-c-file-sender.port}"/>
+            <property name="host" value="${sftp-file-mediation-with-transformation-flow.sftp-bank-c-file-sender.host}"/>
             <property name="maxActiveConnections" value="10"/>
             <property name="username"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-bank-c-file-sender.username}"/>
@@ -134,6 +132,7 @@
         <bean id="sftp-internal-original-file-sender" class="org.adroitlogic.x.connector.sftp.SFTPEgressConnector">
             <property name="filePath" value="received/original"/>
             <property name="timeout" value="6000"/>
+            <property name="completeFlow" value="true"/>
             <property name="password"
                       value="${sftp-file-mediation-with-transformation-flow.sftp-internal-original-file-sender.password}"/>
             <property name="port"

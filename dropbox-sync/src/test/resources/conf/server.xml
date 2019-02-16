@@ -1,0 +1,43 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+    <context:annotation-config/>
+    <bean class="org.adroitlogic.x.server.XApplication"/>
+
+    <bean class="org.adroitlogic.x.core.IntegrationPlatform">
+        <property name="executorService">
+            <bean class="org.adroitlogic.x.core.exec.ScaleFirstExecutorService">
+                <constructor-arg name="name" value="platform"/>
+                <constructor-arg name="coreSize" value="20"/>
+                <constructor-arg name="maxSize" value="100"/>
+                <constructor-arg name="keepAliveTime" value="5"/>
+                <constructor-arg name="timeUnit" value="SECONDS"/>
+            </bean>
+        </property>
+        <property name="scheduledThreadPool">
+            <bean class="java.util.concurrent.ScheduledThreadPoolExecutor">
+                <constructor-arg value="10"/>
+            </bean>
+        </property>
+        <property name="globalResponseTimeout" value="5000"/>
+        <property name="globalEgressTimeout" value="5000"/>
+        <property name="integrationFlowTracer" ref="integrationFlowTracer"/>
+	</bean>
+
+    <bean id="env" class="org.adroitlogic.x.core.Environment">
+        <constructor-arg name="nodeName" value="node1"/>
+        <property name="mode" value="IDE"/>
+        <property name="projectBaseDir" value="."/>
+        <property name="tmpDir" value="."/>
+    </bean>
+
+    <bean id="integrationFlowTracer" class="org.adroitlogic.x.core.InMemoryIntegrationFlowTracer">
+        <property name="tracingEnabled" value="true"/>
+        <property name="maxPayloadSizeKbs" value="100"/>
+    </bean>
+
+</beans>

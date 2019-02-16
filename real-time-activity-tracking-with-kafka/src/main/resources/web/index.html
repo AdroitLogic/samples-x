@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hogwarts News Server</title>
+    <!-- <base href="web/" /> -->
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/spectre-0.4.1/spectre.min.css" />
+    <link rel="stylesheet" href="css/spectre-0.4.1/spectre-exp.min.css" />
+    <link rel="stylesheet" href="css/spectre-0.4.1/spectre-icons.min.css" />
+
+    <script src="js/jquery-3.2.1/jquery.min.js" type="application/javascript"></script>
+  </head>
+
+  <body>
+    <div class="col-11 col-mx-auto">
+      <header class="navbar">
+        <section class="navbar-section">
+          <img class="img-brand" src="img/brand.jpg"/>
+          <a href="https://github.com/JChamz/hogwarts-news-server" class="navbar-brand mr-2">Hogwarts</a>
+          <a href="#" class="btn btn-link">Charms</a>
+          <a href="#" class="btn btn-link">Dark Arts</a>
+          <a href="/" class="btn btn-link">News</a>
+          <a href="#" class="btn btn-link">MajHub</a>
+        </section>
+        <section class="navbar-section">
+          <div class="input-group input-inline">
+            <input class="form-input" type="text" placeholder="type the magic word">
+            <button class="btn btn-primary input-group-btn">Search</button>
+          </div>
+        </section>
+      </header>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="col-4 col-mx-auto">
+      <h1 id="heading">Hogwarts News Server</h1>
+    </div>
+
+
+    <div class="col-8 col-mx-auto" id="content">
+      <div class="col-10 col-mx-auto">
+
+        <div class="tile" id="news1">
+          <div class="tile-icon">
+            <div class="example-tile-icon">
+              <img class="img" src="img/news1.jpg"/>
+            </div>
+          </div>
+          <div class="tile-content">
+            <strong class="tile-title">Wild beast on the loose: Escaped hippogriff</strong>
+            <p class="tile-subtitle text-gray">However, using a Time-Turner,
+              Harry Potter and Hermione Granger rescued Buckbeak just prior to
+              the execution. Originally, they had heard the swish of an axe...
+            </p>
+          </div>
+          <div class="tile-action">
+            <button class="btn btn-primary more-news badge" data-badge="0">Read full article</button>
+          </div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="tile" id="news2">
+          <div class="tile-icon">
+            <div class="example-tile-icon">
+              <img class="img" src="img/news2.jpg"/>
+            </div>
+          </div>
+          <div class="tile-content">
+            <strong class="tile-title">MACUSA blames Grindelwald for the recent robberies</strong>
+            <p class="tile-subtitle text-gray">
+              Newton Scamander owned a niffler, which escaped twice from his
+              suitcase during his visit to New York in 1926 and tried to rob
+              both the Steen...
+            </p>
+          </div>
+          <div class="tile-action">
+            <button class="btn btn-primary more-news badge" data-badge="0">Read full article</button>
+          </div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="tile" id="news3">
+          <div class="tile-icon">
+            <div class="example-tile-icon">
+              <img class="img" src="img/news3.jpg"/>
+            </div>
+          </div>
+          <div class="tile-content">
+            <strong class="tile-title">How Dumbledore fooled everyone</strong>
+            <p class="tile-subtitle text-gray">It was through Dumbledore that
+              resistance to the rise of Lord Voldemort was formed, as it was he
+              who founded and led both the first and second Order of the Phoenix...
+            </p>
+          </div>
+          <div class="tile-action">
+            <button class="btn btn-primary more-news badge" data-badge="0">Read full article</button>
+          </div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="tile" id="news4">
+          <div class="tile-icon">
+            <div class="example-tile-icon">
+              <img class="img" src="img/news4.jpg"/>
+            </div>
+          </div>
+          <div class="tile-content">
+            <strong class="tile-title">Legend Returns: Tom Riddle - A True Story</strong>
+            <p class="tile-subtitle text-gray">The son of the wealthy Muggle Tom
+              Riddle Senior and the witch Merope Riddle (née Gaunt), he was
+              orphaned and raised in a Muggle orphanage...</p>
+          </div>
+          <div class="tile-action">
+            <button class="btn btn-primary more-news badge" data-badge="0">Read full article</button>
+          </div>
+        </div>
+        <div class="divider"></div>
+
+      </div>
+
+      <div class="col-6 col-mx-auto list-footer">
+        <ul class="pagination">
+          <li class="page-item disabled"><a href="#" tabindex="-1">Previous</a></li>
+          <li class="page-item active"><a href="#">1</a></li>
+          <li class="page-item"><a href="#">2</a></li>
+          <li class="page-item"><a href="#">3</a></li>
+          <li class="page-item"><a href="#">4</a></li>
+          <li class="page-item"><a href="#">5</a></li>
+          <li class="page-item"><a href="#">6</a></li>
+          <li class="page-item"><a href="#">7</a></li>
+          <li class="page-item"><a href="#">8</a></li>
+          <li class="page-item"><a href="#">9</a></li>
+          <li class="page-item"><span>...</span></li>
+          <li class="page-item"><a href="#">83</a></li>
+          <li class="page-item"><a href="#">Next</a></li>
+        </ul>
+      </div>
+
+      <div class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container col-8 col-mx-auto">
+          <div class="modal-header bg-warning text-light">
+            <button class="btn btn-clear float-right close-modal"></button>
+            <div class="modal-title h3">Hogwarts News Server</div>
+          </div>
+          <div class="modal-body">
+            <h4 class="header"><!-- news header --></h4>
+            <div class="content"><!-- news content --></div>
+          </div>
+          <div class="divider"></div>
+          <div class="modal-footer">
+          <div class="modal-action col-3">
+            <button class="btn btn-secondary stash-news">
+              <i class="icon icon-share"></i> Stash news
+            </button>
+          </div>
+            <div class="col-mr-6">
+              <small>Property of Hogwarts</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

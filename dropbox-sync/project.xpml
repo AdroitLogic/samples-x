@@ -1,0 +1,16 @@
+<x:project id="dropbox-sync" name="DropboxSync" version="17.07.4"
+           xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
+           xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:description>A sample project that demonstrates automatic syncing of a Dropbox folder into a local directory</x:description>
+
+    <x:flows>
+        <x:flow id="dropbox-sync-flow" file="dropbox-sync-flow.xcml"/>
+    </x:flows>
+
+    <x:resources>
+    </x:resources>
+
+</x:project>

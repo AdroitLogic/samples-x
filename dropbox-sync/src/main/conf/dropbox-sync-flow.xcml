@@ -1,0 +1,80 @@
+<x:flow id="dropbox-sync-flow" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+        <bean id="trigger" class="org.adroitlogic.x.connector.timer.TimerInTaskConnector">
+            <property name="processingElement" ref="check"/>
+            <property name="cronExpression" value="${dropbox-sync-flow.trigger.cronExpression}"/>
+            <property name="parallelExecutionCount" value="4"/>
+            <property name="concurrentPollingCount" value="1"/>
+            <property name="repeatInterval" value="${dropbox-sync-flow.trigger.repeatInterval}"/>
+            <property name="startDelay" value="1000"/>
+            <property name="repeatCount" value="-1"/>
+        </bean>
+        <bean id="check" class="org.adroitlogic.x.connector.dropbox.DropboxEgressConnector">
+            <property name="operation" ref="list"/>
+            <property name="responseProcessor" ref="jsonpath"/>
+            <property name="setAsPayload" value="true"/>
+            <property name="clientId" value="${dropbox-sync-flow.check.clientId}"/>
+            <property name="accessToken" value="${dropbox-sync-flow.check.accessToken}"/>
+        </bean>
+        <bean id="list" class="org.adroitlogic.x.connector.dropbox.operation.ListOperation">
+            <property name="path" value="${dropbox-sync-flow.list.path}"/>
+            <property name="includeMountedFolders" value="true"/>
+        </bean>
+        <bean id="jsonpath" class="org.adroitlogic.x.processor.json.JSONPathExtractProcessor">
+            <property name="nextElement" ref="each"/>
+            <property name="variableName" value="files"/>
+            <property name="jsonPath" value="$.entries[*].name"/>
+        </bean>
+        <bean id="each" class="org.adroitlogic.x.processor.flowControl.ForEachLoop">
+            <property name="collectionType" value="COLLECTION"/>
+            <property name="iteratingVariable" value="file"/>
+            <property name="collectionVariable" value="files"/>
+            <property name="inLoopOutPort" ref="get"/>
+            <property name="loopTerminateOutPort" ref="end"/>
+        </bean>
+        <bean id="get" class="org.adroitlogic.x.connector.dropbox.DropboxEgressConnector">
+            <property name="operation" ref="download"/>
+            <property name="responseProcessor" ref="archive"/>
+            <property name="setAsPayload" value="true"/>
+            <property name="clientId" value="${dropbox-sync-flow.get.clientId}"/>
+            <property name="accessToken" value="${dropbox-sync-flow.get.accessToken}"/>
+        </bean>
+        <bean id="download" class="org.adroitlogic.x.connector.dropbox.operation.DownloadOperation">
+            <property name="path" value="${dropbox-sync-flow.download.path}"/>
+            <property name="localPath" value="${dropbox-sync-flow.download.localPath}"/>
+        </bean>
+        <bean id="archive" class="org.adroitlogic.x.connector.dropbox.DropboxEgressConnector">
+            <property name="operation" ref="move"/>
+            <property name="responseProcessor" ref="each"/>
+            <property name="setAsPayload" value="true"/>
+            <property name="maxRetries" value="3"/>
+            <property name="clientId" value="${dropbox-sync-flow.archive.clientId}"/>
+            <property name="accessToken" value="${dropbox-sync-flow.archive.accessToken}"/>
+        </bean>
+        <bean id="move" class="org.adroitlogic.x.connector.dropbox.operation.MoveOperation">
+            <property name="path" value="${dropbox-sync-flow.move.path}"/>
+            <property name="destination" value="${dropbox-sync-flow.move.destination}"/>
+            <property name="autoRename" value="true"/>
+        </bean>
+        <bean id="end" class="org.adroitlogic.x.components.flowend.SuccessfulFlowEnd"/>
+    </x:components>
+
+    <x:layout>
+        <x:position id="trigger" xPos="320.0" yPos="160.0" angle="0.0" elementType="IngressConnector"/>
+        <x:position id="check" xPos="480.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="list" xPos="480.0" yPos="320.0" angle="90.0" elementType="ConnectorOperation"/>
+        <x:position id="jsonpath" xPos="640.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="each" xPos="800.0" yPos="160.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="get" xPos="960.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="download" xPos="960.0" yPos="320.0" angle="90.0" elementType="ConnectorOperation"/>
+        <x:position id="archive" xPos="1120.0" yPos="160.0" angle="0.0" elementType="EgressConnector"/>
+        <x:position id="move" xPos="1120.0" yPos="320.0" angle="90.0" elementType="ConnectorOperation"/>
+        <x:position id="end" xPos="800.0" yPos="320.0" angle="180.0" elementType="ProcessingElement"/>
+    </x:layout>
+
+</x:flow>

@@ -1,0 +1,72 @@
+<x:flow id="persist-record-to-stat-engine-flow" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+
+        <bean id="news-kafka-listener" class="org.adroitlogic.x.connector.kafka.KafkaIngressConnector">
+            <property name="processingElement" ref="news-id-extractor"/>
+            <property name="reconnectBackOff" value="50"/>
+            <property name="metricsRecordingLevel" value="INFO"/>
+            <property name="receiveBufferBytes" value="65536"/>
+            <property name="fetchMaxWaitMillis" value="500"/>
+            <property name="sessionTimeoutMillis" value="10000"/>
+            <property name="metadataMaxAge" value="300000"/>
+            <property name="connectionMaxIdleMillis" value="540000"/>
+            <property name="sslTruststoreType" value="JKS"/>
+            <property name="metricsSampleCount" value="2"/>
+            <property name="sendBufferBytes" value="131072"/>
+            <property name="checkCRCS" value="true"/>
+            <property name="autoOffsetRest" value="LATEST"/>
+            <property name="autoCommitIntervalMillis" value="5000"/>
+            <property name="sslKeystoreType" value="JKS"/>
+            <property name="saslMechanism" value="GSSAPI"/>
+            <property name="enabledSSLProtocols" value="TLSv1.2,TLSv1.1,TLSv1"/>
+            <property name="excludeInternalTopic" value="true"/>
+            <property name="enableAutoCommit" value="true"/>
+            <property name="kerberosMinTimeBeforeRelogin" value="60000"/>
+            <property name="isolationLevel" value="READ_UNCOMMITTED"/>
+            <property name="maxPollRecords" value="500"/>
+            <property name="sslProtocol" value="TLS"/>
+            <property name="sslKeymanagerAlgorithm" value="SunX509"/>
+            <property name="partitionAssignmentStrategy" value="org.apache.kafka.clients.consumer.RangeAssignor"/>
+            <property name="kerberosKinitCommand" value="/usr/bin/kinit"/>
+            <property name="fetchMinBytes" value="1"/>
+            <property name="retryBackOff" value="100"/>
+            <property name="reconnectBackOffMax" value="1000"/>
+            <property name="requestTimeoutMillis" value="305000"/>
+            <property name="maxPartitionFetchBytes" value="1048576"/>
+            <property name="securityProtocol" value="PLAINTEXT"/>
+            <property name="bootstrapServers"
+                      value="${persist-record-to-stat-engine-flow.news-kafka-listener.bootstrapServers}"/>
+            <property name="kerberosTicketRenewWindowFactor" value="0.8"/>
+            <property name="consumerCount" value="1"/>
+            <property name="kerberosTicketRenewJitter" value="0.05"/>
+            <property name="maxPollInterval" value="300000"/>
+            <property name="heartBeatIntervalMillis" value="3000"/>
+            <property name="sslTrustmanagerAlgorithm" value="PKIX"/>
+            <property name="fetchMaxBytes" value="52428800"/>
+            <property name="topicName" value="${persist-record-to-stat-engine-flow.news-kafka-listener.topicName}"/>
+            <property name="metricsSampleWindow" value="30000"/>
+        </bean>
+        <bean id="news-id-extractor" class="org.adroitlogic.x.processor.xml.xpath.XPathExtractProcessor">
+            <property name="nextElement" ref="news-read-injector"/>
+            <property name="xpath" value="/message/id"/>
+            <property name="variableName" value="id"/>
+        </bean>
+        <bean id="news-read-injector" class="org.adroitlogic.x.sample.processors.custom.ImpressionInjector">
+            <property name="newsId" value="@{variable.id}"/>
+        </bean>
+    </x:components>
+
+    <x:layout>
+
+        <x:position id="news-kafka-listener" xPos="400.0" yPos="240.0" angle="0.0" elementType="IngressConnector"/>
+        <x:position id="news-id-extractor" xPos="560.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
+        <x:position id="news-read-injector" xPos="720.0" yPos="240.0" angle="0.0" elementType="ProcessingElement"/>
+    </x:layout>
+
+
+</x:flow>

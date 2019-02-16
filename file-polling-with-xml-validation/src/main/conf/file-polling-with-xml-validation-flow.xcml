@@ -10,7 +10,7 @@
             <property name="processingElement" ref="xsd"/>
             <property name="parallelExecutionCount"
                       value="${file-polling-with-xml-validation-flow.fileListener.parallelExecutionCount}"/>
-            <property name="filePath" value="${file-polling-with-xml-validation-flow.fileListener.filePath}"/>
+            <property name="rootPath" value="${file-polling-with-xml-validation-flow.fileListener.filePath}"/>
             <property name="fileNamePattern"
                       value="${file-polling-with-xml-validation-flow.fileListener.fileNamePattern}"/>
             <property name="removeOriginalFile"
@@ -46,6 +46,7 @@
         </bean>
         <bean id="fileSender" class="org.adroitlogic.x.connector.file.polling.FileEgressConnector">
             <property name="filePath" value="${file-polling-with-xml-validation-flow.fileSender.filePath}"/>
+            <property name="completeFlow" value="true"/>
         </bean>
         <bean id="success" class="org.adroitlogic.x.components.flowend.SuccessfulFlowEnd"/>
 

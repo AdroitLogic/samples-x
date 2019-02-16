@@ -5,7 +5,7 @@
     <x:components>
         <bean id="attachmentSaver" class="org.adroitlogic.x.processor.attachment.SaveAttachmentToFile">
             <property name="nextElement" ref="successfulFlowEnd"/>
-            <property name="directoryPath" value="${report-receiver.attachmentSaver.directoryPath}"/>
+            <property name="directoryBasePath" value="${report-receiver.attachmentSaver.directoryPath}"/>
             <property name="useAttachmentNameAsFileName"
                       value="${report-receiver.attachmentSaver.useAttachmentNameAsFileName}"/>
             <property name="name" value="${report-receiver.attachmentSaver.name}"/>

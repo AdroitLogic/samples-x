@@ -8,14 +8,14 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>response-caching</artifactId>
-    <version>18.01-SNAPSHOT</version>
+    <version>19.03-SNAPSHOT</version>
     <packaging>xpr</packaging>
 
     <name>AdroitLogic Project-X Sample - Response Caching</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its response caching features</description>
 
-    <url>https://developer.adroitlogic.com/samples/introductory/18.01/cache/</url>
+    <url>https://developer.adroitlogic.com/samples/17.07/introductory/response-caching/</url>
 
     <repositories>
         <repository>
@@ -129,6 +129,34 @@
                     <groupId>log4j</groupId>
                     <artifactId>log4j</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.bouncycastle</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x</groupId>
+            <artifactId>x-management</artifactId>
+            <version>${ultraesb.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.adroitlogic.x</groupId>
+            <artifactId>x-metrics</artifactId>
+            <version>${ultraesb.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
@@ -140,6 +168,12 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jul</artifactId>
             <version>2.7</version>
             <scope>test</scope>
         </dependency>
@@ -158,22 +192,22 @@
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-cache</artifactId>
-            <version>18.01-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-nio-http</artifactId>
-            <version>18.01-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-logger</artifactId>
-            <version>18.01-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-payload</artifactId>
-            <version>18.01-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
@@ -235,8 +269,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>18.01-SNAPSHOT</ultraesb.version>
-        <project-plugin-version>18.01-SNAPSHOT</project-plugin-version>
+        <ultraesb.version>${project.version}</ultraesb.version>
+        <project-plugin-version>${project.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>

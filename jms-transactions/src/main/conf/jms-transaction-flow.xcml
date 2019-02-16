@@ -24,7 +24,7 @@
             <property name="exchangePattern" value="Keep Original"/>
             <property name="completionType" value="On result of both"/>
         </bean>
-        <bean id="jsonToXml" class="org.adroitlogic.x.processor.transform.JSONToXMLTransformer">
+        <bean id="jsonToXml" class="org.adroitlogic.x.processor.json.JSONToXMLTransformer">
             <property name="nextElement" ref="xsdValidation"/>
             <property name="rootElementName" value="AddBookingRequest"/>
         </bean>

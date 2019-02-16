@@ -1,0 +1,52 @@
+<x:flow id="retrieve-read-count-flow" type="integrationFlow"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-flow"
+        xsi:schemaLocation="http://www.adroitlogic.org/x/x-flow http://schemas.adroitlogic.org/x/x-flow-1.0.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <x:components>
+
+        <bean id="newsId-query-param-extractor"
+              class="org.adroitlogic.x.processor.http.nio.query.ExtractQueryParameter">
+            <property name="nextElement" ref="set-read-count-to-payload"/>
+            <property name="variableName" value="key"/>
+            <property name="name" value="id"/>
+        </bean>
+        <bean id="set-read-count-to-payload"
+              class="org.adroitlogic.x.sample.processors.custom.ReadCountToPayloadSetter">
+            <property name="nextElement" ref="stats-cors-header-adder"/>
+            <property name="newsId" value="@{variable.key}"/>
+        </bean>
+        <bean id="stats-cors-header-adder" class="org.adroitlogic.x.processor.header.AddNewTransportHeader">
+            <property name="nextElement" ref="read-count-http-listener"/>
+            <property name="useVariable" value="false"/>
+            <property name="headerName" value="Access-Control-Allow-Origin"/>
+            <property name="propagateToParent" value="true"/>
+            <property name="value" value="*"/>
+            <property name="headerVarType" value="String"/>
+        </bean>
+        <bean id="read-count-http-listener" class="org.adroitlogic.x.connector.http.nio.NIOHttpIngressConnector">
+            <property name="zeroCopyEnabled" value="true"/>
+            <property name="path" value="/hogwarts/stats"/>
+            <property name="noCompression" value="false"/>
+            <property name="continueOnCheckedExceptions" value="false"/>
+            <property name="port" value="8280"/>
+            <property name="continueOnRuntimeExceptions" value="true"/>
+            <property name="enableConnectionDebug" value="true"/>
+            <property name="processingElement" ref="newsId-query-param-extractor"/>
+        </bean>
+    </x:components>
+
+    <x:layout>
+
+        <x:position id="newsId-query-param-extractor" xPos="480.0" yPos="160.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+        <x:position id="set-read-count-to-payload" xPos="640.0" yPos="160.0" angle="0.0"
+                    elementType="ProcessingElement"/>
+        <x:position id="stats-cors-header-adder" xPos="640.0" yPos="240.0" angle="180.0" elementType="ProcessingElement"/>
+        <x:position id="read-count-http-listener" xPos="320.0" yPos="160.0" angle="0.0"
+                    elementType="ResponseIngressConnector"/>
+    </x:layout>
+
+
+</x:flow>
