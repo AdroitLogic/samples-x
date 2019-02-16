@@ -149,15 +149,9 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x</groupId>
-            <artifactId>x-metrics</artifactId>
+            <artifactId>x-metrics-base</artifactId>
             <version>${ultraesb.version}</version>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>

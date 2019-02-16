@@ -50,6 +50,7 @@
         <module>dropbox-sync</module>
         <module>web-server</module>
         <module>web-ftp-upload</module>
+        <module>twilio-connector-example</module>
     </modules>
 
     <build>

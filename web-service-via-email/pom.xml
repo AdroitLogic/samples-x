@@ -14,7 +14,7 @@
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating invocation and response delivery of a web service via email</description>
 
-    <url>https://developer.adroitlogic.com/17.07/samples/introductory/web-service-via-email/</url>
+    <url>https://developer.adroitlogic.com/samples/17.07/introductory/web-service-via-email/</url>
 
     <repositories>
         <repository>
@@ -148,15 +148,9 @@
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x</groupId>
-            <artifactId>x-metrics</artifactId>
+            <artifactId>x-metrics-base</artifactId>
             <version>${ultraesb.version}</version>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
