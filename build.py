@@ -13,6 +13,8 @@ from zipfile import ZipFile, ZIP_DEFLATED
 __author__ = "Sajith Dilshan"
 __email__ = "sajith@adroitlogic.com"
 
+# use XS_IGNORE_PATTERNS env variable to specify space separated list of filename patterns (fragments) to be ignored
+ignore_patterns = os.environ.get("XS_IGNORE_PATTERNS", "").split(" ")
 
 def zip_directory(basedir, archive_name):
     """
@@ -28,6 +30,11 @@ def zip_directory(basedir, archive_name):
         for root, dirs, files in os.walk(basedir):
             for file in files:
                 absolute_file_path = os.path.join(root, file)
+
+                if any(absolute_file_path.find(f) > -1 for f in ignore_patterns):
+                    print "Ignoring         : %s" % absolute_file_path
+                    continue
+
                 # removing the basedir from absolute_file_path name so the zip file will not
                 # contain a directory with the name of basedir
                 zip_file_path = absolute_file_path[len(basedir) + len(os.sep):]
