@@ -8,7 +8,7 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>web-service-via-email</artifactId>
-    <version>17.07.4</version>
+    <version>17.07.5</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - Web Service via Email</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
@@ -263,8 +263,8 @@
     </build>
 
     <properties>
-        <ultraesb.version>17.07.4</ultraesb.version>
-        <project-plugin-version>17.07.4</project-plugin-version>
+        <ultraesb.version>17.07.5</ultraesb.version>
+        <project-plugin-version>17.07.5</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>
