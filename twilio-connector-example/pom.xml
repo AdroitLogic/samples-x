@@ -6,15 +6,20 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.adroitlogic.x.samples</groupId>
+    <parent>
+        <groupId>org.adroitlogic.x.samples</groupId>
+        <artifactId>x-samples</artifactId>
+        <version>${base.version}</version>
+        <relativePath>..</relativePath>
+    </parent>
+
     <artifactId>twilio-connector-example</artifactId>
-    <version>19.03-SNAPSHOT</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - Twilio Connector Example</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating how to write a connector for Twilio</description>
 
-    <url>http://adroitlogic.org</url>
+    <url>https://medium.com/@hasangi/professor-x-and-jean-grey-for-the-rescue-of-your-integration-setbacks-22f2b7aa9b26</url>
 
     <repositories>
         <repository>

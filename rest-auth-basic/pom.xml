@@ -3,18 +3,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.adroitlogic.x.samples</groupId>
+    <parent>
+        <groupId>org.adroitlogic.x.samples</groupId>
+        <artifactId>x-samples</artifactId>
+        <version>${base.version}</version>
+        <relativePath>..</relativePath>
+    </parent>
+
     <artifactId>rest-auth-basic</artifactId>
-    <version>19.03-SNAPSHOT</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - REST Basic Authentication</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its basic authentication feature for REST requests</description>
 
-    <url>https://developer.adroitlogic.com/samples/17.07/intermediary/rest-auth-basic/</url>
+    <url>https://developer.adroitlogic.com/samples/${base.version}/introductory/rest-auth-basic/</url>
 
     <repositories>
         <repository>

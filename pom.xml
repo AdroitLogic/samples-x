@@ -3,12 +3,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>x-samples</artifactId>
-    <version>19.03-SNAPSHOT</version>
+    <version>${base.version}</version>
     <packaging>pom</packaging>
     <name>AdroitLogic Project-X Samples</name>
 
@@ -63,6 +62,37 @@
         </extensions>
         <pluginManagement>
             <plugins>
+                <!-- replaces version number placeholders in POMs, with current values -->
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <executions>
+                        <execution>
+                            <id>copy-pom</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>copy-resources</goal>
+                            </goals>
+                            <configuration combine.children="append">
+                                <resources>
+                                    <resource>
+                                        <directory>.</directory>
+                                        <include>pom.xml</include>
+                                        <filtering>true</filtering>
+                                    </resource>
+                                </resources>
+                                <outputDirectory>target</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.4</version>
+                    <configuration combine.children="append">
+                        <pomFile>target/pom.xml</pomFile>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
@@ -73,10 +103,16 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <properties>
-        <project-plugin-version>19.03-SNAPSHOT</project-plugin-version>
+        <project-plugin-version>${base.version}</project-plugin-version>
+        <base.version>20.08-beta1</base.version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

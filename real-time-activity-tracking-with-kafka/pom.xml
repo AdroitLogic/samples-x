@@ -6,15 +6,20 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.adroitlogic.x.sample</groupId>
+    <parent>
+        <groupId>org.adroitlogic.x.samples</groupId>
+        <artifactId>x-samples</artifactId>
+        <version>${base.version}</version>
+        <relativePath>..</relativePath>
+    </parent>
+
     <artifactId>real-time-activity-tracking-with-kafka</artifactId>
-    <version>19.03-SNAPSHOT</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - Real-time activity tracking with Kafka</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its Kafka features</description>
 
-    <url>https://developer.adroitlogic.com/samples/17.07.4/advanced/real-time-activity-tracking-with-kafka/</url>
+    <url>https://developer.adroitlogic.com/samples/${base.version}/advanced/real-time-activity-tracking-with-kafka/</url>
 
     <repositories>
         <repository>

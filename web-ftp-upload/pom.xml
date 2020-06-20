@@ -6,16 +6,21 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.adroitlogic.x.samples</groupId>
+    <parent>
+        <groupId>org.adroitlogic.x.samples</groupId>
+        <artifactId>x-samples</artifactId>
+        <version>${base.version}</version>
+        <relativePath>..</relativePath>
+    </parent>
+
     <artifactId>web-ftp-upload</artifactId>
-    <version>19.03-SNAPSHOT</version>
     <packaging>xpr</packaging>
 
     <name>AdroitLogic Project-X Sample - Web-based File Uploader</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its HTTP serving and FTP persistence capabilities</description>
 
-    <url>https://developer.adroitlogic.com/samples/17.07/intermediary/web-file-upload/</url>
+    <url>https://developer.adroitlogic.com/samples/${base.version}/intermediary/web-file-upload/</url>
 
     <repositories>
         <repository>

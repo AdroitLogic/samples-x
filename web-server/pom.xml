@@ -6,16 +6,21 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.adroitlogic.x.samples</groupId>
+    <parent>
+        <groupId>org.adroitlogic.x.samples</groupId>
+        <artifactId>x-samples</artifactId>
+        <version>${base.version}</version>
+        <relativePath>..</relativePath>
+    </parent>
+
     <artifactId>web-server</artifactId>
-    <version>19.03-SNAPSHOT</version>
     <packaging>xpr</packaging>
 
     <name>AdroitLogic Project-X Sample - Web Server</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating the easy provisioning of a simple web server for static content</description>
 
-    <url>https://developer.adroitlogic.com/samples/17.07/introductory/web-server/</url>
+    <url>https://developer.adroitlogic.com/samples/${base.version}/introductory/web-server/</url>
 
     <repositories>
         <repository>

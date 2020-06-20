@@ -3,19 +3,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.adroitlogic.x.samples</groupId>
+    <parent>
+        <groupId>org.adroitlogic.x.samples</groupId>
+        <artifactId>x-samples</artifactId>
+        <version>${base.version}</version>
+        <relativePath>..</relativePath>
+    </parent>
+
     <artifactId>content-based-routing</artifactId>
-    <version>19.03-SNAPSHOT</version>
     <packaging>xpr</packaging>
     <name>AdroitLogic Project-X Sample - Content Based Routing</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
-        demonstrating its content based routing features
-    </description>
+        demonstrating its content based routing features</description>
 
-    <url>https://developer.adroitlogic.com/samples/17.07/intermediary/content-based-routing/</url>
+    <url>https://developer.adroitlogic.com/samples/${base.version}/intermediary/content-based-routing/</url>
 
     <repositories>
         <repository>
