@@ -28,7 +28,12 @@ def zip_directory(basedir, archive_name):
     with closing(ZipFile(archive_name, "w", ZIP_DEFLATED)) as zipFile:
         print "Creating Archive : " + archive_name
         for root, dirs, files in os.walk(basedir):
+            parts = re.split(r"[/\\]", root)[:2]
+            if ".idea" in parts or "target" in parts:
+                continue
             for file in files:
+                if file.endswith(".iml"):
+                    continue
                 absolute_file_path = os.path.join(root, file)
 
                 if any(absolute_file_path.find(f) > -1 for f in ignore_patterns):
