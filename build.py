@@ -4,6 +4,8 @@ This script is used to create necessary archive files to be uploaded to the samp
 developer.adroitlogic.com
 """
 
+BASE_VERSION = "21.01-beta1"
+
 import os
 import re
 import shutil
@@ -14,7 +16,7 @@ __author__ = "Sajith Dilshan"
 __email__ = "sajith@adroitlogic.com"
 
 # use XS_IGNORE_PATTERNS env variable to specify space separated list of filename patterns (fragments) to be ignored
-ignore_patterns = os.environ.get("XS_IGNORE_PATTERNS", "").split(" ")
+ignore_patterns = os.environ.get("XS_IGNORE_PATTERNS", "-json.xpos license.properties license.key.properties client.key.properties").split(" ")
 
 def zip_directory(basedir, archive_name):
     """
@@ -28,12 +30,14 @@ def zip_directory(basedir, archive_name):
     with closing(ZipFile(archive_name, "w", ZIP_DEFLATED)) as zipFile:
         print "Creating Archive : " + archive_name
         for root, dirs, files in os.walk(basedir):
-            parts = re.split(r"[/\\]", root)[:2]
-            if ".idea" in parts or "target" in parts:
-                continue
+            all_parts = re.split(r"[/\\]", root)
+            parts = all_parts[:2]
+            if ".idea" in parts or "target" in parts: continue
+
             for file in files:
-                if file.endswith(".iml"):
-                    continue
+                if all_parts[-1] == "logs" and file != ".dirinfo": continue
+                if file.endswith(".iml"): continue
+
                 absolute_file_path = os.path.join(root, file)
 
                 if any(absolute_file_path.find(f) > -1 for f in ignore_patterns):
@@ -132,12 +136,16 @@ def main():
             # remove .DS_Store files
             recursively_delete_files("./" + dir, ".DS_Store")
 
+            # fix base.version
+            original_pom_content = read_file_to_string(dir + "/pom.xml")
+            portable_pom = original_pom_content.replace("${base.version}", BASE_VERSION)
+            write_to_file("./" + dir + "/pom.xml", portable_pom)
+
             # compress the samples
             zip_directory(dir, "./target/" + dir + ".zip")
 
             # modify the pom.xml content
-            original_pom_content = read_file_to_string(dir + "/pom.xml")
-            modified_pom_content = re.sub("<modelVersion>.*</packaging>", mod_pom, original_pom_content,
+            modified_pom_content = re.sub("<modelVersion>.*</packaging>", mod_pom, portable_pom,
                                           flags=re.DOTALL)
             write_to_file("./" + dir + "/pom.xml", modified_pom_content)
             # create archived to be used in UltraStudio

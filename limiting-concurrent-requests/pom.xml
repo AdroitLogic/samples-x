@@ -14,6 +14,7 @@
 
     <artifactId>limiting-concurrent-requests</artifactId>
     <packaging>xpr</packaging>
+
     <name>AdroitLogic Project-X Sample - Limiting Concurrent Requests</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its concurrency limiting features</description>
@@ -189,17 +190,17 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-nio-http</artifactId>
-            <version>${project.version}</version>
+            <version>${x.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-logger</artifactId>
-            <version>${project.version}</version>
+            <version>${x.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-throttle</artifactId>
-            <version>${project.version}</version>
+            <version>${x.version}</version>
         </dependency>
     </dependencies>
 
@@ -261,8 +262,9 @@
     </build>
 
     <properties>
-        <ultraesb.version>${project.version}</ultraesb.version>
-        <project-plugin-version>${project.version}</project-plugin-version>
+        <x.version>${base.version}</x.version>
+        <ultraesb.version>${x.version}</ultraesb.version>
+        <project-plugin-version>${x.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>

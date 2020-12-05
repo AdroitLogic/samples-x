@@ -14,6 +14,7 @@
 
     <artifactId>sftp-file-mediation-with-transformation</artifactId>
     <packaging>xpr</packaging>
+
     <name>AdroitLogic Project-X Sample - SFTP File Mediation with Transformation</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its SFTP connector and the transformation features</description>
@@ -189,27 +190,27 @@
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-sftp</artifactId>
-            <version>${project.version}</version>
+            <version>${x.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-regular-flow-control</artifactId>
-            <version>${project.version}</version>
+            <version>${x.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-regular-transform</artifactId>
-            <version>${project.version}</version>
+            <version>${x.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-json</artifactId>
-            <version>${project.version}</version>
+            <version>${x.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-xml</artifactId>
-            <version>${project.version}</version>
+            <version>${x.version}</version>
         </dependency>
         <dependency>
             <groupId>net.sf.saxon</groupId>
@@ -276,8 +277,9 @@
     </build>
 
     <properties>
-        <ultraesb.version>${project.version}</ultraesb.version>
-        <project-plugin-version>${project.version}</project-plugin-version>
+        <x.version>${base.version}</x.version>
+        <ultraesb.version>${x.version}</ultraesb.version>
+        <project-plugin-version>${x.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>

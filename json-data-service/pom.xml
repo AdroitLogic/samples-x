@@ -14,6 +14,7 @@
 
     <artifactId>json-data-service</artifactId>
     <packaging>xpr</packaging>
+
     <name>AdroitLogic Project-X Sample - JSON Data Service</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating creation of a simple REST API using the JSON Data Service processing element</description>
@@ -262,8 +263,9 @@
     </build>
 
     <properties>
-        <ultraesb.version>${project.version}</ultraesb.version>
-        <project-plugin-version>${project.version}</project-plugin-version>
+        <x.version>${base.version}</x.version>
+        <ultraesb.version>${x.version}</ultraesb.version>
+        <project-plugin-version>${x.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <java.version>1.8</java.version>
