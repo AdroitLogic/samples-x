@@ -132,7 +132,7 @@
         <dependency>
             <groupId>com.twilio.sdk</groupId>
             <artifactId>twilio</artifactId>
-            <version>7.15.6</version>
+            <version>8.19.0</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
