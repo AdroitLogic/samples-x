@@ -6,14 +6,9 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.adroitlogic.x.samples</groupId>
-        <artifactId>x-samples</artifactId>
-        <version>${base.version}</version>
-        <relativePath>..</relativePath>
-    </parent>
-
+    <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>twilio-connector-example</artifactId>
+    <version>21.09-beta1</version>
     <packaging>xpr</packaging>
 
     <name>AdroitLogic Project-X Sample - Twilio Connector Example</name>
@@ -239,7 +234,7 @@
     </build>
 
     <properties>
-        <x.version>${base.version}</x.version>
+        <x.version>${project.version}</x.version>
         <ultraesb.version>${x.version}</ultraesb.version>
         <project-plugin-version>${x.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>

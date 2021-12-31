@@ -5,21 +5,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.adroitlogic.x.samples</groupId>
-        <artifactId>x-samples</artifactId>
-        <version>${base.version}</version>
-        <relativePath>..</relativePath>
-    </parent>
-
+    <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>rest-service-mediation</artifactId>
+    <version>21.09-beta1</version>
     <packaging>xpr</packaging>
 
     <name>AdroitLogic Project-X Sample - REST Service Mediation</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its REST service mediation features</description>
 
-    <url>https://developer.adroitlogic.com/samples/${base.version}/introductory/rest-service-mediation/</url>
+    <url>https://developer.adroitlogic.com/samples/latest/introductory/rest-service-mediation/</url>
 
     <repositories>
         <repository>
@@ -257,7 +252,7 @@
     </build>
 
     <properties>
-        <x.version>${base.version}</x.version>
+        <x.version>${project.version}</x.version>
         <ultraesb.version>${x.version}</ultraesb.version>
         <project-plugin-version>${x.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>

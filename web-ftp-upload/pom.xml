@@ -6,21 +6,16 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.adroitlogic.x.samples</groupId>
-        <artifactId>x-samples</artifactId>
-        <version>${base.version}</version>
-        <relativePath>..</relativePath>
-    </parent>
-
+    <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>web-ftp-upload</artifactId>
+    <version>21.09-beta1</version>
     <packaging>xpr</packaging>
 
     <name>AdroitLogic Project-X Sample - Web-based File Uploader</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its HTTP serving and FTP persistence capabilities</description>
 
-    <url>https://developer.adroitlogic.com/samples/${base.version}/intermediary/web-file-upload/</url>
+    <url>https://medium.com/@janaka_bandara/integration-simplified-professor-calculus-assignment-uploader-in-ten-minutes-d45a2df9e811</url>
 
     <repositories>
         <repository>
@@ -273,7 +268,7 @@
     </build>
 
     <properties>
-        <x.version>${base.version}</x.version>
+        <x.version>${project.version}</x.version>
         <ultraesb.version>${x.version}</ultraesb.version>
         <project-plugin-version>${x.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>

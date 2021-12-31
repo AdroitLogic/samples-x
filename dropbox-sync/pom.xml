@@ -6,21 +6,16 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.adroitlogic.x.samples</groupId>
-        <artifactId>x-samples</artifactId>
-        <version>${base.version}</version>
-        <relativePath>..</relativePath>
-    </parent>
-
+    <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>dropbox-sync</artifactId>
+    <version>21.09-beta1</version>
     <packaging>xpr</packaging>
 
     <name>AdroitLogic Project-X Sample - Dropbox Sync</name>
     <description>This sample contains an integration project developed using the AdroitLogic Project-X framework
         demonstrating its Dropbox connectivity and operational support</description>
 
-    <url>https://developer.adroitlogic.com/samples/${base.version}/intermediary/dropbox-sync/</url>
+    <url>https://hackernoon.com/connecting-the-dots-in-style-build-your-own-dropbox-sync-in-10-minutes-24d8f61ccb7d</url>
 
     <repositories>
         <repository>
@@ -268,7 +263,7 @@
     </build>
 
     <properties>
-        <x.version>${base.version}</x.version>
+        <x.version>${project.version}</x.version>
         <ultraesb.version>${x.version}</ultraesb.version>
         <project-plugin-version>${x.version}</project-plugin-version>
         <aws-maven.version>1.0.0</aws-maven.version>

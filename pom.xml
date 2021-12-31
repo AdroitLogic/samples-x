@@ -7,7 +7,7 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>x-samples</artifactId>
-    <version>${base.version}</version>
+    <version>21.09-beta1</version>
     <packaging>pom</packaging>
     <name>AdroitLogic Project-X Samples</name>
 
@@ -118,8 +118,7 @@
     </build>
 
     <properties>
-        <project-plugin-version>${base.version}</project-plugin-version>
-        <base.version>21.09-beta1</base.version>
+        <project-plugin-version>${project.version}</project-plugin-version>
         <aws-maven.version>1.0.1</aws-maven.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
