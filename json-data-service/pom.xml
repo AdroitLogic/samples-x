@@ -88,109 +88,67 @@
     </distributionManagement>
 
     <dependencies>
+        <!-- Project-X API containing all interfaces (message and context, flow, project, transport, connector, processor, etc) -->
         <dependency>
             <groupId>org.adroitlogic.x</groupId>
             <artifactId>x-api</artifactId>
-            <version>${ultraesb.version}</version>
+            <version>${x.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- base for creating new connectors/processors -->
         <dependency>
             <groupId>org.adroitlogic.x</groupId>
             <artifactId>x-base</artifactId>
-            <version>${ultraesb.version}</version>
+            <version>${x.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- commonly used flow-control, scoping and transactional elements -->
         <dependency>
             <groupId>org.adroitlogic.x</groupId>
             <artifactId>x-components</artifactId>
-            <version>${ultraesb.version}</version>
+            <version>${x.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- annotations for hooking-in to Project-X lifecycle and defining metrics, features, connectors/processors, etc -->
         <dependency>
             <groupId>org.adroitlogic.x</groupId>
             <artifactId>x-annotations</artifactId>
-            <version>${ultraesb.version}</version>
+            <version>${x.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- includes a full logging stack covering log4j 1/2, slf4j, jcl, jul -->
         <dependency>
             <groupId>org.adroitlogic.x.logging</groupId>
-            <artifactId>x-logging-log4j2</artifactId>
-            <version>${ultraesb.version}</version>
-            <scope>provided</scope>
+            <artifactId>x-logging-all</artifactId>
+            <version>${x.version}</version>
+            <type>pom</type>
+            <scope>test</scope>
         </dependency>
+        <!-- container/driver for launching a Project-X instance -->
         <dependency>
             <groupId>org.adroitlogic.x</groupId>
             <artifactId>x-server</artifactId>
-            <version>${ultraesb.version}</version>
+            <version>${x.version}</version>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.bouncycastle</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-        <dependency>
-            <groupId>org.adroitlogic.x</groupId>
-            <artifactId>x-management</artifactId>
-            <version>${ultraesb.version}</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!-- base for defining/gathering metrics; to actually publish them, add a metrics implementation (x-metrics-es-transport|rest) -->
         <dependency>
             <groupId>org.adroitlogic.x</groupId>
             <artifactId>x-metrics-base</artifactId>
-            <version>${ultraesb.version}</version>
+            <version>${x.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-1.2-api</artifactId>
-            <version>2.7</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.7</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-jul</artifactId>
-            <version>2.7</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk16</artifactId>
-            <version>1.46</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.lmax</groupId>
-            <artifactId>disruptor</artifactId>
-            <version>3.3.0</version>
-            <scope>provided</scope>
-        </dependency>
+
+        <!-- actual connector/processor libraries (from Component Registry) used to build the integration flow for your use case -->
         <dependency>
             <groupId>org.adroitlogic.x.connectors</groupId>
             <artifactId>x-connector-nio-http</artifactId>
-            <version>${ultraesb.version}</version>
+            <version>${x.version}</version>
         </dependency>
         <dependency>
             <groupId>org.adroitlogic.x.processors</groupId>
             <artifactId>x-processor-data-service</artifactId>
-            <version>${ultraesb.version}</version>
+            <version>${x.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -259,7 +217,6 @@
 
     <properties>
         <x.version>${project.version}</x.version>
-        <ultraesb.version>${x.version}</ultraesb.version>
         <project-plugin-version>${x.version}</project-plugin-version>
         <aws-maven.version>1.0.1</aws-maven.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
