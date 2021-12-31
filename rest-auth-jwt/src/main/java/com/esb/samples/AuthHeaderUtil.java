@@ -7,9 +7,7 @@
 package com.esb.samples;
 
 import org.adroitlogic.x.api.XMessageContext;
-
-import javax.xml.bind.DatatypeConverter;
-import java.util.UUID;
+import org.apache.commons.codec.binary.Base64;
 
 public class AuthHeaderUtil {
 
@@ -23,6 +21,6 @@ public class AuthHeaderUtil {
         if (!authHeader.startsWith(authTypeKey)) {
             throw new RuntimeException("A " + authTypeKey + AUTH_HEADER + " header is expected");
         }
-        return new String(DatatypeConverter.parseBase64Binary(authHeader.substring(authTypeKey.length())));
+        return new String(Base64.decodeBase64(authHeader.substring(authTypeKey.length())));
     }
 }

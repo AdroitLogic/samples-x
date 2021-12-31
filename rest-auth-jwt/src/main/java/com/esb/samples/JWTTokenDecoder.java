@@ -17,10 +17,9 @@ import org.adroitlogic.x.api.config.ProcessorType;
 import org.adroitlogic.x.api.processor.XProcessingElement;
 import org.adroitlogic.x.base.processor.AbstractProcessingElement;
 
-import javax.xml.bind.DatatypeConverter;
-
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.Claims;
+import org.apache.commons.codec.binary.Base64;
 
 import java.util.Map;
 
@@ -51,7 +50,7 @@ public class JWTTokenDecoder extends AbstractProcessingElement {
             final String token = AuthHeaderUtil.getAuthHeaderValue(messageContext, "Bearer ");
 
             Claims claims = Jwts.parser()
-                    .setSigningKey(DatatypeConverter.parseBase64Binary(secretKey))
+                    .setSigningKey(Base64.decodeBase64(secretKey))
                     .parseClaimsJws(token).getBody();
 
             // check if user is known

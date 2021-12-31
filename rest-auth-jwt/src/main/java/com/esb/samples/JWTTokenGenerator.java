@@ -19,9 +19,9 @@ import org.adroitlogic.x.base.format.StringFormat;
 import org.adroitlogic.x.base.processor.AbstractProcessingElement;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
 import java.util.Date;
 import java.util.Optional;
@@ -63,7 +63,7 @@ public class JWTTokenGenerator extends AbstractProcessingElement {
             Date now = new Date(nowMillis);
 
             // sign our JWT with our  secret
-            byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(secretKey);
+            byte[] apiKeySecretBytes = Base64.decodeBase64(secretKey);
             Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
 

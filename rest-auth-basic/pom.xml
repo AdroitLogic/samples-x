@@ -145,6 +145,12 @@
             <artifactId>x-connector-nio-http</artifactId>
             <version>${x.version}</version>
         </dependency>
+        <!-- we use optionally pluggable HTTP auth processors -->
+        <dependency>
+            <groupId>org.adroitlogic.x.features</groupId>
+            <artifactId>x-feature-http-auth</artifactId>
+            <version>${x.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
