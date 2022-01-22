@@ -7,7 +7,7 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>file-polling-with-xml-validation</artifactId>
-    <version>21.09-beta1</version>
+    <version>22.01-RC</version>
     <packaging>xpr</packaging>
 
     <name>AdroitLogic Project-X Sample - File Polling with XML Validation</name>
