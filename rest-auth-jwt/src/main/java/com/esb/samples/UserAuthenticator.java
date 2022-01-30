@@ -18,6 +18,7 @@ import org.adroitlogic.x.api.config.InputType;
 import org.adroitlogic.x.api.config.ProcessorType;
 import org.adroitlogic.x.api.processor.XProcessingElement;
 import org.adroitlogic.x.base.processor.AbstractProcessingElement;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.context.ApplicationContext;
 
 import java.io.FileInputStream;
@@ -52,7 +53,7 @@ public class UserAuthenticator extends AbstractProcessingElement {
         try {
             final String authHeader = AuthHeaderUtil.getAuthHeaderValue(messageContext, "Basic ");
 
-            final String[] userCredentials = authHeader.split(":", 2);
+            final String[] userCredentials = new String(Base64.decodeBase64(authHeader)).split(":", 2);
             if (userCredentials.length != 2) {
                 throw new RuntimeException(AuthHeaderUtil.AUTH_HEADER + " header is not properly formatted");
             }

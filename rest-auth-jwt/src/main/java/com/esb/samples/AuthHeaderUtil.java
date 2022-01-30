@@ -22,6 +22,6 @@ public class AuthHeaderUtil {
         if (!authHeader.startsWith(authTypeKey)) {
             throw new RuntimeException("A " + authTypeKey + AUTH_HEADER + " header is expected");
         }
-        return new String(Base64.decodeBase64(authHeader.substring(authTypeKey.length())));
+        return authHeader.substring(authTypeKey.length());
     }
 }
