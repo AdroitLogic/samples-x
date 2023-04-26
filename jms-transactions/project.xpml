@@ -18,7 +18,7 @@
         </x:resource>
         <x:resource id="activeMq-activeMQ-jmxTxnManager">
             <bean class="org.springframework.jms.connection.JmsTransactionManager">
-                <constructor-arg index="0" type="javax.jms.ConnectionFactory" ref="activeMq-activeMQ-springCachingConnectionFactory"/>
+                <constructor-arg ref="activeMq-activeMQ-springCachingConnectionFactory"/>
             </bean>
         </x:resource>
         <x:resource id="activeMq-activeMQ-ultraTxnManager">
@@ -28,12 +28,12 @@
         </x:resource>
         <x:resource id="activeMq-activeMQ-jmsTemplate">
             <bean class="org.springframework.jms.core.JmsTemplate">
-                <constructor-arg index="0" type="javax.jms.ConnectionFactory" ref="activeMq-activeMQ-springCachingConnectionFactory"/>
+                <constructor-arg ref="activeMq-activeMQ-springCachingConnectionFactory"/>
             </bean>
         </x:resource>
         <x:resource id="activeMq-activeMQ-springCachingConnectionFactory">
             <bean class="org.springframework.jms.connection.CachingConnectionFactory">
-                <constructor-arg index="0" type="javax.jms.ConnectionFactory" ref="activeMq-activeMQ-ConnectionFactory"/>
+                <constructor-arg ref="activeMq-activeMQ-ConnectionFactory"/>
             </bean>
         </x:resource>
     </x:resources>

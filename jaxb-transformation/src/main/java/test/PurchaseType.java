@@ -7,7 +7,7 @@
 
 package test;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
  * Java class to create objects

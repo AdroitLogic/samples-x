@@ -20,12 +20,12 @@
         </x:resource>
         <x:resource id="activeMq-jmsTemplate">
             <bean class="org.springframework.jms.core.JmsTemplate">
-                <constructor-arg index="0" type="javax.jms.ConnectionFactory" ref="activeMq-springCachingConnectionFactory"/>
+                <constructor-arg ref="activeMq-springCachingConnectionFactory"/>
             </bean>
         </x:resource>
         <x:resource id="activeMq-springCachingConnectionFactory">
             <bean class="org.springframework.jms.connection.CachingConnectionFactory">
-                <constructor-arg index="0" type="javax.jms.ConnectionFactory" ref="activeMq-ConnectionFactory"/>
+                <constructor-arg ref="activeMq-ConnectionFactory"/>
             </bean>
         </x:resource>
     </x:resources>
