@@ -1,4 +1,4 @@
-<x:project id="file-polling-with-xml-validation" name="FilePollingWithXMLValidation" version="22.01"
+<x:project id="file-polling-with-xml-validation" name="FilePollingWithXMLValidation" version="23.05"
            xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.adroitlogic.org/x/x-project"
            xsi:schemaLocation="http://www.adroitlogic.org/x/x-project http://schemas.adroitlogic.org/x/x-project-1.0.0.xsd

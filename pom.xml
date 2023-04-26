@@ -7,7 +7,7 @@
 
     <groupId>org.adroitlogic.x.samples</groupId>
     <artifactId>x-samples</artifactId>
-    <version>22.01-RC</version>
+    <version>23.05-RC</version>
     <packaging>pom</packaging>
     <name>AdroitLogic Project-X Samples</name>
 
@@ -65,7 +65,7 @@
                 <!-- replaces version number placeholders in POMs, with current values -->
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <version>3.3.0</version>
                     <executions>
                         <execution>
                             <id>copy-pom</id>
@@ -120,7 +120,7 @@
     <properties>
         <project-plugin-version>${project.version}</project-plugin-version>
         <aws-maven.version>1.0.1</aws-maven.version>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

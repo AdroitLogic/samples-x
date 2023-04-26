@@ -4,7 +4,7 @@ This script is used to create necessary archive files to be uploaded to the samp
 developer.adroitlogic.com
 """
 
-BASE_VERSION = "22.01"
+BASE_VERSION = "23.05"
 
 import os
 import re
